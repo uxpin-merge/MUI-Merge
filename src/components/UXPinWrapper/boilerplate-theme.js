@@ -15,6 +15,15 @@ const boilerplateTheme = {
       dark: "#7b1fa2",
       contrastText: "#ffffff"
     },
+    decoration: {
+      main: "#2684FF"
+    },
+    error:{
+      main: "#e72400"
+    },
+    headerBadges: {
+      main: "#2684FF",
+    },
   },
 };
 
