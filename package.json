@@ -14,8 +14,10 @@
     "@swc/helpers": "^0.4.11",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-credit-cards": "^0.8.3",
     "react-dom": "^18.2.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "uxpin-merge-boilerplate": "file:uxpin-merge-boilerplate-1.0.0.tgz"
   },
   "scripts": {
     "watch": "parcel watch",
