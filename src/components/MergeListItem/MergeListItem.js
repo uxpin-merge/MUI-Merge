@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ListItemM from "@mui/material/ListItem";
-import IconM from "@mui/material/Icon";
+import IconM from "../Icon/Icon";
 import Collapse from '@mui/material/Collapse';
 import { makeStyles } from '@mui/styles';
 import ListItemText from "@mui/material/ListItemText";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
-import { iconVariants } from '../../Icon/icon-variants'
+import { iconVariants } from '../Icon/icon-variants'
 
 
 
 
 
-function ListItem(props) {
+function MergeListItem(props) {
 
   const useStyles = makeStyles(theme => ({
     collapsedListItem: {
@@ -129,7 +129,7 @@ function ListItem(props) {
   );
 }
 
-ListItem.propTypes = {
+MergeListItem.propTypes = {
   /**
    * The main text.
    * @uxpinpropname  Primary Text
@@ -267,8 +267,8 @@ ListItem.propTypes = {
 
 };
 
-ListItem.defaultProps = {
+MergeListItem.defaultProps = {
   iconColor:"primary",
   divider: true
 }
-export { ListItem as default };
+export { MergeListItem as default };

@@ -98,11 +98,10 @@ module.exports = {
       {
         name: "UXPin Templates",
         include: [
-          // "src/MergeBasicLayout/MergeBasicLayout.js",
           "src/components/MergeHeader/MergeHeader.js",
           "src/components/MergeSideNavigation/MergeSideNavigation.js",
-          // "src/MergeMainContent/MergeMainContent.js",
-        ]
+          "src/components/MergeListItem/MergeListItem.js"
+      ]
       },
 
       {
