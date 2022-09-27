@@ -101,7 +101,9 @@ module.exports = {
           "src/components/MergeHeader/MergeHeader.js",
           "src/components/MergeSideNavigation/MergeSideNavigation.js",
           "src/components/MergeListItem/MergeListItem.js",
-          "src/components/MergeCreditCard/MergeCreditCard.js"
+          "src/components/MergeCreditCard/MergeCreditCard.js",
+          "src/components/MergeBarChart/MergeBarChart.js"
+          
       ]
       },
 
