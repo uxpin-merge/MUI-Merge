@@ -12,7 +12,7 @@ const MergeBarChart = (props) => {
   // chart options
   const barChartOptions = {
     chart: {
-      type: 'bar',
+      type: props.bar,
       height: "100%",
       toolbar: {
         show: props.toolbar
@@ -81,7 +81,7 @@ const MergeBarChart = (props) => {
 MergeBarChart.propTypes = {
   title: PropTypes.string,
   titlePos: PropTypes.oneOf(['default', 'left', 'center', 'right']),
-  type: PropTypes.oneOf(['line', 'area', 'bar', 'pie', 'donut', 'scatter', 'bubble', 'heatmap', 'radialBar']),
+  type: PropTypes.oneOf(['line', 'area', 'bar']),
   categories: PropTypes.object,
   series: PropTypes.object,
   toolbar: PropTypes.bool,
