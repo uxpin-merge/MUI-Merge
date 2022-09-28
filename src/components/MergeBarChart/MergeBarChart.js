@@ -96,7 +96,8 @@ MergeBarChart.propTypes = {
   legend: PropTypes.bool,
   legendPos: PropTypes.oneOf(['default', 'top', 'bottom', 'right', 'left']),
   stroke: PropTypes.bool,
-  strokeWidth: PropTypes.number
+  strokeWidth: PropTypes.number,
+  height: PropTypes.number
 }
 
 MergeBarChart.defaultProps = {
