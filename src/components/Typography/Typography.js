@@ -182,6 +182,16 @@ Typography.propTypes = {
      
      borderRadius: PropTypes.string,
 
+     fontStyle: PropTypes.oneOf(['default','italic']),
+
+     fontWeight: PropTypes.oneOf(['default', 'bold']),
+    
+       /**
+   * Override or extend the styles applied to the component.
+    * @uxpincontroltype input
+   */
+     fontSize: PropTypes.number,
+
      /**
       * The system prop that allows defining system overrides as well as additional CSS styles.
       */
