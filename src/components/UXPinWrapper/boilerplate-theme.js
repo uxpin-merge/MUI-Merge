@@ -1,3 +1,5 @@
+import { textAlign } from "@mui/system";
+
 const boilerplateTheme = {
   // To further customize this theme,
   // please see the full theme object here: https://mui.com/customization/default-theme/
@@ -23,6 +25,14 @@ const boilerplateTheme = {
     },
     headerBadges: {
       main: "#2684FF",
+    },
+    text:{
+      primary: "#00ffff"
+    }
+  },
+  typography: {
+    allVariants: {
+      color: "#1a2027"
     },
   },
 };
