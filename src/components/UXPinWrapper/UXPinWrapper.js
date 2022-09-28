@@ -2,10 +2,11 @@
 import React from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import boilerplateTheme from "./boilerplate-theme";
+import Paper from "@mui/material/Paper";
 
 const theme = createTheme(boilerplateTheme);
 
 export default function UXPinWrapper({ children }) {
 
-  return (<ThemeProvider theme={theme}>{children}</ThemeProvider>);
-}
+  return (<ThemeProvider theme={theme}><Paper elevation={0} style={{backgroundColor: "transparent"}}>{children}</Paper></ThemeProvider>);
+} 

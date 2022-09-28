@@ -29,12 +29,7 @@ const boilerplateTheme = {
     text:{
       primary: "#00ffff"
     }
-  },
-  typography: {
-    allVariants: {
-      color: "#1a2027"
-    },
-  },
+  }
 };
 
 export default boilerplateTheme;
