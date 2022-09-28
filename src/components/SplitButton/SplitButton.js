@@ -44,7 +44,7 @@ export default function SplitButton(props) {
 
   return (
     <React.Fragment>
-      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
+      <ButtonGroup variant={props.variant} ref={anchorRef} aria-label="split button">
         <Button onClick={handleClick}>{options[selectedIndex]}</Button>
         <Button
           size="small"
@@ -98,6 +98,7 @@ export default function SplitButton(props) {
 SplitButton.propTypes ={
   options: PropTypes.array,
   selected: PropTypes.number,
+  variant: PropTypes.oneOf(["text", "outlined", "contained"]),
 }
 SplitButton.defaultProps = {
   options: ["Option 1", "Option 2", "Option 3"],
