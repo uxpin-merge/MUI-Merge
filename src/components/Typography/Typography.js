@@ -65,7 +65,6 @@ Typography.propTypes = {
 
   /**
 * Override or extend the styles applied to the component.
-* @uxpincontroltype input
 */
   fontSize: PropTypes.number,
   /**
