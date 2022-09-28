@@ -25,9 +25,6 @@ const boilerplateTheme = {
     },
     headerBadges: {
       main: "#2684FF",
-    },
-    text:{
-      primary: "#00ffff"
     }
   }
 };
