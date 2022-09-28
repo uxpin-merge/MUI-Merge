@@ -21,7 +21,9 @@ function Stack(props) {
   return (
     <StackM
       {...otherProps}
-      divider={hasDivider && <Divider orientation={dividerOrientation} flexItem />}
+      divider={hasDivider && <Divider orientation={dividerOrientation} flexItem
+      />}
+      sx={{paddingTop: props.paddingTop + "px", paddingBottom: props.paddingBottom + "px", paddingRight: props.paddingRight + "px", paddingLeft: props.paddingLeft + "px"}}
     >
       {props.children}
     </StackM>
@@ -44,11 +46,47 @@ Stack.propTypes = {
     'row-reverse',
     'row',
   ]),
-
+  justifyContent: PropTypes.oneOf([
+    "flex-start",
+    "center",
+    "flex-end",
+    "space-between",
+    "space-around",
+    "space-evenly"
+  ]),
+      /**
+     * Defines the `align-content` style property.
+     * It's applied for all screen sizes.
+     */
+      //  alignContent: PropTypes.oneOf([
+      //   "stretch",
+      //   "center",
+      //   "flex-start",
+      //   "flex-end",
+      //   "space-between",
+      //   "space-around"
+      // ]),
+    
+      /**
+       * Defines the `align-items` style property.
+       * It's applied for all screen sizes.
+       */
+      alignItems: PropTypes.oneOf([
+        "flex-start",
+        "center",
+        "flex-end",
+        "stretch",
+        "baseline"
+      ]),
   /**
  * Defines the space between immediate children in px
  */
   spacing: PropTypes.number,
+
+  paddingTop: PropTypes.number,
+  paddingBottom: PropTypes.number,
+  paddingRight: PropTypes.number,
+  paddingLeft: PropTypes.number,
 
   /**
    * Add an element between each child.
