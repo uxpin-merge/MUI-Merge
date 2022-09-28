@@ -13,7 +13,7 @@ const MergeBarChart = (props) => {
   const barChartOptions = {
     chart: {
       type: props.bar,
-      height: "100%",
+      width: "100%",
       toolbar: {
         show: props.toolbar
       },
@@ -66,16 +66,15 @@ const MergeBarChart = (props) => {
   const [options, setOptions] = useState(barChartOptions);
 
 
-
   React.useEffect(() => {
     setOptions(barChartOptions)
   });
 
 
   return (
-    <div id="chart">
+   
       <ReactApexChart options={options} series={series}  {...props} />
-    </div>
+  
   );
 };
 MergeBarChart.propTypes = {
