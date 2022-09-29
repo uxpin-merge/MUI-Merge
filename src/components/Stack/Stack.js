@@ -23,7 +23,7 @@ function Stack(props) {
       {...otherProps}
       divider={hasDivider && <Divider orientation={dividerOrientation} flexItem
       />}
-      sx={{paddingTop: props.paddingTop + "px", paddingBottom: props.paddingBottom + "px", paddingRight: props.paddingRight + "px", paddingLeft: props.paddingLeft + "px"}}
+      sx={{ paddingTop: props.paddingTop + "px", paddingBottom: props.paddingBottom + "px", paddingRight: props.paddingRight + "px", paddingLeft: props.paddingLeft + "px", flexWrap: props.wrap }}
     >
       {props.children}
     </StackM>
@@ -54,30 +54,38 @@ Stack.propTypes = {
     "space-around",
     "space-evenly"
   ]),
-      /**
-     * Defines the `align-content` style property.
-     * It's applied for all screen sizes.
-     */
-      //  alignContent: PropTypes.oneOf([
-      //   "stretch",
-      //   "center",
-      //   "flex-start",
-      //   "flex-end",
-      //   "space-between",
-      //   "space-around"
-      // ]),
-    
-      /**
-       * Defines the `align-items` style property.
-       * It's applied for all screen sizes.
-       */
-      alignItems: PropTypes.oneOf([
-        "flex-start",
-        "center",
-        "flex-end",
-        "stretch",
-        "baseline"
-      ]),
+  /**
+ * Defines the `align-content` style property.
+ * It's applied for all screen sizes.
+ */
+  //  alignContent: PropTypes.oneOf([
+  //   "stretch",
+  //   "center",
+  //   "flex-start",
+  //   "flex-end",
+  //   "space-between",
+  //   "space-around"
+  // ]),
+
+  /**
+   * Defines the `align-items` style property.
+   * It's applied for all screen sizes.
+   */
+  alignItems: PropTypes.oneOf([
+    "flex-start",
+    "center",
+    "flex-end",
+    "stretch",
+    "baseline"
+  ]),
+
+  /**
+* Defines the `flex-wrap` style property.
+* It's applied for all screen sizes.
+*/
+  wrap: PropTypes.oneOf(["nowrap", "wrap", "wrap-reverse"]),
+
+
   /**
  * Defines the space between immediate children in px
  */
@@ -105,6 +113,8 @@ Stack.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
+
+
 }
 
 export default Stack;
