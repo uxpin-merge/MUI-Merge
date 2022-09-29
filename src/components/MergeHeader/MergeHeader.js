@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     background: "#000000 !important",
     zIndex: theme.zIndex.drawer + 1,
     borderTop: "5px solid !important",
-    borderTopColor: theme.palette.decoration.main,
+    borderTopColor: theme.palette.decoration.main + " !important",
     minWidth: "550px !important",
     "& .MuiIconButton-root": {
       color: "#ffffff !important"
@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     // marginRight: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
-      display: "none",
+      display: "none !important",
       color: "#ffffff !important" 
     }
   },
@@ -141,9 +141,9 @@ const useStyles = makeStyles(theme => ({
     color: "inherit !important"
   },
   inputInput: {
-    padding: theme.spacing(1, 5, 1, 2),
+    padding: theme.spacing(1, 5, 1, 2) + " !important",
     fontSize: ".875em !important",
-    transition: theme.transitions.create("width !important"),
+    transition: theme.transitions.create("width"),
     width: "#ffffff !important",
     [theme.breakpoints.down("xs !important")]: {
       height: "-webkit-fill-available !important"
@@ -237,7 +237,7 @@ function MergeHeader(props) {
           )}
           <div className={classes.iconSection}>
             {props.children && (
-              <Box >
+              <Box style={{display:"flex"}}>
                 {React.Children.map(props.children, child =>
                   React.cloneElement(child, {})
                 )}
