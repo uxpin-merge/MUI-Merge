@@ -44,26 +44,26 @@ const useStyles = makeStyles(theme => ({
     }
   },
   appBar: {
-    background: "#000000",
+    background: "#000000 !important",
     zIndex: theme.zIndex.drawer + 1,
-    borderTop: "5px solid",
+    borderTop: "5px solid !important",
     borderTopColor: theme.palette.decoration.main,
-    minWidth: "550px",
+    minWidth: "550px !important",
     "& .MuiIconButton-root": {
-      color: "#ffffff"
+      color: "#ffffff !important"
     }
   },
   menuButton: {
     // marginRight: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
       display: "none",
-      color: "#ffffff"
+      color: "#ffffff !important" 
     }
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#f9fafc"
+    backgroundColor: "#f9fafc !important"
   },
   content: {
     flexGrow: 1,
@@ -105,48 +105,48 @@ const useStyles = makeStyles(theme => ({
   },
 
   search: {
-    position: "relative",
+    position: "relative !important",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#ffffff3d",
-    color:"#ffffff",
+    backgroundColor: "#ffffff3d !important",
+    color:"#ffffff !important",
     // "&:hover": {
     //   backgroundColor: fade("#ffffff", 0.95)
     // },
-    height: "40px",
+    height: "40px !important",
     marginLeft: 0,
     // marginTop: theme.spacing(1)/2,
     marginRight: theme.spacing(4),
     // marginTop: theme.spacing(1),
-    width: "100%",
+    width: "100% !important",
     [theme.breakpoints.down("xs")]: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       marginTop: 0,
-      width: "100%",
-      alignSelf: "baseline"
+      width: "100% !important",
+      alignSelf: "baseline !important"
     }
   },
   searchIcon: {
     width: theme.spacing(5),
-    height: "100%",
-    position: "absolute",
+    height: "100% !important",
+    position: "absolute !important",
     right: 0,
     top: 0,
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
+    pointerEvents: "none !important",
+    display: "flex !important",
+    alignItems: "center !important",
+    justifyContent: "center !important"
   },
   inputRoot: {
-    color: "inherit"
+    color: "inherit !important"
   },
   inputInput: {
     padding: theme.spacing(1, 5, 1, 2),
-    fontSize: ".875em",
-    transition: theme.transitions.create("width"),
-    width: "#ffffff",
-    [theme.breakpoints.down("xs")]: {
-      height: "-webkit-fill-available"
+    fontSize: ".875em !important",
+    transition: theme.transitions.create("width !important"),
+    width: "#ffffff !important",
+    [theme.breakpoints.down("xs !important")]: {
+      height: "-webkit-fill-available !important"
     },
     [theme.breakpoints.up("sm")]: {
       width: 120,
