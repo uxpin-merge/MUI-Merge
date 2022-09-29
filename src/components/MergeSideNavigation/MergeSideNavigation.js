@@ -19,6 +19,8 @@ import Icon from "@mui/material/icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Image from "../Image/Image";
+import { StyledEngineProvider } from '@mui/material/styles';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -221,7 +223,7 @@ function MergeSideNavigation(props) {
       </>
     );
   };
-  return <div className={classes.root}>{props.children}</div>;
+  return  <StyledEngineProvider injectFirst><div className={classes.root}>{props.children}</div></StyledEngineProvider>;
 }
 
 MergeSideNavigation.propTypes = {

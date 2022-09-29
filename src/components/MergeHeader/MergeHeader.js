@@ -23,6 +23,7 @@ import Image from "../Image/Image";
 // import { withStyles } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MergeTopNavigation from "../MergeTopNavigation/MergeTopNavigation";
+import { StyledEngineProvider } from '@mui/material/styles';
 
 const drawerWidth = 275;
 const useStyles = makeStyles(theme => ({
@@ -180,7 +181,7 @@ function MergeHeader(props) {
   }
 
   return (
-    <>
+    <StyledEngineProvider injectFirst>
       <AppBar
         {...(props.inline ? { position: "static" } : { position: "fixed" } )}
         className={classes.appBar}
@@ -339,7 +340,7 @@ function MergeHeader(props) {
         </Hidden>
       )
       : null }
-    </>
+    </StyledEngineProvider>
   );
 }
 MergeHeader.propTypes = {
