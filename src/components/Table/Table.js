@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TableM from '@mui/material/Table';
+import TableContainer from '@mui/material/TableContainer'
 
 /**
  * @uxpindocurl https://mui.com/components/tables/#main-content
  */
 function Table(props) {
   return (
+    <TableContainer>
     <TableM {...props}>
       {props.children}
     </TableM>
+    </TableContainer>
   )
 }
 

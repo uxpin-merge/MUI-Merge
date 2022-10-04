@@ -7,7 +7,7 @@ import TableCellM from '@mui/material/TableCell';
  */
 function TableCell(props) {
   return (
-    <TableCellM {...props}>{props.children}</TableCellM>
+    <TableCellM {...props} sx={{columnCount:props.columnCount}}>{props.children}</TableCellM>
   )
 }
 
@@ -41,6 +41,12 @@ TableCell.propTypes = {
    * The prop defaults to the value ('default') inherited from the parent Table component.
    */
   padding: PropTypes.oneOf(['checkbox', 'none', 'normal']),
+
+  /**
+   * Specify the size of the cell. 
+   * The prop defaults to the value ('medium') inherited from the parent Table component.
+   */
+   columnCount: PropTypes.number,
 
   /**
    * Specify the size of the cell. 

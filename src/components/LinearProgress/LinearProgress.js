@@ -14,18 +14,20 @@ LinearProgress.propTypes = {
  /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
+   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
-   * @ignore
+   * @uxpinignoreprop
    */
   className: PropTypes.string,
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: PropTypes.oneOf(['primary', 'secondary', 'inherit']),
+  color: PropTypes.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]),
+
 
   /**
    * The value of the progress indicator for the determinate and buffer variants.
