@@ -8,5 +8,5 @@ const theme = createTheme(boilerplateTheme);
 
 export default function UXPinWrapper({ children }) {
 
-  return (<ThemeProvider theme={theme}><Paper elevation={0} style={{backgroundColor: "transparent"}}>{children}</Paper></ThemeProvider>);
+  return (<ThemeProvider theme={theme}>{children}</ThemeProvider>);
 } 
