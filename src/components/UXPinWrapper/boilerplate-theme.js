@@ -24,7 +24,18 @@ const boilerplateTheme = {
     headerBadges: {
       main: "#2684FF",
     }
-  }
+  },
+  components: {
+    // Name of the component
+    MuiTypography: {
+      defaultProps: {
+        // The props to change the default for.
+        color: "text.primary", // No more ripple, on the whole application 💣!
+      },
+    },
+  },
+
+
 };
 
 export default boilerplateTheme;

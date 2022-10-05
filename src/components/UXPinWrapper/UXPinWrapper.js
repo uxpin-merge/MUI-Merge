@@ -2,7 +2,7 @@
 import React from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import boilerplateTheme from "./boilerplate-theme";
-import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 
 const theme = createTheme(boilerplateTheme);
 
