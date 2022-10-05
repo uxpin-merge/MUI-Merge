@@ -30,12 +30,10 @@ const boilerplateTheme = {
     MuiTypography: {
       defaultProps: {
         // The props to change the default for.
-        color: "text.primary", // No more ripple, on the whole application 💣!
+        color: "text.primary", // All typography color props default to text.primary
       },
     },
   },
-
-
 };
 
 export default boilerplateTheme;
