@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   appBar: {
-    // background: "#000000 !important",
+    background: "#2e303d !important",
     zIndex: theme.zIndex.drawer + 1,
     borderTop: "5px solid !important",
     borderTopColor: theme.palette.decoration.main + " !important",
@@ -93,7 +93,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   icons:{
-    // color:"#ffffff"
+    color:"#ffffff"
   },
 
   logo: {
@@ -108,8 +108,8 @@ const useStyles = makeStyles(theme => ({
   search: {
     position: "relative !important",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#cccccc3d !important",
-    color:"#000000 !important",
+    backgroundColor: "#ffffff3d !important",
+    color:"#ffffff !important",
     // "&:hover": {
     //   backgroundColor: fade("#ffffff", 0.95)
     // },
