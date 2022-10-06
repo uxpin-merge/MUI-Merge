@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import TooltipM from '@mui/material/Tooltip';
 
@@ -7,8 +7,8 @@ import TooltipM from '@mui/material/Tooltip';
  */
 function Tooltip(props) {
   return (
-      <TooltipM {...props} PopperProps={{ keepMounted: true, disablePortal: true }}>
-        <div>{props.children}</div>
+      <TooltipM {...props}>
+        <div >{props.children}</div>
       </TooltipM>
   );
 }
