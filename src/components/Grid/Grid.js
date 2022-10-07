@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GridM from "@mui/material/Grid";
+import { padding } from "@mui/system";
  
 /**
  * @uxpindocurl https://mui.com/api/grid/
@@ -8,7 +9,7 @@ import GridM from "@mui/material/Grid";
 function Grid(props) {
   // const space = Number(props.spacing);
   return (
-  <GridM {...props} spacing={props.spacing}>{props.children}</GridM>
+  <GridM {...props} spacing={props.spacing} sx={{paddingTop: props.paddingTop + "px", paddingBottom: props.paddingBottom + "px", paddingRight: props.paddingRight + "px", paddingLeft: props.paddingLeft + "px"}} >{props.children}</GridM>
   )
 }
 
@@ -150,6 +151,11 @@ Grid.propTypes = {
      * Refer to the limitations section of the documentation to better understand the use case.
      */
     zeroMinWidth: PropTypes.bool,
+
+    paddingTop: PropTypes.number,
+    paddingBottom: PropTypes.number,
+    paddingRight: PropTypes.number,
+    paddingLeft: PropTypes.number,
 
     /**
      * The system prop that allows defining system overrides as well as additional CSS styles. 

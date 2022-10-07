@@ -10,7 +10,7 @@ function Card(props) {
     return (
         <CardM {...props}>
           {props.children}
-          </CardM>
+        </CardM>
     )
 } 
 
@@ -29,15 +29,28 @@ Card.propTypes = {
 
   /**
    * If true, the card will use raised styling.
+   * @uxpinignoreprop
    */
   raised: PropTypes.bool,
+/**
+   * The shadow depth of paper surface. Accepts values between 0 and 16.
+   */
+ elevation: PropTypes.number,
 
-  /**
+ /**
+  * the variant to use.
+  */
+ variant: PropTypes.oneOf(['elevation', 'outlined']),
+  
+   /**
+   * If `true`, rounded corners are disabled.
+   */
+    square: PropTypes.bool,
+ /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
 
-  title: PropTypes.string
 }
 
 export default Card

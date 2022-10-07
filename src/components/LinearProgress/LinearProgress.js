@@ -7,25 +7,33 @@ import LinearProgressM from "@mui/material/LinearProgress";
  * @uxpindocurl https://mui.com/api/linear-progress/#main-content
  */
 function LinearProgress(props) {
-  return <LinearProgressM {...props} />;
+  return <LinearProgressM {...props} sx={{ height: props.height, borderRadius: props.borderRadius }} />;
 }
 
 LinearProgress.propTypes = {
- /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
-   */
+  /**
+    * Override or extend the styles applied to the component.
+    * See [CSS API](#css-api) below for more details.
+    * @uxpinignoreprop
+    */
   classes: PropTypes.object,
 
   /**
-   * @ignore
+   * @uxpinignoreprop
    */
   className: PropTypes.string,
 
   /**
+ * The variant to use.
+ * Use indeterminate or query when there is no progress value.
+ */
+  variant: PropTypes.oneOf(['determinate', 'indeterminate', 'buffer', 'query']),
+
+  /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: PropTypes.oneOf(['primary', 'secondary', 'inherit']),
+  color: PropTypes.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]),
+
 
   /**
    * The value of the progress indicator for the determinate and buffer variants.
@@ -38,12 +46,12 @@ LinearProgress.propTypes = {
    * Value between 0 and 100.
    */
   valueBuffer: PropTypes.number,
-
   /**
-   * The variant to use.
-   * Use indeterminate or query when there is no progress value.
+   * The height.
    */
-  variant: PropTypes.oneOf(['determinate', 'indeterminate', 'buffer', 'query']),
+  height: PropTypes.number,
+
+  borderRadius: PropTypes.number,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles. 
