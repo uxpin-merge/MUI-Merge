@@ -8,9 +8,9 @@ import TypographyM from '@mui/material/Typography';
  */
 function Typography(props) {
   //const { uxpinRef, ...other } = props;
-    return (
-      <TypographyM {...props}>{props.children}</TypographyM>
-    )
+  return (
+    <TypographyM {...props}>{props.children}</TypographyM>
+  )
 }
 
 Typography.propTypes = {
@@ -48,17 +48,25 @@ Typography.propTypes = {
    * Color of text.
    */
   color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'secondary.light', 'secondary.dark', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled', 'inherit']),
-  
+
   /**
    * Color of the Background.
    */
   bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'secondary.light', 'secondary.dark', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
- 
+
   /**
    *  Controls if typography is inline or block level.
    */
   display: PropTypes.oneOf(["initial", "block", "inline"]),
 
+  fontStyle: PropTypes.oneOf(['default', 'italic']),
+
+  fontWeight: PropTypes.oneOf(['default', 'bold']),
+
+  /**
+* Override or extend the styles applied to the component.
+*/
+  fontSize: PropTypes.number,
   /**
    * If `true`, the text will have a bottom margin.
    */
@@ -102,90 +110,91 @@ Typography.propTypes = {
    */
   padding: PropTypes.string,
 
-   /**
-    * Top Padding.
-    * In pixels
-    */
-   paddingTop: PropTypes.string,
-   /**
-    * Right Padding.
-    * In pixels
-    */
-   paddingRight: PropTypes.string,
-   /**
-    * Bottom Padding.
-    * In pixels
-    */
-   paddingBottom: PropTypes.string,
-   /**
-    * Left Padding.
-    * In pixels  
-    */
-   paddingLeft: PropTypes.string,
-   /**
-    * All Margin.
-    * In pixels
-    */
-    margin: PropTypes.string,
-   /**
-    * Top margin.
-    * In pixels
-    */
-   marginTop: PropTypes.string,
-   /**
-    * Right margin.
-    * In pixels
-    */
-    marginRight: PropTypes.string,
-    /**
-     * Bottom margin.
-     * In pixels
-     */
-    marginBottom: PropTypes.string,
-    /**
-     * Left margin.
-     * In pixels
-     */
-    marginLeft: PropTypes.string,
-  
-    /**
-     * Border margin.
-     * In pixels
-     */
-    border: PropTypes.number,
-  
-    /**
-     * Border Top.
-     * In pixels
-     */
-    borderTop: PropTypes.number,
-  
-    /**
-     * Border margin.
-     * In pixels
-     */
-    borderRight: PropTypes.number,
-  
-    /**
-     * Border margin.
-     * In pixels
-     */
-     borderBottom: PropTypes.number,
- 
-     /**
-      * Border margin.
-      * In pixels
-      */
-     borderLeft: PropTypes.number,
-   
-     borderColor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
-     
-     borderRadius: PropTypes.string,
+  /**
+   * Top Padding.
+   * In pixels
+   */
+  paddingTop: PropTypes.string,
+  /**
+   * Right Padding.
+   * In pixels
+   */
+  paddingRight: PropTypes.string,
+  /**
+   * Bottom Padding.
+   * In pixels
+   */
+  paddingBottom: PropTypes.string,
+  /**
+   * Left Padding.
+   * In pixels  
+   */
+  paddingLeft: PropTypes.string,
+  /**
+   * All Margin.
+   * In pixels
+   */
+  margin: PropTypes.string,
+  /**
+   * Top margin.
+   * In pixels
+   */
+  marginTop: PropTypes.string,
+  /**
+   * Right margin.
+   * In pixels
+   */
+  marginRight: PropTypes.string,
+  /**
+   * Bottom margin.
+   * In pixels
+   */
+  marginBottom: PropTypes.string,
+  /**
+   * Left margin.
+   * In pixels
+   */
+  marginLeft: PropTypes.string,
 
-     /**
-      * The system prop that allows defining system overrides as well as additional CSS styles.
-      */
-     sx: PropTypes.object,
+  /**
+   * Border margin.
+   * In pixels
+   */
+  border: PropTypes.number,
+
+  /**
+   * Border Top.
+   * In pixels
+   */
+  borderTop: PropTypes.number,
+
+  /**
+   * Border margin.
+   * In pixels
+   */
+  borderRight: PropTypes.number,
+
+  /**
+   * Border margin.
+   * In pixels
+   */
+  borderBottom: PropTypes.number,
+
+  /**
+   * Border margin.
+   * In pixels
+   */
+  borderLeft: PropTypes.number,
+
+  borderColor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'secondary.main', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
+
+  borderRadius: PropTypes.string,
+
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
 
 }
 
