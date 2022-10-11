@@ -15,21 +15,11 @@ function Dialog(props) {
 
   React.useEffect(() => setOpen(props.open), [props]);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <DialogM
       open={open}
       onClose={() => setOpen(false)}
       TransitionProps={ {tabIndex: "null"} }
-      // disableEnforceFocus
-      // keepMounted
       disablePortal={true}
       style={{ minWidth: "300px", minHeight: "300px", width: "100%", height: "100%" }}
       {...props}
