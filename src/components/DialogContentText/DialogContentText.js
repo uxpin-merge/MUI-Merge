@@ -12,7 +12,6 @@ function DialogContentText(props) {
 DialogContentText.propTypes = {
   /**
    * The Dialog Content Text
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
