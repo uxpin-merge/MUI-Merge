@@ -18,7 +18,6 @@ function Backdrop(props) {
       open={open}
       onClick={() => {
         setOpen(!open)
-        console.log(open);
       }}
 
     >
