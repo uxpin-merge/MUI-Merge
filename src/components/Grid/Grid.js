@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GridM from "@mui/material/Grid";
-import { padding } from "@mui/system";
+
  
 /**
  * @uxpindocurl https://mui.com/api/grid/
