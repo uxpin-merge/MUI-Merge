@@ -1,4 +1,5 @@
 import Button from './components/Button/Button';
+import TablePagination from './components/TablePagination/TablePagination';
 import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import IconButton from './components/IconButton/IconButton';
 import FloatingActionButton from './components/FloatingActionButton/FloatingActionButton';
@@ -96,6 +97,7 @@ import Toolbar from './components/Toolbar/Toolbar';
 import UXPinWrapper from './components/UXPinWrapper/UXPinWrapper.js';
 export {
   Button,
+  TablePagination,
   ButtonGroup,
   IconButton,
   FloatingActionButton,

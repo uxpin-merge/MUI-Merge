@@ -158,6 +158,7 @@ module.exports = {
           'src/components/TableFooter/TableFooter.js',
           'src/components/TableHead/TableHead.js',
           'src/components/TableRow/TableRow.js',
+          'src/components/TablePagination/TablePagination.js',
 
           'src/components/Tab/Tab.js',
 
