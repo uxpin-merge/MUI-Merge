@@ -113,6 +113,7 @@ export {
   RadioGroup,
   Rating,
   Select,
+  DatePicker,
   Switch,
   SwitchWithLabel,
   SwitchGroup,

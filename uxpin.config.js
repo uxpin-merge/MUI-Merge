@@ -7,7 +7,7 @@ module.exports = {
           // 'src/components/Autocomplete/Autocomplete.js',
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
-          // 'src/components/DatePicker/DatePicker.js',
+          'src/components/DatePicker/DatePicker.js',
           'src/components/Checkbox/Checkbox.js',
           'src/components/CheckboxWithLabel/CheckboxWithLabel.js',
           'src/components/CheckboxGroup/CheckboxGroup.js',
