@@ -7,7 +7,7 @@ module.exports = {
           // 'src/components/Autocomplete/Autocomplete.js',
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
-          // 'src/components/DatePicker/DatePicker.js',
+          'src/components/DatePicker/DatePicker.js',
           'src/components/Checkbox/Checkbox.js',
           'src/components/CheckboxWithLabel/CheckboxWithLabel.js',
           'src/components/CheckboxGroup/CheckboxGroup.js',
@@ -158,6 +158,7 @@ module.exports = {
           'src/components/TableFooter/TableFooter.js',
           'src/components/TableHead/TableHead.js',
           'src/components/TableRow/TableRow.js',
+          'src/components/TablePagination/TablePagination.js',
 
           'src/components/Tab/Tab.js',
 

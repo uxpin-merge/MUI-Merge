@@ -5,25 +5,30 @@
   "main": "dist/main.js",
   "module": "dist/module.js",
   "dependencies": {
+    "@date-io/date-fns": "^2.16.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.10.3",
     "@mui/lab": "^5.0.0-alpha.97",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
+    "@mui/x-date-pickers": "^5.0.8",
     "@swc/helpers": "^0.4.11",
     "apexcharts": "^3.35.5",
+    "css-loader": "2.0.0",
+    "date-fns": "^2.29.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^18.2.0",
-    "uuid": "^8.3.2",
-    "uxpin-merge-boilerplate": "file:uxpin-merge-boilerplate-1.0.0.tgz"
+    "style-loader": "2.0.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build",
+    "uxpin:experimental": "npx uxpin-merge --disable-tunneling"
   },
   "eslintConfig": {
     "extends": [

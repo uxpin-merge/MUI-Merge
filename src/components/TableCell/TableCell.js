@@ -7,7 +7,7 @@ import TableCellM from '@mui/material/TableCell';
  */
 function TableCell(props) {
   return (
-    <TableCellM {...props} sx={{columnCount:props.columnCount}}>{props.children}</TableCellM>
+    <TableCellM {...props}>{props.children}</TableCellM>
   )
 }
 
@@ -17,6 +17,11 @@ TableCell.propTypes = {
    * @uxpinpropname Cell Data
    * */
   children: PropTypes.node,
+
+  /**
+   * Set scope attribute.
+   */
+  scope: PropTypes.string,
   
   /**
    * Set the text-align on the table cell content. M
@@ -46,29 +51,18 @@ TableCell.propTypes = {
    * Specify the size of the cell. 
    * The prop defaults to the value ('medium') inherited from the parent Table component.
    */
-   columnCount: PropTypes.number,
-
-  /**
-   * Specify the size of the cell. 
-   * The prop defaults to the value ('medium') inherited from the parent Table component.
-   */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 
-  /**
-   * Override or extend the styles applied to the component. See CSS API below for more details.
-   * @uxpinignoreprop
-   */
-  classes: PropTypes.object,
-  
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
   component: PropTypes.elementType,
 
   /**
-   * Set scope attribute.
+   * Override or extend the styles applied to the component. See CSS API below for more details.
+   * @uxpinignoreprop
    */
-  scope: PropTypes.string,
+    classes: PropTypes.object,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles. 

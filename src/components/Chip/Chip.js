@@ -11,7 +11,6 @@ export default function Chip(props) {
   const { deletable, ...other } = props;
 
   return (
-    
     <>
       {!chipDeleted ? (
         <ChipM
@@ -24,16 +23,9 @@ export default function Chip(props) {
                 }
               : null
           }
-          deleteIcon={
-            props.iconDelete ? 
-            <Icon>{props.iconDelete}</Icon>
-            : null
-          }
-          icon={
-            props.iconStart ? 
-            <Icon>{props.iconStart}</Icon>
-            : null
-          }
+          avatar={props.avatar ? props.avatar : null}
+          icon={props.icon ? <Icon>{props.icon}</Icon> : null}
+          deleteIcon={props.deleteIcon ? <Icon>{props.deleteIcon}</Icon> : null}
         />
       ) : null}
     </>
@@ -46,12 +38,11 @@ Chip.propTypes = {
   // label: PropTypes.node,
   label: PropTypes.string,
 
-  /** 
-   * The Avatar element to display.
-   * Choose between displaying Icon or Avatar
-   * @uxpinignoreprop
+  /**
+   * The href attibute of the element.
+   * Only works when component is set to 'a'
    */
-  avatar: PropTypes.element,
+  href: PropTypes.string,
 
   /**
    * If true, the component is disabled.
@@ -67,20 +58,6 @@ Chip.propTypes = {
    * If true, the chip will appear show delete icon.
    */
   deletable: PropTypes.bool,
-
-  /**
-   * Custom prop
-   * Icon
-   * Prop did not load in UXPin editor when using PropTypes.oneOf(iconVariants)
-   */
-  iconStart: PropTypes.string,
-
-  /**
-   * Custom prop
-   * Delete icon
-   * Prop did not load in UXPin editor when using PropTypes.oneOf(iconVariants)
-   */
-  iconDelete: PropTypes.string,
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
@@ -105,29 +82,21 @@ Chip.propTypes = {
   component: PropTypes.oneOf(['a', 'div']),
 
   /**
-   * The href attibute of the element.
-   * Only works when component is set to 'a'
-   */
-  href: PropTypes.string,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: PropTypes.object,
-
-  /**
-   * Doesn't work when using PropTypes.oneOf(iconVariants)
-   * so made custom prop iconDelete
-   * @uxpinignoreprop
+   * Override the default delete icon element. Shown only if onDelete is set.
    */
   deleteIcon: PropTypes.element,
 
   /**
-   * Doesn't work when using PropTypes.oneOf(iconVariants)
-   * so have to enter something similar to <Icon>home</Icon>
-   * @uxpinignoreprop
+   * Icon element.
    */
   icon: PropTypes.element,
+
+  /** 
+   * The Avatar element to display.
+   * Choose between displaying Icon or Avatar
+   */
+  avatar: PropTypes.element,
+
 
   /**
    * If true, the chip will appear clickable, and will raise when pressed, even if the onClick prop is not defined. 
@@ -136,9 +105,13 @@ Chip.propTypes = {
   onClick: PropTypes.func,
 
   /**
-   * Delete event to use with UXPin interactions.
-   * @uxpinignoreprop
+   * 	Callback fired when the delete icon is clicked. If set, the delete icon will be shown.
    */
   onDelete: PropTypes.func,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
 }
 

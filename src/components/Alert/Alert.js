@@ -24,7 +24,7 @@ function Alert(props) {
     <Collapse in={open}>
       <AlertM
         {...otherProps}
-        icon={icon ? <Icon fontSize="inherit">{icon}</Icon> : null}
+        icon={icon ? <Icon fontSize="inherit">{icon}</Icon> : false}
         action={
           props.hasClose ?
             <IconButton

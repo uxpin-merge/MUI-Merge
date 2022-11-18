@@ -1,45 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AvatarM from '@mui/material/Avatar';
-import Icon from '../Icon/Icon';
-
 
 /**
  * @uxpindocurl https://mui.com/api/avatar/
  */
 function Avatar(props) {
     return (
-        <AvatarM {...props} sx={{ bgcolor: props.color}}>
-            {props.icon ? <Icon>{props.icon}</Icon> : props.children}
+        <AvatarM {...props}>
+            {props.children}
         </AvatarM>
     );
 }
 
 Avatar.propTypes = {
  /**
-   * Letters for initial icons
+   * Used to render icon or text elements inside the Avatar if src is not set. This can be an element, or just a string.
    */
-  /** @uxpinpropname  Letters */
   children: PropTypes.node,
-  
-
-  color: PropTypes.oneOf([
-  'red', 
-  'pink', 
-  'purple',  
-  'indigo', 
-  'blue', 
-  'lightBlue', 
-  'cyan', 
-  'teal', 
-  'green', 
-  'lightGreen', 
-  'lime', 
-  'yellow', 
-  'orange', 
-  'brown', 
-  'grey', 
-]),
 
   /**
    * The name of the icon from https://material.io/resources/icons.
