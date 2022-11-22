@@ -50,7 +50,7 @@ FloatingActionButton.propTypes = {
   /**
    * The color of the button.
    */
-  color: PropTypes.oneOf(["inherit", "primary", "secondary", "string"]),
+  color: PropTypes.oneOf(["inherit", "primary", "secondary"]),
 
   /**
    * @uxpinignoreprop
