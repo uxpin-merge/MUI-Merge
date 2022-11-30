@@ -45,11 +45,11 @@ RadioWithLabel.propTypes = {
    * The value of the component.
    */
   value: PropTypes.string,
-    /**
+
+  /**
    * The size of the component. small is equivalent to the dense checkbox styling.
    */
-     size: PropTypes.oneOf(['small', 'medium', 'large']),
-
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 
   color: PropTypes.oneOf([
     'default',
