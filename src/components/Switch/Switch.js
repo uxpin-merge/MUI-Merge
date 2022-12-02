@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwitchM from '@mui/material/Switch';
+import Icon from '../Icon/Icon';
+import { iconVariants } from '../Icon/icon-variants'
 
 /**
  * @uxpindocurl https://mui.com/components/switches/#main-content
  */
 function Switch(props) {
-  return <SwitchM {...props} />;
+  return <SwitchM 
+    {...props} 
+    icon={props.icon? <Icon>{props.icon}</Icon> : <Icon>radio_button_unchecked</Icon>}
+    checkedIcon={props.checkedIcon? <Icon>{props.checkedIcon}</Icon> : <Icon>radio_button_checked</Icon>}
+    />;
 }
 
 Switch.propTypes = {
@@ -17,10 +23,14 @@ Switch.propTypes = {
   checked: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
+   * The icon to display when the component is unchecked.
+   */
+  icon: PropTypes.oneOf(iconVariants),
+
+  /**
    * The icon to display when the component is checked.
    */
-  checkedIcon: PropTypes.node,
+  checkedIcon: PropTypes.oneOf(iconVariants),
 
   /**
    * @uxpinignoreprop
@@ -50,12 +60,6 @@ Switch.propTypes = {
    * @uxpinignoreprop
    */
   disableRipple: PropTypes.bool,
-
-  /**
-   * @uxpinignoreprop
-   * The icon to display when the component is unchecked.
-   */
-  icon: PropTypes.node,
 
   /**
    * @uxpinignoreprop

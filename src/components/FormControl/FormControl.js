@@ -15,7 +15,7 @@ function FormControl(props) {
 FormControl.propTypes = {
     /**
      * The content of the component. 
-     * */
+     */
     /** @uxpinignoreprop */
     children: PropTypes.node,
     
@@ -23,6 +23,7 @@ FormControl.propTypes = {
      * Override or extend the styles applied to the component. 
      * See CSS API https://mui.com/api/form-label/#css for more details.
      */
+    /** @uxpinignoreprop */
     classes: PropTypes.object,
 
     /**
@@ -36,6 +37,21 @@ FormControl.propTypes = {
      */
     /** @uxpinignoreprop */
     component: PropTypes.elementType,
+
+    /** 
+     * The size of the component 
+     */
+    size: PropTypes.oneOf(['small', 'medium']),
+
+    /**
+     * If dense or normal, will adjust vertical spacing of this and contained components.
+     */
+    margin: PropTypes.oneOf(['dense', 'none', 'normal']),
+
+    /**
+     * 	If true, the component will take up the full width of its container.
+     */
+    fullWidth: PropTypes.bool,
 
     /**
      * If 'true', the label should be displayed in a disabled state.
@@ -54,10 +70,15 @@ FormControl.propTypes = {
     filled: PropTypes.bool,
 
     /**
+     * The variant to use.
+     */
+    variant: PropTypes.oneOf(['filled', 'outlined', 'standard']),
+
+    /**
      * If 'true', the input of this label is focused (used by FormGroup components).
      */
     focused: PropTypes.bool,
-
+    
     /**
      * If 'true', the label will indicate that the input is required.
      */
