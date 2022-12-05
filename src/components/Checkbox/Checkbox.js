@@ -17,8 +17,8 @@ function Checkbox(props) {
     <CheckboxM 
       key={id} 
       {...props}  
-      icon={<Icon>{props.icon}</Icon>} 
-      checkedIcon={<Icon>{props.checkedIcon}</Icon>}
+      icon={props.icon? <Icon>{props.icon}</Icon> : <Icon>check_box_outline_blank </Icon>} 
+      checkedIcon={props.checkedIcon? <Icon>{props.checkedIcon}</Icon> : <Icon>check_box</Icon>}
     />
   )
 }
