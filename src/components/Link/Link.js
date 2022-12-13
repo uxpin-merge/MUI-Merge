@@ -8,7 +8,9 @@ import LinkM from '@mui/material/Link';
  */
 function Link(props) {
     return (
-        <LinkM {...props}>{props.children}</LinkM>
+        <div style={{display: "grid"}}>
+            <LinkM {...props}>{props.children}</LinkM>
+        </div>
     )
 }
 
