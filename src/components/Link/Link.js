@@ -8,7 +8,9 @@ import LinkM from '@mui/material/Link';
  */
 function Link(props) {
     return (
-        <LinkM {...props}>{props.children}</LinkM>
+        <div style={{display: "grid"}}>
+            <LinkM {...props}>{props.children}</LinkM>
+        </div>
     )
 }
 
@@ -33,7 +35,7 @@ Link.propTypes = {
     /**
      * The color of the link.
      */
-    color: PropTypes.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]),
+    color: PropTypes.oneOf(["inherit", "primary", "secondary", "error"]),
 
     /**
      * The component used for the root node. Either a string to use a HTML element or a component.

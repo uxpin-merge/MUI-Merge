@@ -17,6 +17,7 @@
     "apexcharts": "^3.35.5",
     "css-loader": "2.0.0",
     "date-fns": "^2.29.3",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",

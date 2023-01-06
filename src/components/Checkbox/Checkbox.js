@@ -1,17 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CheckboxM from '@mui/material/Checkbox';
+import Icon from '../Icon/Icon';
+import { iconVariants } from "../Icon/icon-variants";
 import { v4 as uuidv4 } from 'uuid';
+
 
 /**
  * @uxpindocurl https://mui.com/api/checkbox/
  */
 function Checkbox(props) {
-
   // Unique Id 
   const id = uuidv4();
 
-  return <CheckboxM key={id} {...props} />;
+  return (
+    <CheckboxM 
+      key={id} 
+      {...props}  
+      icon={props.icon? <Icon>{props.icon}</Icon> : <Icon>check_box_outline_blank </Icon>} 
+      checkedIcon={props.checkedIcon? <Icon>{props.checkedIcon}</Icon> : <Icon>check_box</Icon>}
+    />
+  )
 }
 
 Checkbox.propTypes = {
@@ -22,10 +31,14 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
+   * The icon to display when the component is unchecked.
+   */
+  icon: PropTypes.oneOf(iconVariants),
+
+  /**
    * The icon to display when the component is checked.
    */
-  checkedIcon: PropTypes.node,
+  checkedIcon: PropTypes.oneOf(iconVariants),
 
   /**
    * @uxpinignoreprop

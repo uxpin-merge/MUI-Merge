@@ -1,9 +1,6 @@
 import * as React from 'react';
 import PropTypes, { func } from 'prop-types';
 import SelectM from '@mui/material/Select';
-// Replaced package imports below with local component
-import FormControl from '@mui/material/FormControl';
-import InputLabel from "@mui/material/InputLabel";
 
 /**
  * @uxpindocurl https://mui.com/api/select/
@@ -22,8 +19,6 @@ function Select(props) {
   };
 
   return (
-    <FormControl variant={props.variant} fullWidth>
-      <InputLabel id="demo-multiple-name-label">{props.label}</InputLabel>
       <SelectM
         labelId="demo-multiple-name-label"
         id="demo-multiple-name"
@@ -35,7 +30,6 @@ function Select(props) {
       >
         {props.children}
       </SelectM>
-    </FormControl>
   )
 }
 
@@ -43,8 +37,7 @@ Select.propTypes = {
   /**
    * Replaced with width prop
    * If true, the width of the popover will automatically be set according to the items inside the menu, otherwise it will be at least the width of the select input.
-  * @uxpinignoreprop
-   * */
+  */
   autoWidth: PropTypes.bool,
 
   /**
