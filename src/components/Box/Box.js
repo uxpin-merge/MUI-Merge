@@ -16,6 +16,7 @@ function Box(props) {
   const { uxpinRef, ...other } = props;
   return (
     <BoxM ref={uxpinRef}
+    height="100%"
       {...other}
     >
       {!props.children ? (
@@ -42,8 +43,6 @@ Box.propTypes = {
   /** @uxpinignoreprop */
   children: PropTypes.node,
 
-  clone: PropTypes.bool,
-
   /**
    * Color of text
    */
@@ -51,7 +50,6 @@ Box.propTypes = {
   color: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey.500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'secondary.light', 'secondary.dark', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
 
   bgcolor: PropTypes.oneOf(['white', 'grey.100', 'grey.200', 'grey.300', 'grey.400', 'grey500', 'primary.main', 'primary.light', 'primary.dark', 'secondary.main', 'secondary.light', 'secondary.dark', 'error.main', 'warning.main', 'info.main', 'success.main', 'text.primary', 'text.secondary', 'text.disabled']),
-
 
 
   /**
@@ -150,18 +148,7 @@ Box.propTypes = {
   sx: PropTypes.object,
 };
 Box.defaultProps = {
-  sx:{
-  "padding":"",
-  "padding-top":"",
-  "padding-right":"",
-  "padding-bottom":"",
-  "padding-left":"",
-  "margin":"",
-  "margin-top":"",
-  "margin-right":"",
-  "margin-bottom":"",
-  "margin-left":"",
-}
+  sx:{}
 }
 
 export default Box;

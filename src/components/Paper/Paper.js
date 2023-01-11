@@ -8,7 +8,7 @@ import PaperM from "@mui/material/Paper";
  */
 function Paper(props) {
     return (
-        <PaperM {...props}>{props.children}</PaperM>
+        <PaperM {...props} sx={{"height":"100%"}}>{props.children}</PaperM>
     )
 } 
 
@@ -22,7 +22,6 @@ Paper.propTypes = {
    * The shadow depth of paper surface. Accepts values between 0 and 16.
    */
   elevation: PropTypes.number,
-
   /**
    * the variant to use.
    */
