@@ -13,23 +13,24 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
     "@mui/x-date-pickers": "^5.0.13",
-    "@swc/helpers": "^0.4.11",
     "apexcharts": "^3.35.5",
-    "css-loader": "2.0.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "6.7.3",
     "date-fns": "^2.29.3",
-    "node-polyfill-webpack-plugin": "^2.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^18.2.0",
-    "style-loader": "2.0.0",
-    "uuid": "^8.3.2"
+    "style-loader": "3.3.1",
+    "uuid": "^8.3.2",
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "uxpin:experimental": "npx uxpin-merge --disable-tunneling"
+    "start": "webpack serve --mode development",
+    "uxpin:experimental": "npx uxpin-merge --disable-tunneling --webpack-config webpack.config.js"
   },
   "eslintConfig": {
     "extends": [
@@ -38,7 +39,8 @@
     ]
   },
   "devDependencies": {
-    "@uxpin/merge-cli": "^2.10.0",
-    "parcel": "^2.7.0"
+    "@uxpin/merge-cli": "3.0.0-dev.107",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   }
 }
