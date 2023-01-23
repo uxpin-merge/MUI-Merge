@@ -4,6 +4,7 @@ import DialogM from "@mui/material/Dialog";
 
 
 /**
+ * @uxpinuseportal
  * @uxpindocurl https://mui.com/api/dialog/#main-content
  */
 
