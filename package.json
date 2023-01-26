@@ -13,6 +13,7 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
     "@mui/x-date-pickers": "^5.0.13",
+    "@uxpin/merge-cli": "3.0.0-dev.107",
     "apexcharts": "^3.35.5",
     "babel-loader": "^9.1.2",
     "css-loader": "6.7.3",
@@ -24,23 +25,19 @@
     "react-dom": "^18.2.0",
     "style-loader": "3.3.1",
     "uuid": "^8.3.2",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "webpack",
     "start": "webpack serve --mode development",
-    "uxpin:experimental": "npx uxpin-merge --disable-tunneling --webpack-config webpack.config.js"
+    "uxpin": "npx uxpin-merge --disable-tunneling"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
-  },
-  "devDependencies": {
-    "@uxpin/merge-cli": "3.0.0-dev.107",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
   }
 }
