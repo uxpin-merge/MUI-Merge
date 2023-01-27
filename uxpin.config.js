@@ -39,6 +39,7 @@ module.exports = {
           'src/components/AvatarGroup/AvatarGroup.js',
           'src/components/Badge/Badge.js',
           'src/components/Chip/Chip.js',
+          'src/components/DataGrid/DataGrid.js',
           'src/components/Divider/Divider.js',
           'src/components/Icon/Icon.js',
           'src/components/List/List.js',

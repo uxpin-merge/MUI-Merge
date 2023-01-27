@@ -39,6 +39,7 @@ import ListItemText from './components/ListItemText/ListItemText';
 import ListSubheader from './components/ListSubheader/ListSubheader';
 import CircularProgress from './components/CircularProgress/CircularProgress';
 import LinearProgress from './components/LinearProgress/LinearProgress';
+import DataGrid from './components/DataGrid/DataGrid';
 import Dialog from './components/Dialog/Dialog';
 import DialogActions from './components/DialogActions/DialogActions';
 import DialogContentText from './components/DialogContentText/DialogContentText';
@@ -138,6 +139,7 @@ export {
   ListSubheader,
   CircularProgress,
   LinearProgress,
+  DataGrid,
   Dialog,
   DialogActions,
   DialogContentText,
