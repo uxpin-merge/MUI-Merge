@@ -1,17 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListItemAvatarM from '@mui/material/ListItemAvatar';
-
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-avatar/
  */
 function ListItemAvatar(props) {
-  return (
-    <ListItemAvatarM {...props}>
-      {props.children}
-    </ListItemAvatarM>
-  )
+  return <ListItemAvatarM {...props}>{props.children}</ListItemAvatarM>;
 }
 
 ListItemAvatar.propTypes = {
@@ -32,6 +27,6 @@ ListItemAvatar.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 export default ListItemAvatar;

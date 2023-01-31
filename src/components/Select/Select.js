@@ -8,36 +8,35 @@ import SelectM from '@mui/material/Select';
 function Select(props) {
   const [selectedValue, setSelectedValue] = React.useState('');
 
-
   React.useEffect(() => {
-    setSelectedValue(props.value)
+    setSelectedValue(props.value);
   }, [props.value]); // Only re-run the effect if value prop changes
 
   const handleChange = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     setSelectedValue(e.target.value);
   };
 
   return (
-      <SelectM
-        labelId="demo-multiple-name-label"
-        id="demo-multiple-name"
-        onChange={(e) => handleChange(e)}
-        onOpen={props.onOpen}
-        onClose={props.onClose}
-        value={selectedValue}
-        label={props.label}
-      >
-        {props.children}
-      </SelectM>
-  )
+    <SelectM
+      labelId="demo-multiple-name-label"
+      id="demo-multiple-name"
+      onChange={(e) => handleChange(e)}
+      onOpen={props.onOpen}
+      onClose={props.onClose}
+      value={selectedValue}
+      label={props.label}
+    >
+      {props.children}
+    </SelectM>
+  );
 }
 
 Select.propTypes = {
   /**
    * Replaced with width prop
    * If true, the width of the popover will automatically be set according to the items inside the menu, otherwise it will be at least the width of the select input.
-  */
+   */
   autoWidth: PropTypes.bool,
 
   /**
@@ -47,7 +46,7 @@ Select.propTypes = {
 
   /**
    * @uxpinignoreprop
-   * Override or extend the styles applied to the component. 
+   * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
 
@@ -58,7 +57,7 @@ Select.propTypes = {
   defaultValue: PropTypes.any,
 
   /**
-   * If true, the component is initially open. Use when the component open state is not controlled 
+   * If true, the component is initially open. Use when the component open state is not controlled
    * (i.e. the open prop is not defined). You can only use it when the native prop is false (default).
    */
   defaultOpen: PropTypes.bool,
@@ -67,7 +66,7 @@ Select.propTypes = {
    * @uxpinignoreprop
    * If true, a value is displayed even if no items are selected.
    * In order to display a meaningful value, a function can be passed to the renderValue prop which returns the value to be displayed when no items are selected.
-   * When using this prop, make sure the label doesn't overlap with the empty displayed value. 
+   * When using this prop, make sure the label doesn't overlap with the empty displayed value.
    * The label should either be hidden or forced to a shrunk state.
    */
   displayEmpty: PropTypes.bool,
@@ -122,8 +121,6 @@ Select.propTypes = {
    */
   native: PropTypes.bool,
 
-
-
   /**
    * @uxpinignoreprop
    * Render the selected value. You can only use it when the native prop is false (default).
@@ -142,14 +139,12 @@ Select.propTypes = {
   variant: PropTypes.oneOf(['filled', 'outlined', 'standard']),
 
   /**
-   * The input value. 
+   * The input value.
    * Providing an empty string will select no options. Set to an empty string '' if you don't want any of the available options to be selected.
-   * If the value is an object it must have reference equality with the option in order to be selected. 
+   * If the value is an object it must have reference equality with the option in order to be selected.
    * If the value is not an object, the string representation must match with the string representation of the option in order to be selected.
    */
   value: PropTypes.string,
-
-
 
   /**
    * Custom Prop.
@@ -161,8 +156,8 @@ Select.propTypes = {
   width: PropTypes.string,
 
   /**
- * Callback fired when a menu item is selected.
- */
+   * Callback fired when a menu item is selected.
+   */
   onChange: PropTypes.func,
 
   /**
@@ -184,6 +179,6 @@ Select.propTypes = {
   /**
    */
   sx: PropTypes.object,
-}
+};
 
 export default Select;

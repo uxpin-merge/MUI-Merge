@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import CollapseM from "@mui/material/Collapse";
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import CollapseM from '@mui/material/Collapse';
 
 /**
  * @uxpindocurl https://mui.com/api/collapse/#main-content
@@ -12,8 +11,8 @@ function Collapse(props) {
 
 Collapse.propTypes = {
   /**
-   * Add a custom transition end trigger. Called with the transitioning DOM node and a done callback. 
-   * Allows for more fine grained transition end logic. 
+   * Add a custom transition end trigger. Called with the transitioning DOM node and a done callback.
+   * Allows for more fine grained transition end logic.
    * Note: Timeouts are still used as a fallback if provided.
    */
   /** @uxpinignoreprop */
@@ -33,7 +32,7 @@ Collapse.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * Override or extend the styles applied to the component. 
+   * Override or extend the styles applied to the component.
    * See CSS API below for more details.
    * @uxpinignoreprop
    */
@@ -54,7 +53,7 @@ Collapse.propTypes = {
 
   /**
    * If `true`, the component will transition in.
-   * @uxpinpropname Visible 
+   * @uxpinpropname Visible
    */
   in: PropTypes.bool,
 
@@ -72,16 +71,16 @@ Collapse.propTypes = {
    */
   timeout: PropTypes.number | PropTypes.string,
   // timeout: PropTypes.oneOfType([
-  //   PropTypes.number, 
-  //   PropTypes.shape({enter: PropTypes.number, exit: PropTypes.number}), 
+  //   PropTypes.number,
+  //   PropTypes.shape({enter: PropTypes.number, exit: PropTypes.number}),
   //   PropTypes.oneOf(['auto'])
   // ]),
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. 
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/
    */
   sx: PropTypes.object,
-  };
-   
-   export default Collapse;
+};
+
+export default Collapse;

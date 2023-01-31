@@ -1,12 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box/Box';
-import { SpeedDial as SpeedDialM} from '@mui/material';
+import { SpeedDial as SpeedDialM } from '@mui/material';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-
-
-
 
 export default function SpeedDial(props) {
   return (
@@ -17,11 +14,7 @@ export default function SpeedDial(props) {
         icon={<SpeedDialIcon />}
       >
         {props.children.map((child) => (
-          <SpeedDialAction
-            key={child.name}
-            icon={child.icon}
-            tooltipTitle={child.name}
-          />
+          <SpeedDialAction key={child.name} icon={child.icon} tooltipTitle={child.name} />
         ))}
       </SpeedDialM>
     </Box>

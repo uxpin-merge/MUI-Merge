@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import AccordionActionsM from '@mui/material/AccordionActions';
-
 
 /**
  * @upxindocurl https://mui.com/api/accordion-actions/
  */
 function AccordionActions(props) {
-    return (
-        <AccordionActionsM {...props}>{props.children}</AccordionActionsM>
-    )
-} 
+  return <AccordionActionsM {...props}>{props.children}</AccordionActionsM>;
+}
 
 AccordionActions.propTypes = {
   /**
@@ -29,12 +26,12 @@ AccordionActions.propTypes = {
    * If true, the actions do not have additional margin.
    */
   disableSpacing: PropTypes.bool.prototype,
-  
+
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
-   * 
+   *
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 export default AccordionActions;

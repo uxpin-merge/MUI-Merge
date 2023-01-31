@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import AlertTitleM from '@mui/material/AlertTitle';
-
 
 /**
  * @uxpindocurl https://mui.com/api/alert-title/
  */
 function AlertTitle(props) {
-    return (
-        <AlertTitleM {...props}>{props.children}</AlertTitleM>
-    )
-} 
+  return <AlertTitleM {...props}>{props.children}</AlertTitleM>;
+}
 
 AlertTitle.propTypes = {
   /**
@@ -24,11 +21,11 @@ AlertTitle.propTypes = {
    * @uxpinignoreprop
    */
   classes: PropTypes.object,
-  
+
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 export default AlertTitle;

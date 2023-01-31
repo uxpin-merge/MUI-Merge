@@ -3,7 +3,7 @@ import CardHeader from '../CardHeader';
 
 export default (
   <CardHeader
-    uxpId='Card-Header-1'
+    uxpId="Card-Header-1"
     avatar="R"
     color="grey"
     action="add"

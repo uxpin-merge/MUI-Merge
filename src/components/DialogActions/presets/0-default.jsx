@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "../../Button/Button";
-import DialogActions from "../DialogActions";
+import React from 'react';
+import Button from '../../Button/Button';
+import DialogActions from '../DialogActions';
 
 export default (
   <DialogActions uxpId="dialog-actions-1">

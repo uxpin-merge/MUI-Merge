@@ -1,7 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import Alert from '../Alert';
 
-export default (
-  <Alert
-    uxpId='alert-1'/>
-);
+export default <Alert uxpId="alert-1" />;

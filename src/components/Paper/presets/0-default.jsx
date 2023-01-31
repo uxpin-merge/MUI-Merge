@@ -2,7 +2,6 @@ import React from 'react';
 import Paper from '../Paper';
 import Typography from '../../Typography/Typography';
 
-
 export default (
   <Paper uxpId="paper" elevation={3}>
     <Typography uxpId="paper.default" padding="20px">

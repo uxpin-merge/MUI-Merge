@@ -1,6 +1,6 @@
-import DialogActionsM from "@mui/material/DialogActions";
-import PropTypes from "prop-types";
-import React from "react";
+import DialogActionsM from '@mui/material/DialogActions';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 /**
  * @uxpindocurl https://mui.com/api/dialog-actions/
@@ -25,12 +25,11 @@ DialogActions.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. 
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details.
    */
   /** */
   sx: PropTypes.object,
-
 };
 
 export default DialogActions;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import ChipM from '@mui/material/Chip';
 import Icon from '../Icon/Icon';
 
@@ -18,7 +18,7 @@ export default function Chip(props) {
           onDelete={
             props.deletable
               ? () => {
-                props.onDelete;
+                  props.onDelete;
                   setChipDeleted(true);
                 }
               : null
@@ -29,7 +29,8 @@ export default function Chip(props) {
         />
       ) : null}
     </>
-  )}
+  );
+}
 
 Chip.propTypes = {
   /**
@@ -78,7 +79,7 @@ Chip.propTypes = {
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    * @uxpinpropname DOM Element Type
-   */ 
+   */
   component: PropTypes.oneOf(['a', 'div']),
 
   /**
@@ -91,16 +92,15 @@ Chip.propTypes = {
    */
   icon: PropTypes.element,
 
-  /** 
+  /**
    * The Avatar element to display.
    * Choose between displaying Icon or Avatar
    */
   avatar: PropTypes.element,
 
-
   /**
-   * If true, the chip will appear clickable, and will raise when pressed, even if the onClick prop is not defined. 
-   * If false, the chip will not appear clickable, even if onClick prop is defined. 
+   * If true, the chip will appear clickable, and will raise when pressed, even if the onClick prop is not defined.
+   * If false, the chip will not appear clickable, even if onClick prop is defined.
    */
   onClick: PropTypes.func,
 
@@ -113,5 +113,4 @@ Chip.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
-
+};

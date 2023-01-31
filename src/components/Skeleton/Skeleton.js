@@ -11,9 +11,7 @@ import SkeletonM from '@mui/material/Skeleton';
  */
 function Skeleton(props) {
   const { uxpinRef, ...other } = props;
-  return (
-    <SkeletonM {...other}>{props.children}</SkeletonM>
-  )
+  return <SkeletonM {...other}>{props.children}</SkeletonM>;
 }
 
 Skeleton.propTypes = {
@@ -57,6 +55,6 @@ Skeleton.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 export default Skeleton;

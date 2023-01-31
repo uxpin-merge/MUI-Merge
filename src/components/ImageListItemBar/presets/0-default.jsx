@@ -7,7 +7,11 @@ export default (
     uxpId="1.1.2"
     title="Trends"
     titlePosition="top"
-    actionIcon={<IconButton uxpId="Icon-Button-1" color="inherit" ariaLabel="Trends icon button">star_border</IconButton>}
+    actionIcon={
+      <IconButton uxpId="Icon-Button-1" color="inherit" ariaLabel="Trends icon button">
+        star_border
+      </IconButton>
+    }
     postion="left"
   />
-)
+);

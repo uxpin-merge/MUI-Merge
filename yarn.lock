@@ -2100,10 +2100,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@uxpin/merge-cli@^2.10.0":
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-2.10.0.tgz#e590f623b5154b932660175fbfb0a8d35adfed3f"
-  integrity sha512-UiNt3iRn/4XDNoJKIEYi1F8R3FVTk8Tlq0yaqhckzuSR6vDAJlNCDv0dn++nScnUqZsFucBzjHQiAP2+HYpx6g==
+"@uxpin/merge-cli@^2.11.0":
+  version "2.11.0"
+  resolved "https://npm.pkg.github.com/download/@UXPin/merge-cli/2.11.0/ac8ad28cf9dafd4fd7f661dc3aaaf70c160912de#ac8ad28cf9dafd4fd7f661dc3aaaf70c160912de"
+  integrity sha512-NoZYVP4JkTaQ9/Z5yGlGCw8E8x/VZlOMosh+clARtTKhETrNJpyO/rC9v4vfNk/m2nzZYZe8RqaKNiiJRJwnqA==
   dependencies:
     "@babel/core" "^7.2.2"
     "@babel/plugin-proposal-class-properties" "^7.2.3"
@@ -5695,6 +5695,11 @@ posthtml@^0.16.4, posthtml@^0.16.5:
   dependencies:
     posthtml-parser "^0.11.0"
     posthtml-render "^3.0.0"
+
+prettier@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.3.tgz#ab697b1d3dd46fb4626fbe2f543afe0cc98d8632"
+  integrity sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==
 
 private@^0.1.8:
   version "0.1.8"

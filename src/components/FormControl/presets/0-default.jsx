@@ -1,15 +1,13 @@
-import React from "react";
-import FormControl from "../FormControl";
-import Select from "../../Select/Select";
-import MenuItem from "../../MenuItem/MenuItem";
-import InputLabel from "../../InputLabel/InputLabel";
-import FormHelperText from "../../FormHelperText/FormHelperText";
+import React from 'react';
+import FormControl from '../FormControl';
+import Select from '../../Select/Select';
+import MenuItem from '../../MenuItem/MenuItem';
+import InputLabel from '../../InputLabel/InputLabel';
+import FormHelperText from '../../FormHelperText/FormHelperText';
 
 export default (
   <FormControl uxpId="1" fullWidth>
-    <InputLabel uxpId="2">
-      Age
-    </InputLabel>
+    <InputLabel uxpId="2">Age</InputLabel>
     <Select uxpId="3">
       <MenuItem value="" uxpId="3.1.1">
         None

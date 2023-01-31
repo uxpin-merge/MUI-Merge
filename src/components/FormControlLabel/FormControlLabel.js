@@ -1,22 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FormControlLabelM from "@mui/material/FormControlLabel";
+import React from 'react';
+import PropTypes from 'prop-types';
+import FormControlLabelM from '@mui/material/FormControlLabel';
 
 /**
  * @uxpindocurl https://mui.com/api/form-control-label/#main-content
  */
 function FormControlLabel(props) {
-    return <FormControlLabelM {...props}>{props.children}</FormControlLabelM>;
-  }
+  return <FormControlLabelM {...props}>{props.children}</FormControlLabelM>;
+}
 
 FormControlLabel.propTypes = {
-    /**
+  /**
    * If `true`, the component appears selected.
    */
   checked: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop 
+   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
    */
@@ -37,10 +37,8 @@ FormControlLabel.propTypes = {
    */
   disableTypography: PropTypes.bool,
 
-
-
   /**
-   * @uxpinignoreprop 
+   * @uxpinignoreprop
    * Use that property to pass a ref callback to the native input component.
    */
   inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
@@ -56,7 +54,7 @@ FormControlLabel.propTypes = {
   labelPlacement: PropTypes.oneOf(['end', 'start', 'top', 'bottom']),
 
   /**
-   * @uxpinignoreprop 
+   * @uxpinignoreprop
    * @ignore
    */
   muiFormControl: PropTypes.object,
@@ -76,7 +74,7 @@ FormControlLabel.propTypes = {
   onChange: PropTypes.func,
 
   /**
-   * @uxpinignoreprop 
+   * @uxpinignoreprop
    * The value of the component.
    */
   value: PropTypes.string,
@@ -90,4 +88,3 @@ FormControlLabel.propTypes = {
 };
 
 export default FormControlLabel;
-  

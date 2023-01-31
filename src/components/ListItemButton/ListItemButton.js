@@ -1,17 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListItemButtonM from '@mui/material/ListItemButton';
-
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-button/
  */
 function ListItemButton(props) {
-  return (
-    <ListItemButtonM {...props}>
-      {props.children}
-    </ListItemButtonM>
-  )
+  return <ListItemButtonM {...props}>{props.children}</ListItemButtonM>;
 }
 
 ListItemButton.propTypes = {
@@ -38,7 +33,7 @@ ListItemButton.propTypes = {
   component: PropTypes.elementType,
 
   /**
-   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items. 
+   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items.
    * The prop is available to descendant components as the dense context.
    */
   dense: PropTypes.bool,
@@ -47,9 +42,9 @@ ListItemButton.propTypes = {
    * If true, the component is disabled.
    */
   disabled: PropTypes.bool,
-  
+
   /**
-   * This prop can help identify which element has keyboard focus. 
+   * This prop can help identify which element has keyboard focus.
    * The class name will be applied when the element gains the focus through keyboard interaction
    * @uxpinignoreprop
    */
@@ -70,6 +65,6 @@ ListItemButton.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 export default ListItemButton;

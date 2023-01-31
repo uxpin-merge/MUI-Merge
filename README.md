@@ -1,4 +1,6 @@
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 # UPDATE ME SOON!
+
 # MUI + UXPin Merge
 
 Integration of [MUI](https://mui.com/) with UXPin Merge Technology.
@@ -9,8 +11,8 @@ MUI (formerly Material-UI) is the React UI library you always wanted. You can im
 
 ## About UXPin Merge
 
-Merge is a revolutionary technology that lets users import (and keep in sync) coded React.js components from GIT repositories to UXPin editor. 
-The imported components are 100% identical to components used by developers during the development process. 
+Merge is a revolutionary technology that lets users import (and keep in sync) coded React.js components from GIT repositories to UXPin editor.
+The imported components are 100% identical to components used by developers during the development process.
 It means that components are going to look and, function (interactions, data) identical to the real product experienced by the users.
 
 ## How to use this boilerplate?

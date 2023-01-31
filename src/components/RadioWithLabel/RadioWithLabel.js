@@ -1,12 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FormControlLabelM from "../FormControlLabel/FormControlLabel";
-import Radio from "../Radio/Radio";
-
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import FormControlLabelM from '../FormControlLabel/FormControlLabel';
+import Radio from '../Radio/Radio';
 
 function RadioWithLabel(props) {
-
   return (
     <FormControlLabelM
       {...props}
@@ -14,7 +11,7 @@ function RadioWithLabel(props) {
       control={
         <Radio
           id="radioWithLabel"
-          inputProps={{ role: "radio", "aria-checked": props.checked }}
+          inputProps={{ role: 'radio', 'aria-checked': props.checked }}
           color={props.color}
           size={props.size}
         />
@@ -51,18 +48,11 @@ RadioWithLabel.propTypes = {
    */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 
-  color: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'warning',
-  ]),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
   /**
    * The position of the label.
    */
-  labelPlacement: PropTypes.oneOf(["end", "start", "top", "bottom"]),
+  labelPlacement: PropTypes.oneOf(['end', 'start', 'top', 'bottom']),
 
   /**
    * Change event to use with UXPin interactions.

@@ -2,19 +2,19 @@ import * as React from 'react';
 import PropTypes, { func, string } from 'prop-types';
 import RatingM from '@mui/material/Rating';
 import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants'
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/rating/#main-content
  */
 function Rating(props) {
   return (
-    <RatingM 
+    <RatingM
       {...props}
       emptyIcon={props.emptyIcon && <Icon fontSize="inherit">{props.emptyIcon}</Icon>}
       icon={props.icon && <Icon fontSize="inherit">{props.icon}</Icon>}
     />
-  )
+  );
 }
 
 Rating.propTypes = {
@@ -24,8 +24,8 @@ Rating.propTypes = {
    */
   classes: PropTypes.object,
   /**
-    * The icon to display when empty.
-    */
+   * The icon to display when empty.
+   */
   emptyIcon: PropTypes.oneOf(iconVariants),
 
   /**
@@ -49,7 +49,7 @@ Rating.propTypes = {
    * If true, the component is disabled.
    */
   disabled: PropTypes.bool,
-  
+
   /**
    * Removes all hover effects and pointer events.
    */
@@ -80,8 +80,8 @@ Rating.propTypes = {
   highlightSelectedOnly: PropTypes.bool,
 
   /**
-   * The name attribute of the radio input elements. 
-   * This input name should be unique within the page. 
+   * The name attribute of the radio input elements.
+   * This input name should be unique within the page.
    * Being unique within a form is insufficient since the name is used to generated IDs.
    */
   name: PropTypes.string,
@@ -94,7 +94,7 @@ Rating.propTypes = {
   /**
    * The rating value.
    * @uxpinbind onChange 1
-   */  
+   */
   value: PropTypes.string,
 
   /**
@@ -111,6 +111,6 @@ Rating.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
-export default Rating
+export default Rating;

@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Card from "react-credit-cards";
-import "react-credit-cards/es/styles-compiled.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Card from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
 
 export default function MergeCreditCard(props) {
   return <Card {...props} />;
@@ -28,6 +28,4 @@ MergeCreditCard.propTypes = {
   onInvalid: PropTypes.func,
   onValid: PropTypes.func,
   preview: PropTypes.bool,
-}
-
-
+};

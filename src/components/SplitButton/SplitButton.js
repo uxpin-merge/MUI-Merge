@@ -10,7 +10,6 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-
 export default function SplitButton(props) {
   const options = props.options;
   const [open, setOpen] = React.useState(false);
@@ -57,19 +56,12 @@ export default function SplitButton(props) {
           <Icon>arrow_drop_down</Icon>
         </Button>
       </ButtonGroup>
-      <Popper
-        open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        transition
-        disablePortal
-      >
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
+              transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
             }}
           >
             <Paper>
@@ -95,12 +87,12 @@ export default function SplitButton(props) {
   );
 }
 
-SplitButton.propTypes ={
+SplitButton.propTypes = {
   options: PropTypes.array,
   selected: PropTypes.number,
-  variant: PropTypes.oneOf(["text", "outlined", "contained"]),
-}
+  variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+};
 SplitButton.defaultProps = {
-  options: ["Option 1", "Option 2", "Option 3"],
-  selected: 0
+  options: ['Option 1', 'Option 2', 'Option 3'],
+  selected: 0,
 };

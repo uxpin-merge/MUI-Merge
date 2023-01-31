@@ -6,9 +6,7 @@ import TableFooterM from '@mui/material/TableFooter';
  * @uxpindocurl https://mui.com/api/table-footer/
  */
 function TableFooter(props) {
-  return (
-    <TableFooterM {...props}>{props.children}</TableFooterM>
-  )
+  return <TableFooterM {...props}>{props.children}</TableFooterM>;
 }
 
 TableFooter.propTypes = {
@@ -23,6 +21,6 @@ TableFooter.propTypes = {
   component: PropTypes.elementType,
 
   sx: PropTypes.object,
-}
+};
 
 export default TableFooter;

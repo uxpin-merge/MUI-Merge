@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListItemTextM from '@mui/material/ListItemText';
-
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-text/
@@ -66,6 +65,6 @@ ListItemText.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
-export default ListItemText
+export default ListItemText;

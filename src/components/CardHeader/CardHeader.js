@@ -1,27 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import CardHeaderM from '@mui/material/CardHeader';
 import Avatar from '../Avatar/Avatar';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
-import { iconVariants } from '../Icon/icon-variants'
-
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/card-header/
  */
 function CardHeader(props) {
   const { iconOnClick, ...other } = props;
-    return (
-        <CardHeaderM 
-          {...other} 
-          avatar={props.avatar && <Avatar color={props.color}>{props.avatar}</Avatar>}
-          action={props.action && <IconButton onClick={props.iconOnClick}>{props.action}</IconButton>}
-        >
-          {props.children}
-        </CardHeaderM>
-    )
-} 
+  return (
+    <CardHeaderM
+      {...other}
+      avatar={props.avatar && <Avatar color={props.color}>{props.avatar}</Avatar>}
+      action={props.action && <IconButton onClick={props.iconOnClick}>{props.action}</IconButton>}
+    >
+      {props.children}
+    </CardHeaderM>
+  );
+}
 
 CardHeader.propTypes = {
   /**
@@ -40,21 +39,21 @@ CardHeader.propTypes = {
    * @uxpinpropname Avatar Bg Color
    */
   color: PropTypes.oneOf([
-    'red', 
-    'pink', 
-    'purple',  
-    'indigo', 
-    'blue', 
-    'lightBlue', 
-    'cyan', 
-    'teal', 
-    'green', 
-    'lightGreen', 
-    'lime', 
-    'yellow', 
-    'orange', 
-    'brown', 
-    'grey', 
+    'red',
+    'pink',
+    'purple',
+    'indigo',
+    'blue',
+    'lightBlue',
+    'cyan',
+    'teal',
+    'green',
+    'lightGreen',
+    'lime',
+    'yellow',
+    'orange',
+    'brown',
+    'grey',
   ]),
 
   /**
@@ -69,7 +68,7 @@ CardHeader.propTypes = {
   component: PropTypes.string,
 
   /**
-   * If true, subheader and title won't be wrapped by a Typography component. 
+   * If true, subheader and title won't be wrapped by a Typography component.
    * This can be useful to render an alternative Typography variant by wrapping the title text, and optional subheader text with the Typography component.
    */
   disableTypography: PropTypes.bool,
@@ -116,6 +115,6 @@ CardHeader.propTypes = {
    * On click event to use with UXPin interactions.
    */
   iconOnClick: PropTypes.func,
-}
+};
 
 export default CardHeader;

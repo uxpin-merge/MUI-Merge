@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import AccordionDetailsM from '@mui/material/AccordionDetails';
-
 
 /**
  * @upxindocurl https://mui.com/api/accordion-details/
  */
 function AccordionDetails(props) {
-    return (
-        <AccordionDetailsM {...props}>{props.children}</AccordionDetailsM>
-    )
-} 
+  return <AccordionDetailsM {...props}>{props.children}</AccordionDetailsM>;
+}
 
 AccordionDetails.propTypes = {
   /**
@@ -27,9 +24,9 @@ AccordionDetails.propTypes = {
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
-   * 
+   *
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 export default AccordionDetails;

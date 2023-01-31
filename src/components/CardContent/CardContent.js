@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import CardContentM from '@mui/material/CardContent';
-
 
 /**
  * @uxpindocurl https://mui.com/api/card-content/
  */
 function CardContent(props) {
-    return (
-        <CardContentM {...props}>{props.children}</CardContentM>
-    )
-} 
+  return <CardContentM {...props}>{props.children}</CardContentM>;
+}
 
 CardContent.propTypes = {
   /**
@@ -26,14 +23,14 @@ CardContent.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * Map typography to another html tag. 
+   * Map typography to another html tag.
    */
   component: PropTypes.string,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 export default CardContent;
