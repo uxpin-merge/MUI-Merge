@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { DataGrid as DataGridM } from '@mui/x-data-grid';
 
 /**
+ * @upxindocurl https://mui.com/x/react-data-grid/components/
  * @uxpinwrappers
  * SkipContainerWrapper
  */
