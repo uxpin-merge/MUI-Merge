@@ -5,10 +5,12 @@ import { DataGrid as DataGridM } from '@mui/x-data-grid';
 /**
  * @upxindocurl https://mui.com/x/react-data-grid/components/
  * @uxpinwrappers
- * SkipContainerWrapper
  */
 function DataGrid(props) {
   const { uxpinRef, ...other } = props;
+
+  // React.useEffect(() => {});
+  React.useEffect(() => {}, [props]);
 
   return (
     <div style={{width: '100%', height: '100%'}}>
@@ -205,6 +207,10 @@ DataGrid.propTypes = {
    * Set the total number of rows, if it is different from the length of the value rows prop. If some rows have children (for instance in the tree data), this number represents the amount of top level rows.
    */
   rowCount: PropTypes.number,
+  /**
+   * Select the pageSize dynamically using the component UI.
+   */  
+  rowsPerPageOptions: PropTypes.array,
 
   /**
    * Set the height in pixel of a row in the grid.
