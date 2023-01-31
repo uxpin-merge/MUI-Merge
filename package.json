@@ -12,6 +12,7 @@
     "@mui/lab": "^5.0.0-alpha.97",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
+    "@mui/x-data-grid": "^5.17.20",
     "@mui/x-date-pickers": "^5.0.13",
     "@swc/helpers": "^0.4.11",
     "apexcharts": "^3.35.5",
