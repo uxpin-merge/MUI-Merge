@@ -13,11 +13,8 @@ function DataGrid(props) {
   React.useEffect(() => {}, [props]);
 
   return (
-    <div style={{width: '100%', height: '100%'}}>
-      <DataGridM
-        {...other}
-        ref={uxpinRef}
-        aria-label={props.ariaLabel} />
+    <div style={{ width: '100%', height: '100%' }}>
+      <DataGridM {...other} ref={uxpinRef} aria-label={props.ariaLabel} />
     </div>
   );
 }
@@ -209,7 +206,7 @@ DataGrid.propTypes = {
   rowCount: PropTypes.number,
   /**
    * Select the pageSize dynamically using the component UI.
-   */  
+   */
   rowsPerPageOptions: PropTypes.array,
 
   /**
@@ -417,6 +414,10 @@ DataGrid.propTypes = {
    */
   onSortModelChange: PropTypes.func,
 
-}
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
+};
 
 export default DataGrid;

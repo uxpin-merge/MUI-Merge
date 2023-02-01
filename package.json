@@ -31,7 +31,9 @@
     "watch": "parcel watch",
     "build": "parcel build",
     "uxpin:experimental": "npx uxpin-merge --disable-tunneling",
-    "lint": "npx eslint src/"
+    "eslint": "npx eslint src/",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write ."
   },
   "devDependencies": {
     "@uxpin/merge-cli": "^2.11.0",
