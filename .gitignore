@@ -68,10 +68,6 @@ typings/
 # Merge
 .uxpin-merge
 
-# vs-code
-
-.vscode
-
 # Docz
 
 .docz/cache
