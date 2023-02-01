@@ -13,7 +13,7 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
     "@mui/x-data-grid": "^5.17.20",
-    "@mui/x-date-pickers": "^5.0.13",
+    "@mui/x-date-pickers": "5.0.0",
     "@swc/helpers": "^0.4.11",
     "apexcharts": "^3.35.5",
     "css-loader": "2.0.0",
@@ -32,8 +32,8 @@
     "build": "parcel build",
     "uxpin:experimental": "npx uxpin-merge --disable-tunneling",
     "eslint": "npx eslint src/",
-    "prettier:check": "npx prettier --check .",
-    "prettier:write": "npx prettier --write ."
+    "prettier:check": "npx prettier src/ --check .",
+    "prettier:write": "npx prettier src/ --write ."
   },
   "devDependencies": {
     "@uxpin/merge-cli": "^2.11.0",
