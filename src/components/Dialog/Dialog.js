@@ -8,8 +8,6 @@ import DialogM from '@mui/material/Dialog';
  */
 
 function Dialog(props) {
-  const { uxpinRef, ...other } = props;
-
   const [open, setOpen] = React.useState(props.open);
 
   React.useEffect(() => setOpen(props.open), [props]);

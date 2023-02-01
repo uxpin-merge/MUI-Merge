@@ -84,6 +84,11 @@ Button.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
+
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
 };
 
 export default Button;

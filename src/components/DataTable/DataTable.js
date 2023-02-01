@@ -38,6 +38,7 @@ function DataTable() {
   const apiRef = useGridApiRef();
   React.useEffect(() => {
     return apiRef.current.subscribeEvent('columnResize', (params) => {
+      // eslint-disable-next-line no-undef
       setMessage(`Column ${params.colDef.headerName} resized to ${params.width}px.`);
     });
   }, [apiRef]);

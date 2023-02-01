@@ -98,6 +98,11 @@ LoadingButton.propTypes = {
    * On click event to use with UXPin interactions.
    */
   onClick: PropTypes.func,
+
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
 };
 
 export default LoadingButton;

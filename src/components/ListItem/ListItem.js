@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListItemM from '@mui/material/ListItem';
-import Icon from '../Icon/Icon';
-import ListItemIcon from '../ListItemIcon/ListItemIcon';
-import ListItemText from '../ListItemText/ListItemText';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item/

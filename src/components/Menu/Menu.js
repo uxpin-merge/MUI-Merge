@@ -49,8 +49,9 @@ export default function Menu(props) {
 }
 
 Menu.propTypes = {
+  open: PropTypes.bool,
   /*
-   *The type of element to open the menu.
+   * The type of element to open the menu.
    */
   trigger: PropTypes.oneOf(['icon', 'button']),
 

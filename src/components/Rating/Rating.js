@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes, { func, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import RatingM from '@mui/material/Rating';
 import Icon from '../Icon/Icon';
 import { iconVariants } from '../Icon/icon-variants';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BoxM from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
 
 /**
  * @uxpinwrappers
@@ -192,6 +191,11 @@ Box.propTypes = {
    * Accepts all system properties, as well as any valid CSS properties.
    */
   sx: PropTypes.object,
+
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
 };
 Box.defaultProps = {
   sx: {},

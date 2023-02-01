@@ -17,7 +17,7 @@ function Alert(props) {
     setOpen(props.isOpen);
   }, [props.isOpen]); // Only re-run the effect if value prop changes
 
-  const { isOpen, icon, title, hasClose, onClose, ...otherProps } = props;
+  const { icon, title, ...otherProps } = props;
   return (
     <Collapse in={open}>
       <AlertM

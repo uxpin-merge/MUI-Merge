@@ -1,18 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BadgeM from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-
-const Root = styled('div')({
-  flexGrow: 1,
-});
 
 /**
  * @uxpindocurl https://mui.com/api/badge/
  */
 function Badge(props) {
-  const sx = Root;
-
   return (
     <BadgeM
       {...props}

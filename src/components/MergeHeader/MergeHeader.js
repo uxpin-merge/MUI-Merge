@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
@@ -9,13 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Toolbar from '@mui/material/Toolbar';
 // import Typography from "@mui/material/Typography";
-import { fade, makeStyles, useTheme } from '@mui/styles';
+import { makeStyles, useTheme } from '@mui/styles';
 import MergeSideNavigation from '../MergeSideNavigation/MergeSideNavigation';
 // import MailIcon from "@mui/icons-material/Mail";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
 // import Icon from "@mui/material/Icon";
 // import Badge from "@mui/material/Badge";
-import Menu from '../Menu/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from '../Image/Image';
 // import Tabs from "../Tabs/Tabs";
@@ -387,6 +386,11 @@ MergeHeader.propTypes = {
    * @uxpinignoreprop
    */
   children: PropTypes.node,
+
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
 };
 
 export default MergeHeader;

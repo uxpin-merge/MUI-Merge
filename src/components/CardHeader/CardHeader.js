@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CardHeaderM from '@mui/material/CardHeader';
 import Avatar from '../Avatar/Avatar';
-import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
 import { iconVariants } from '../Icon/icon-variants';
 
@@ -10,7 +9,7 @@ import { iconVariants } from '../Icon/icon-variants';
  * @uxpindocurl https://mui.com/api/card-header/
  */
 function CardHeader(props) {
-  const { iconOnClick, ...other } = props;
+  const { ...other } = props;
   return (
     <CardHeaderM
       {...other}
@@ -23,6 +22,8 @@ function CardHeader(props) {
 }
 
 CardHeader.propTypes = {
+  children: PropTypes.node,
+
   /**
    * The action to display in the card header.
    * @uxpinpropname Icon Action

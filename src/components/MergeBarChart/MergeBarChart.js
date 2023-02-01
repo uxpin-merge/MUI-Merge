@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ const MergeBarChart = (props) => {
   // chart options
   const barChartOptions = {
     chart: {
-      type: props.bar,
+      type: props.toolbar,
       width: '100%',
       toolbar: {
         show: props.toolbar,

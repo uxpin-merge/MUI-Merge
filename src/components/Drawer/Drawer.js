@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Box from '../Box/Box';
 import { v4 as uuidv4 } from 'uuid';
+
 /**
  * @uxpinwrappers
  * SkipContainerWrapper
@@ -76,7 +77,4 @@ Drawer.propTypes = {
 
 Drawer.defaultProps = {
   open: false,
-  onClose: () => {
-    setOpen(false);
-  },
 };

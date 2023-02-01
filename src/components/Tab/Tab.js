@@ -10,6 +10,8 @@ function Tab(props) {
 }
 
 Tab.propTypes = {
+  children: PropTypes.node,
+
   /**
    * @uxpinignoreprop
    * Override or extend the styles applied to the component.

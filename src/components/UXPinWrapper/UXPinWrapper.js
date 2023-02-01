@@ -2,10 +2,10 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import boilerplateTheme from './boilerplate-theme';
-import Box from '@mui/material/Box';
 
 const theme = createTheme(boilerplateTheme);
 
+// eslint-disable-next-line react/prop-types
 export default function UXPinWrapper({ children }) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

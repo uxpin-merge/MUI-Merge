@@ -11,7 +11,7 @@ export default function SwitchGroup(props) {
     <FormControl component="fieldset">
       <FormLabel component="legend">{props.grouplabel}</FormLabel>
       <FormGroup {...props}>
-        {React.Children.map(props.children, (child, index) => {
+        {React.Children.map(props.children, (child) => {
           return (
             <FormControlLabel
               value={child.props.value}
@@ -41,6 +41,8 @@ export default function SwitchGroup(props) {
 }
 
 SwitchGroup.propTypes = {
+  checked: PropTypes.bool,
+
   /**
    * Display text over the radio group.
    */

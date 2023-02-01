@@ -8,7 +8,7 @@ import Icon from '../Icon/Icon';
  */
 export default function Chip(props) {
   const [chipDeleted, setChipDeleted] = React.useState(false);
-  const { deletable, ...other } = props;
+  const { ...other } = props;
 
   return (
     <>

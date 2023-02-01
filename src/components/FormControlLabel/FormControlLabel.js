@@ -10,6 +10,8 @@ function FormControlLabel(props) {
 }
 
 FormControlLabel.propTypes = {
+  children: PropTypes.node,
+
   /**
    * If `true`, the component appears selected.
    */

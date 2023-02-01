@@ -9,7 +9,7 @@ import { iconVariants } from '../Icon/icon-variants';
  * @uxpindocurl https://mui.com/api/text-field/
  */
 function TextField(props) {
-  const { uxpinRef, startAdornment, endAdornment, ...other } = props;
+  const { startAdornment, endAdornment, ...other } = props;
 
   return (
     <TextFieldM

@@ -14,7 +14,7 @@ export default function RadioGroup(props) {
     <FormControl component="fieldset">
       <FormLabel component="legend">{props.grouplabel}</FormLabel>
       <RadioGroupM {...props}>
-        {React.Children.map(props.children, (child, index) => {
+        {React.Children.map(props.children, (child) => {
           return (
             <FormControlLabel
               value={child.props.value}
@@ -43,6 +43,8 @@ export default function RadioGroup(props) {
 }
 
 RadioGroup.propTypes = {
+  checked: PropTypes.bool,
+
   /**
    * Display text over the radio group.
    */

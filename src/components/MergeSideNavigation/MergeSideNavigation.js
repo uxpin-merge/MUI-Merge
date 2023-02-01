@@ -1,24 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import Collapse from '@mui/material/Collapse';
-import Toolbar from '@mui/material/Toolbar';
-import Grid from '@mui/material/Grid';
-import Slide from '@mui/material/Slide';
-import InputBase from '@mui/material/InputBase';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Icon from '@mui/material/icon';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Image from '../Image/Image';
 import { StyledEngineProvider } from '@mui/material/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -97,9 +88,8 @@ function MergeSideNavigation(props) {
   const updateByIndex = (val, level) => {
     setCollapsedIndex(collapsedIndex.map((item, i) => (i === level ? val : item)));
   };
-  console.log('iglooSideProps: ', props.menus);
 
-  // eslint-disable-next-line react/prop-types
+  // eslint-disable-next-line react/prop-types, no-unused-vars
   const renderItem =
     (level = 0) =>
     ({ icon, label, url, submenu, active, opened }, index) => {

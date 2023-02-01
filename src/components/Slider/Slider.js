@@ -103,12 +103,6 @@ Slider.propTypes = {
   disableSwap: PropTypes.bool,
 
   /**
-   * The components used for each slot inside the Slider. Either a string to use a HTML element or a component.
-   * @uxpinignoreprop
-   */
-  components: PropTypes.object,
-
-  /**
    * The props used for each slot inside the Slider
    * @uxpinignoreprop
    */

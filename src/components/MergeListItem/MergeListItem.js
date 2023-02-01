@@ -85,7 +85,7 @@ function MergeListItem(props) {
   function handleClick() {
     setOpen(!open);
   }
-  const { uxpinRef, isCollapsible, button, onClick, ...other } = props;
+  const { isCollapsible, button, onClick, ...other } = props;
 
   return (
     <React.Fragment key={`some-unique-id`}>

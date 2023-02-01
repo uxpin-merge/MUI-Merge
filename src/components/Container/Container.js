@@ -1,7 +1,5 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import ContainerM from '@mui/material/Container';
 
 /**

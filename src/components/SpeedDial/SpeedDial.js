@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import { SpeedDial as SpeedDialM } from '@mui/material';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';

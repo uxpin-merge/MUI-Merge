@@ -8,9 +8,8 @@ import { iconVariants } from '../Icon/icon-variants';
  * @uxpindocurl https://mui.com/api/toggle-button/
  */
 function ToggleButton(props) {
-  const { startIcon, endIcon, ...other } = props;
   return (
-    <ToggleButtonM {...other}>
+    <ToggleButtonM {...props}>
       {props.startIcon && <Icon>{props.startIcon}</Icon>}
       {props.label}
       {props.endIcon && <Icon>{props.endIcon}</Icon>}

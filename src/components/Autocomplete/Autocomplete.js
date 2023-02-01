@@ -7,7 +7,7 @@ import AutocompleteM from '@mui/material/Autocomplete';
  * @uxpindocurl https://mui.com/api/autocomplete/
  */
 function Autocomplete(props) {
-  const { params, ...other } = props;
+  const { ...other } = props;
 
   return (
     <AutocompleteM

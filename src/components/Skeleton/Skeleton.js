@@ -10,7 +10,7 @@ import SkeletonM from '@mui/material/Skeleton';
  * SkipContainerWrapper
  */
 function Skeleton(props) {
-  const { uxpinRef, ...other } = props;
+  const { ...other } = props;
   return <SkeletonM {...other}>{props.children}</SkeletonM>;
 }
 

@@ -68,11 +68,6 @@ CheckboxWithLabel.propTypes = {
    * @uxpinignoreprop
    */
   control: PropTypes.element,
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   */
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
 };
 
 export { CheckboxWithLabel as default };
