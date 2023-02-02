@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonM from '@mui/material/Button';
 import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants'
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/components/buttons/#main-content
@@ -18,10 +18,10 @@ function Button(props) {
     >
       {props.children}
     </ButtonM>
-  )
+  );
 }
 
-Button.propTypes ={
+Button.propTypes = {
   /**
    * The label of the button.
    * @uxpinpropname Label
@@ -31,7 +31,7 @@ Button.propTypes ={
   /**
    * The color of the button.
    */
-  color: PropTypes.oneOf(["inherit", "primary", "secondary", "success", "error", "info", "warning"]),
+  color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning']),
 
   /**
    * If `true`, the button will be disabled.
@@ -51,12 +51,12 @@ Button.propTypes ={
   /**
    * The size of the button.
    */
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 
   /**
    * The type of button.
    */
-  variant: PropTypes.oneOf(["text", "outlined", "contained"]),
+  variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
 
   /**
    * The HREF of the button.
@@ -84,6 +84,11 @@ Button.propTypes ={
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+
+  /**
+   * @uxpinignoreprop
+   */
+  uxpinRef: PropTypes.any,
+};
 
 export default Button;

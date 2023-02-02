@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListM from '@mui/material/List';
 // import ListSubheader from "../ListSubheader/ListSubheader";
-
 
 /**
  * @uxpindocurl https://mui.com/api/list/
@@ -36,7 +35,7 @@ List.propTypes = {
   component: PropTypes.elementType,
 
   /**
-   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items. 
+   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items.
    * The prop is available to descendant components as the dense context.
    */
   dense: PropTypes.bool,
@@ -54,8 +53,7 @@ List.propTypes = {
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: PropTypes.object
-
-}
+  sx: PropTypes.object,
+};
 
 export default List;

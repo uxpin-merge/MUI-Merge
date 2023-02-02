@@ -1,19 +1,20 @@
-import * as React from 'react'
-import PropTypes from "prop-types";
+import * as React from 'react';
+import PropTypes from 'prop-types';
 import RadioM from '@mui/material/Radio';
 import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants'
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/radio/
  */
 function Radio(props) {
   return (
-    <RadioM 
-      {...props} 
-      icon={props.icon? <Icon>{props.icon}</Icon> : <Icon>radio_button_unchecked</Icon>}
-      checkedIcon={props.checkedIcon? <Icon>{props.checkedIcon}</Icon> : <Icon>radio_button_checked</Icon>} />
-  )
+    <RadioM
+      {...props}
+      icon={props.icon ? <Icon>{props.icon}</Icon> : <Icon>radio_button_unchecked</Icon>}
+      checkedIcon={props.checkedIcon ? <Icon>{props.checkedIcon}</Icon> : <Icon>radio_button_checked</Icon>}
+    />
+  );
 }
 
 Radio.propTypes = {
@@ -28,9 +29,9 @@ Radio.propTypes = {
    */
   icon: PropTypes.oneOf(iconVariants),
 
-   /**
-    * The icon to display when the component is checked.
-    */
+  /**
+   * The icon to display when the component is checked.
+   */
   checkedIcon: PropTypes.oneOf(iconVariants),
 
   /**
@@ -42,14 +43,7 @@ Radio.propTypes = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'warning',
-  ]),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
 
   /**
    * If `true`, the switch will be disabled.
@@ -90,7 +84,7 @@ Radio.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 Radio.defaultProps = {
   // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error

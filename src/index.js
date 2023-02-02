@@ -31,6 +31,7 @@ import AccordionDetails from './components/AccordionDetails/AccordionDetails';
 import AccordionSummary from './components/AccordionSummary/AccordionSummary';
 import Paper from './components/Paper/Paper';
 import List from './components/List/List';
+import DatePicker from './components/DatePicker/DatePicker';
 import ListItem from './components/ListItem/ListItem';
 import ListItemAvatar from './components/ListItemAvatar/ListItemAvatar';
 import ListItemButton from './components/ListItemButton/ListItemButton';

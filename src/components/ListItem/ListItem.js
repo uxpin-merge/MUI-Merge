@@ -1,20 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListItemM from '@mui/material/ListItem';
-import Icon from '../Icon/Icon';
-import ListItemIcon from '../ListItemIcon/ListItemIcon';
-import ListItemText from '../ListItemText/ListItemText';
-
 
 /**
  * @uxpindocurl https://mui.com/api/list-item/
  */
 function ListItem(props) {
-  return (
-    <ListItemM {...props}>
-      {props.children}
-    </ListItemM>
-  )
+  return <ListItemM {...props}>{props.children}</ListItemM>;
 }
 
 ListItem.propTypes = {
@@ -45,7 +37,7 @@ ListItem.propTypes = {
   componentProps: PropTypes.object,
 
   /**
-   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items. 
+   * If true, compact vertical padding designed for keyboard and mouse input is used for the list and list items.
    * The prop is available to descendant components as the dense context.
    */
   dense: PropTypes.bool,
@@ -75,7 +67,7 @@ ListItem.propTypes = {
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
-export default ListItem
+export default ListItem;

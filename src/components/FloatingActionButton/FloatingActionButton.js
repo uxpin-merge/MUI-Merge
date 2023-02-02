@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import FabM from '@mui/material/Fab';
 import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants'
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/fab/
@@ -12,18 +12,18 @@ function FloatingActionButton(props) {
 
   if (props.icon) {
     if (props.label) {
-      hasIcon = <Icon sx={{ mr: 1 }}>{props.icon}</Icon>
+      hasIcon = <Icon sx={{ mr: 1 }}>{props.icon}</Icon>;
     } else {
-      hasIcon = <Icon>{props.icon}</Icon>
+      hasIcon = <Icon>{props.icon}</Icon>;
     }
   }
 
- return (
-  <FabM {...props}>
-    {hasIcon}
-    {props.label}
-  </FabM>
- )
+  return (
+    <FabM {...props}>
+      {hasIcon}
+      {props.label}
+    </FabM>
+  );
 }
 
 FloatingActionButton.propTypes = {
@@ -50,7 +50,7 @@ FloatingActionButton.propTypes = {
   /**
    * The color of the button.
    */
-  color: PropTypes.oneOf(["inherit", "primary", "secondary"]),
+  color: PropTypes.oneOf(['inherit', 'primary', 'secondary']),
 
   /**
    * @uxpinignoreprop
@@ -76,7 +76,7 @@ FloatingActionButton.propTypes = {
   disabledRipple: PropTypes.bool,
 
   /**
-   * The URL to link to when the button is clicked. 
+   * The URL to link to when the button is clicked.
    * If defined, an a element will be used as the root node.
    */
   href: PropTypes.string,
@@ -90,17 +90,17 @@ FloatingActionButton.propTypes = {
   /**
    * The size of the button.
    */
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 
   /**
    * The type of button.
    */
-  variant: PropTypes.oneOf(["circular", "extended"]),
+  variant: PropTypes.oneOf(['circular', 'extended']),
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.    
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * */
   sx: PropTypes.object,
-}
+};
 
 export default FloatingActionButton;

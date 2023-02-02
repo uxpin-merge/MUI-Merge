@@ -6,13 +6,11 @@ import TabsM from '@mui/material/Tabs';
  * @uxpindocurl https://mui.com/api/tabs/#main-content
  */
 function Tabs(props) {
-    return (
-        <TabsM {...props}>{props.children}</TabsM>
-    )
+  return <TabsM {...props}>{props.children}</TabsM>;
 }
 
 Tabs.propTypes = {
-    /**
+  /**
    * Callback fired when the component mounts.
    * This is useful when you want to trigger an action programmatically.
    * It currently only supports `updateIndicator()` action.
@@ -57,7 +55,6 @@ Tabs.propTypes = {
   /** @uxpinignoreprop */
   ariaLabelledBy: PropTypes.string,
 
-  
   /**
    * @uxpinignoreprop
    * The component used for the root node.
@@ -164,7 +161,7 @@ Tabs.propTypes = {
    */
   /** @uxpinignoreprop */
   TabIndicatorProps: PropTypes.object,
-  
+
   /**
    * Props applied to the TabScrollButton element.
    */
@@ -175,8 +172,6 @@ Tabs.propTypes = {
    * If 'true', the scrollbar is visible. It can be useful when displaying a long vertical list of tabs.
    */
   visibleScrollbar: PropTypes.bool,
-
-
-}
+};
 
 export default Tabs;

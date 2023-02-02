@@ -1,87 +1,79 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ListItemM from "@mui/material/ListItem";
-import IconM from "../Icon/Icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ListItemM from '@mui/material/ListItem';
+import IconM from '../Icon/Icon';
 import Collapse from '@mui/material/Collapse';
 import { makeStyles } from '@mui/styles';
-import ListItemText from "@mui/material/ListItemText";
-import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
-import { iconVariants } from '../Icon/icon-variants'
-
-
-
-
+import ListItemText from '@mui/material/ListItemText';
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import { iconVariants } from '../Icon/icon-variants';
 
 function MergeListItem(props) {
-
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles((theme) => ({
     collapsedListItem: {
-      borderLeft: "3px solid",
+      borderLeft: '3px solid',
       borderLeftColor: theme.palette.decoration.main,
-      backgroundColor: "#f9f9f9",
+      backgroundColor: '#f9f9f9',
       // backgroundColor: "#ffffff",
       // color: theme.palette.decoration.main
       '&.Mui-selected': {
-        backgroundColor: "#f9f9f9",
-        
+        backgroundColor: '#f9f9f9',
       },
       '& .MuiIcon-root': {
-          marginLeft:"-3px"
-        },
-    },
-      
-    listItem:{
-        '&.Mui-selected': {
-          borderLeft: "3px solid",
-          borderLeftColor: theme.palette.decoration.main,
-          backgroundColor: "#f9f9f9",
-          color: theme.palette.primary,
-          '& .MuiIcon-root': {
-            marginLeft:"-3px"
-          },
-          // marginLeft:"-3px"
-        },
-
+        marginLeft: '-3px',
       },
+    },
 
-    collapseContainer:{
-      paddingLeft: "36px",
-      paddingBottom: "24px",
-      paddingTop: "20px",
-      borderBottom: "1px solid #0000001f",
-      
-      '& .MuiListItem-root':{
-        paddingTop:0,
-        paddingBottom:0,
+    listItem: {
+      '&.Mui-selected': {
+        borderLeft: '3px solid',
+        borderLeftColor: theme.palette.decoration.main,
+        backgroundColor: '#f9f9f9',
+        color: theme.palette.primary,
+        '& .MuiIcon-root': {
+          marginLeft: '-3px',
+        },
+        // marginLeft:"-3px"
+      },
+    },
+
+    collapseContainer: {
+      paddingLeft: '36px',
+      paddingBottom: '24px',
+      paddingTop: '20px',
+      borderBottom: '1px solid #0000001f',
+
+      '& .MuiListItem-root': {
+        paddingTop: 0,
+        paddingBottom: 0,
         '&.Mui-selected': {
-          border:0,
+          border: 0,
           color: theme.palette.primary.main,
-          background: "#ffffff",
-          '&.MuiListItem-button:hover':{
+          background: '#ffffff',
+          '&.MuiListItem-button:hover': {
             color: theme.palette.primary.main,
-           opacity: "1",
+            opacity: '1',
           },
           // '&.MuiIcon-root': {
           //   marginLeft:"-3px"
           // },
         },
-        '&.MuiListItem-button:hover':{
-          background: "#ffffff",
+        '&.MuiListItem-button:hover': {
+          background: '#ffffff',
           // color: theme.palette.primary.light,
-          opacity:".5",
+          opacity: '.5',
         },
       },
 
-      '& .MuiListItem-divider':{
-        border:0,
+      '& .MuiListItem-divider': {
+        border: 0,
       },
-       },
+    },
 
     icon: {
-      width:"36px"
-    }
+      width: '36px',
+    },
   }));
-  
 
   const classes = useStyles(props);
   const [open, setOpen] = React.useState(props.collapsed);
@@ -90,41 +82,42 @@ function MergeListItem(props) {
     setOpen(props.collapsed);
   }, [props]);
 
-
   function handleClick() {
     setOpen(!open);
   }
-  const { uxpinRef, isCollapsible, button, onClick, ...other } = props;
+  const { isCollapsible, button, onClick, ...other } = props;
 
   return (
-
     <React.Fragment key={`some-unique-id`}>
       <ListItemM
-      button={isCollapsible ? true : button}
-      onClick={isCollapsible ? handleClick : onClick}
-      // selected={open ? true : props.selected}
-      className={open ? classes.collapsedListItem : classes.listItem}      
-      {...other} >
-        {props.icon ? <IconM color={props.iconColor} fontSize="small" className={classes.icon}>{props.icon}</IconM> : null}
-        <ListItemText
-          primary={props.primary}
-          secondary={props.secondary}
-          inset={props.inset}
-        />
-      
-        {isCollapsible ?
-          open ? <IconM>expand_less</IconM> : <IconM>expand_more</IconM>
-          :
-          <ListItemSecondaryAction>{props.children}</ListItemSecondaryAction>
-        }
+        button={isCollapsible ? true : button}
+        onClick={isCollapsible ? handleClick : onClick}
+        // selected={open ? true : props.selected}
+        className={open ? classes.collapsedListItem : classes.listItem}
+        {...other}
+      >
+        {props.icon ? (
+          <IconM color={props.iconColor} fontSize="small" className={classes.icon}>
+            {props.icon}
+          </IconM>
+        ) : null}
+        <ListItemText primary={props.primary} secondary={props.secondary} inset={props.inset} />
 
+        {isCollapsible ? (
+          open ? (
+            <IconM>expand_less</IconM>
+          ) : (
+            <IconM>expand_more</IconM>
+          )
+        ) : (
+          <ListItemSecondaryAction>{props.children}</ListItemSecondaryAction>
+        )}
       </ListItemM>
-      {isCollapsible ?
+      {isCollapsible ? (
         <Collapse in={open} timeout="auto" unmountOnExit className={classes.collapseContainer}>
           {props.children}
         </Collapse>
-        : null
-      }
+      ) : null}
     </React.Fragment>
   );
 }
@@ -148,25 +141,17 @@ MergeListItem.propTypes = {
    */
   icon: PropTypes.oneOf(iconVariants),
 
-    /**
+  /**
    * The color of the icon.
    */
-     iconColor: PropTypes.oneOf([
-      "inherit",
-      "primary",
-      "secondary",
-      "action",
-      "error",
-      "disabled"
-    ]),
+  iconColor: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'action', 'error', 'disabled']),
   /**
    * Defines the `align-items` style property.
    */
-   alignItems: PropTypes.oneOf(["flex-start", "center"]),
-    isCollapsible: PropTypes.bool,
+  alignItems: PropTypes.oneOf(['flex-start', 'center']),
+  isCollapsible: PropTypes.bool,
 
-
-    collapsed: PropTypes.bool,
+  collapsed: PropTypes.bool,
 
   /**
    * If `true`, the list item will be clickable.
@@ -208,17 +193,15 @@ MergeListItem.propTypes = {
    */
   onClick: PropTypes.func,
 
-  
   /**
    * PROPS BELOW NOT USED
    */
 
   /**
-  * The content of the component.
-  * @uxpinignoreprop
-  */
+   * The content of the component.
+   * @uxpinignoreprop
+   */
   children: PropTypes.node,
-
 
   /**
    * Override or extend the styles applied to the component.
@@ -264,11 +247,10 @@ MergeListItem.propTypes = {
    *  @uxpinignoreprop
    */
   focusVisibleClassName: PropTypes.string,
-
 };
 
 MergeListItem.defaultProps = {
-  iconColor:"primary",
-  divider: true
-}
+  iconColor: 'primary',
+  divider: true,
+};
 export { MergeListItem as default };

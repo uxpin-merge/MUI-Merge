@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import SliderM from '@mui/material/Slider';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Slider(props) {
-  // Unique Id 
+  // Unique Id
   const id = uuidv4();
 
-  return (
-    <SliderM
-      key={id}
-      {...props} />
-  );
+  return <SliderM key={id} {...props} />;
 }
 
 // Need to add support for Aria props
@@ -45,7 +41,6 @@ Slider.propTypes = {
    */
   valueLabelDisplay: PropTypes.oneOf(['auto', 'off', 'on']),
 
-
   /**
    * The format function the value label's value.
    * When a function is provided, it should have the following signature:
@@ -55,15 +50,15 @@ Slider.propTypes = {
   valueLabelFormat: PropTypes.func | PropTypes.string,
 
   /**
-   * The granularity with which the slider can step through values. 
-   * (A "discrete" slider.) The min prop serves as the origin for the valid values. 
+   * The granularity with which the slider can step through values.
+   * (A "discrete" slider.) The min prop serves as the origin for the valid values.
    * We recommend (max - min) to be evenly divisible by the step.
    * When step is null, the thumb can only be slid onto marks provided with the marks prop.
    */
   step: PropTypes.number,
 
   /**
-   * Marks indicate predetermined values to which the user can move the slider. 
+   * Marks indicate predetermined values to which the user can move the slider.
    * If true the marks are spaced according the value of the step prop. If an array, it should contain objects with value and an optional label keys.
    */
   marks: PropTypes.bool,
@@ -92,8 +87,8 @@ Slider.propTypes = {
   disabled: PropTypes.bool,
 
   /**
-     * The component used for the root node. Either a string to use a HTML element or a component.
-     */
+   * The component used for the root node. Either a string to use a HTML element or a component.
+   */
   components: PropTypes.string,
 
   /**
@@ -106,12 +101,6 @@ Slider.propTypes = {
    * @uxpinignoreprop
    */
   disableSwap: PropTypes.bool,
-
-  /**
-   * The components used for each slot inside the Slider. Either a string to use a HTML element or a component.
-   * @uxpinignoreprop
-   */
-  components: PropTypes.object,
 
   /**
    * The props used for each slot inside the Slider
@@ -153,9 +142,9 @@ Slider.propTypes = {
    * Custom Style Object
    */
   sx: PropTypes.object,
-  
+
   /**
-  * Custom Style Object
-  */
+   * Custom Style Object
+   */
   onChange: PropTypes.func,
-}
+};

@@ -1,14 +1,13 @@
-import * as React from "react";
-import SwitchGroup from "../SwitchGroup"
-import Checkbox from "../../Checkbox/Checkbox";
-import CheckboxWithLabel from "../../CheckboxWithLabel/CheckboxWithLabel";
-
+import * as React from 'react';
+import SwitchGroup from '../SwitchGroup';
+import Checkbox from '../../Checkbox/Checkbox';
+import CheckboxWithLabel from '../../CheckboxWithLabel/CheckboxWithLabel';
 
 export default (
-  <SwitchGroup uxpId="3" name= "checkbox-group" grouplabel="Favorite Colors">
+  <SwitchGroup uxpId="3" name="checkbox-group" grouplabel="Favorite Colors">
     <CheckboxWithLabel
       value="red"
-      control={<Checkbox uxpId="checkbox1"/>}
+      control={<Checkbox uxpId="checkbox1" />}
       label="Red"
       uxpId="FormControlLabel1"
       checked={false}

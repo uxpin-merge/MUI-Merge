@@ -1,6 +1,6 @@
-import React from "react";
-import DialogTitleM from "@mui/material/DialogTitle";
-import PropTypes from "prop-types";
+import React from 'react';
+import DialogTitleM from '@mui/material/DialogTitle';
+import PropTypes from 'prop-types';
 import IconButton from '../IconButton/IconButton';
 
 /**
@@ -22,10 +22,9 @@ function DialogTitle(props) {
         >
           close
         </IconButton>
-      ) : null
-      }
+      ) : null}
     </DialogTitleM>
-  )
+  );
 }
 
 DialogTitle.propTypes = {
@@ -45,14 +44,14 @@ DialogTitle.propTypes = {
   onClick: PropTypes.func,
 
   /**
-   * Override or extend the styles applied to the component. 
+   * Override or extend the styles applied to the component.
    * See CSS API below for more details. https://mui.com/api/dialog-title/#css
    * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. 
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/
    */
   sx: PropTypes.object,

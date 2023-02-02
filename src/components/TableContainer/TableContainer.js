@@ -6,9 +6,7 @@ import TableContainerM from '@mui/material/TableContainer';
  * @uxpindocurl https://mui.com/api/table-container/#main-content
  */
 function TableContainer(props) {
-  return (
-    <TableContainerM {...props}>{props.children}</TableContainerM>
-  )
+  return <TableContainerM {...props}>{props.children}</TableContainerM>;
 }
 
 TableContainer.propTypes = {
@@ -23,6 +21,6 @@ TableContainer.propTypes = {
   component: PropTypes.string,
 
   sx: PropTypes.object,
-}
+};
 
 export default TableContainer;

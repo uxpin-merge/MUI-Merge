@@ -1,23 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import PaginationM  from '@mui/material/Pagination';
+import React from 'react';
+import PropTypes from 'prop-types';
+import PaginationM from '@mui/material/Pagination';
 
 /**
  * @uxpindocurl https://mui.com/api/pagination/
  */
 function Pagination(props) {
-    return (
-        <PaginationM {...props} />
-    )
-} 
-  
+  return <PaginationM {...props} />;
+}
+
 Pagination.propTypes = {
   /**
    * The total number of pages.
    * @uxpinpropname No. Pages
    */
   count: PropTypes.number,
-  
+
   /**
    * Number of always visible pages at the beginning and end.
    */
@@ -109,6 +107,6 @@ Pagination.propTypes = {
    * Callback fired when the expand/collapse state is changed.
    */
   onChange: PropTypes.func,
-}
+};
 
 export default Pagination;

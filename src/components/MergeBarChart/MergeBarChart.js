@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 // third-party
 import ReactApexChart from 'react-apexcharts';
-
 
 // ==============================|| MONTHLY BAR CHART ||============================== //
 
@@ -12,41 +11,41 @@ const MergeBarChart = (props) => {
   // chart options
   const barChartOptions = {
     chart: {
-      type: props.bar,
-      width: "100%",
+      type: props.toolbar,
+      width: '100%',
       toolbar: {
-        show: props.toolbar
+        show: props.toolbar,
       },
       stacked: props.stacked,
-      stackType: props.stackType
+      stackType: props.stackType,
     },
     plotOptions: {
       bar: {
         columnWidth: props.columnWidth,
         borderRadius: props.borderRadius,
-      }
+      },
     },
     legend: {
       position: props.legendPos,
-      show: props.legend
+      show: props.legend,
     },
     dataLabels: {
-      enabled: props.dataLabels
+      enabled: props.dataLabels,
     },
     xaxis: {
       categories: props.categories,
       axisBorder: {
-        show: props.axisBorder
+        show: props.axisBorder,
       },
       axisTicks: {
-        show: props.axisTicks
-      }
+        show: props.axisTicks,
+      },
     },
     yaxis: {
-      show: props.yaxis
+      show: props.yaxis,
     },
     grid: {
-      show: props.grid
+      show: props.grid,
     },
     title: {
       text: props.title,
@@ -55,27 +54,18 @@ const MergeBarChart = (props) => {
     stroke: {
       show: props.stroke,
       width: props.strokeWidth,
-      colors: ['#fff']
+      colors: ['#fff'],
     },
-
-
   };
-
 
   const [series] = useState(props.series);
   const [options, setOptions] = useState(barChartOptions);
 
-
   React.useEffect(() => {
-    setOptions(barChartOptions)
+    setOptions(barChartOptions);
   });
 
-
-  return (
-   
-      <ReactApexChart options={options} series={series}  {...props} />
-  
-  );
+  return <ReactApexChart options={options} series={series} {...props} />;
 };
 MergeBarChart.propTypes = {
   title: PropTypes.string,
@@ -97,23 +87,23 @@ MergeBarChart.propTypes = {
   legendPos: PropTypes.oneOf(['default', 'top', 'bottom', 'right', 'left']),
   stroke: PropTypes.bool,
   strokeWidth: PropTypes.number,
-  height: PropTypes.number
-}
+  height: PropTypes.number,
+};
 
 MergeBarChart.defaultProps = {
-  type: "bar",
+  type: 'bar',
   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
   series: [
     {
-      name: "Income",
-      color: "#42a5f5",
-      data: [20, 28, 38, 30, 43, 48]
+      name: 'Income',
+      color: '#42a5f5',
+      data: [20, 28, 38, 30, 43, 48],
     },
     {
-      name: "Expenses",
-      color: "#1565c0",
-      data: [18, 8, 26, 8, 27, 30]
-    }
+      name: 'Expenses',
+      color: '#1565c0',
+      data: [18, 8, 26, 8, 27, 30],
+    },
   ],
   toolbar: false,
   dataLabels: false,
@@ -125,12 +115,12 @@ MergeBarChart.defaultProps = {
   grid: false,
   stacked: false,
   legend: false,
-  legendPos: "bottom",
-  stackType: "normal",
-  title: "",
-  titlePos: "left",
+  legendPos: 'bottom',
+  stackType: 'normal',
+  title: '',
+  titlePos: 'left',
   stroke: true,
-  strokeWidth: 1
-}
+  strokeWidth: 1,
+};
 
 export default MergeBarChart;

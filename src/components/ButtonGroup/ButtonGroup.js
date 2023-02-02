@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
 import ButtonGroupM from '@mui/material/ButtonGroup';
-
 
 /**
  * @uxpindocurl https://mui.com/api/button-group/
  */
 function ButtonGroup(props) {
-    return (
-        <ButtonGroupM {...props}>{props.children}</ButtonGroupM>
-    )
+  return <ButtonGroupM {...props}>{props.children}</ButtonGroupM>;
 }
 
 ButtonGroup.propTypes = {
@@ -27,7 +23,7 @@ ButtonGroup.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * The color of the component. 
+   * The color of the component.
    * It supports those theme colors that make sense for this component.
    */
   color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'error', 'info', 'success', 'warning']),
@@ -42,7 +38,7 @@ ButtonGroup.propTypes = {
    * If 'true', the component is disabled.
    */
   disabled: PropTypes.bool,
-  
+
   /**
    * If 'true', no elevation is used.
    */
@@ -52,33 +48,33 @@ ButtonGroup.propTypes = {
    * If 'true', the button ripple effect is disabled.
    */
   disableRipple: PropTypes.bool,
-  
+
   /**
    * If 'true', the buttons will take up the full width of its container.
    */
   fullWidth: PropTypes.bool,
 
-   /**
-    * The component orientation (layout flow direction).
-    */
+  /**
+   * The component orientation (layout flow direction).
+   */
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 
-   /**
-    * The size of the component. small is equivalent to the dense button styling.
-    */
+  /**
+   * The size of the component. small is equivalent to the dense button styling.
+   */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 
-   /** 
-    * The system prop that allows defining system overrides as well as additional CSS styles. 
-    * See the `sx` page for more details https://mui.com/system/the-sx-prop/.
-    */
-   /**  */
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   * See the `sx` page for more details https://mui.com/system/the-sx-prop/.
+   */
+  /**  */
   sx: PropTypes.object,
 
-   /**
-    * the variant used.  
-    */
-  variant: PropTypes.oneOf(['contained', 'outlined', 'text']), 
-}
+  /**
+   * the variant used.
+   */
+  variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
+};
 
 export default ButtonGroup;

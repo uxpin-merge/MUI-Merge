@@ -4,9 +4,9 @@ import Avatar from '../../Avatar/Avatar';
 import Icon from '../../Icon/Icon';
 
 export default (
-  <ListItemAvatar uxpId='List-Item-Avatar-1'>
-    <Avatar uxpId='Avatar-1'>
-      <Icon uxpId='Icon-1'>home</Icon>
+  <ListItemAvatar uxpId="List-Item-Avatar-1">
+    <Avatar uxpId="Avatar-1">
+      <Icon uxpId="Icon-1">home</Icon>
     </Avatar>
   </ListItemAvatar>
 );

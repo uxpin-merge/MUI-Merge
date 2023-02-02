@@ -1,36 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
-import TextFieldM from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
+import React from 'react';
+import PropTypes from 'prop-types';
+import TextFieldM from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants'
-
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/text-field/
  */
 function TextField(props) {
-  const { uxpinRef, startAdornment, endAdornment, ...other } = props;
+  const { startAdornment, endAdornment, ...other } = props;
 
   return (
-    <TextFieldM {...other}
+    <TextFieldM
+      {...other}
       InputProps={{
-        startAdornment: (
-          props.startAdornment &&
+        startAdornment: props.startAdornment && (
           <InputAdornment position="start">
             <Icon>{startAdornment}</Icon>
           </InputAdornment>
-
         ),
-        endAdornment: (
-          props.endAdornment &&
+        endAdornment: props.endAdornment && (
           <InputAdornment position="end">
             <Icon>{endAdornment}</Icon>
           </InputAdornment>
         ),
       }}
     />
-  )
+  );
 }
 
 TextField.propTypes = {
@@ -40,8 +37,8 @@ TextField.propTypes = {
   label: PropTypes.string,
 
   /**
- * The helper text content.
- */
+   * The helper text content.
+   */
   helperText: PropTypes.string,
 
   /**
@@ -57,18 +54,12 @@ TextField.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
-    PropTypes.arrayOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.bool
-      ])
-    )
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])),
   ]),
 
   /**
-   * This prop helps users to fill forms faster, especially on mobile devices. 
-   * The name can be confusing, as it's more like an autofill. 
+   * This prop helps users to fill forms faster, especially on mobile devices.
+   * The name can be confusing, as it's more like an autofill.
    * You can learn more about it: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill.
    */
   /** @uxpinignoreprop */
@@ -83,7 +74,7 @@ TextField.propTypes = {
   /**
    * The variant to use.
    */
-  variant: PropTypes.oneOf(["standard", "outlined", "filled"]),
+  variant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 
   /**The size of the component */
   size: PropTypes.oneOf(['small', 'medium']),
@@ -94,8 +85,8 @@ TextField.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']),
 
   /**
- * If 'dense' or 'normal', will adjust vertical spacing of this and contained components.
- */
+   * If 'dense' or 'normal', will adjust vertical spacing of this and contained components.
+   */
   margin: PropTypes.oneOf(['dense', 'none', 'normal']),
 
   /** The default value. Use when the component is not controlled.*/
@@ -109,8 +100,8 @@ TextField.propTypes = {
    */
   type: PropTypes.oneOf(['text', 'number', 'password']),
   /**
- * If `true`, the label is displayed as required and the input will be required.
- */
+   * If `true`, the label is displayed as required and the input will be required.
+   */
   required: PropTypes.bool,
 
   /** If 'true', the label is displayed in an error state.*/
@@ -122,8 +113,8 @@ TextField.propTypes = {
   fullWidth: PropTypes.bool,
 
   /**
- * If 'true', the input element is focused during the first mount.
- */
+   * If 'true', the input element is focused during the first mount.
+   */
   autoFocus: PropTypes.bool,
 
   /**
@@ -159,7 +150,7 @@ TextField.propTypes = {
   rows: PropTypes.number,
 
   /**
-   * Render a 'Select' element while passing the Input element to 'Select' as 'input' parameter. 
+   * Render a 'Select' element while passing the Input element to 'Select' as 'input' parameter.
    * If this option is set you must pass the options of the select as children.
    */
   /** @uxpinignoreprop */
@@ -169,22 +160,22 @@ TextField.propTypes = {
   SelectProps: PropTypes.object,
 
   /**
-  * If set, icon will display to the left.
-  * Use the name of the icon from https://material.io/tools/icons.
-  */
+   * If set, icon will display to the left.
+   * Use the name of the icon from https://material.io/tools/icons.
+   */
   startAdornment: PropTypes.oneOf(iconVariants),
 
   endAdornment: PropTypes.oneOf(iconVariants),
 
   /**
-* Callback fired when the value is changed.
-*/
+   * Callback fired when the value is changed.
+   */
   onChange: PropTypes.func,
 
-  /** The system prop that allows defining 
-   * system overrides as well as additional CSS styles. 
+  /** The system prop that allows defining
+   * system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/ */
-  sx: PropTypes.object
+  sx: PropTypes.object,
 };
 
 export default TextField;

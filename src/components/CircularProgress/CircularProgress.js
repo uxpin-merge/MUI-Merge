@@ -1,24 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
-import CircularProgressM from "@mui/material/CircularProgress";
+import React from 'react';
+import PropTypes from 'prop-types';
+import CircularProgressM from '@mui/material/CircularProgress';
 
 /**
  * @uxpindocurl https://mui.com/api/circular-progress/#main-content
  */
 function CircularProgress(props) {
   return (
-    <div style={{ width: "fit-content" }}>
+    <div style={{ width: 'fit-content' }}>
       <CircularProgressM {...props} />
     </div>
-  )
+  );
 }
 
 CircularProgress.propTypes = {
   /**
-     * Override or extend the styles applied to the component.
-     * See [CSS API](#css-api) below for more details.
-     * @uxpinignoreprop
-     */
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   * @uxpinignoreprop
+   */
   classes: PropTypes.object,
 
   /**
@@ -63,7 +63,7 @@ CircularProgress.propTypes = {
   disableShrink: PropTypes.bool,
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. 
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/
    */
   /** */

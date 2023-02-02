@@ -1,21 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@mui/styles";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@mui/styles';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    width: "100%",
-    "& .MuiTab-wrapper": {
-      color: "#ffffff",
-      
-    }
-  }
+    width: '100%',
+    '& .MuiTab-wrapper': {
+      color: '#ffffff',
+    },
+  },
 }));
 
 export default function MergeTopNavigation(props) {
@@ -37,11 +33,11 @@ export default function MergeTopNavigation(props) {
         scrollButtons="auto"
         aria-label="scrollable auto tabs example"
       >
-        {props.menus.map(menus => (
+        {props.menus.map((menus) => (
           <>
             {/* {menus.active == true ? handleActive("3") : null} */}
 
-            <Tab label={menus.label} color="primary"/>
+            <Tab label={menus.label} color="primary" />
           </>
         ))}
         {/* <Tab label="Item One" {...a11yProps(0)} />
@@ -58,9 +54,9 @@ MergeTopNavigation.propTypes = {
       icon: PropTypes.string,
       label: PropTypes.string,
       active: PropTypes.bool,
-      submenu: PropTypes.arrayOf(PropTypes.shape({}))
+      submenu: PropTypes.arrayOf(PropTypes.shape({})),
     })
-  )
+  ),
 };
 
 // import React, { useState } from "react";

@@ -13,7 +13,7 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.6",
     "@mui/x-data-grid": "^5.17.20",
-    "@mui/x-date-pickers": "^5.0.13",
+    "@mui/x-date-pickers": "5.0.0",
     "@swc/helpers": "^0.4.11",
     "apexcharts": "^3.35.5",
     "css-loader": "2.0.0",
@@ -30,16 +30,18 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "uxpin:experimental": "npx uxpin-merge --disable-tunneling"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "uxpin:experimental": "npx uxpin-merge --disable-tunneling",
+    "eslint": "npx eslint src/",
+    "prettier:check": "npx prettier src/ --check .",
+    "prettier:write": "npx prettier src/ --write ."
   },
   "devDependencies": {
-    "@uxpin/merge-cli": "^2.10.0",
-    "parcel": "^2.7.0"
+    "@uxpin/merge-cli": "^2.11.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "parcel": "^2.7.0",
+    "prettier": "^2.8.3"
   }
 }

@@ -1,16 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import CardActionAreaM from '@mui/material/CardActionArea';
-
 
 /**
  * @uxpindocurl https://mui.com/api/card-action-area/
  */
 function CardActionArea(props) {
-    return (
-        <CardActionAreaM {...props}>{props.children}</CardActionAreaM>
-    )
-} 
+  return <CardActionAreaM {...props}>{props.children}</CardActionAreaM>;
+}
 
 CardActionArea.propTypes = {
   /**
@@ -24,11 +21,11 @@ CardActionArea.propTypes = {
    * @uxpinignoreprop
    */
   classes: PropTypes.object,
-  
+
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 export default CardActionArea;
