@@ -95,18 +95,6 @@ module.exports = {
         ],
       },
       {
-        name: 'UXPin Templates',
-        include: [
-          'src/components/MergeHeader/MergeHeader.js',
-          'src/components/MergeSideNavigation/MergeSideNavigation.js',
-          'src/components/MergeListItem/MergeListItem.js',
-          'src/components/MergeBarChart/MergeBarChart.js',
-          'src/components/MergeAnalyticCard/MergeAnalyticCard.js',
-          'src/components/Dot/Dot.js',
-        ],
-      },
-
-      {
         name: 'CHILDREN (PARTS)',
         include: [
           'src/components/AlertTitle/AlertTitle.js',
