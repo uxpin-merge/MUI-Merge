@@ -14,26 +14,8 @@ const boilerplateTheme = {
       light: '#ba68c8',
       dark: '#7b1fa2',
       contrastText: '#ffffff',
-    },
-    decoration: {
-      main: '#2684FF',
-    },
-    error: {
-      main: '#e72400',
-    },
-    headerBadges: {
-      main: '#2684FF',
-    },
-  },
-  components: {
-    // Name of the component
-    MuiTypography: {
-      defaultProps: {
-        // The props to change the default for.
-        color: 'text.primary', // All typography color props default to text.primary
-      },
-    },
-  },
+    }
+  }
 };
 
 export default boilerplateTheme;

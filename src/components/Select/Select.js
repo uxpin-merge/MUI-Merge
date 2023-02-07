@@ -26,6 +26,7 @@ function Select(props) {
       onClose={props.onClose}
       value={selectedValue}
       label={props.label}
+      {...props}
     >
       {props.children}
     </SelectM>
