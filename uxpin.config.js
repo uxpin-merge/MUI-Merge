@@ -5,6 +5,7 @@ module.exports = {
         name: 'INPUTS',
         include: [
           // 'src/components/Autocomplete/Autocomplete.js',
+          'src/components/ThemeCustomizer/ThemeCustomizer.js',
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
           'src/components/DatePicker/DatePicker.js',
