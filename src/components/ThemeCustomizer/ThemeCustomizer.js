@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { createTheme } from "@mui/material/styles";
-import { ThemeContext } from "../UXPinWrapper/UXPinWrapper";
+import { ThemeContext } from "../UXPinWrapper/UXPinWrapperWithThemeCustomizer";
 
 //Will add custom font links to the header
 const addFont = (link, index) => {
@@ -85,17 +85,4 @@ ThemeCustomizer.propTypes = {
     themeObject: PropTypes.object,
 };
 
-// ThemeCustomizer.defaultProps = {
-//   themeObject: {
-//     "palette": {
-//       "mode": "light",
-//       "primary": {
-//         "main": "#000000"
-//       },
-//       "secondary": {
-//         "main": "#f50057"
-//       }
-//     }
-//   }
-// }
 export default ThemeCustomizer;
