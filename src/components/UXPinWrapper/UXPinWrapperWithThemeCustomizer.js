@@ -53,9 +53,6 @@ export default function UXPinWrapper(props) {
 
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
-      {/* <ThemeProviderHelper currentTheme={themeOptions.theme}> */}
-      {/* {props.children} */}
-      {/* </ThemeProviderHelper> */}
       <ThemeProvider theme={themeOptions.theme}>{props.children}</ThemeProvider>
     </ThemeContext.Provider>
   );
