@@ -153,7 +153,7 @@ module.exports = {
       },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
-    webpackConfig: 'uxpin.webpack.config.js',
+    webpackConfig: 'webpack.config.js',
   },
   name: 'MUI-UXPin-Merge',
 };
