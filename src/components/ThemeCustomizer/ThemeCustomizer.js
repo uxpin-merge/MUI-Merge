@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createTheme } from "@mui/material/styles";
 import { ThemeContext } from "../UXPinWrapper/UXPinWrapperWithThemeCustomizer";
+import { Dialog, DialogActions, Button } from "@mui/material";
+
+import SwipeableTemporaryDrawer from "./UXPinDrawer/UXPinDrawer";
+
+// import { Button } from "@mui/material";
 
 //Will add custom font links to the header
 const addFont = (link, index) => {
@@ -13,11 +18,39 @@ const addFont = (link, index) => {
     //console.log("added: ", newFontLink);
 };
 
+// function initThemeCreator() {
+
+//     var uxpinContainer = document.getElementById("top-bar");
+//     var customizerContainer = document.getElementById("theme-customizer-container");
+
+
+//     uxpinContainer.prepend(customizerContainer)
+//     // var t = document.getElementById("TARGET");
+
+
+//     // topdiv.parentNode.insertBefore(bottomdiv,topdiv);
+//     // topdiv.className = 'bottom-div';
+//     // bottomdiv.className = 'top-div';
+// }
+
 function ThemeCustomizer(props) {
+
+
+    // const myButton = () => { return (<Button>inside</Button>) };
+    // var uxpinContainer = document.getElementById("properties-panel");
+    // uxpinContainer.prepend(myButton)
+
+
+
+    // initThemeCreator();
+
+    const [dialogState, setdialogState] = React.useState(props.showCreator);
 
     const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
 
     React.useEffect(() => {
+
+        setdialogState(props.showCreator)
 
         setThemeOptions((oldTheme) => {
             let options = { ...props };
@@ -73,7 +106,41 @@ function ThemeCustomizer(props) {
     }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
 
     return (
-        <div>
+        <div id='theme-customizer-container'>
+
+            {props.showCreator ?
+                // <SwipeableTemporaryDrawer />
+                <div id="jack-drawer">
+                    {/* {["right"].map((anchor) => (
+                    <React.Fragment key={anchor}>
+    
+                        <Drawer
+                            anchor={anchor}
+                            open={true}
+                            onClose={toggleDrawer(anchor, false)}
+                            onOpen={toggleDrawer(anchor, true)}
+                            disableBackdropTransition
+                            variant="permanent"
+                        ><Button onClick={() => console.log("true")} id="jack-button">{anchor}</Button>
+                            {list(anchor)}
+                        </Drawer>
+                    </React.Fragment>
+                ))} */}
+
+                    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" open={dialogState}>
+                        <DialogActions >
+                            <Button >Disagree</Button>
+                            <Button autoFocus onClick={() => setdialogState(false)}>
+                                Agree
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
+
+                </div>
+                :
+                <p>none</p>}
+
             <h1>Global Theme Customizer</h1>
             <p>Should change global theme props</p>
             <div style={{ marginTop: "2em" }}>{props.children}</div>
@@ -83,6 +150,7 @@ function ThemeCustomizer(props) {
 
 ThemeCustomizer.propTypes = {
     themeObject: PropTypes.object,
+    showCreator: PropTypes.bool,
 };
 
 export default ThemeCustomizer;
