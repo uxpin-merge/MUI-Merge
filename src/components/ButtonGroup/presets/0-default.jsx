@@ -7,5 +7,5 @@ export default (
     <Button uxpId="1">One</Button>
     <Button uxpId="2">Two</Button>
     <Button uxpId="3">Three</Button>
-  </ButtonGroup>  
-)
+  </ButtonGroup>
+);

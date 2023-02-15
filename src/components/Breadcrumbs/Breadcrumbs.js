@@ -2,14 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BreadcrumbsM from '@mui/material/Breadcrumbs';
 
-
 /**
-  * @uxpindocurl https://mui.com/api/breadcrumbs/#main-content
-  */
+ * @uxpindocurl https://mui.com/api/breadcrumbs/#main-content
+ */
 function Breadcrumbs(props) {
-    return (
-        <BreadcrumbsM {...props}>{props.children}</BreadcrumbsM>
-    )
+  return <BreadcrumbsM {...props}>{props.children}</BreadcrumbsM>;
 }
 
 Breadcrumbs.propTypes = {
@@ -49,8 +46,8 @@ Breadcrumbs.propTypes = {
   itemsBeforeCollapse: PropTypes.number,
 
   /**
-   * Specifies the maximum number of breadcrumbs to display. 
-   * When there are more than the maximum number, 
+   * Specifies the maximum number of breadcrumbs to display.
+   * When there are more than the maximum number,
    * only the first itemsBeforeCollapse and last itemsAfterCollapse will be shown, with an ellipsis in between.
    */
   maxItems: PropTypes.number,
@@ -59,9 +56,9 @@ Breadcrumbs.propTypes = {
   /** @uxpinignoreprop */
   separator: PropTypes.node,
 
-  /** The system prop that allows defining system overrides as well as additional CSS styles. 
+  /** The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/ */
   sx: PropTypes.object,
-}
+};
 
 export default Breadcrumbs;

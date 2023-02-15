@@ -1,25 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import AccordionM from '@mui/material/Accordion';
-
 
 /**
  * @upxindocurl https://mui.com/api/accordion/
  */
 function Accordion(props) {
-
   const [expanded, setExpanded] = React.useState('');
 
-
   React.useEffect(() => {
-    setExpanded(props.expanded)
+    setExpanded(props.expanded);
   }, [props.expanded]); // Only re-run the effect if value prop changes
 
-
-    return (
-        <AccordionM expanded={expanded} {...props}>{props.children}</AccordionM>
-    )
-} 
+  return (
+    <AccordionM expanded={expanded} {...props}>
+      {props.children}
+    </AccordionM>
+  );
+}
 
 Accordion.propTypes = {
   /**
@@ -78,10 +76,10 @@ Accordion.propTypes = {
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
-   * 
+   *
    */
-  sx: PropTypes.object
-}
+  sx: PropTypes.object,
+};
 
 Accordion.defaultProps = {
   // NOTE: Checked must be controlled state from the outset, otherwise changing state in the app will trigger an error

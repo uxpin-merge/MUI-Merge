@@ -1,6 +1,3 @@
-import TablePagination from "../TablePagination"
+import TablePagination from '../TablePagination';
 
-
-export default (
-    <TablePagination uxpId="page-1" />
-)
+export default <TablePagination uxpId="page-1" />;

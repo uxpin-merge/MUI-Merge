@@ -6,9 +6,7 @@ import TableRowM from '@mui/material/TableRow';
  * @uxpindocurl https://mui.com/api/table-row/#main-content
  */
 function TableRow(props) {
-  return (
-    <TableRowM {...props}>{props.children}</TableRowM>
-  )
+  return <TableRowM {...props}>{props.children}</TableRowM>;
 }
 
 TableRow.propTypes = {
@@ -25,7 +23,7 @@ TableRow.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * The component used for the root node. 
+   * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
   component: PropTypes.elementType,
@@ -41,10 +39,10 @@ TableRow.propTypes = {
   selected: PropTypes.bool,
 
   /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. 
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details.
    */
   sx: PropTypes.object,
-}
+};
 
 export default TableRow;

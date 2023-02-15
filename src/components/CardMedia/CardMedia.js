@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import CardMediaM from "@mui/material/CardMedia";
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import CardMediaM from '@mui/material/CardMedia';
 
 /**
  * @uxpindocurl https://mui.com/api/card-media/
@@ -20,7 +19,7 @@ CardMedia.propTypes = {
   /**
    * The component used for the root node.
    */
-  component: PropTypes.oneOf(["img", "video", "audio"]),
+  component: PropTypes.oneOf(['img', 'video', 'audio']),
 
   /**
    * The height of the media
@@ -50,9 +49,10 @@ CardMedia.propTypes = {
 };
 
 CardMedia.defaultProps = {
-  component: "img",
+  component: 'img',
   height: 120,
-  image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+  image:
+    'https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
 };
 
 export { CardMedia as default };

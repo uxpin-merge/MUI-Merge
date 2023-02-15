@@ -1,17 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import ListSubheaderM from '@mui/material/ListSubheader';
-
 
 /**
  * @uxpindocurl https://mui.com/api/list-subheader/
  */
 function ListSubheader(props) {
-  return (
-    <ListSubheaderM {...props}>
-      {props.children}
-    </ListSubheaderM>
-  )
+  return <ListSubheaderM {...props}>{props.children}</ListSubheaderM>;
 }
 
 ListSubheader.propTypes = {
@@ -31,7 +26,7 @@ ListSubheader.propTypes = {
   /**
    * The color of the Subheader.
    */
-  color: PropTypes.oneOf(["inherit", "primary"]),
+  color: PropTypes.oneOf(['inherit', 'primary']),
 
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
@@ -57,6 +52,6 @@ ListSubheader.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 export default ListSubheader;

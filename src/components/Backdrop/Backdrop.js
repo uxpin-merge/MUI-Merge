@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Backdrop as BackdropM } from "@mui/material";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Backdrop as BackdropM } from '@mui/material';
 
 /**
  * @uxpindocurl https://mui.com/api/backdrop/
@@ -9,29 +9,28 @@ function Backdrop(props) {
   const [open, setOpen] = React.useState(props.open);
 
   React.useEffect(() => {
-    setOpen(props.open)
+    setOpen(props.open);
   }, [props]); // Only re-run the effect if value prop changes
 
-  return ( 
-    <BackdropM 
+  return (
+    <BackdropM
       {...props}
       open={open}
       onClick={() => {
-        setOpen(!open)
+        setOpen(!open);
       }}
-
     >
       {props.children}
     </BackdropM>
-  )
+  );
 }
 
 Backdrop.propTypes = {
   /**
-   * If true, the component is shown. 
-   */  
+   * If true, the component is shown.
+   */
   open: PropTypes.bool,
-  
+
   /**
    * The content of the component.
    * @uxpinignoreprop
@@ -78,7 +77,7 @@ Backdrop.propTypes = {
    * Set to "auto" to automatically calculate transition time based on height. "" must be used instead of '' or ``.
    * When using number simple write the number with no quotes. Example: 3000.
    */
-  transitionDuration: PropTypes.number, 
+  transitionDuration: PropTypes.number,
   // transitionDuration: PropTypes.oneOfType([
   //   PropTypes.number,
   //   PropTypes.shape({

@@ -29,8 +29,7 @@ module.exports = {
           // 'src/components/TransferList/TransferList.js',
           'src/components/ToggleButton/ToggleButton.js',
           'src/components/ToggleButtonGroup/ToggleButtonGroup.js',
-
-        ]
+        ],
       },
       {
         name: 'DATA DISPLAY',
@@ -39,14 +38,14 @@ module.exports = {
           'src/components/AvatarGroup/AvatarGroup.js',
           'src/components/Badge/Badge.js',
           'src/components/Chip/Chip.js',
+          'src/components/DataGrid/DataGrid.js',
           'src/components/Divider/Divider.js',
           'src/components/Icon/Icon.js',
           'src/components/List/List.js',
           'src/components/Table/Table.js',
           'src/components/Tooltip/Tooltip.js',
           'src/components/Typography/Typography.js',
-
-        ]
+        ],
       },
       {
         name: 'FEEDBACK',
@@ -58,7 +57,7 @@ module.exports = {
           'src/components/LinearProgress/LinearProgress.js',
           'src/components/Skeleton/Skeleton.js',
           'src/components/Snackbar/Snackbar.js',
-        ]
+        ],
       },
       {
         name: 'SURFACES',
@@ -67,7 +66,7 @@ module.exports = {
           'src/components/AppBar/AppBar.js',
           'src/components/Card/Card.js',
           'src/components/Paper/Paper.js',
-        ]
+        ],
       },
       {
         name: 'NAVIGATION',
@@ -81,7 +80,7 @@ module.exports = {
           // 'src/components/SpeedDial/SpeedDial.js',
           'src/components/Stepper/Stepper.js',
           'src/components/Tabs/Tabs.js',
-        ]
+        ],
       },
       {
         name: 'LAYOUT',
@@ -89,24 +88,12 @@ module.exports = {
           'src/components/Box/Box.js',
           'src/components/Container/Container.js',
           'src/components/Grid/Grid.js',
-          "src/components/Image/Image.js",
+          'src/components/Image/Image.js',
           'src/components/ImageList/ImageList.js',
           'src/components/Stack/Stack.js',
           // 'src/components/Hidden/Hidden.js',
-        ]
+        ],
       },
-      {
-        name: "UXPin Templates",
-        include: [
-          "src/components/MergeHeader/MergeHeader.js",
-          "src/components/MergeSideNavigation/MergeSideNavigation.js",
-          "src/components/MergeListItem/MergeListItem.js",
-          "src/components/MergeBarChart/MergeBarChart.js",
-          "src/components/MergeAnalyticCard/MergeAnalyticCard.js",
-          "src/components/Dot/Dot.js",
-      ]
-      },
-
       {
         name: 'CHILDREN (PARTS)',
         include: [
@@ -162,11 +149,11 @@ module.exports = {
           'src/components/Tab/Tab.js',
 
           'src/components/Toolbar/Toolbar.js',
-        ]
+        ],
       },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
     webpackConfig: 'webpack.config.js',
   },
-  name: 'MUI-UXPin-Merge'
+  name: 'MUI-UXPin-Merge',
 };

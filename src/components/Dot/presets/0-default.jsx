@@ -1,5 +1,5 @@
-import * as React from "react";
-import Dot from "../Dot"
+import * as React from 'react';
+import Dot from '../Dot';
 import Typography from '../../Typography/Typography';
 
 export default (

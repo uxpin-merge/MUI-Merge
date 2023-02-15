@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { DataGridPro, useGridApiRef } from '@mui/x-data-grid-pro';
 
-
-
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'firstName', headerName: 'First name', width: 130 },
@@ -20,9 +18,7 @@ const columns = [
     sortable: false,
     width: 160,
     valueGetter: (params) =>
-      `${params.getValue(params.id, 'firstName') || ''} ${
-        params.getValue(params.id, 'lastName') || ''
-      }`,
+      `${params.getValue(params.id, 'firstName') || ''} ${params.getValue(params.id, 'lastName') || ''}`,
   },
 ];
 
@@ -39,17 +35,17 @@ const rows = [
 ];
 
 function DataTable() {
-
   const apiRef = useGridApiRef();
   React.useEffect(() => {
     return apiRef.current.subscribeEvent('columnResize', (params) => {
+      // eslint-disable-next-line no-undef
       setMessage(`Column ${params.colDef.headerName} resized to ${params.width}px.`);
     });
   }, [apiRef]);
-  
+
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <DataGridPro 
+      <DataGridPro
         apiRef={apiRef}
         rows={rows}
         columns={columns}

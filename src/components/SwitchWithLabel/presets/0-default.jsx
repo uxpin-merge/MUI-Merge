@@ -1,6 +1,4 @@
-import * as React from "react";
-import SwitchWithLabel from "../SwitchWithLabel";
+import * as React from 'react';
+import SwitchWithLabel from '../SwitchWithLabel';
 
-export default (
-  <SwitchWithLabel label="Off" uxpId="SwitchLabel"/>
-);
+export default <SwitchWithLabel label="Off" uxpId="SwitchLabel" />;

@@ -1,19 +1,17 @@
-import React from "react";
-import Switch from "../Switch/Switch";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "../FormControlLabel/FormControlLabel";
-import FormControl from "../FormControl/FormControl";
-import FormLabel from "../FormLabel/FormLabel";
-import PropTypes from "prop-types";
+import React from 'react';
+import Switch from '../Switch/Switch';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '../FormControlLabel/FormControlLabel';
+import FormControl from '../FormControl/FormControl';
+import FormLabel from '../FormLabel/FormLabel';
+import PropTypes from 'prop-types';
 
 export default function SwitchGroup(props) {
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">{props.grouplabel}</FormLabel>
       <FormGroup {...props}>
-        {React.Children.map(props.children, (child, index) => {
-   
-
+        {React.Children.map(props.children, (child) => {
           return (
             <FormControlLabel
               value={child.props.value}
@@ -25,8 +23,8 @@ export default function SwitchGroup(props) {
                   size={props.size}
                   // checked={false}
                   inputProps={{
-                    role: "switch",
-                    "aria-checked": props.checked,
+                    role: 'switch',
+                    'aria-checked': props.checked,
                   }}
                 />
               }
@@ -43,16 +41,17 @@ export default function SwitchGroup(props) {
 }
 
 SwitchGroup.propTypes = {
+  checked: PropTypes.bool,
 
   /**
- * Display text over the radio group.
- */
+   * Display text over the radio group.
+   */
   grouplabel: PropTypes.string,
 
   /**
-* The position of the label.
-*/
-  labelPlacement: PropTypes.oneOf(["end", "start", "top", "bottom"]),
+   * The position of the label.
+   */
+  labelPlacement: PropTypes.oneOf(['end', 'start', 'top', 'bottom']),
 
   /**
    * The value of the initially selected radio button.
@@ -67,20 +66,12 @@ SwitchGroup.propTypes = {
    */
   children: PropTypes.node,
 
-    /**
+  /**
    * The size of the component. small is equivalent to the dense checkbox styling.
    */
-     size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 
-
-  color: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'warning',
-  ]),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
   /**
    * The name used to reference the value of the control.
    * @uxpinignoreprop
@@ -101,7 +92,6 @@ SwitchGroup.propTypes = {
    * Change event to use with UXPin interactions.
    */
   onChange: PropTypes.func,
-
 };
 
 SwitchGroup.defaultProps = {

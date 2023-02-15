@@ -1,6 +1,4 @@
 import * as React from 'react';
 import Switch from '../Switch';
 
-export default (
-  <Switch uxpId='switch-1' />
-);
+export default <Switch uxpId="switch-1" />;

@@ -1,26 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import CheckboxM from '@mui/material/Checkbox';
 import Icon from '../Icon/Icon';
-import { iconVariants } from "../Icon/icon-variants";
+import { iconVariants } from '../Icon/icon-variants';
 import { v4 as uuidv4 } from 'uuid';
-
 
 /**
  * @uxpindocurl https://mui.com/api/checkbox/
  */
 function Checkbox(props) {
-  // Unique Id 
+  // Unique Id
   const id = uuidv4();
 
   return (
-    <CheckboxM 
-      key={id} 
-      {...props}  
-      icon={props.icon? <Icon>{props.icon}</Icon> : <Icon>check_box_outline_blank </Icon>} 
-      checkedIcon={props.checkedIcon? <Icon>{props.checkedIcon}</Icon> : <Icon>check_box</Icon>}
+    <CheckboxM
+      key={id}
+      {...props}
+      icon={props.icon ? <Icon>{props.icon}</Icon> : <Icon>check_box_outline_blank </Icon>}
+      checkedIcon={props.checkedIcon ? <Icon>{props.checkedIcon}</Icon> : <Icon>check_box</Icon>}
     />
-  )
+  );
 }
 
 Checkbox.propTypes = {
@@ -49,14 +48,7 @@ Checkbox.propTypes = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'warning',
-  ]),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
 
   /**
    * If `true`, the switch will be disabled.
@@ -87,6 +79,6 @@ Checkbox.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-}
+};
 
 export default Checkbox;
