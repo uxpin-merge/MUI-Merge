@@ -128,7 +128,9 @@ function ThemeCustomizer(props) {
                 ))} */}
 
                     <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" open={dialogState} fullScreen={true}>
-                        <iframe src="https://jackbehar.github.io/mui-theme-creator/" style={{ height: '800px', width: '100%' }} title="Iframe Example"></iframe>
+                        <iframe src="https://jackbehar.github.io/mui-theme-creator/"
+                            allow="clipboard-read; clipboard-write"
+                            style={{ height: '800px', width: '100%' }} title="Iframe Example"></iframe>
 
                         <DialogActions >
                             <Button >Disagree</Button>
