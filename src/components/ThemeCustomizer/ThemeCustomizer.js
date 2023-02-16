@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createTheme } from "@mui/material/styles";
 import { ThemeContext } from "../UXPinWrapper/UXPinWrapperWithThemeCustomizer";
-import { Dialog, DialogActions, Button } from "@mui/material";
-
-import SwipeableTemporaryDrawer from "./UXPinDrawer/UXPinDrawer";
+import { Dialog, DialogActions, Button, Drawer, Fab, Popper, Icon, Portal } from "@mui/material";
 
 // import { Button } from "@mui/material";
 
@@ -18,10 +16,11 @@ const addFont = (link, index) => {
     //console.log("added: ", newFontLink);
 };
 
+
 // function initThemeCreator() {
 
 //     var uxpinContainer = document.getElementById("top-bar");
-//     var customizerContainer = document.getElementById("theme-customizer-container");
+//     var customizerContainer = document.getElementById("theme-creator-button");
 
 
 //     uxpinContainer.prepend(customizerContainer)
@@ -36,17 +35,30 @@ const addFont = (link, index) => {
 function ThemeCustomizer(props) {
 
 
-    // const myButton = () => { return (<Button>inside</Button>) };
-    // var uxpinContainer = document.getElementById("properties-panel");
-    // uxpinContainer.prepend(myButton)
+    // var themeCreatorButton = document.getElementById("poppertheme");
+    // var uxpinContainer = document.getElementById("section-code-component");
+    // uxpinContainer.append(themeCreatorButton)
 
 
 
-    // initThemeCreator();
+    React.useEffect(() => {
+        // initThemeCreator();
+        var themeCreatorButton = document.getElementById("poppertheme");
+        var uxpinContainer = document.getElementById("section-code-component");
+        uxpinContainer.append(themeCreatorButton)
+    }), [props]
 
     const [dialogState, setdialogState] = React.useState(props.showCreator);
 
     const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
+
+
+    function fabClick() {
+
+        setdialogState(true)
+        // alert(dialogState)
+    }
+
 
     React.useEffect(() => {
 
@@ -108,7 +120,7 @@ function ThemeCustomizer(props) {
     return (
         <div id='theme-customizer-container'>
 
-            {props.showCreator ?
+            {dialogState ?
                 // <SwipeableTemporaryDrawer />
                 <div id="jack-drawer">
                     {/* {["right"].map((anchor) => (
@@ -127,23 +139,69 @@ function ThemeCustomizer(props) {
                     </React.Fragment>
                 ))} */}
 
-                    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" open={dialogState} fullScreen={true}>
+                    <Drawer
+                        anchor="right"
+                        open={dialogState}
+                        onClose={() => setdialogState(false)}
+                        onOpen={() => setdialogState(true)}
+                        variant="temporary"
+                        width={1200}
+                        sx={{
+                            width: 1200,
+                            flexShrink: 0,
+                            '& .MuiDrawer-paper': {
+                                width: 1200,
+                                boxSizing: 'border-box',
+                            }
+                        }}
+                    >
+
+                        <Button autoFocus onClick={() => setdialogState(false)} variant="contained">
+                            Done
+                        </Button>
+
+
                         <iframe src="https://jackbehar.github.io/mui-theme-creator/"
                             allow="clipboard-read; clipboard-write"
                             style={{ height: '100%', width: '100%' }} title="Iframe Example"></iframe>
+                    </Drawer>
+
+
+                    {/* 
+                    <Dialog
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                        open={dialogState}
+                        // open={false}
+                        fullScreen={false}
+                        style={{ height: '900px', width: '2000px' }}>
+
+                        <iframe src="https://jackbehar.github.io/mui-theme-creator/"
+                            allow="clipboard-read; clipboard-write"
+                            style={{ height: '900px', width: '100%' }} title="Iframe Example"></iframe>
 
                         <DialogActions >
-                            <Button >Disagree</Button>
-                            <Button autoFocus onClick={() => setdialogState(false)}>
-                                Agree
+
+                            <Button autoFocus onClick={() => setdialogState(false)} variant="contained">
+                                Done
                             </Button>
                         </DialogActions>
-                    </Dialog>
+                    </Dialog> */}
 
 
                 </div>
                 :
-                <p>none</p>}
+                <></>
+            }
+            <Portal open={true} style={{ top: 100, left: 0 }}>
+                {/* <Dialog open> */}
+                <div id='poppertheme'>
+                    <Fab autoFocus onClick={() => fabClick()} variant="contained" color="primary" size="small">
+                        <Icon>palette</Icon>
+                    </Fab>
+                </div>
+                {/* </Dialog> */}
+            </Portal>
 
             <h1>Global Theme Customizer</h1>
             <p>Should change global theme props</p>
