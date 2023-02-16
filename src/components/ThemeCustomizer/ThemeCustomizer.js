@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createTheme } from "@mui/material/styles";
 import { ThemeContext } from "../UXPinWrapper/UXPinWrapperWithThemeCustomizer";
-import { Dialog, DialogActions, Button, Drawer, Fab, Popper, Icon, Portal } from "@mui/material";
-
-// import { Button } from "@mui/material";
+import { Dialog, DialogActions, Button, Drawer, Fab, Popper, Icon, Portal, IconButton, Stack } from "@mui/material";
 
 //Will add custom font links to the header
 const addFont = (link, index) => {
@@ -17,36 +15,23 @@ const addFont = (link, index) => {
 };
 
 
-// function initThemeCreator() {
-
-//     var uxpinContainer = document.getElementById("top-bar");
-//     var customizerContainer = document.getElementById("theme-creator-button");
-
-
-//     uxpinContainer.prepend(customizerContainer)
-//     // var t = document.getElementById("TARGET");
-
-
-//     // topdiv.parentNode.insertBefore(bottomdiv,topdiv);
-//     // topdiv.className = 'bottom-div';
-//     // bottomdiv.className = 'top-div';
-// }
 
 function ThemeCustomizer(props) {
 
 
-    // var themeCreatorButton = document.getElementById("poppertheme");
-    // var uxpinContainer = document.getElementById("section-code-component");
-    // uxpinContainer.append(themeCreatorButton)
+
+    // React.useEffect(() => {
+
+    //     if (document.getElementById("section-code-component")) {
+    //         var themeCreatorButton = document.getElementById("poppertheme");
+    //         var uxpinContainer = document.getElementById("section-code-component");
+    //         uxpinContainer.append(themeCreatorButton)
+    //     }
 
 
+    //     // initThemeCreator();
 
-    React.useEffect(() => {
-        // initThemeCreator();
-        var themeCreatorButton = document.getElementById("poppertheme");
-        var uxpinContainer = document.getElementById("section-code-component");
-        uxpinContainer.append(themeCreatorButton)
-    }), [props]
+    // })
 
     const [dialogState, setdialogState] = React.useState(props.showCreator);
 
@@ -54,9 +39,7 @@ function ThemeCustomizer(props) {
 
 
     function fabClick() {
-
         setdialogState(true)
-        // alert(dialogState)
     }
 
 
@@ -72,6 +55,7 @@ function ThemeCustomizer(props) {
             let newTheme;
 
             //if there is a theme object given, it will be the basis for any customizations
+
             if (props.themeObject && props.themeObject !== "") {
                 options.currentTheme = createTheme({
                     ...JSON.parse(JSON.stringify(props.themeObject)),
@@ -121,31 +105,13 @@ function ThemeCustomizer(props) {
         <div id='theme-customizer-container'>
 
             {dialogState ?
-                // <SwipeableTemporaryDrawer />
                 <div id="jack-drawer">
-                    {/* {["right"].map((anchor) => (
-                    <React.Fragment key={anchor}>
-    
-                        <Drawer
-                            anchor={anchor}
-                            open={true}
-                            onClose={toggleDrawer(anchor, false)}
-                            onOpen={toggleDrawer(anchor, true)}
-                            disableBackdropTransition
-                            variant="permanent"
-                        ><Button onClick={() => console.log("true")} id="jack-button">{anchor}</Button>
-                            {list(anchor)}
-                        </Drawer>
-                    </React.Fragment>
-                ))} */}
-
                     <Drawer
                         anchor="right"
                         open={dialogState}
                         onClose={() => setdialogState(false)}
                         onOpen={() => setdialogState(true)}
                         variant="temporary"
-                        width={1200}
                         sx={{
                             width: 1200,
                             flexShrink: 0,
@@ -155,48 +121,30 @@ function ThemeCustomizer(props) {
                             }
                         }}
                     >
-
-                        <Button autoFocus onClick={() => setdialogState(false)} variant="contained">
-                            Done
-                        </Button>
+                        <Stack direction="row" justifyContent="flex-end" sx={{ backgroundColor: "#000000" }}>
+                            <IconButton aria-label="delete" onClick={() => setdialogState(false)} sx={{ color: "#ffffff" }}>
+                                <Icon>cancel</Icon>
+                            </IconButton>
+                        </Stack>
 
 
                         <iframe src="https://jackbehar.github.io/mui-theme-creator/"
                             allow="clipboard-read; clipboard-write"
-                            style={{ height: '100%', width: '100%' }} title="Iframe Example"></iframe>
+                            style={{ height: '100%', width: '100%', border: 'none' }} title="Iframe Example"></iframe>
                     </Drawer>
-
-
-                    {/* 
-                    <Dialog
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
-                        open={dialogState}
-                        // open={false}
-                        fullScreen={false}
-                        style={{ height: '900px', width: '2000px' }}>
-
-                        <iframe src="https://jackbehar.github.io/mui-theme-creator/"
-                            allow="clipboard-read; clipboard-write"
-                            style={{ height: '900px', width: '100%' }} title="Iframe Example"></iframe>
-
-                        <DialogActions >
-
-                            <Button autoFocus onClick={() => setdialogState(false)} variant="contained">
-                                Done
-                            </Button>
-                        </DialogActions>
-                    </Dialog> */}
-
 
                 </div>
                 :
                 <></>
             }
-            <Portal open={true} style={{ top: 100, left: 0 }}>
+            <Portal >
                 {/* <Dialog open> */}
                 <div id='poppertheme'>
-                    <Fab autoFocus onClick={() => fabClick()} variant="contained" color="primary" size="small">
+                    <Fab autoFocus onClick={() => fabClick()} variant="contained" color="primary" size="xl" sx={{
+                        position: 'absolute',
+                        bottom: '50px',
+                        right: '30px'
+                    }}>
                         <Icon>palette</Icon>
                     </Fab>
                 </div>
@@ -204,6 +152,7 @@ function ThemeCustomizer(props) {
             </Portal>
 
             <h1>Global Theme Customizer</h1>
+
             <p>Should change global theme props</p>
             <div style={{ marginTop: "2em" }}>{props.children}</div>
         </div>
