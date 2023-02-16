@@ -19,7 +19,6 @@ const addFont = (link, index) => {
 function ThemeCustomizer(props) {
 
 
-
     // React.useEffect(() => {
 
     //     if (document.getElementById("section-code-component")) {
@@ -138,7 +137,6 @@ function ThemeCustomizer(props) {
                 <></>
             }
             <Portal >
-                {/* <Dialog open> */}
                 <div id='poppertheme'>
                     <Fab autoFocus onClick={() => fabClick()} variant="contained" color="primary" size="xl" sx={{
                         position: 'absolute',
@@ -148,7 +146,6 @@ function ThemeCustomizer(props) {
                         <Icon>palette</Icon>
                     </Fab>
                 </div>
-                {/* </Dialog> */}
             </Portal>
 
             <h1>Global Theme Customizer</h1>
@@ -161,6 +158,9 @@ function ThemeCustomizer(props) {
 
 ThemeCustomizer.propTypes = {
     themeObject: PropTypes.object,
+    /**
+ * @uxpinignoreprop
+ */
     showCreator: PropTypes.bool,
 };
 
