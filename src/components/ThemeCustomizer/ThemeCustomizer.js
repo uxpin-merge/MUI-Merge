@@ -127,7 +127,9 @@ function ThemeCustomizer(props) {
                     </React.Fragment>
                 ))} */}
 
-                    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" open={dialogState}>
+                    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" open={dialogState} fullScreen={true}>
+                        <iframe src="https://jackbehar.github.io/mui-theme-creator/" style={{ height: '800px', width: '100%' }} title="Iframe Example"></iframe>
+
                         <DialogActions >
                             <Button >Disagree</Button>
                             <Button autoFocus onClick={() => setdialogState(false)}>
