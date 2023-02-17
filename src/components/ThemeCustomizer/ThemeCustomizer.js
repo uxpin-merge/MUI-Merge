@@ -14,12 +14,11 @@ const addFont = (link, index) => {
     //console.log("added: ", newFontLink);
 };
 
-// window.addEventListener('message', function (event) {
-
-//     console.log("Message received from the child: " + JSON.stringify(event.data)); // Message received from child
-// });
 
 
+
+let messageData
+let backtoTheme
 
 
 
@@ -31,36 +30,32 @@ function ThemeCustomizer(props) {
 
     window.addEventListener("message", onMessageHandler);
 
-    let messageData
+
+
     function onMessageHandler(event) {
         if (typeof event.data === "string") {
             messageData = event.data;
-            console.log("messageData", messageData)
+            backtoTheme = JSON.parse(messageData)
+
+            // setThemeOptions(JSON.parse(messageData))
+
+
+            // setThemeOptions(JSON.parse(messageData))
+
+
         }
     }
 
 
 
-    // React.useEffect(() => {
 
 
-    // })
+    React.useEffect(() => {
+        alert(messageData)
+        console.log("messageDataParsed", backtoTheme)
 
-
-    // if (document.getElementById("section-code-component")) {
-    //     var themeCreatorButton = document.getElementById("poppertheme");
-    //     var uxpinContainer = document.getElementById("section-code-component");
-    //     uxpinContainer.append(themeCreatorButton)
-    // }
-
-
-    // initThemeCreator();
-
-
-
-
-
-
+        console.log("messageData", messageData)
+    })
 
 
 
@@ -71,6 +66,7 @@ function ThemeCustomizer(props) {
 
 
     React.useEffect(() => {
+
 
         setdialogState(props.showCreator)
 
@@ -102,12 +98,12 @@ function ThemeCustomizer(props) {
             //     alert("yes")
             // }
 
-            if (typeof messageData === "string") {
+            // if (typeof messageData === "string") {
 
-                console.log("messageDataPOST", messageData)
-                setThemeOptions(() => messageData)
-                console.log("ThemeOpt", themeOptions)
-            }
+            //     console.log("messageDataPOST", messageData)
+            //     setThemeOptions(() => messageData)
+            //     console.log("ThemeOpt", themeOptions)
+            // }
 
 
 
