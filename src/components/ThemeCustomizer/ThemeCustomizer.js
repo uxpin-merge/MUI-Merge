@@ -14,27 +14,55 @@ const addFont = (link, index) => {
     //console.log("added: ", newFontLink);
 };
 
+// window.addEventListener('message', function (event) {
+
+//     console.log("Message received from the child: " + JSON.stringify(event.data)); // Message received from child
+// });
+
+
+
 
 
 function ThemeCustomizer(props) {
 
-
-    // React.useEffect(() => {
-
-    //     if (document.getElementById("section-code-component")) {
-    //         var themeCreatorButton = document.getElementById("poppertheme");
-    //         var uxpinContainer = document.getElementById("section-code-component");
-    //         uxpinContainer.append(themeCreatorButton)
-    //     }
-
-
-    //     // initThemeCreator();
-
-    // })
-
     const [dialogState, setdialogState] = React.useState(props.showCreator);
 
     const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
+
+    window.addEventListener("message", onMessageHandler);
+
+    let messageData
+    function onMessageHandler(event) {
+        if (typeof event.data === "string") {
+            messageData = event.data;
+            console.log("messageData", messageData)
+        }
+    }
+
+
+
+    // React.useEffect(() => {
+
+
+    // })
+
+
+    // if (document.getElementById("section-code-component")) {
+    //     var themeCreatorButton = document.getElementById("poppertheme");
+    //     var uxpinContainer = document.getElementById("section-code-component");
+    //     uxpinContainer.append(themeCreatorButton)
+    // }
+
+
+    // initThemeCreator();
+
+
+
+
+
+
+
+
 
 
     function fabClick() {
@@ -51,6 +79,10 @@ function ThemeCustomizer(props) {
 
             options.currentTheme = oldTheme.theme;
 
+            console.log("current Theme", createTheme({
+                ...JSON.parse(JSON.stringify(options.currentTheme)),
+            }))
+
             let newTheme;
 
             //if there is a theme object given, it will be the basis for any customizations
@@ -60,8 +92,31 @@ function ThemeCustomizer(props) {
                     ...JSON.parse(JSON.stringify(props.themeObject)),
                 });
             }
-
             newTheme = options.currentTheme;
+
+
+            // if (messageData !== "") {
+            //     newTheme = createTheme({
+            //         ...JSON.parse(JSON.stringify(messageData)),
+            //     })
+            //     alert("yes")
+            // }
+
+            if (typeof messageData === "string") {
+
+                console.log("messageDataPOST", messageData)
+                setThemeOptions(() => messageData)
+                console.log("ThemeOpt", themeOptions)
+            }
+
+
+
+
+            // console.log("options.currentTheme", newTheme)
+
+
+
+
 
             console.log("parsed ", props.themeObject)
 
@@ -129,7 +184,12 @@ function ThemeCustomizer(props) {
 
                         <iframe src="https://jackbehar.github.io/mui-theme-creator/"
                             allow="clipboard-read; clipboard-write"
-                            style={{ height: '100%', width: '100%', border: 'none' }} title="Iframe Example"></iframe>
+                            style={{ height: '100%', width: '100%', border: 'none' }}
+                            title="Iframe Example"
+                            id='destination'></iframe>
+
+
+
                     </Drawer>
 
                 </div>
