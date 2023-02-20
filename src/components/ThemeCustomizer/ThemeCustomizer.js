@@ -17,7 +17,7 @@ function ThemeCustomizer(props) {
     function onMessageHandler(event) {
         if (typeof event.data === "string") {
 
-            alert("hi")
+            // alert("hi")
             messageData = event.data;
 
             console.log(messageData)
@@ -53,6 +53,8 @@ function ThemeCustomizer(props) {
             console.log("new theme: ", options.currentTheme)
 
             newTheme = options.currentTheme;
+
+            console.log("themeObject: ", options.themeObject)
 
             //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
 
@@ -94,7 +96,7 @@ function ThemeCustomizer(props) {
     //RUN WHEN prop props.themeObject changes
     React.useEffect(() => {
 
-        alert("themeObject change")
+        // alert("themeObject change")
 
         setThemeOptions((oldTheme) => {
 
@@ -178,8 +180,8 @@ function ThemeCustomizer(props) {
                     <Drawer
                         anchor="right"
                         open={dialogState}
-                        onClose={() => setdialogState(false)}
-                        onOpen={() => setdialogState(true)}
+                        // onClose={() => setdialogState(false)}
+                        // onOpen={() => setdialogState(true)}
                         variant="temporary"
                         sx={{
                             width: 1200,
@@ -239,5 +241,6 @@ ThemeCustomizer.propTypes = {
  */
     showCreator: PropTypes.bool,
 };
+
 
 export default ThemeCustomizer;
