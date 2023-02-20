@@ -31,13 +31,16 @@ function ThemeCustomizer(props) {
     function onMessageHandler(event) {
         if (typeof event.data === "string") {
             messageData = event.data;
-            backtoTheme = JSON.parse(messageData)
-            console.log("messageData", messageData)
-            console.log("backtoTheme", createTheme(backtoTheme))
+            backtoTheme = JSON.parse(messageData);
+
+            // console.log("messageData", messageData)
+            // console.log("backtoTheme", createTheme(backtoTheme))
         }
     }
 
-
+    // const boilerplateTheme = {
+    //     backtoTheme
+    //   };
 
 
     // React.useEffect(() => {
@@ -55,15 +58,15 @@ function ThemeCustomizer(props) {
 
     React.useEffect(() => {
 
+        alert("fired")
+        console.log("messageData", messageData)
+        console.log("backtoTheme", createTheme(backtoTheme))
+
         setdialogState(props.showCreator)
         setThemeOptions((oldTheme) => {
             let options = { ...props };
 
             options.currentTheme = oldTheme.theme;
-
-            console.log("current Theme", createTheme({
-                ...JSON.parse(JSON.stringify(options.currentTheme)),
-            }))
 
             let newTheme;
 
@@ -76,7 +79,13 @@ function ThemeCustomizer(props) {
             }
             newTheme = options.currentTheme;
 
-            console.log("parsed ", props.themeObject)
+
+            // if (backtoTheme) {
+            //     newTheme = createTheme({
+            //         ...JSON.parse(JSON.stringify(backtoTheme)),
+            //     });
+            // }
+
 
             //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
 
