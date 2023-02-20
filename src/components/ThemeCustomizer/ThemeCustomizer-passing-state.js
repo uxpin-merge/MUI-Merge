@@ -4,89 +4,87 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeContext } from "../UXPinWrapper/UXPinWrapperWithThemeCustomizer";
 import { Dialog, DialogActions, Button, Drawer, Fab, Popper, Icon, Portal, IconButton, Stack } from "@mui/material";
 
-let messageData
+
 
 function ThemeCustomizer(props) {
 
+
+    let testTheme = {
+        "palette": {
+            "mode": "light",
+            "primary": {
+                "contrastText": "#ffffff",
+                "dark": "#1565c0",
+                "light": "#42a5f5",
+                "main": "#ff0000"
+            },
+        }
+
+    }
+
+
     const [dialogState, setdialogState] = React.useState(false);
     const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
-    const [createdTheme, setCreatedTheme] = React.useState();
+    const [createdTheme, setCreatedTheme] = React.useState(testTheme);
 
     window.addEventListener("message", onMessageHandler);
 
     function onMessageHandler(event) {
         if (typeof event.data === "string") {
 
-            alert("hi")
             messageData = event.data;
+            alert("messagedata: ", messageData)
+            // setCreatedTheme(messageData)
 
-            console.log(messageData)
-            setCreatedTheme(JSON.parse(messageData))
         }
     }
 
     //RUN WHEN createdTheme state changes
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        alert("createdTheme change")
+    //     alert("createdThemeChange: ")
 
-        setThemeOptions((oldTheme) => {
+    //     setThemeOptions((oldTheme) => {
 
-            let options = { ...props };
+    //         let options = { ...props };
 
-            options.currentTheme = oldTheme.theme;
+    //         options.currentTheme = oldTheme.theme;
 
-            let newTheme;
+    //         let newTheme;
 
-            options.currentTheme = createTheme(createdTheme)
+    //         options.currentTheme = createTheme(createdTheme)
 
-            console.log("new theme: ", options.currentTheme)
+    //         console.log("new theme: ", options.currentTheme)
 
-            newTheme = options.currentTheme;
+    //         newTheme = options.currentTheme;
 
-            return {
-                theme: newTheme,
-            };
-        });
-
-
-    }, [createdTheme]); //only re-run if any of these change
-
-    //RUN WHEN prop props.themeObject changes
-    React.useEffect(() => {
-
-        alert("themeObject change")
-
-        setThemeOptions((oldTheme) => {
-
-            let options = { ...props };
-
-            options.currentTheme = oldTheme.theme;
-
-            let newTheme;
-
-            // options.currentTheme = createTheme(createdTheme)
-            if (props.themeObject && props.themeObject !== "") {
-                options.currentTheme = createTheme({
-                    ...JSON.parse(JSON.stringify(props.themeObject)),
-                });
-            }
-
-            console.log("new theme: ", options.currentTheme)
-
-            newTheme = options.currentTheme;
-
-            return {
-                theme: newTheme,
-            };
-        });
+    //         return {
+    //             theme: newTheme,
+    //         };
+    //     });
 
 
-    }, [props.themeObject]); //only re-run if any of these change
+    // }, [createdTheme]); //only re-run if any of these change
 
 
 
     function fabClick() {
+
+        let newCreatedTheme = {
+            "palette": {
+                "mode": "light",
+                "primary": {
+                    "contrastText": "#ffffff",
+                    "dark": "#1565c0",
+                    "light": "#42a5f5",
+                    "main": "#000000"
+                },
+            }
+
+        }
+        // setCreatedTheme(newCreatedTheme)
+
+
         setdialogState(true);
     }
 
