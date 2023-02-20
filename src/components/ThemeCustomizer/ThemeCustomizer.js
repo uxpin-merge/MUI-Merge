@@ -25,10 +25,20 @@ function ThemeCustomizer(props) {
         }
     }
 
+
+    //Will add custom font links to the header
+    const addFont = (link, index) => {
+        let newFontLink = document.createElement("link");
+        newFontLink.href = link;
+        newFontLink.rel = "stylesheet";
+        newFontLink.id = "muiCCustomFont" + index;
+        document.head.appendChild(newFontLink);
+        console.log("added: ", newFontLink);
+    };
     //RUN WHEN createdTheme state changes
     React.useEffect(() => {
 
-        alert("createdTheme change")
+        // alert("createdTheme change")
 
         setThemeOptions((oldTheme) => {
 
@@ -43,6 +53,35 @@ function ThemeCustomizer(props) {
             console.log("new theme: ", options.currentTheme)
 
             newTheme = options.currentTheme;
+
+            //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
+
+
+            var traverse = function (o, fn) {
+                for (var i in o) {
+                    fn.apply(this, [i, o[i]]);
+                    if (o[i] !== null && typeof (o[i]) == "object") {
+                        traverse(o[i], fn);
+                    }
+                }
+            }
+
+            var obj = createdTheme
+            const fonts = []
+
+            traverse(obj, function (k, v) {
+                console.log(k + " : " + v);
+                if (k == "fontFamily") {
+                    //ADD SOURCING FOR EACH FONT FOUND IN THEME
+                    let index = 0;
+                    if (document.querySelectorAll("link[href='" + v + "']").length === 0) {
+                        addFont('https://fonts.googleapis.com/css?family=' + v, index++);
+                    }
+                    fonts.push(v)
+                }
+            });
+
+            console.log("fonts", fonts)
 
             return {
                 theme: newTheme,
