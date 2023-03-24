@@ -6,6 +6,7 @@ import IconButton from '../IconButton/IconButton';
 import Icon from '../Icon/Icon';
 
 /**
+ * @uxpinuseportal
  * @uxpindocurl https://mui.com/components/skeleton/#main-content
  */
 export default function Snackbar(props) {
