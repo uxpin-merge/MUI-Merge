@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import defaultTheme from "./boilerplate-theme";
+import React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import defaultTheme from './boilerplate-theme';
 // import ThemeProviderHelper from "../../theming/utils/ThemeProviderHelper";
 
 export const ThemeContext = React.createContext({});
@@ -28,7 +28,7 @@ const setThemeOptions = (callback) => {
   //the callback function is called and given the old theme as a parameter
   //the result of the callback function is saved in themeOptions (the new theme)
   themeOptions = callback(themeOptions);
-  console.log("theme was updated");
+  console.log('theme was updated');
   //each listener is a function which sets the theme in the state of its UXPinWrapper component to a given theme
   //each function (listener) is executed with the given theme as a parameter, so all UXPinWrapper instances are updated with the same theme
   listeners.forEach((listener) => {

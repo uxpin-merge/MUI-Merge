@@ -1,13 +1,13 @@
-const fs = require("fs");
-const path = require("path");
-const reactDocs = require("react-docgen");
+const fs = require('fs');
+const path = require('path');
+const reactDocs = require('react-docgen');
 
 // The React components to load
 // const componentFolder = "./src/components/";
-const componentFolder = "./componentsSrc/";
+const componentFolder = './componentsSrc/';
 
 // Where the JSON file ends up
-const componentJsonPath = "./props/components.json";
+const componentJsonPath = './props/components.json';
 
 const componentDataArray = [];
 
@@ -17,11 +17,11 @@ function pushComponent(component) {
 
 function createComponentFile() {
   const componentJsonArray = JSON.stringify(componentDataArray, null, 2);
-  fs.writeFile(componentJsonPath, componentJsonArray, "utf8", (err, data) => {
+  fs.writeFile(componentJsonPath, componentJsonArray, 'utf8', (err, data) => {
     if (err) {
       throw err;
     }
-    console.log("Created component file");
+    console.log('Created component file');
   });
 }
 
@@ -34,7 +34,7 @@ function createComponentFile() {
  */
 function parseComponent(component, filename) {
   const componentInfo = reactDocs.parse(component);
-  const splitIndex = filename.indexOf("/src/");
+  const splitIndex = filename.indexOf('/src/');
   const shortname = filename.substring(splitIndex + 4);
 
   componentInfo.filename = shortname;
@@ -75,7 +75,7 @@ function filewalker(dir, done) {
 
     if (!pending) return done(null, results);
 
-    list.forEach(file => {
+    list.forEach((file) => {
       file = path.resolve(dir, file);
 
       fs.stat(file, async (err, stat) => {
@@ -88,12 +88,8 @@ function filewalker(dir, done) {
         } else {
           // Check if is a Javascript file
           // And not a story or test
-          if (
-            file.endsWith(".js") &&
-            !file.endsWith(".story.js") &&
-            !file.endsWith(".test.js")
-          ) {
-            await new Promise(resolve => {
+          if (file.endsWith('.js') && !file.endsWith('.story.js') && !file.endsWith('.test.js')) {
+            await new Promise((resolve) => {
               loadComponent(file, resolve);
             });
             await results.push(file);
