@@ -14,8 +14,8 @@ const boilerplateTheme = {
       light: '#ba68c8',
       dark: '#7b1fa2',
       contrastText: '#ffffff',
-    }
-  }
+    },
+  },
 };
 
 export default boilerplateTheme;
