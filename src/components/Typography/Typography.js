@@ -9,7 +9,7 @@ import TypographyM from '@mui/material/Typography';
 function Typography(props) {
   //const { uxpinRef, ...other } = props;
   return (
-    <TypographyM {...props} style={{ 'white-space': 'pre-wrap' }}>
+    <TypographyM {...props} style={{ whiteSpace: 'pre-wrap' }}>
       {props.children}
     </TypographyM>
   );
