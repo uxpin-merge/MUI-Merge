@@ -77,7 +77,7 @@ module.exports = {
           'src/components/Link/Link.js',
           'src/components/Menu/Menu.js',
           'src/components/Pagination/Pagination.js',
-          'src/components/SpeedDial/SpeedDial.js',
+          // 'src/components/SpeedDial/SpeedDial.js',
           'src/components/Stepper/Stepper.js',
           'src/components/Tabs/Tabs.js',
         ],
