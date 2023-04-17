@@ -2184,10 +2184,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@uxpin/merge-cli@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.0.0.tgz#0e2256eda4f6e3e5a08bfe6f397f82a97a463599"
-  integrity sha512-GaThpWFbMtrwm9SPxIzeFemf53M0qidzRyd7guJ+9YBUEYVfgXyjGPCoKOVaeUVTnlzi+EQH2V+TfJQi5F30mg==
+"@uxpin/merge-cli@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.0.1.tgz#dc896c0f02625136141e553b3d3bf71d5d2c5eeb"
+  integrity sha512-p6kNUT1jaSVi4yiAzalidqfR8xsMRPuSadmqNgdP76PFosKnX1aka+YQ031frTqK8y5MW6ruNzQnkH2c9Xl9mw==
   dependencies:
     "@babel/core" "^7.2.2"
     "@babel/plugin-proposal-class-properties" "^7.2.3"
