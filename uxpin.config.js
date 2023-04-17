@@ -153,18 +153,13 @@ module.exports = {
         ],
       },
     ],
-<<<<<<< HEAD
-    //Basic wrapper with boilerplate theme
+
+    //Basic wrapper without ThemeCustomizer
     // wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
 
     //Wrapper with theme context provider for ThemeCustomizer component
     wrapper: 'src/components/UXPinWrapper/UXPinWrapperWithThemeCustomizer.js',
-
-    webpackConfig: 'uxpin.webpack.config.js',
-=======
-    wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
     webpackConfig: 'webpack.config.js',
->>>>>>> 8129ec67f3daede023d4e08b6ae4bca38b0aea77
   },
   name: 'MUI-UXPin-Merge',
 };

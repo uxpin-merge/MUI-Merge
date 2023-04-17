@@ -38,11 +38,7 @@
     "prettier:write": "npx prettier src/ --write ."
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@uxpin/merge-cli": "3.0.1",
-=======
-    "@uxpin/merge-cli": "^3.0.1",
->>>>>>> 8129ec67f3daede023d4e08b6ae4bca38b0aea77
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
