@@ -3,7 +3,10 @@ module.exports = {
     categories: [
       {
         name: 'POC',
-        include: ['src/components/TokensComponent/TokensComponent.js'],
+        include: [
+          'src/components/TokensComponent/TokensComponent.js',
+          'src/components/ColorComponent/ColorComponent.js',
+        ],
       },
       // {
       //   name: 'INPUTS',
