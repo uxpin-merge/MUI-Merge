@@ -959,6 +959,13 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@babel/runtime@^7.21.0":
+  version "7.22.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.3.tgz#0a7fce51d43adbf0f7b517a71f4c3aaca92ebcbb"
+  integrity sha512-XsDuspWKLUsxwCp6r7EhsExHtYfbe5oAGQ19kqngTdCPUoPQzOPdUbD/pB9PJiwb2ptYKQDjSJT3R6dC+EPqfQ==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.18.10", "@babel/template@^7.20.7":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -1086,10 +1093,22 @@
   dependencies:
     "@emotion/memoize" "^0.8.0"
 
+"@emotion/is-prop-valid@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.2.1.tgz#23116cf1ed18bfeac910ec6436561ecb1a3885cc"
+  integrity sha512-61Mf7Ufx4aDxx1xlDeOm8aFFigGHE4z+0sKCa+IHCeZKiyP9RLD0Mmx7m8b9/Cf37f7NAvQOOJAbQQGVr5uERw==
+  dependencies:
+    "@emotion/memoize" "^0.8.1"
+
 "@emotion/memoize@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.0.tgz#f580f9beb67176fa57aae70b08ed510e1b18980f"
   integrity sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==
+
+"@emotion/memoize@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.1.tgz#c1ddb040429c6d21d38cc945fe75c818cfb68e17"
+  integrity sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==
 
 "@emotion/react@^11.10.0":
   version "11.10.5"
@@ -1262,6 +1281,20 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
+"@mui/base@^5.0.0-beta.3":
+  version "5.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-beta.3.tgz#8e2a1fe7559a097845c70459c190d6231708fa36"
+  integrity sha512-ErOMoGNpgf6BF5W+jgXDiRlXJnpSeg8XSRonuY5UCCMHIlOWtKDtt/LS3qDAbFFGb7tV/y6EBddbcMeexx+zHw==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+    "@emotion/is-prop-valid" "^1.2.1"
+    "@mui/types" "^7.2.4"
+    "@mui/utils" "^5.13.1"
+    "@popperjs/core" "^2.11.7"
+    clsx "^1.2.1"
+    prop-types "^15.8.1"
+    react-is "^18.2.0"
+
 "@mui/core-downloads-tracker@^5.11.9":
   version "5.11.9"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.11.9.tgz#0d3b20c2ef7704537c38597f9ecfc1894fe7c367"
@@ -1367,6 +1400,11 @@
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.2.3.tgz#06faae1c0e2f3a31c86af6f28b3a4a42143670b9"
   integrity sha512-tZ+CQggbe9Ol7e/Fs5RcKwg/woU+o8DCtOnccX6KmbBc7YrfqMYEYuaIcXHuhpT880QwNkZZ3wQwvtlDFA2yOw==
 
+"@mui/types@^7.2.4":
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.2.4.tgz#b6fade19323b754c5c6de679a38f068fd50b9328"
+  integrity sha512-LBcwa8rN84bKF+f5sDyku42w1NTxaPgPyYKODsh01U1fVstTClbUoSA96oyRBnSNyEiAVjKm6Gwx9vjR+xyqHA==
+
 "@mui/utils@^5.10.3", "@mui/utils@^5.11.9", "@mui/utils@^5.9.3":
   version "5.11.9"
   resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.11.9.tgz#8fab9cf773c63ad916597921860d2344b5d4b706"
@@ -1375,6 +1413,17 @@
     "@babel/runtime" "^7.20.13"
     "@types/prop-types" "^15.7.5"
     "@types/react-is" "^16.7.1 || ^17.0.0"
+    prop-types "^15.8.1"
+    react-is "^18.2.0"
+
+"@mui/utils@^5.13.1":
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.13.1.tgz#86199e46014215f95da046a5ec803f4a39c96eee"
+  integrity sha512-6lXdWwmlUbEU2jUI8blw38Kt+3ly7xkmV9ljzY4Q20WhsJMWiNry9CX8M+TaP/HbtuyR8XKsdMgQW7h7MM3n3A==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+    "@types/prop-types" "^15.7.5"
+    "@types/react-is" "^18.2.0"
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
@@ -1437,6 +1486,11 @@
   version "2.11.6"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
+
+"@popperjs/core@^2.11.7":
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
 "@textlint/ast-node-types@^1.1.2":
   version "1.1.2"
@@ -1574,6 +1628,13 @@
   version "17.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
   integrity sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-is@^18.2.0":
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-18.2.0.tgz#2f5137853a46017b3d56447940fb3eb92bbf24a5"
+  integrity sha512-1vz2yObaQkLL7YFe/pme2cpvDsCwI1WXIfL+5eLz0MI9gFG24Re16RzUsI8t9XZn9ZWvgLNDrJBmrqXJO7GNQQ==
   dependencies:
     "@types/react" "*"
 

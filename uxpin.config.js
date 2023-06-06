@@ -4,8 +4,9 @@ module.exports = {
       {
         name: 'POC',
         include: [
-          'src/components/TokensComponent/TokensComponent.js',
-          'src/components/ColorComponent/ColorComponent.js',
+          'src/components/ThemeCustomizer/ThemeCustomizer.js',
+          'src/components/ButtonGroup/ButtonGroup.js',
+          'src/components/Button/Button.js',
         ],
       },
       // {

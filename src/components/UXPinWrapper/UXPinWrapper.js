@@ -1,18 +1,53 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import boilerplateTheme from './boilerplate-theme';
 
-async function getData(url) {
-  const response = await fetch(url);
-  const jsonData = await response.json();
-  console.log(jsonData);
-}
+export const ThemeContext = React.createContext();
 
-const theme = createTheme(boilerplateTheme);
+let listeners = [];
 
-// eslint-disable-next-line react/prop-types
+const addListener = (listener) => {
+  listeners.push(listener);
+};
+
+const removeListener = (listener) => {
+  listeners = listeners.filter((lis) => lis !== listener);
+};
+
+//global theme object for all wrapper instances
+let themeOptions = {
+  theme: boilerplateTheme,
+};
+
+//allows to update the global theme object and updates all wrapper instances with the new theme
+//expects a function as a parameter, which itself expects the old theme as a parameter
+const setThemeOptions = (callback) => {
+  //the callback function is called and given the old theme as a parameter
+  //the result of the callback function is saved in themeOptions (the new theme)
+  themeOptions = callback(themeOptions);
+  console.log('theme was updated');
+  //each listener is a function which sets the theme in the state of its UXPinWrapper component to a given theme
+  //each function (listener) is executed with the given theme as a parameter, so all UXPinWrapper instances are updated with the same theme
+  listeners.forEach((listener) => {
+    listener(themeOptions);
+  });
+};
+
 export default function UXPinWrapper({ children }) {
-  getData('https://designtokens.uxpin.com/designSystems/hash/0abe97cdf3c257f03814/data/json');
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  // const { children } = props;
+  const [theme, setTheme] = React.useState(themeOptions);
+
+  React.useEffect(() => {
+    //updates the component state to a given theme
+    const onThemeChange = (newTheme) => {
+      setTheme(newTheme);
+    };
+    console.log('uxpinWrapper-theme', theme);
+    //the component adds a function to the listener array, which allows to update its state with a given theme
+    addListener(onThemeChange);
+    //the listener is removed when the component unmounts (is deleted from the canvas)
+    return () => removeListener(onThemeChange);
+  });
+
+  return <ThemeContext.Provider value={[theme, setThemeOptions]}>{children}</ThemeContext.Provider>;
 }
