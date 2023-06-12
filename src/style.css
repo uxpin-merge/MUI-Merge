@@ -1,0 +1,12 @@
+:root {
+  --color-primary-lighter: #99DBF5;
+}
+
+.my-button {
+  background-color: var(--color-primary-lighter);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  display: inline-block;
+}

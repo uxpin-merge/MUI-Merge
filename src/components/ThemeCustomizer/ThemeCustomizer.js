@@ -4,24 +4,18 @@ import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
 
 function ThemeCustomizer(props) {
   const [colorList, setColorList] = React.useState([]);
-  const [newThemeObject, setNewThemeObject] = React.useState({});
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
   const { url } = props;
-
-  // async function getData(url) {
-  //   const response = await fetch(url);
-  //   const jsonData = await response.json();
-  //   setNewThemeObject((prevNewThemeObject) => ({ ...prevNewThemeObject, ...getCategories(jsonData) }));
-  // }
 
   React.useEffect(() => {
     async function getData(url) {
       const response = await fetch(url);
       const jsonData = await response.json();
-      // setNewThemeObject((prevNewThemeObject) => ({ ...prevNewThemeObject, ...getCategories(jsonData) }));
-      setThemeOptions((oldTheme) => {
+
+      setThemeOptions(() => {
+        const theme = getCategories(jsonData);
         return {
-          theme: getCategories(jsonData),
+          theme,
         };
       });
     }
@@ -91,15 +85,6 @@ function ThemeCustomizer(props) {
 
   if (colorList.length <= 0) {
     return;
-  }
-  // TODO fix render loop coming from setThemeOptions
-  if (newThemeObject && Object.keys(newThemeObject).length > 0) {
-    // console.log('newThemeObject', newThemeObject)
-    // setThemeOptions((oldTheme) => {
-    //   return {
-    //     theme: newThemeObject,
-    //   };
-    // });
   }
 
   return <div style={{ display: 'grid' }}>{renderColorsList(colorList)}</div>;

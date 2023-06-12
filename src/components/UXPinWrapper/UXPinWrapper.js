@@ -1,8 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import '../../style.css';
 import boilerplateTheme from './boilerplate-theme';
 
 export const ThemeContext = React.createContext();
+
+function setColor (newColor){
+  document.documentElement.style.setProperty('--color-primary-lighter', newColor);
+}
 
 let listeners = [];
 
@@ -34,14 +39,17 @@ const setThemeOptions = (callback) => {
 };
 
 export default function UXPinWrapper({ children }) {
-  // const { children } = props;
   const [theme, setTheme] = React.useState(themeOptions);
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--color-primary-lighter');
+  console.log('color!', color);
 
   React.useEffect(() => {
     //updates the component state to a given theme
     const onThemeChange = (newTheme) => {
       setTheme(newTheme);
     };
+
+    setColor(theme.theme.colors.primary)
     console.log('uxpinWrapper-theme', theme);
     //the component adds a function to the listener array, which allows to update its state with a given theme
     addListener(onThemeChange);
