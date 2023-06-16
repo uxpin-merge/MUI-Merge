@@ -1,10 +1,8 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
-  },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'plugin:react/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended'],
   env: {
     browser: true,
     node: true,

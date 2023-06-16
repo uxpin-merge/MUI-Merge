@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Box, Button, Stack, Typography } from '@mui/material';
 
-export default function App() {
+export default function App(): ReactElement {
   return (
     <Box sx={{ width: '100%', maxWidth: 500, margin: '0 auto' }}>
       <Typography variant="h1" gutterBottom>
