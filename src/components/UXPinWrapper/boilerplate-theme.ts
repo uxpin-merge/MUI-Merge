@@ -1,5 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
+/**
+ * Use module augmentation to add new variables to the theme and themeOptions
+ * https://mui.com/material-ui/customization/theming/#custom-variables
+ */
 declare module '@mui/material/styles' {
   interface Theme {
     mode: string;
@@ -21,8 +25,10 @@ type colorScheme = {
   contrastText: string;
 };
 
-// To further customize this theme,
-// please see the full theme object here: https://mui.com/customization/default-theme/
+/**
+ * To further customize this theme,
+ * please see the full theme object here: https://mui.com/customization/default-theme/
+ */
 export const theme = createTheme({
   palette: {
     mode: 'light',
