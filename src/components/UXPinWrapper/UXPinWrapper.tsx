@@ -5,6 +5,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './boilerplate-theme';
 
 const UXPinWrapper: FC<PropsWithChildren> = ({ children }) => {
+  const icons = document.createElement('link');
+  icons.setAttribute('href', 'https://fonts.googleapis.com/icon?family=Material+Icons');
+  icons.setAttribute('rel', 'stylesheet');
+  document.head.appendChild(icons);
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 

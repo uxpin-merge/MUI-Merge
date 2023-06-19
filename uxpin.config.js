@@ -40,7 +40,7 @@ module.exports = {
           // 'src/components/Chip/Chip.js',
           // 'src/components/DataGrid/DataGrid.js',
           // 'src/components/Divider/Divider.js',
-          // 'src/components/Icon/Icon.js',
+          'src/components/Icon/Icon.tsx',
           // 'src/components/List/List.js',
           // 'src/components/Table/Table.js',
           // 'src/components/Tooltip/Tooltip.js',
