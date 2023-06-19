@@ -6,7 +6,7 @@ module.exports = {
         include: [
           // 'src/components/Autocomplete/Autocomplete.js',
           'src/components/Button/Button.tsx',
-          // 'src/components/ButtonGroup/ButtonGroup.js',
+          'src/components/ButtonGroup/ButtonGroup.tsx',
           // 'src/components/DatePicker/DatePicker.js',
           // 'src/components/Checkbox/Checkbox.js',
           // 'src/components/CheckboxWithLabel/CheckboxWithLabel.js',
@@ -44,7 +44,7 @@ module.exports = {
           // 'src/components/List/List.js',
           // 'src/components/Table/Table.js',
           // 'src/components/Tooltip/Tooltip.js',
-          // 'src/components/Typography/Typography.js',
+          'src/components/Typography/Typography.tsx',
         ],
       },
       {
@@ -72,9 +72,9 @@ module.exports = {
         name: 'NAVIGATION',
         include: [
           // 'src/components/BottomNavigation/BottomNavigation.js',
-          // 'src/components/Breadcrumbs/Breadcrumbs.js',
+          'src/components/Breadcrumbs/Breadcrumbs.tsx',
           // 'src/components/Drawer/Drawer.js',
-          // 'src/components/Link/Link.js',
+          'src/components/Link/Link.tsx',
           // 'src/components/Menu/Menu.js',
           // 'src/components/Pagination/Pagination.js',
           // // 'src/components/SpeedDial/SpeedDial.js',
