@@ -16,7 +16,7 @@ function Button(props) {
       startIcon={props.startIcon && <Icon>{props.startIcon}</Icon>}
       endIcon={props.endIcon && <Icon>{props.endIcon}</Icon>}
     >
-      {props.children}
+      Hard coded: {props.children}
     </ButtonM>
   );
 }
