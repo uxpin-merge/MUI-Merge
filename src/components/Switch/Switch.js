@@ -11,8 +11,8 @@ function Switch(props) {
   return (
     <SwitchM
       {...props}
-      icon={props.icon ? <Icon>{props.icon}</Icon> : <Icon>radio_button_unchecked</Icon>}
-      checkedIcon={props.checkedIcon ? <Icon>{props.checkedIcon}</Icon> : <Icon>radio_button_checked</Icon>}
+      icon={props.icon ? <Icon fontSize="small">{props.icon}</Icon> : null}
+      checkedIcon={props.checkedIcon ? <Icon fontSize="small">{props.checkedIcon}</Icon> : null}
     />
   );
 }
