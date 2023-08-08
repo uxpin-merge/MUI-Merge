@@ -62,7 +62,7 @@ module.exports = {
       {
         name: 'SURFACES',
         include: [
-          // 'src/components/Accordion/Accordion.js',
+          'src/components/Accordion/Accordion.tsx',
           // 'src/components/AppBar/AppBar.js',
           // 'src/components/Card/Card.js',
           // 'src/components/Paper/Paper.js',
@@ -100,8 +100,8 @@ module.exports = {
           // 'src/components/AlertTitle/AlertTitle.js',
 
           // 'src/components/AccordionActions/AccordionActions.js',
-          // 'src/components/AccordionDetails/AccordionDetails.js',
-          // 'src/components/AccordionSummary/AccordionSummary.js',
+          'src/components/AccordionDetails/AccordionDetails.tsx',
+          'src/components/AccordionSummary/AccordionSummary.tsx',
 
           // 'src/components/BottomNavigationAction/BottomNavigationAction.js',
 
