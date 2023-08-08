@@ -99,7 +99,7 @@ module.exports = {
         include: [
           // 'src/components/AlertTitle/AlertTitle.js',
 
-          // 'src/components/AccordionActions/AccordionActions.js',
+          'src/components/AccordionActions/AccordionActions.tsx',
           'src/components/AccordionDetails/AccordionDetails.tsx',
           'src/components/AccordionSummary/AccordionSummary.tsx',
 
