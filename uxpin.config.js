@@ -12,7 +12,7 @@ module.exports = {
           // 'src/components/CheckboxWithLabel/CheckboxWithLabel.js',
           // 'src/components/CheckboxGroup/CheckboxGroup.js',
           // 'src/components/FloatingActionButton/FloatingActionButton.js',
-          // 'src/components/IconButton/IconButton.js',
+          'src/components/IconButton/IconButton.tsx',
           // 'src/components/LoadingButton/LoadingButton.js',
           // 'src/components/Radio/Radio.js',
           // 'src/components/RadioWithLabel/RadioWithLabel.js',
@@ -63,7 +63,7 @@ module.exports = {
         name: 'SURFACES',
         include: [
           'src/components/Accordion/Accordion.tsx',
-          // 'src/components/AppBar/AppBar.js',
+          'src/components/AppBar/AppBar.tsx',
           // 'src/components/Card/Card.js',
           // 'src/components/Paper/Paper.js',
         ],
@@ -148,7 +148,7 @@ module.exports = {
 
           // 'src/components/Tab/Tab.js',
 
-          // 'src/components/Toolbar/Toolbar.js',
+          'src/components/Toolbar/Toolbar.tsx',
         ],
       },
     ],
