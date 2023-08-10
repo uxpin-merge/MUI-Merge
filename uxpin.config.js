@@ -4,7 +4,7 @@ module.exports = {
       {
         name: 'INPUTS',
         include: [
-          // 'src/components/Autocomplete/Autocomplete.js',
+          'src/components/Autocomplete/Autocomplete.tsx',
           'src/components/Button/Button.tsx',
           'src/components/ButtonGroup/ButtonGroup.tsx',
           // 'src/components/DatePicker/DatePicker.js',
@@ -25,7 +25,7 @@ module.exports = {
           // 'src/components/Switch/Switch.js',
           // 'src/components/SwitchWithLabel/SwitchWithLabel.js',
           // 'src/components/SwitchGroup/SwitchGroup.js',
-          // 'src/components/TextField/TextField.js',
+          'src/components/TextField/TextField.tsx',
           // // 'src/components/TransferList/TransferList.js',
           // 'src/components/ToggleButton/ToggleButton.js',
           // 'src/components/ToggleButtonGroup/ToggleButtonGroup.js',
