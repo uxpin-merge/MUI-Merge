@@ -14,7 +14,6 @@ function CardHeader(props) {
     <CardHeaderM
       {...other}
       avatar={props.avatar && <Avatar color={props.color}>{props.avatar}</Avatar>}
-      action={props.action && <IconButton onClick={props.iconOnClick}>{props.action}</IconButton>}
     >
       {props.children}
     </CardHeaderM>
@@ -26,9 +25,8 @@ CardHeader.propTypes = {
 
   /**
    * The action to display in the card header.
-   * @uxpinpropname Icon Action
    */
-  action: PropTypes.oneOf(iconVariants),
+  action: PropTypes.node,
 
   /**
    * The Avatar element to display.

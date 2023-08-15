@@ -17,7 +17,8 @@ export default (
       uxpId="Card-Header-1"
       avatar="R"
       color="grey"
-      action="add"
+      action={<IconButton uxpId="action-icon-button"><Icon uxpId="action-icon">more_vert</Icon></IconButton>}
+      ariaLabel="add"
       title="Design Insights"
       subheader="December 6, 2021"
     />
