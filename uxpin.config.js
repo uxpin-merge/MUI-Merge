@@ -36,7 +36,7 @@ module.exports = {
         include: [
           'src/components/Avatar/Avatar.tsx',
           'src/components/AvatarGroup/AvatarGroup.tsx',
-          // 'src/components/Badge/Badge.js',
+          'src/components/Badge/Badge.tsx',
           // 'src/components/Chip/Chip.js',
           // 'src/components/DataGrid/DataGrid.js',
           // 'src/components/Divider/Divider.js',
