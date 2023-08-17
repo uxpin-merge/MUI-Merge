@@ -34,8 +34,8 @@ module.exports = {
       {
         name: 'DATA DISPLAY',
         include: [
-          // 'src/components/Avatar/Avatar.js',
-          // 'src/components/AvatarGroup/AvatarGroup.js',
+          'src/components/Avatar/Avatar.tsx',
+          'src/components/AvatarGroup/AvatarGroup.tsx',
           // 'src/components/Badge/Badge.js',
           // 'src/components/Chip/Chip.js',
           // 'src/components/DataGrid/DataGrid.js',
@@ -51,7 +51,7 @@ module.exports = {
         name: 'FEEDBACK',
         include: [
           'src/components/Alert/Alert.tsx',
-          // 'src/components/Backdrop/Backdrop.js',
+          'src/components/Backdrop/Backdrop.tsx',
           // 'src/components/Dialog/Dialog.js',
           // 'src/components/CircularProgress/CircularProgress.js',
           // 'src/components/LinearProgress/LinearProgress.js',
