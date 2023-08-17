@@ -71,7 +71,7 @@ module.exports = {
       {
         name: 'NAVIGATION',
         include: [
-          // 'src/components/BottomNavigation/BottomNavigation.js',
+          'src/components/BottomNavigation/BottomNavigation.tsx',
           'src/components/Breadcrumbs/Breadcrumbs.tsx',
           // 'src/components/Drawer/Drawer.js',
           'src/components/Link/Link.tsx',
@@ -103,7 +103,7 @@ module.exports = {
           'src/components/AccordionDetails/AccordionDetails.tsx',
           'src/components/AccordionSummary/AccordionSummary.tsx',
 
-          // 'src/components/BottomNavigationAction/BottomNavigationAction.js',
+          'src/components/BottomNavigationAction/BottomNavigationAction.tsx',
 
           // 'src/components/CardActions/CardActions.js',
           // 'src/components/CardActionArea/CardActionArea.js',
