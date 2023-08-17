@@ -85,7 +85,7 @@ module.exports = {
       {
         name: 'LAYOUT',
         include: [
-          // 'src/components/Box/Box.js',
+          'src/components/Box/Box.tsx',
           // 'src/components/Container/Container.js',
           // 'src/components/Grid/Grid.js',
           // 'src/components/Image/Image.js',
