@@ -79,19 +79,17 @@ function ThemeCustomizer(props) {
   return (
     <div //A visual aid for the designer to see in UXPin
       style={{
-        width: '200px',
-        height: '100px',
+        width: '160px',
         color: 'white',
         textAlign: 'center',
-        verticalAlign: 'middle',
         background: '#003087',
         borderRadius: 10,
+        padding: '20px'
       }}
     >
-      <br />
       <strong>ThemeCustomizer:</strong>
       <br />
-      Move this marker offscreen
+      Please move this <br />marker offscreen
     </div>
     // <Portal container={document.querySelector('#workbench-wrapper')}>
     //   <div style={{ position: 'relative' }}>
