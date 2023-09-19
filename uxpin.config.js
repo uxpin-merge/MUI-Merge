@@ -2,6 +2,12 @@ module.exports = {
   components: {
     categories: [
       {
+        name: 'UTILITIES',
+        include: [
+          'src/components/ThemeCustomizer/ThemeCustomizer.js',
+        ]
+      },
+      {
         name: 'INPUTS',
         include: [
           // 'src/components/Autocomplete/Autocomplete.js',
