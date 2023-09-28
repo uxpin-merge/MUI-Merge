@@ -1,9 +1,13 @@
 {
-  "name": "merge-material",
-  "version": "1.0.17",
+  "name": "mui-uxpin",
+  "version": "1.0.0",
   "source": "src/index.js",
   "main": "dist/main.js",
   "module": "dist/module.js",
+  "browser": {
+    "./dist/index.js": "./dist/index.browser.js",
+    "./dist/index.esm.js": "./dist/index.browser.esm.js"
+  },
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
     "@emotion/react": "^11.10.0",
@@ -14,7 +18,6 @@
     "@mui/styles": "^5.10.6",
     "@mui/x-data-grid": "^5.17.20",
     "@mui/x-date-pickers": "5.0.0",
-    "@uxpin/merge-cli": "3.4.0",
     "apexcharts": "^3.35.5",
     "babel-loader": "^9.1.2",
     "css-loader": "6.7.3",
@@ -26,23 +29,14 @@
     "react-dom": "^18.2.0",
     "style-loader": "3.3.1",
     "uuid": "^8.3.2",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack": "^5.88.2"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "webpack serve --mode development",
-    "uxpin": "npx uxpin-merge --disable-tunneling",
-    "eslint": "npx eslint src/",
-    "prettier:check": "npx prettier src/ --check .",
-    "prettier:write": "npx prettier src/ --write ."
+    "watch": "parcel watch",
+    "build": "parcel build"
   },
   "devDependencies": {
-    "eslint": "^8.33.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "prettier": "^2.8.3"
+    "@uxpin/merge-cli": "3.4.0",
+    "parcel": "^2.7.0"
   }
 }
