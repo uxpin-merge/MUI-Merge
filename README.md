@@ -4,6 +4,22 @@
 
 Integration of [MUI](https://mui.com/) with UXPin Merge Technology.
 
+## Installation
+
+`yarn install`
+
+## Running Experimental Mode
+
+Use this command to launch the Merge test environment:
+
+`yarn run uxpin:test` or `npx uxpin-merge --disable-tunneling`
+
+## Packaging the Components
+
+This command will run the build command and package the library in `.tgz` format which could be installed in a React project.
+
+`yarn run package`
+
 ## About MUI
 
 MUI (formerly Material-UI) is the React UI library you always wanted. You can implement your own design system, or start with Material Design.
@@ -14,12 +30,6 @@ Merge is a revolutionary technology that lets users import (and keep in sync) co
 The imported components are 100% identical to components used by developers during the development process.
 It means that components are going to look and, function (interactions, data) identical to the real product experienced by the users.
 
-## How to use this boilerplate?
-
-1. Fork this repository and clone it to your computer.
-2. Install dependencies with `yarn install`
-3. Log in to your UXPin account
-4. Start Merge dev environment with `yarn run start`
 
 ## Supported components
 

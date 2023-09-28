@@ -32,8 +32,10 @@
     "webpack": "^5.88.2"
   },
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build"
+    "uxpin:test": "npx uxpin-merge --disable-tunneling",
+    "uxpin:push": "npx uxpin-merge push --token <TOKEN>",
+    "build": "parcel build",
+    "package": "npm run build && npm pack"
   },
   "devDependencies": {
     "@uxpin/merge-cli": "3.4.0",
