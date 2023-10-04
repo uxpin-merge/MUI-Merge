@@ -1007,7 +1007,7 @@ Menu.propTypes = {
   /**
    * The color of the button or icon.
    */
-  color: PropTypes.oneOf(['primary', 'secondary', 'error', 'success', 'warning']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'error', 'success', 'warning', 'inherit']),
 
   /**
    * @uxpinignoreprop
