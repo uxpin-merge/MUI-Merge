@@ -10,6 +10,7 @@ document.head.appendChild(icons);
 
 /**
  * @uxpindocurl https://mui.com/api/icon/
+ * @uxpindescription Collection of MUI Icons
  */
 function Icon(props) {
   return <IconM {...props}>{props.children}</IconM>;
@@ -19,7 +20,6 @@ Icon.propTypes = {
   /**
    * The icon to display.
    * Use the name of the icon from https://material.io/tools/icons.
-   * @uxpinpropname  Icon
    */
   children: PropTypes.oneOf(iconVariants),
 
@@ -40,7 +40,6 @@ Icon.propTypes = {
 
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
-   * @uxpinpropname Size
    */
   fontSize: PropTypes.oneOf(['large', 'medium', 'small', 'inherit']),
 
