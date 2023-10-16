@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonM from '@mui/material/Button';
+import Icon from '../Icon/Icon';
+import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/components/buttons/#main-content
@@ -8,9 +10,10 @@ import ButtonM from '@mui/material/Button';
  */
 
 function Button(props) {
+
   return (
     <ButtonM
-      {...other}
+      {...props}
     >
       {props.children}
     </ButtonM>
@@ -80,10 +83,7 @@ Button.propTypes = {
    */
   sx: PropTypes.object,
 
-  /**
-   * @uxpinignoreprop
-   */
-  uxpinRef: PropTypes.any,
+
 };
 
 export default Button;
