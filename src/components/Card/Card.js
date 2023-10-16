@@ -4,6 +4,7 @@ import CardM from '@mui/material/Card';
 
 /**
  * @uxpindocurl https://mui.com/api/card/
+ * @uxpindescription Cards contain content and actions about a single subject.
  */
 function Card(props) {
   return <CardM {...props}>{props.children}</CardM>;
@@ -12,19 +13,16 @@ function Card(props) {
 Card.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * If true, the card will use raised styling.
-   * @uxpinignoreprop
    */
   raised: PropTypes.bool,
   /**

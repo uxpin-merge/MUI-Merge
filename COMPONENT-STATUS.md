@@ -51,7 +51,7 @@
 | Grid                     | [ ]    |
 | Grid List/ImageList      | [ ]    |
 | Icon                     | [ x ]    |
-| Icon Button              | [ ]    |
+| Icon Button              | [ x ]    |
 | Image                    | [ ]    |
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
