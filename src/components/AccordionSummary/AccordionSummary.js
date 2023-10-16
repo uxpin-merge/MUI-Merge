@@ -9,7 +9,7 @@ import { iconVariants } from '../Icon/icon-variants';
  */
 function AccordionSummary(props) {
   return (
-    <AccordionSummaryM {...props} expandIcon={<Icon>{props.expandIcon}</Icon>}>
+    <AccordionSummaryM {...props} >
       {props.children}
     </AccordionSummaryM>
   );
@@ -32,7 +32,7 @@ AccordionSummary.propTypes = {
    * The icon to display as the expand indicator.
    * Icon prop is used to improve Merge usability.
    */
-  expandIcon: PropTypes.oneOf(iconVariants),
+  expandIcon: PropTypes.node,
 
   /**
    * This prop can help identify which element has keyboard focus. The class name will be applied when the element gains the focus through keyboard interaction.

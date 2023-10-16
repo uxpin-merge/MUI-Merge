@@ -12,13 +12,11 @@ function AccordionDetails(props) {
 AccordionDetails.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
