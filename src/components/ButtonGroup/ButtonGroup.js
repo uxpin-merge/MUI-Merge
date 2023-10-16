@@ -4,6 +4,7 @@ import ButtonGroupM from '@mui/material/ButtonGroup';
 
 /**
  * @uxpindocurl https://mui.com/api/button-group/
+ * @uxpindescription The ButtonGroup component can be used to group related buttons.
  */
 function ButtonGroup(props) {
   return <ButtonGroupM {...props}>{props.children}</ButtonGroupM>;
@@ -13,13 +14,11 @@ ButtonGroup.propTypes = {
   /**
    * The content of the component.
    */
-  /** @uxpinignoreprop */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component. See CSS API below for more details.
    */
-  /** @uxpinignoreprop */
   classes: PropTypes.object,
 
   /**
@@ -31,7 +30,6 @@ ButtonGroup.propTypes = {
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
-  /** @uxpinignoreprop */
   component: PropTypes.elementType,
 
   /**
