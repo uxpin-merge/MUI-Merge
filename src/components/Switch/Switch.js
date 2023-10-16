@@ -6,13 +6,12 @@ import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/components/switches/#main-content
+ * @uxpindescription Switches toggle the state of a single setting on or off.
  */
 function Switch(props) {
   return (
     <SwitchM
       {...props}
-      icon={props.icon ? <Icon fontSize="small">{props.icon}</Icon> : null}
-      checkedIcon={props.checkedIcon ? <Icon fontSize="small">{props.checkedIcon}</Icon> : null}
     />
   );
 }
@@ -27,15 +26,14 @@ Switch.propTypes = {
   /**
    * The icon to display when the component is unchecked.
    */
-  icon: PropTypes.oneOf(iconVariants),
+  icon: PropTypes.node,
 
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon: PropTypes.oneOf(iconVariants),
+  checkedIcon: PropTypes.node,
 
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
@@ -52,12 +50,10 @@ Switch.propTypes = {
 
   /**
    * If `true`, the ripple effect will be disabled.
-   * @uxpinignoreprop
    */
   disableRipple: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
    * The id of the `input` element.
    */
   id: PropTypes.string,

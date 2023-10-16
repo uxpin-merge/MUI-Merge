@@ -10,7 +10,7 @@
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
 | Auto Complete            | [ ]|
-| Avatar                   | [ ]    |
+| Avatar                   | [ x ]    |
 | AvatarGroup              | [ ]    |
 | Backdrop                 | [ ]    |
 | Badge                    | [ ]    |
