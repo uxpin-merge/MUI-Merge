@@ -3,9 +3,9 @@
 
 | COMPONENT                | STATUS         |
 | ------------------------ | -------------- |
-| Accordian                | [ ]    |
-| Accordion Details        | [ ]    |
-| Accordion Summary        | [ ]    |
+| Accordian                | [ x ]    |
+| Accordion Details        | [ x ]    |
+| Accordion Summary        | [ x ]    |
 | Alert                    | [ ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
@@ -50,7 +50,7 @@
 | FormLabel                | [ ]    |
 | Grid                     | [ ]    |
 | Grid List/ImageList      | [ ]    |
-| Icon                     | [ ]    |
+| Icon                     | [ x ]    |
 | Icon Button              | [ ]    |
 | Image                    | [ ]    |
 | Image List               | [ ]    |
@@ -97,4 +97,4 @@
 | Tool Bar                 | [ ]    |
 | Tooltip                  | [ ]    |
 | Transfer List            | [ ] |
-| Typography               | [ ]    |
+| Typography               | [ x ]    |

@@ -5,6 +5,7 @@ import TypographyM from '@mui/material/Typography';
 
 /**
  * @uxpindocurl https://mui.com/api/typography/
+ * @uxpindescription Use typography to present your design and content as clearly and efficiently as possible.
  */
 function Typography(props) {
   //const { uxpinRef, ...other } = props;
@@ -18,7 +19,6 @@ function Typography(props) {
 Typography.propTypes = {
   /**
    * The typography style to apply.
-   * @uxpinpropname  Text
    */
   children: PropTypes.node,
   /*
@@ -127,7 +127,6 @@ Typography.propTypes = {
 
   /**
    * Map typography to another html tag.
-   * @uxpinignoreprop
    */
   component: PropTypes.node,
 
@@ -137,13 +136,11 @@ Typography.propTypes = {
    * If you wish to change that mapping, you can provide your own.
    * Alternatively, you can use the `component` property.
    * The default mapping is the following:
-   * @uxpinignoreprop
    */
   headlineMapping: PropTypes.object,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
