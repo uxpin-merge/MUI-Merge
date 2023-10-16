@@ -11,7 +11,7 @@ import { iconVariants } from '../Icon/icon-variants';
 function IconButton(props) {
   return (
     <IconButtonM {...props}>
-      <Icon fontSize={props.size}>{props.children}</Icon>
+      {props.children}
     </IconButtonM>
   );
 }
@@ -20,7 +20,7 @@ IconButton.propTypes = {
   /**
    * The icon element.
    */
-  children: PropTypes.oneOf(iconVariants),
+  children: PropTypes.node,
 
   /**
    * The size of the button.
