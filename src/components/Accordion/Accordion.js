@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import AccordionM from '@mui/material/Accordion';
 
 /**
- * @upxindocurl https://mui.com/api/accordion/
+ * @uxpindocurl https://mui.com/api/accordion/
+ * @uxpindescription An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.
  */
 function Accordion(props) {
   const [expanded, setExpanded] = React.useState('');
