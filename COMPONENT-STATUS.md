@@ -18,7 +18,7 @@
 | Bottom Navigation Action | [ ]    |
 | Box                      | [ ]    |
 | Breadcrumbs              | [ ]    |
-| Button                   | [ ]    |
+| Button                   | [ x ]    |
 | Button Group             | [ ]    |
 | Card                     | [ ]    |
 | Card Actions             | [ ]    |

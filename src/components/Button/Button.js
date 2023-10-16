@@ -6,6 +6,7 @@ import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/components/buttons/#main-content
+ * @uxpindescription Buttons allow users to take actions, and make choices, with a single tap.
  */
 
 function Button(props) {
