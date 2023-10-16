@@ -31,11 +31,10 @@ CardHeader.propTypes = {
   /**
    * The Avatar element to display.
    */
-  avatar: PropTypes.string,
+  avatar: PropTypes.node,
 
   /**
    * Color of the Avatar text.
-   * @uxpinpropname Avatar Bg Color
    */
   color: PropTypes.oneOf([
     'red',
@@ -57,7 +56,6 @@ CardHeader.propTypes = {
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -79,7 +77,6 @@ CardHeader.propTypes = {
 
   /**
    * These props will be forwarded to the subheader (as long as disableTypography is not true).
-   * @uxpinignoreprop
    */
   subheaderTypograhyProps: PropTypes.object,
 
@@ -95,7 +92,6 @@ CardHeader.propTypes = {
 
   /**
    * These props will be forwarded to the title (as long as disableTypography is not true).
-   * @uxpinignoreprop
    */
   titleTypographyProps: PropTypes.object,
 

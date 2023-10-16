@@ -15,7 +15,7 @@ export default (
   <Card uxpId="Card-1">
     <CardHeader
       uxpId="Card-Header-1"
-      avatar="R"
+      avatar={<Avatar uxpId="avatar-1">R</Avatar>}
       color="grey"
       action={<IconButton uxpId="action-icon-button"><Icon uxpId="action-icon">more_vert</Icon></IconButton>}
       ariaLabel="add"
