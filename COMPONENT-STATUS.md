@@ -20,12 +20,12 @@
 | Breadcrumbs              | [ ]    |
 | Button                   | [ x ]    |
 | Button Group             | [ x ]    |
-| Card                     | [ ]    |
-| Card Actions             | [ ]    |
-| Card Actions Area        | [ ]    |
-| Card Content             | [ ]    |
-| Card Header              | [ ]    |
-| Card Media               | [ ]    |
+| Card                     | [ x ]    |
+| Card Actions             | [ x ]    |
+| Card Actions Area        | [ x ]    |
+| Card Content             | [ x ]    |
+| Card Header              | [ x ]    |
+| Card Media               | [ x ]    |
 | Checkbox                 | [ ]    |
 | Checkbox With Label      | [ ]    |
 | Circular Progress        | [ ]    |
