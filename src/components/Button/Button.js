@@ -14,8 +14,6 @@ function Button(props) {
     <ButtonM
       {...other}
       ref={uxpinRef}
-      startIcon={props.startIcon && <Icon>{props.startIcon}</Icon>}
-      endIcon={props.endIcon && <Icon>{props.endIcon}</Icon>}
     >
       {props.children}
     </ButtonM>
@@ -25,7 +23,6 @@ function Button(props) {
 Button.propTypes = {
   /**
    * The label of the button.
-   * @uxpinpropname Label
    * */
   children: PropTypes.node,
 
@@ -68,13 +65,13 @@ Button.propTypes = {
    * If set, icon will display to the left.
    * Use the name of the icon from https://material.io/tools/icons.
    */
-  startIcon: PropTypes.oneOf(iconVariants),
+  startIcon: PropTypes.node,
 
   /**
    * If set, icon will display to the right.
    * Use the name of the icon from https://material.io/tools/icons.
    */
-  endIcon: PropTypes.oneOf(iconVariants),
+  endIcon: PropTypes.node,
 
   /**
    * On click event to use with UXPin interactions.
