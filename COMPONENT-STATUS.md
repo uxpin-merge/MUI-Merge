@@ -19,7 +19,7 @@
 | Box                      | [ ]    |
 | Breadcrumbs              | [ ]    |
 | Button                   | [ x ]    |
-| Button Group             | [ ]    |
+| Button Group             | [ x ]    |
 | Card                     | [ ]    |
 | Card Actions             | [ ]    |
 | Card Actions Area        | [ ]    |

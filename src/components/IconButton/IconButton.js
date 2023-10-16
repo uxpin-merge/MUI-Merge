@@ -6,6 +6,7 @@ import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/icon-button/#main-content
+ * @uxpindescription Icon buttons are commonly found in app bars and toolbars.
  */
 function IconButton(props) {
   return (
@@ -18,7 +19,6 @@ function IconButton(props) {
 IconButton.propTypes = {
   /**
    * The icon element.
-   * @uxpinpropname  Icon
    */
   children: PropTypes.oneOf(iconVariants),
 
