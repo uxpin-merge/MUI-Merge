@@ -22,19 +22,16 @@ function Accordion(props) {
 Accordion.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * If true, expands the accordion by default.
-   * @uxpinignoreprop
    */
   defaultExpanded: PropTypes.bool,
 
