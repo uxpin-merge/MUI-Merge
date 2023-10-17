@@ -4,6 +4,7 @@ import BadgeM from '@mui/material/Badge';
 
 /**
  * @uxpindocurl https://mui.com/api/badge/
+ * @uxpindescription Badge generates a small badge to the top-right of its child(ren).
  */
 function Badge(props) {
   return (
