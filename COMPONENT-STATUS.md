@@ -3,56 +3,59 @@
 
 | COMPONENT                | STATUS         |
 | ------------------------ | -------------- |
-| Accordian                | [ x ]    |
-| Accordion Details        | [ x ]    |
-| Accordion Summary        | [ x ]    |
-| Alert                    | [ ]    |
+| Accordian                | [ ✓ ]    |
+| Accordion Details        | [ ✓ ]    |
+| Accordion Summary        | [ ✓ ]    |
+| Alert                    | [ ** ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
-| Auto Complete            | [ ]|
-| Avatar                   | [ x ]    |
+| Auto Complete            | [ ** ]|
+| Avatar                   | [ ✓ ]    |
 | AvatarGroup              | [ ]    |
 | Backdrop                 | [ ]    |
-| Badge                    | [ ]    |
+| Badge                    | [ ** ]    |
 | Bottom Navigation        | [ ]    |
 | Bottom Navigation Action | [ ]    |
-| Box                      | [ ]    |
+| Box                      | [ ** ]    |
 | Breadcrumbs              | [ ]    |
-| Button                   | [ x ]    |
-| Button Group             | [ x ]    |
-| Card                     | [ x ]    |
-| Card Actions             | [ x ]    |
-| Card Actions Area        | [ x ]    |
-| Card Content             | [ x ]    |
-| Card Header              | [ x ]    |
-| Card Media               | [ x ]    |
-| Checkbox                 | [ ]    |
-| Checkbox With Label      | [ ]    |
-| Circular Progress        | [ ]    |
+| Button                   | [ ✓ ]    |
+| Button Group             | [ ✓ ]    |
+| Card                     | [ ✓ ]    |
+| Card Actions             | [ ✓ ]    |
+| Card Actions Area        | [ ✓ ]    |
+| Card Content             | [ ✓ ]    |
+| Card Header              | [ ✓ ]    |
+| Card Media               | [ ✓ ]    |
+| Checkbox                 | [ ** ]    |
+| Checkbox Group           | [ !! ]    |
+| Checkbox With Label      | [ !! ]    |
+| Chip                     | [ !! ]    |
+| Circular Progress        | [ ** ]    |
 | Collapse                 | [ ]    |
 | Container                | [ ]    |
 | Date/Time (Input)        | [ ]|
-| DatePicker (Input)       | [ ] |
-| Dialog                   | [ ]    |
+| DatePicker (Input)       | [ ** ] |
+| Dialog                   | [ ** ]    |
 | Dialog Action            | [ ]    |
 | Dialog Content           | [ ]    |
 | Dialog Content Text      | [ ]    |
-| Dialog Title             | [ ]    |
+| Dialog Title             | [ ** ]    |
 | Divider                  | [ ]    |
-| Divider: Vertical        | [ ]    |
-| Drawer                   | [ ]    |
-| Floating Action Button   | [ ]    |
+| Divider: Vertical        | [ !! ]    |
+| Dot                      | [ !! ]    |
+| Drawer                   | [ ** ]    |
+| Floating Action Button   | [ ** ]    |
 | Form Control Label       | [ ]    |
 | Form Group               | [ ]    |
 | FormControl              | [ ]    |
 | FormControlGroup         | [ ] |
 | FormHelperText           | [ ]    |
 | FormLabel                | [ ]    |
-| Grid                     | [ ]    |
+| Grid                     | [ ** ]    |
 | Grid List/ImageList      | [ ]    |
-| Icon                     | [ x ]    |
-| Icon Button              | [ x ]    |
-| Image                    | [ ]    |
+| Icon                     | [ ✓ ]    |
+| Icon Button              | [ ✓ ]    |
+| Image                    | [ !! ]    |
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |
@@ -65,24 +68,27 @@
 | List Item Icon           | [ ]    |
 | List Item Text           | [ ]    |
 | List Sub Header          | [ ]    |
-| Loading Button           | [ ]    |
-| Menu                     | [ ]    |
+| Loading Button           | [ ** ]    |
+| Menu                     | [ ** ]    |
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|
 | Pagination               | [ ] |
 | Paper                    | [ ]    |
-| Radio Button             | [ ]    |
-| Rating                   | [ ]    |
-| Select                   | [ ]    |
+| Radio Button             | [ ** ]    |
+| Radio with Label             | [ !! ]    |
+| Radio Group             | [ ** ]    |
+| Rating                   | [ ** ]    |
+| Select                   | [ ** ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
-| Snackbar                 | [ ]    |
-| Speed Dial               | [ ] |
-| Split Button             | [ ]    |
-| Stack                    | [ ]    |
-| Stepper                  | [ ]|
-| Switch                   | [ ]    |
-| Switch with Label        | [ ]    |
+| Snackbar                 | [ ** ]    |
+| Speed Dial               | [ ** ] |
+| Split Button             | [ ** ]    |
+| Stack                    | [ ** ]    |
+| Stepper                  | [ ** ]    |
+| Switch                   | [ ✓ ]    |
+| Switch with Label        | [ !! ]    |
+| Switch Group        | [ !! ]    |
 | Tab                      | [ ]    |
 | Table                    | [ ]    |
 | Table Body               | [ ]    |
@@ -90,11 +96,11 @@
 | Table Container          | [ ]    |
 | Table Header             | [ ]    |
 | Table Row                | [ ]    |
+| Table Pagination         | [ ]    |
 | Tabs                     | [ ]    |
-| Textfield                | [ ]    |
-| Toggle Button            | [ ]    |
+| Textfield                | [ ** ]    |
+| Toggle Button            | [ ** ]    |
 | Toggle Button Group      | [ ]    |
 | Tool Bar                 | [ ]    |
 | Tooltip                  | [ ]    |
-| Transfer List            | [ ] |
-| Typography               | [ x ]    |
+| Typography               | [ ✓ ]    |
