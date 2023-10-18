@@ -8,8 +8,7 @@ import BoxM from '@mui/material/Box';
  */
 /**
  * @uxpindocurl https://mui.com/components/box/#main-content
- * @uuuuxpindescription The Box component serves as a wrapper component for most of the CSS utility needs.
- * @uxpindescription <b>test</b>
+ * @uxpindescription The Box component serves as a wrapper component for most of the CSS utility needs.
  */
 function Box(props) {
   const { uxpinRef, ...other } = props;
@@ -41,6 +40,17 @@ Box.propTypes = {
   /**
    * Color of text
    */
+  /**
+ * Width.
+ * In pixels
+ */
+  width: PropTypes.number,
+
+  /**
+   * Height.
+   * In pixels
+   */
+  height: PropTypes.string,
 
   color: PropTypes.oneOf([
     'white',
@@ -85,6 +95,8 @@ Box.propTypes = {
     'text.secondary',
     'text.disabled',
   ]),
+
+
 
   /**
    * All Padding.
