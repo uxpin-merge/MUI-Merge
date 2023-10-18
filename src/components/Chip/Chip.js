@@ -4,9 +4,9 @@ import ChipM from '@mui/material/Chip';
 import Icon from '../Icon/Icon';
 
 /**
- * @uxpindocurl https://mui.com/components/chips/
-  * @uxpindescription Chips are compact elements that represent an input, attribute, or action.
-  * */
+* @uxpindocurl https://mui.com/components/chips/
+* @uxpindescription Chips are compact elements that represent an input, attribute, or action.
+* */
 export default function Chip(props) {
   return (
     <ChipM {...props} />

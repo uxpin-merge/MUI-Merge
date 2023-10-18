@@ -6,48 +6,22 @@ import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/toggle-button/
+ * @uxpindescription A Toggle Button can be used to group related options.
  */
 function ToggleButton(props) {
   return (
-    <ToggleButtonM {...props}>
-      {props.startIcon && <Icon>{props.startIcon}</Icon>}
-      {props.label}
-      {props.endIcon && <Icon>{props.endIcon}</Icon>}
-    </ToggleButtonM>
+    <ToggleButtonM {...props} />
   );
 }
 
 ToggleButton.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    * */
-  children: PropTypes.string,
-
-  /**
-   * Custom Prop.
-   * The text of the button.
-   */
-  label: PropTypes.string,
-
-  /**
-   * Custom Prop to replace children.
-   * If set, icon will display to the left.
-   * Use this Prop to just have a single Icon in the Button.
-   * Use the name of the icon from https://material.io/tools/icons.
-   */
-  startIcon: PropTypes.oneOf(iconVariants),
-
-  /**
-   * Custom Prop to replace children.
-   * If set, icon will display to the right.
-   * Use the name of the icon from https://material.io/tools/icons.
-   */
-  endIcon: PropTypes.oneOf(iconVariants),
+  children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -58,14 +32,12 @@ ToggleButton.propTypes = {
 
   /**
    * If true, the keyboard focus ripple is disabled.
-   * @uxpinignoreprop
    */
   disabledFocusRipple: PropTypes.bool,
 
   /**
    * If true, the ripple effect is disabled.
    * ⚠️ Without a ripple there is no styling for :focus-visible by default.
-   * @uxpinignoreprop
    */
   disabledRipple: PropTypes.bool,
 
