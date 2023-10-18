@@ -32,7 +32,7 @@
 | Chip                     | [ ✓ ]    |
 | Circular Progress        | [ ** ]    |
 | Collapse                 | [ ]    |
-| Container                | [ ]    |
+| Container                | [ ✓ ]    |
 | Date/Time (Input)        | [ ]|
 | DatePicker (Input)       | [ ** ] |
 | Dialog                   | [ ** ]    |

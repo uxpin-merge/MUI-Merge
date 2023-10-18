@@ -4,19 +4,19 @@ import ContainerM from '@mui/material/Container';
 
 /**
  * @uxpindocurl https://mui.com/api/container/
+ * @uxpindescription The container centers your content horizontally. It's the most basic layout element.
  */
 export default function Container(props) {
   return (
-    <React.Fragment>
+    <div style={{ display: "grid" }}>
       <ContainerM {...props}>{props.children}</ContainerM>
-    </React.Fragment>
+    </div>
   );
 }
 
 Container.propTypes = {
   /**
    * The content node to be collapsed.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
@@ -46,7 +46,6 @@ Container.propTypes = {
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
