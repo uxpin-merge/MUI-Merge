@@ -4,6 +4,7 @@ import DividerM from '@mui/material/Divider';
 
 /**
  * @uxpindocurl https://mui.com/api/divider/
+ * @uxpindescription A divider is a thin line that groups content in lists and layouts.
  */
 function Divider(props) {
   return <DividerM {...props} />;
@@ -12,18 +13,15 @@ function Divider(props) {
 Divider.propTypes = {
   /**
    * Absolutely position the element.
-   * @uxpinignoreprop
    */
   absolute: PropTypes.bool,
 
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
@@ -41,7 +39,6 @@ Divider.propTypes = {
 
   /**
    * If true, the divider will have a lighter color.
-   * @uxpinignoreprop
    */
   light: PropTypes.bool,
 

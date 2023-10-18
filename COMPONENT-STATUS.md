@@ -40,7 +40,7 @@
 | Dialog Content           | [ ]    |
 | Dialog Content Text      | [ ]    |
 | Dialog Title             | [ ** ]    |
-| Divider                  | [ ]    |
+| Divider                  | [ ✓ ]    |
 | Divider: Vertical        | [ !! ]    |
 | Dot                      | [ !! ]    |
 | Drawer                   | [ ** ]    |
