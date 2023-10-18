@@ -84,7 +84,7 @@
 | Snackbar                 | [ ** ]    |
 | Speed Dial               | [ ** ] |
 | Split Button             | [ ** ]    |
-| Stack                    | [ ** ]    |
+| Stack                    | [ ✓ ]    |
 | Stepper                  | [ ** ]    |
 | Switch                   | [ ✓ ]    |
 | Switch with Label        | [ !! ]    |
