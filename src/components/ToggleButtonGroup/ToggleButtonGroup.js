@@ -26,13 +26,11 @@ export default function ToggleButtonGroup(props) {
 ToggleButtonGroup.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    * */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -68,7 +66,6 @@ ToggleButtonGroup.propTypes = {
 
   /**
    * If true, the component is disabled.
-   * @uxpincontroltype
    */
   disabled: PropTypes.bool,
 
