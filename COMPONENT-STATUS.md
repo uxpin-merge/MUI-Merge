@@ -26,7 +26,7 @@
 | Card Content             | [ ✓ ]    |
 | Card Header              | [ ✓ ]    |
 | Card Media               | [ ✓ ]    |
-| Checkbox                 | [ ** ]    |
+| Checkbox                 | [ ✓ ]    |
 | Checkbox Group           | [ !! ]    |
 | Checkbox With Label      | [ !! ]    |
 | Chip                     | [ ✓ ]    |

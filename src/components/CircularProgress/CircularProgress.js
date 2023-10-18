@@ -4,6 +4,7 @@ import CircularProgressM from '@mui/material/CircularProgress';
 
 /**
  * @uxpindocurl https://mui.com/api/circular-progress/#main-content
+ * @uxpindescription Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.
  */
 function CircularProgress(props) {
   return (
@@ -17,33 +18,24 @@ CircularProgress.propTypes = {
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
-   * @uxpinignoreprop
-   */
-  className: PropTypes.string,
-  /**
    * The variant to use.
    * Use indeterminate when there is no progress value.
    */
-  variant: PropTypes.oneOf(['determinate', 'indeterminate', 'static']),
+  variant: PropTypes.oneOf(['determinate', 'indeterminate']),
   /**
    * The size of the circle.
    */
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  size: PropTypes.number,
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning', 'inherit']),
 
-  /**
-   * @uxpinignoreprop
-   */
-  style: PropTypes.object,
 
   /**
    * The thickness of the circle.
