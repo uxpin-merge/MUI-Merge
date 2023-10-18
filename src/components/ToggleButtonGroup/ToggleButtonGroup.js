@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 /**
  * @uxpindocurl https://mui.com/api/toggle-button-group/
+ * @uxpindescription A Toggle Button can be used to group related options.
  */
 export default function ToggleButtonGroup(props) {
   const [toggleValue, setToggleValue] = React.useState([props.value]);
