@@ -8,21 +8,23 @@ import BoxM from '@mui/material/Box';
  */
 /**
  * @uxpindocurl https://mui.com/components/box/#main-content
+ * @uxpindescription The Box component serves as a wrapper component for most of the CSS utility needs.
  */
 function Box(props) {
   const { uxpinRef, ...other } = props;
   return (
-    <BoxM ref={uxpinRef} height="100%" {...other}>
-      {!props.children ? (
-        <span>
-          <center>
-            <p>Drag components into this wrapper</p>
-          </center>
-        </span>
-      ) : (
-        props.children
-      )}
-    </BoxM>
+    // <BoxM ref={uxpinRef} height="100%" {...other}>
+    //   {!props.children ? (
+    //     <span>
+    //       <center>
+    //         <p>Drag components into this wrapper</p>
+    //       </center>
+    //     </span>
+    //   ) : (
+    //     props.children
+    //   )}
+    // </BoxM>
+    <BoxM {...props} />
   );
 }
 
@@ -30,9 +32,11 @@ Box.propTypes = {
   /**
    * The content of the box.
    */
-  /** @uxpinignoreprop */
   children: PropTypes.node,
-
+  /**
+   * The content of the box.
+   */
+  component: PropTypes.string,
   /**
    * Color of text
    */
