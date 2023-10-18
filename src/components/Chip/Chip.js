@@ -5,30 +5,11 @@ import Icon from '../Icon/Icon';
 
 /**
  * @uxpindocurl https://mui.com/components/chips/
- */
+  * @uxpindescription Chips are compact elements that represent an input, attribute, or action.
+  * */
 export default function Chip(props) {
-  const [chipDeleted, setChipDeleted] = React.useState(false);
-  const { ...other } = props;
-
   return (
-    <>
-      {!chipDeleted ? (
-        <ChipM
-          {...other}
-          onDelete={
-            props.deletable
-              ? () => {
-                  props.onDelete;
-                  setChipDeleted(true);
-                }
-              : null
-          }
-          avatar={props.avatar ? props.avatar : null}
-          icon={props.icon ? <Icon>{props.icon}</Icon> : null}
-          deleteIcon={props.deleteIcon ? <Icon>{props.deleteIcon}</Icon> : null}
-        />
-      ) : null}
-    </>
+    <ChipM {...props} />
   );
 }
 
@@ -37,13 +18,7 @@ Chip.propTypes = {
    * The content of the component.
    */
   // label: PropTypes.node,
-  label: PropTypes.string,
-
-  /**
-   * The href attibute of the element.
-   * Only works when component is set to 'a'
-   */
-  href: PropTypes.string,
+  label: PropTypes.node,
 
   /**
    * If true, the component is disabled.
@@ -54,11 +29,6 @@ Chip.propTypes = {
    * If true, the chip will appear clickable.
    */
   clickable: PropTypes.bool,
-
-  /**
-   * If true, the chip will appear show delete icon.
-   */
-  deletable: PropTypes.bool,
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
@@ -78,7 +48,6 @@ Chip.propTypes = {
   //
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
-   * @uxpinpropname DOM Element Type
    */
   component: PropTypes.oneOf(['a', 'div']),
 

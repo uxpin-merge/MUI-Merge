@@ -13,7 +13,7 @@
 | Avatar                   | [ ✓ ]    |
 | AvatarGroup              | [ ]    |
 | Backdrop                 | [ ]    |
-| Badge                    | [ ** ]    |
+| Badge                    | [ ✓ ]    |
 | Bottom Navigation        | [ ]    |
 | Bottom Navigation Action | [ ]    |
 | Box                      | [ ** ]    |
@@ -29,7 +29,7 @@
 | Checkbox                 | [ ** ]    |
 | Checkbox Group           | [ !! ]    |
 | Checkbox With Label      | [ !! ]    |
-| Chip                     | [ !! ]    |
+| Chip                     | [ ✓ ]    |
 | Circular Progress        | [ ** ]    |
 | Collapse                 | [ ]    |
 | Container                | [ ]    |
