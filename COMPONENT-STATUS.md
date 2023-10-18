@@ -83,7 +83,7 @@
 | Slider                   | [ ]    |
 | Snackbar                 | [ ** ]    |
 | Speed Dial               | [ ** ] |
-| Split Button             | [ ** ]    |
+| Split Button             | [ !! ]    |
 | Stack                    | [ ✓ ]    |
 | Stepper                  | [ ** ]    |
 | Switch                   | [ ✓ ]    |
