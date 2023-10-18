@@ -30,7 +30,7 @@
 | Checkbox Group           | [ !! ]    |
 | Checkbox With Label      | [ !! ]    |
 | Chip                     | [ ✓ ]    |
-| Circular Progress        | [ ** ]    |
+| Circular Progress        | [ ✓ ]    |
 | Collapse                 | [ ]    |
 | Container                | [ ✓ ]    |
 | Date/Time (Input)        | [ ]|

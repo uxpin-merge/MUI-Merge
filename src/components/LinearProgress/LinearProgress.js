@@ -6,21 +6,15 @@ import LinearProgressM from '@mui/material/LinearProgress';
  * @uxpindocurl https://mui.com/api/linear-progress/#main-content
  */
 function LinearProgress(props) {
-  return <LinearProgressM {...props} sx={{ height: props.height, borderRadius: props.borderRadius }} />;
+  return <LinearProgressM {...props} />;
 }
 
 LinearProgress.propTypes = {
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
-
-  /**
-   * @uxpinignoreprop
-   */
-  className: PropTypes.string,
 
   /**
    * The variant to use.
@@ -44,12 +38,6 @@ LinearProgress.propTypes = {
    * Value between 0 and 100.
    */
   valueBuffer: PropTypes.number,
-  /**
-   * The height.
-   */
-  height: PropTypes.number,
-
-  borderRadius: PropTypes.number,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
