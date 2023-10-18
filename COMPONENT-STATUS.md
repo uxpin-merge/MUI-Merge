@@ -59,7 +59,7 @@
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |
-| Linear Progress          | [ ]    |
+| Linear Progress          | [ ✓ ]    |
 | Link                     | [ ]    |
 | List                     | [ ]    |
 | List Item                | [ ]    |
