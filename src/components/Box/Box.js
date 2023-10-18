@@ -8,7 +8,8 @@ import BoxM from '@mui/material/Box';
  */
 /**
  * @uxpindocurl https://mui.com/components/box/#main-content
- * @uxpindescription The Box component serves as a wrapper component for most of the CSS utility needs.
+ * @uuuuxpindescription The Box component serves as a wrapper component for most of the CSS utility needs.
+ * @uxpindescription <b>test</b>
  */
 function Box(props) {
   const { uxpinRef, ...other } = props;
