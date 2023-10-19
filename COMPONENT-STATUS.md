@@ -44,7 +44,7 @@
 | Divider: Vertical        | [ !! ]    |
 | Dot                      | [ !! ]    |
 | Drawer                   | [ ** ]    |
-| Floating Action Button   | [ ** ]    |
+| Floating Action Button   | [ ✓ ]    |
 | Form Control Label       | [ ]    |
 | Form Group               | [ ]    |
 | FormControl              | [ ]    |
@@ -68,7 +68,7 @@
 | List Item Icon           | [ ]    |
 | List Item Text           | [ ]    |
 | List Sub Header          | [ ]    |
-| Loading Button           | [ ** ]    |
+| Loading Button           | [ ✓ ]    |
 | Menu                     | [ ** ]    |
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|

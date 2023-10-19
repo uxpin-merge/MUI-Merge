@@ -1,48 +1,24 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import FabM from '@mui/material/Fab';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/fab/
+ * @uxpindescription A Floating Action Button (FAB) performs the primary, or most common, action on a screen.
  */
-function FloatingActionButton(props) {
-  let hasIcon = null;
-
-  if (props.icon) {
-    if (props.label) {
-      hasIcon = <Icon sx={{ mr: 1 }}>{props.icon}</Icon>;
-    } else {
-      hasIcon = <Icon>{props.icon}</Icon>;
-    }
-  }
-
+function Fab(props) {
   return (
-    <FabM {...props}>
-      {hasIcon}
-      {props.label}
-    </FabM>
+    <FabM {...props} />
   );
 }
 
-FloatingActionButton.propTypes = {
+Fab.propTypes = {
   /**
    * The label of the button.
-   * @uxpinignoreprop
    * */
   children: PropTypes.node,
 
   /**
-   * Custom Prop to replace children.
-   * If set, icon will display to the left.
-   * Use this Prop to just have a single Icon in the Button.
-   * Use the name of the icon from https://material.io/tools/icons.
-   */
-  icon: PropTypes.oneOf(iconVariants),
-
-  /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component. See
    */
   classes: PropTypes.object,
@@ -53,10 +29,9 @@ FloatingActionButton.propTypes = {
   color: PropTypes.oneOf(['inherit', 'primary', 'secondary']),
 
   /**
-   * @uxpinignoreprop
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  component: PropTypes.string,
 
   /**
    * If true, the component is disabled.
@@ -64,13 +39,11 @@ FloatingActionButton.propTypes = {
   disabled: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
    * If true, the keyboard focus ripple is disabled.
    */
   disabledFocusRipple: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
    * If true, the ripple effect is disabled.
    */
   disabledRipple: PropTypes.bool,
@@ -103,4 +76,4 @@ FloatingActionButton.propTypes = {
   sx: PropTypes.object,
 };
 
-export default FloatingActionButton;
+export default Fab;

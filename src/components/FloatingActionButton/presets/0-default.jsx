@@ -7,7 +7,7 @@ export default (
     uxpId="Floating-Action-Button-1"
     color="primary"
     size="medium"
-    variant="extended"
-    label="FAB Label"
-  />
+  >
+    <Icon uxpId="icon">add</Icon>
+  </FloatingActionButton>
 );
