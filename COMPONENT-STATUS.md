@@ -51,7 +51,7 @@
 | FormControlGroup         | [ ] |
 | FormHelperText           | [ ]    |
 | FormLabel                | [ ]    |
-| Grid                     | [ ** ]    |
+| Grid                     | [ ✓ ]    |
 | Grid List/ImageList      | [ ]    |
 | Icon                     | [ ✓ ]    |
 | Icon Button              | [ ✓ ]    |
