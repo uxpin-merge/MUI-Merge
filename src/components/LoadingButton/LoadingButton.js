@@ -7,11 +7,10 @@ import LoadingButtonM from '@mui/lab/LoadingButton';
  * @uxpindescription EXPERIMENTAL - @mui/lab offers loading buttons that can show loading state and disable interactions.
  */
 function LoadingButton(props) {
-  const { uxpinRef, ...other } = props;
 
   return (
     <LoadingButtonM
-      {...other}
+      {...props}
     />
   );
 }
