@@ -77,7 +77,7 @@
 | Radio Button             | [ ** ]    |
 | Radio with Label             | [ !! ]    |
 | Radio Group             | [ ** ]    |
-| Rating                   | [ ** ]    |
+| Rating                   | [ ✓ ]    |
 | Select                   | [ ** ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
