@@ -8,22 +8,7 @@ import IconButton from '../IconButton/IconButton';
  */
 function DialogTitle(props) {
   return (
-    <DialogTitleM {...props}>
-      {props.children}
-      {props.hasClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={props.onClick}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-          }}
-        >
-          close
-        </IconButton>
-      ) : null}
-    </DialogTitleM>
+    <DialogTitleM {...props} />
   );
 }
 
@@ -34,19 +19,8 @@ DialogTitle.propTypes = {
   children: PropTypes.node,
 
   /**
-   * If true, the close icon will be shown.
-   */
-  hasClose: PropTypes.bool,
-
-  /**
-   * on click event to use with UXPin interactions.
-   */
-  onClick: PropTypes.func,
-
-  /**
    * Override or extend the styles applied to the component.
    * See CSS API below for more details. https://mui.com/api/dialog-title/#css
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 

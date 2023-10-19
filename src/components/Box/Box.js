@@ -13,17 +13,6 @@ import BoxM from '@mui/material/Box';
 function Box(props) {
   const { uxpinRef, ...other } = props;
   return (
-    // <BoxM ref={uxpinRef} height="100%" {...other}>
-    //   {!props.children ? (
-    //     <span>
-    //       <center>
-    //         <p>Drag components into this wrapper</p>
-    //       </center>
-    //     </span>
-    //   ) : (
-    //     props.children
-    //   )}
-    // </BoxM>
     <BoxM {...props} />
   );
 }

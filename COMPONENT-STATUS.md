@@ -16,7 +16,7 @@
 | Badge                    | [ ✓ ]    |
 | Bottom Navigation        | [ ]    |
 | Bottom Navigation Action | [ ]    |
-| Box                      | [ ** ]    |
+| Box                      | [ ✓ ]    |
 | Breadcrumbs              | [ ]    |
 | Button                   | [ ✓ ]    |
 | Button Group             | [ ✓ ]    |

@@ -5,6 +5,7 @@ import DialogM from '@mui/material/Dialog';
 /**
  * @uxpinuseportal
  * @uxpindocurl https://mui.com/api/dialog/#main-content
+ * @uxpindescription Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
  */
 
 function Dialog(props) {
@@ -33,100 +34,74 @@ Dialog.propTypes = {
   open: PropTypes.bool,
 
   /**
-   * Height of the dialog. This should equal the height of UXP canvas
-   * @uxpinignoreprop
+  * The content of the Dialog.
+  */
+  children: PropTypes.node,
+
+  /**
+   * The id(s) of the element(s) that describe the dialog.
    */
-  height: PropTypes.number,
+  "aria-describedby": PropTypes.string,
+
+  /**
+   * The id(s) of the element(s) that label the dialog.
+   */
+  "aria-labelledby": PropTypes.string,
+
+
+  /**
+   * Override or extend the styles applied to the component. See CSS API https://mui.com/api/dialog/#css for more details.
+   */
+  classes: PropTypes.object,
+
+  /**
+  * If true, hitting escape will not fire the onClose callback.
+  */
+  disableEscapeKeyDown: PropTypes.bool,
 
   /**
    * If `true`, the dialog will be full-screen
    */
   fullScreen: PropTypes.bool,
 
-  /**
-   * If `true`, clicking the backdrop will not fire the `onClose` callback.
-   * @uxpinignoreprop
-   */
-  disableBackdropClick: PropTypes.bool,
 
   /**
-   * If true, hitting escape will not fire the onClose callback.
+   * If `true`, the dialog stretches to `maxWidth`.
    */
-  /** @uxpinignoreprop */
-  disableEscapeKeyDown: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+
+  /**
+  * Determine the max width of the dialog.
+  * The dialog width grows with the size of the screen, this property is useful
+  * on the desktop where you might need some coherent different width size across your
+  * application. Set to `false` to disable `maxWidth`.
+  */
+  maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', false]),
 
   /**
    * Callback fired when the backdrop is clicked.
    */
-  /** @uxpinignoreprop */
   onBackdropClick: PropTypes.func,
 
   /**
-   * Determine the max width of the dialog.
-   * The dialog width grows with the size of the screen, this property is useful
-   * on the desktop where you might need some coherent different width size across your
-   * application. Set to `false` to disable `maxWidth`.
+   * Callback fired when the component requests to be closed.
    */
-  maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', false]),
-
-  /**
-   *  @uxpinignoreprop
-   */
-  children: PropTypes.node,
+  onClose: PropTypes.func,
 
   /**
    * The component used to render the body of the dialog.
    */
-  /** @uxpinignoreprop */
   PaperComponent: PropTypes.elementType,
 
   /**
-   * The component used for the transition.
-   * Follow this guide: https://mui.com/components/transitions/#transitioncomponent-prop
-   * to learn more about the requirements for this component.
+   * Props applied to the Paper element.
    */
-  /** @uxpinignoreprop */
-  TransitionComponent: PropTypes.elementType,
+  PaperProps: PropTypes.object,
 
   /**
-   * The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.
-   */
-  /** @uxpinignoreprop */
-  trainstionDuration: PropTypes.oneOf([PropTypes.number, PropTypes.object]),
-
-  /**
-   * Props applied to the transition element. By default, the element is based on this Transition component http://reactcommunity.org/react-transition-group/transition.
-   */
-  /** @uxpinignoreprop */
-  TransitionProps: PropTypes.object,
-
-  /**
-   * Override or extend the styles applied to the component. See CSS API https://mui.com/api/dialog/#css for more details.
-   * @uxpinignoreprop
-   */
-  classes: PropTypes.object,
-
-  /**
-   * Determine the container for scrolling the dialog.
-   */
+  * Determine the container for scrolling the dialog.
+  */
   scroll: PropTypes.oneOf(['body', 'paper']),
-  /**
-   * Enter event to use with UXPin interactions.
-   */
-  onEnter: PropTypes.func,
-
-  /**
-   * Exit event to use with UXPin interactions.
-   */
-  onExit: PropTypes.func,
-
-  onClose: PropTypes.func,
-
-  /**
-   * If `true`, the dialog stretches to `maxWidth`.
-   * @uxpinignoreprop
-   */
-  fullWidth: PropTypes.bool,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
@@ -134,6 +109,24 @@ Dialog.propTypes = {
    */
   /** */
   sx: PropTypes.object,
+
+  /**
+   * The component used for the transition.
+   * Follow this guide: https://mui.com/components/transitions/#transitioncomponent-prop
+   * to learn more about the requirements for this component.
+   */
+  TransitionComponent: PropTypes.elementType,
+
+  /**
+   * The duration for the transition, in milliseconds. You may specify a single timeout for all transitions, or individually with an object.
+   */
+  transitionDuration: PropTypes.object,
+
+  /**
+  * Props applied to the transition element. By default, the element is based on this Transition component http://reactcommunity.org/react-transition-group/transition.
+  */
+  TransitionProps: PropTypes.object,
+
 };
 
 export default Dialog;
