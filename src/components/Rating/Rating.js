@@ -1,42 +1,49 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import RatingM from '@mui/material/Rating';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
+import { v4 as uuidv4 } from 'uuid';
+
 
 /**
  * @uxpindocurl https://mui.com/api/rating/#main-content
+ * @uxpindescription Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.
  */
 function Rating(props) {
+  // Unique Id
+  const id = uuidv4();
   return (
     <RatingM
+      key={id}
       {...props}
-      emptyIcon={props.emptyIcon && <Icon fontSize="inherit">{props.emptyIcon}</Icon>}
-      icon={props.icon && <Icon fontSize="inherit">{props.icon}</Icon>}
     />
   );
 }
 
 Rating.propTypes = {
+
+
   /**
-   * @uxpinignoreprop
-   * Override or extend the styles applied to the component.
+   * The rating value.
+   * @uxpinbind onChange 1
    */
-  classes: PropTypes.object,
+  value: PropTypes.string,
+  /**
+ * The size of the component.
+ */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+
   /**
    * The icon to display when empty.
    */
-  emptyIcon: PropTypes.oneOf(iconVariants),
+  emptyIcon: PropTypes.node,
 
   /**
    * The icon to display.
-   * @uxpinpropname Full Icon
    */
-  icon: PropTypes.oneOf(iconVariants),
+  icon: PropTypes.node,
 
   /**
    * Maximum rating.
-   * @uxpinpropname Max Rating
    */
   max: PropTypes.number,
 
@@ -56,20 +63,17 @@ Rating.propTypes = {
   readOnly: PropTypes.bool,
 
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    * Don't need this with Merge if we have Rating prop
    */
   defaultValue: PropTypes.number,
 
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    */
   emptyLabelText: PropTypes.node,
 
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    */
   getLabelText: PropTypes.func,
@@ -87,15 +91,9 @@ Rating.propTypes = {
   name: PropTypes.string,
 
   /**
-   * The size of the component.
+   * Override or extend the styles applied to the component.
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
-  /**
-   * The rating value.
-   * @uxpinbind onChange 1
-   */
-  value: PropTypes.string,
+  classes: PropTypes.object,
 
   /**
    * On click event to use with UXPin interactions.
