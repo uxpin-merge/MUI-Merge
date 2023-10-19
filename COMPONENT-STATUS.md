@@ -35,11 +35,11 @@
 | Container                | [ ✓ ]    |
 | Date/Time (Input)        | [ ]|
 | DatePicker (Input)       | [ ** ] |
-| Dialog                   | [ ** ]    |
+| Dialog                   | [ ✓ ]    |
 | Dialog Action            | [ ]    |
 | Dialog Content           | [ ]    |
 | Dialog Content Text      | [ ]    |
-| Dialog Title             | [ ** ]    |
+| Dialog Title             | [ ✓ ]    |
 | Divider                  | [ ✓ ]    |
 | Divider: Vertical        | [ !! ]    |
 | Dot                      | [ !! ]    |
