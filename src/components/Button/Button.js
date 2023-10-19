@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonM from '@mui/material/Button';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/components/buttons/#main-content
