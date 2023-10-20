@@ -81,7 +81,7 @@
 | Select                   | [ ** ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
-| Snackbar                 | [ ** ]    |
+| Snackbar                 | [ ✓ ]    |
 | Speed Dial               | [ ** ] |
 | Split Button             | [ !! ]    |
 | Stack                    | [ ✓ ]    |
