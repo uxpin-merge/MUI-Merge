@@ -1,18 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import RadioM from '@mui/material/Radio';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * @uxpindocurl https://mui.com/api/radio/
+ * @uxpindescription The Radio Group allows the user to select one option from a set.
  */
 function Radio(props) {
+  // Unique Id
+  const id = uuidv4();
+
   return (
     <RadioM
+      key={id}
       {...props}
-      icon={props.icon ? <Icon>{props.icon}</Icon> : <Icon>radio_button_unchecked</Icon>}
-      checkedIcon={props.checkedIcon ? <Icon>{props.checkedIcon}</Icon> : <Icon>radio_button_checked</Icon>}
     />
   );
 }
@@ -27,15 +29,13 @@ Radio.propTypes = {
   /**
    * The icon to display when the component is unchecked.
    */
-  icon: PropTypes.oneOf(iconVariants),
+  icon: PropTypes.node,
 
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon: PropTypes.oneOf(iconVariants),
-
+  checkedIcon: PropTypes.node,
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
@@ -73,7 +73,7 @@ Radio.propTypes = {
   /**
    * The size of the component. small is equivalent to the dense checkbox styling.
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium']),
 
   /**
    * The value of the component.
