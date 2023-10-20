@@ -1,181 +1,170 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextFieldM from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @uxpindocurl https://mui.com/api/text-field/
+ * @uxpindescription Text Fields let users enter and edit text.
  */
 function TextField(props) {
-  const { startAdornment, endAdornment, ...other } = props;
 
   return (
     <TextFieldM
-      {...other}
-      InputProps={{
-        startAdornment: props.startAdornment && (
-          <InputAdornment position="start">
-            <Icon>{startAdornment}</Icon>
-          </InputAdornment>
-        ),
-        endAdornment: props.endAdornment && (
-          <InputAdornment position="end">
-            <Icon>{endAdornment}</Icon>
-          </InputAdornment>
-        ),
-      }}
+      {...props}
+
+
     />
   );
 }
 
 TextField.propTypes = {
   /**
-   * The label content.
-   */
-  label: PropTypes.string,
-
-  /**
-   * The helper text content.
-   */
-  helperText: PropTypes.string,
-
-  /**
-   * The short hint displayed in the input before the user enters a value.
-   */
-  placeholder: PropTypes.string,
-
-  /**
-   * The value of the `Input` element, required for a controlled component.
-   * @uxpinbind onChange 0.target.value
-   */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])),
-  ]),
-
-  /**
-   * This prop helps users to fill forms faster, especially on mobile devices.
-   * The name can be confusing, as it's more like an autofill.
-   * You can learn more about it: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill.
-   */
-  /** @uxpinignoreprop */
+ * This prop helps users to fill forms faster, especially on mobile devices.
+ * The name can be confusing, as it's more like an autofill.
+ * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+ */
   autoComplete: PropTypes.string,
-
   /**
-   * Override or extend the styles applied to the component. See CSS API: https://mui.com/api/text-field/#css.
+   * If `true`, the `input` element is focused during the first mount.
    */
-  /** @uxpinignoreprop */
+  autoFocus: PropTypes.bool,
+  /**
+   * Override or extend the styles applied to the component.
+   */
   classes: PropTypes.object,
 
   /**
-   * The variant to use.
-   */
-  variant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
-
-  /**The size of the component */
-  size: PropTypes.oneOf(['small', 'medium']),
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * The color of the component.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    */
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']),
-
   /**
-   * If 'dense' or 'normal', will adjust vertical spacing of this and contained components.
+   * The default value. Use when the component is not controlled.
    */
-  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
-
-  /** The default value. Use when the component is not controlled.*/
-  /** @uxpinignoreprop */
   defaultValue: PropTypes.string,
-
-  /** If 'true', the component is disabled.*/
+  /**
+   * If `true`, the component is disabled.
+   */
   disabled: PropTypes.bool,
   /**
-   * Type of the input element
+   * If `true`, the label is displayed in an error state.
    */
-  type: PropTypes.oneOf(['text', 'number', 'password']),
-  /**
-   * If `true`, the label is displayed as required and the input will be required.
-   */
-  required: PropTypes.bool,
-
-  /** If 'true', the label is displayed in an error state.*/
   error: PropTypes.bool,
-
   /**
-   * If 'true', the input will take up the full width of its container.
+   * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
+   */
+  FormHelperTextProps: PropTypes.object,
+  /**
+   * If `true`, the input will take up the full width of its container.
    */
   fullWidth: PropTypes.bool,
-
   /**
-   * If 'true', the input element is focused during the first mount.
+   * The helper text content.
    */
-  autoFocus: PropTypes.bool,
-
+  helperText: PropTypes.node,
   /**
-   * The id of the input element. Use this prop to make label and helperText accessible for screen readers.
+   * The id of the `input` element.
+   * Use this prop to make `label` and `helperText` accessible for screen readers.
    */
-  /** @uxpinignoreprop */
   id: PropTypes.string,
-
   /**
-   * If true, a textarea element is rendered instead of an input.
+   * Props applied to the [`InputLabel`](/material-ui/api/input-label/) element.
+   * Pointer events like `onClick` are enabled if and only if `shrink` is `true`.
    */
-  multiline: PropTypes.bool,
-
+  InputLabelProps: PropTypes.object,
+  /**
+   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
+   */
+  // inputProps: PropTypes.object,
+  /**
+   * Props applied to the Input element.
+   * It will be a [`FilledInput`](/material-ui/api/filled-input/),
+   * [`OutlinedInput`](/material-ui/api/outlined-input/) or [`Input`](/material-ui/api/input/)
+   * component depending on the `variant` prop value.
+   */
+  InputProps: PropTypes.object,
+  /**
+   * Pass a ref to the `input` element.
+   */
+  inputRef: PropTypes.string,
+  /**
+   * The label content.
+   */
+  label: PropTypes.node,
+  /**
+   * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
+   */
+  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
   maxRows: PropTypes.number,
-
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
   minRows: PropTypes.number,
-
   /**
-   * @uxpinignoreprop
+   * If `true`, a `textarea` element is rendered instead of an input.
+   */
+  multiline: PropTypes.bool,
+  /**
    * Name attribute of the `input` element.
    */
   name: PropTypes.string,
-
+  /**
+   */
+  onBlur: PropTypes.func,
+  /**
+   * Callback fired when the value is changed.
+   *
+   * @param {object} event The event source of the callback.
+   * You can pull out the new value by accessing `event.target.value` (string).
+   */
+  onChange: PropTypes.func,
+  /**
+   * The short hint displayed in the `input` before the user enters a value.
+   */
+  placeholder: PropTypes.string,
+  /**
+   * If `true`, the label is displayed as required and the `input` element is required.
+   */
+  required: PropTypes.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
   rows: PropTypes.number,
-
   /**
-   * Render a 'Select' element while passing the Input element to 'Select' as 'input' parameter.
+   * Render a [`Select`](/material-ui/api/select/) element while passing the Input element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    */
-  /** @uxpinignoreprop */
   select: PropTypes.bool,
-
-  /** @uxpinignoreprop */
+  /**
+   * Props applied to the [`Select`](/material-ui/api/select/) element.
+   */
   SelectProps: PropTypes.object,
-
   /**
-   * If set, icon will display to the left.
-   * Use the name of the icon from https://material.io/tools/icons.
+   * The size of the component.
    */
-  startAdornment: PropTypes.oneOf(iconVariants),
-
-  endAdornment: PropTypes.oneOf(iconVariants),
-
+  size: PropTypes.oneOf(['medium', 'small']),
   /**
-   * Callback fired when the value is changed.
+   * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  onChange: PropTypes.func,
-
-  /** The system prop that allows defining
-   * system overrides as well as additional CSS styles.
-   * See the `sx` page for more details. https://mui.com/system/the-sx-prop/ */
   sx: PropTypes.object,
-};
+  /**
+   * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+   */
+  type: PropTypes.string,
+  /**
+   * The value of the `input` element, required for a controlled component.
+     * @uxpinbind onChange 0.target.value
+   */
+  value: PropTypes.string,
+  /**
+   * The variant to use.
+   */
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
+}
+
 
 export default TextField;

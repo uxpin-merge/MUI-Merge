@@ -98,7 +98,8 @@
 | Table Row                | [ ]    |
 | Table Pagination         | [ ]    |
 | Tabs                     | [ ]    |
-| Textfield                | [ ** ]    |
+| Textfield                | [ ✓ - icon bug ]    |
+| InputAdornment           | [ *MISSING* ]    |
 | Toggle Button            | [ ✓ ]    |
 | Toggle Button Group      | [ ✓ ]    |
 | Tool Bar                 | [ ]    |

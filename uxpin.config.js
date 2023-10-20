@@ -32,6 +32,7 @@ module.exports = {
           'src/components/SwitchWithLabel/SwitchWithLabel.js',
           'src/components/SwitchGroup/SwitchGroup.js',
           'src/components/TextField/TextField.js',
+          'src/components/InputAdornment/InputAdornment.js',
           // 'src/components/TransferList/TransferList.js',
           'src/components/ToggleButton/ToggleButton.js',
           'src/components/ToggleButtonGroup/ToggleButtonGroup.js',
