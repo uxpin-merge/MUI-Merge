@@ -99,7 +99,7 @@
 | Table Pagination         | [ ]    |
 | Tabs                     | [ ]    |
 | Textfield                | [ ✓ - icon bug ]    |
-| InputAdornment           | [ *MISSING* ]    |
+| InputAdornment           | [ ✓ ]    |
 | Toggle Button            | [ ✓ ]    |
 | Toggle Button Group      | [ ✓ ]    |
 | Tool Bar                 | [ ]    |
