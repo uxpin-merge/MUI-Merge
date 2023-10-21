@@ -6,7 +6,7 @@
 | Accordian                | [ ✓ ]    |
 | Accordion Details        | [ ✓ ]    |
 | Accordion Summary        | [ ✓ ]    |
-| Alert                    | [ ** ]    |
+| Alert                    | [ ✓ ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
 | Auto Complete            | [ ** ]|
@@ -74,9 +74,9 @@
 | Menu List                | [ ]|
 | Pagination               | [ ] |
 | Paper                    | [ ]    |
-| Radio Button             | [ ** ]    |
+| Radio Button             | [ ✓ ]    |
 | Radio with Label             | [ !! ]    |
-| Radio Group             | [ ** ]    |
+| Radio Group             | [ ✓ ]    |
 | Rating                   | [ ✓ ]    |
 | Select                   | [ ** ]    |
 | Skeleton                 | [ ]    |
