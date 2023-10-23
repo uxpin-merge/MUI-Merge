@@ -2,6 +2,7 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import defaultTheme from './boilerplate-theme';
+import Box from '@mui/material';
 
 export const ThemeContext = React.createContext({});
 const completeDefaultTheme = createTheme(defaultTheme);
@@ -52,7 +53,9 @@ export default function UXPinWrapper(props) {
 
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
-      <ThemeProvider theme={themeOptions.theme}>{props.children}</ThemeProvider>
+      <ThemeProvider theme={themeOptions.theme}>
+        <span style={{ display: "inline-block" }}>{props.children}</span>
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
 }
