@@ -5,8 +5,9 @@ import Box from '../Box/Box';
 import { v4 as uuidv4 } from 'uuid';
 
 /**
- * @uxpinwrappers
- * SkipContainerWrapper
+ * @uxpinuseportal props.variant === "temporary"
+ * @uxpindocurl https://mui.com/api/drawer/#main-content
+ * @uxpindescription Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
  */
 export default function Drawer(props) {
   const [open, setOpen] = React.useState(props.open);
@@ -17,7 +18,7 @@ export default function Drawer(props) {
   const id = uuidv4();
 
   return (
-    <Box style={{ minWidth: '200px', minHeight: '300px', height: '100%' }} id={id}>
+    <Box style={{}} id={id}>
       <DrawerM
         open={open}
         onClose={() => {
@@ -31,50 +32,95 @@ export default function Drawer(props) {
         <div style={{ width: props.width, minHeight: '200px' }}>{props.children}</div>
       </DrawerM>
     </Box>
+    // <DrawerM
+    //   open={open}
+    //   onClose={() => setOpen(false)}
+    //   TransitionProps={{ tabIndex: 'null' }}
+    //   // disablePortal={true}
+    //   style={{ minWidth: '300px', minHeight: '300px' }}
+    //   {...props}
+    // >
+    //   {props.children}
+    // </DrawerM>
+
   );
 }
 
 Drawer.propTypes = {
-  /**
-   * if `true` shows the drawer.
-   */
-  open: PropTypes.bool,
 
   /**
-   * The variant to use.
-   *
-   */
-  //   variant: PropTypes.oneOf(["temporary"]),
-  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary']),
+     * Side from which the drawer will appear.
+     * @default 'left'
+     */
+  anchor: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
 
   /**
-   * Side from which the drawer will appear.
-   */
-  anchor: PropTypes.oneOf(['left', 'top', 'right', 'bottom']),
-
-  /**
-   * The width of the drawer.
-   */
-  width: PropTypes.number,
-
-  /**
-   * Close event to use with UXPin interactions.
-   */
-  onClose: PropTypes.func,
-
-  /**
-   * The contents of the drawer.
-   * @uxpinignoreprop
+   * The content of the component.
    */
   children: PropTypes.node,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object,
 
   /**
-     * Needed to display in UXP editor if variant is `permanent` or `persistent`
-    //  * @uxpinignoreprop
-     */
-  // minHeight: PropTypes.number,
+   * The elevation of the drawer.
+   * @default 16
+   */
+  elevation: PropTypes.number,
+  /**
+   * If `true`, the backdrop is not rendered.
+   * @default false
+   */
+  hideBackdrop: PropTypes.bool,
+  /**
+   * Props applied to the [`Modal`](/material-ui/api/modal/) element.
+   * @default {}
+   */
+  ModalProps: PropTypes.object,
+  /**
+   * Callback fired when the component requests to be closed.
+   * The `reason` parameter can optionally be used to control the response to `onClose`.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`.
+   */
+  onClose: PropTypes.func,
+  /**
+   * If `true`, the component is shown.
+   * @default false
+   */
+  open: PropTypes.bool,
+  /**
+   * Props applied to the [`Paper`](/material-ui/api/paper/) element.
+   * @default {}
+   */
+  PaperProps: PropTypes.object,
+  /**
+   * Props applied to the [`Slide`](/material-ui/api/slide/) element.
+   */
+  SlideProps: PropTypes.object,
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
+  /**
+   * The duration for the transition, in milliseconds.
+   * You may specify a single timeout for all transitions, or individually with an object.
+   * @default {
+   *   enter: theme.transitions.duration.enteringScreen,
+   *   exit: theme.transitions.duration.leavingScreen,
+   * }
+   */
+  transitionDuration: PropTypes.number,
+  /**
+   * The variant to use.
+   * @default 'temporary'
+   */
+  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary'])
+
 };
 
 Drawer.defaultProps = {
-  open: false,
+
 };
