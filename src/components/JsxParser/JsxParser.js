@@ -13,7 +13,7 @@ import JsxParser from 'react-jsx-parser'
  * @uxpindocurl https://mui.com/api/alert/
  */
 function JsxParseComponent(props) {
-  const [open, setOpen] = React.useState(props.isOpen);
+  const [children, setOpen] = React.useState(props.isOpen);
 
   React.useEffect(() => {
     setOpen(props.isOpen);
@@ -24,7 +24,9 @@ function JsxParseComponent(props) {
     <div>
       <JsxParser
         components={{ Button, TextField }}
-        jsx={props.children}
+        jsx={props.jsx}
+        children={props.jsx}
+        {...props}
       />
       {props.children}
     </div>
@@ -34,6 +36,7 @@ function JsxParseComponent(props) {
 
 JsxParseComponent.propTypes = {
   children: PropTypes.node,
+  jsx: PropTypes.string,
 };
 
 
