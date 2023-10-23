@@ -8,7 +8,7 @@ import ContainerM from '@mui/material/Container';
  */
 export default function Container(props) {
   return (
-    <ContainerM {...props}>{props.children}</ContainerM>
+    <div><ContainerM {...props}>{props.children}</ContainerM></div>
   );
 }
 
