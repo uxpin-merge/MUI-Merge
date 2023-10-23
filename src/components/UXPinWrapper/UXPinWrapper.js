@@ -50,10 +50,9 @@ export default function UXPinWrapper(props) {
     return () => removeListener(onThemeChange);
   });
 
-  return (<div style={{ display: "grid" }}>
+  return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
-      <ThemeProvider theme={themeOptions.theme}>
-        {props.children}</ThemeProvider>
-    </ThemeContext.Provider></div>
+      <ThemeProvider theme={themeOptions.theme}>{props.children}</ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
