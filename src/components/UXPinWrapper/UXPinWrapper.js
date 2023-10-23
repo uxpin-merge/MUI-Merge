@@ -53,7 +53,7 @@ export default function UXPinWrapper(props) {
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
       <ThemeProvider theme={themeOptions.theme}>
-        <div style={{ border: "1px red solid", margin: 0, padding: 0 }}>{props.children}</div></ThemeProvider>
+        <div style={{ border: "1px red solid", margin: 0, padding: "20px" }}>{props.children}</div></ThemeProvider>
     </ThemeContext.Provider>
   );
 }
