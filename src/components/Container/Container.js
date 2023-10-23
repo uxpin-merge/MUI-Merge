@@ -8,9 +8,7 @@ import ContainerM from '@mui/material/Container';
  */
 export default function Container(props) {
   return (
-    <div style={{ display: "grid" }}>
-      <ContainerM {...props}>{props.children}</ContainerM>
-    </div>
+    <ContainerM {...props}>{props.children}</ContainerM>
   );
 }
 

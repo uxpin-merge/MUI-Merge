@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 /**
  * @uxpinuseportal props.variant === "temporary"
  * @uxpindocurl https://mui.com/api/drawer/#main-content
- * @uxpindescription Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+ * @uxpindescription The navigation drawers (or "sidebars") provide ergonomic access to destinations in a site or app functionality such as switching accounts.
  */
 export default function Drawer(props) {
   const [open, setOpen] = React.useState(props.open);

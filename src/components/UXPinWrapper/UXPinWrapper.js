@@ -54,7 +54,7 @@ export default function UXPinWrapper(props) {
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
       <ThemeProvider theme={themeOptions.theme}>
-        <span style={{ display: "inline-block" }}>{props.children}</span>
+        {props.children}
       </ThemeProvider>
     </ThemeContext.Provider>
   );
