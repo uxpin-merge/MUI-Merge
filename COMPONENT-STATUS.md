@@ -3,13 +3,12 @@
 
 | COMPONENT                | STATUS         |
 | ------------------------ | -------------- |
-| Accordian                | [ ✓ ]    |
+| Accordion                | [ ✓ ]    |
 | Accordion Details        | [ ✓ ]    |
 | Accordion Summary        | [ ✓ ]    |
 | Alert                    | [ ✓ ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
-| Auto Complete            | [ ** ]|
 | Avatar                   | [ ✓ ]    |
 | AvatarGroup              | [ ]    |
 | Backdrop                 | [ ]    |
@@ -27,23 +26,17 @@
 | Card Header              | [ ✓ ]    |
 | Card Media               | [ ✓ ]    |
 | Checkbox                 | [ ✓ ]    |
-| Checkbox Group           | [ !! ]    |
-| Checkbox With Label      | [ !! ]    |
 | Chip                     | [ ✓ ]    |
 | Circular Progress        | [ ✓ ]    |
 | Collapse                 | [ ]    |
 | Container                | [ ✓ ]    |
 | Date/Time (Input)        | [ ]|
-| DatePicker (Input)       | [ ** ] |
 | Dialog                   | [ ✓ ]    |
 | Dialog Action            | [ ]    |
 | Dialog Content           | [ ]    |
 | Dialog Content Text      | [ ]    |
 | Dialog Title             | [ ✓ ]    |
 | Divider                  | [ ✓ ]    |
-| Divider: Vertical        | [ !! ]    |
-| Dot                      | [ !! ]    |
-| Drawer                   | [ ** ]    |
 | Floating Action Button   | [ ✓ ]    |
 | Form Control Label       | [ ]    |
 | Form Group               | [ ]    |
@@ -55,7 +48,6 @@
 | Grid List/ImageList      | [ ]    |
 | Icon                     | [ ✓ ]    |
 | Icon Button              | [ ✓ ]    |
-| Image                    | [ !! ]    |
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |
@@ -69,26 +61,19 @@
 | List Item Text           | [ ]    |
 | List Sub Header          | [ ]    |
 | Loading Button           | [ ✓ ]    |
-| Menu                     | [ ** ]    |
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|
 | Pagination               | [ ] |
 | Paper                    | [ ]    |
 | Radio Button             | [ ✓ ]    |
-| Radio with Label             | [ !! ]    |
 | Radio Group             | [ ✓ ]    |
 | Rating                   | [ ✓ ]    |
-| Select                   | [ ** ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
 | Snackbar                 | [ ✓ ]    |
-| Speed Dial               | [ ** ] |
 | Split Button             | [ !! ]    |
 | Stack                    | [ ✓ ]    |
-| Stepper                  | [ ** ]    |
 | Switch                   | [ ✓ ]    |
-| Switch with Label        | [ !! ]    |
-| Switch Group        | [ !! ]    |
 | Tab                      | [ ]    |
 | Table                    | [ ]    |
 | Table Body               | [ ]    |
@@ -105,3 +90,21 @@
 | Tool Bar                 | [ ]    |
 | Tooltip                  | [ ]    |
 | Typography               | [ ✓ ]    |
+| DatePicker (Input)       | [ ** ] |
+| Stepper                  | [ ** ]    |
+| Speed Dial               | [ ** ] |
+| Select                   | [ ** ]    |
+| Menu                     | [ ** ]    |
+| Drawer                   | [ ** ]    |
+| Auto Complete            | [ ** ]|
+| Radio with Label             | [ REMOVED - not MUI component ]    |
+| Switch with Label        | [ REMOVED - not MUI component ]    |
+| Switch Group        | [ REMOVED - not MUI component ]    |
+| Image                    | [ REMOVED - not MUI component ]    |
+| Divider: Vertical        | [ REMOVED - not MUI component ]    |
+| Dot                      | [ REMOVED - not MUI component ]    |
+| Checkbox Group           | [ REMOVED - not MUI component ]    |
+| Checkbox With Label      | [ REMOVED - not MUI component ]    |
+
+
+
