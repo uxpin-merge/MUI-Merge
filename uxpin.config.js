@@ -5,10 +5,11 @@ module.exports = {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js',
-          // 'src/components/JsxParser/JsxParser.js',
+          'src/components/JsxParser/JsxParser.js',
 
         ]
       },
+
       {
         name: 'INPUTS',
         include: [
@@ -159,6 +160,14 @@ module.exports = {
 
           'src/components/Toolbar/Toolbar.js',
         ],
+      },
+      {
+        name: 'Templates',
+        include: [
+          'src/templates/sign-in/Signin.js',
+          // 'src/components/JsxParser/JsxParser.js',
+
+        ]
       },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
