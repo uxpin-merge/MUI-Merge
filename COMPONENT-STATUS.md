@@ -60,6 +60,7 @@
 | List Item Icon           | [ ]    |
 | List Item Text           | [ ]    |
 | List Sub Header          | [ ]    |
+| List Item Secondary Action          | [ ✓ ]    |
 | Loading Button           | [ ✓ ]    |
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|
