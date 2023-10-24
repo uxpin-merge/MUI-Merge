@@ -46,7 +46,7 @@ Stack.propTypes = {
    * Defines the `flex-wrap` style property.
    * It's applied for all screen sizes.
    */
-  // wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
 
   /**
    * Defines the space between immediate children in px
