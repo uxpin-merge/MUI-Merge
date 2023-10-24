@@ -4,6 +4,7 @@ import FormControlLabelM from '@mui/material/FormControlLabel';
 
 /**
  * @uxpindocurl https://mui.com/api/form-control-label/#main-content
+ * @uxpindescription You can provide a label to the Checkbox thanks to the FormControlLabel component.
  */
 function FormControlLabel(props) {
   return <FormControlLabelM {...props}>{props.children}</FormControlLabelM>;
