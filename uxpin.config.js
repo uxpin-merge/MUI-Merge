@@ -5,7 +5,7 @@ module.exports = {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js',
-          'src/components/JsxParser/JsxParser.js',
+          // 'src/components/JsxParser/JsxParser.js',
 
         ]
       },

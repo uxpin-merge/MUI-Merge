@@ -9,7 +9,7 @@ function ListItemSecondaryAction(props) {
   return <ListItemSecondaryActionM {...props}>{props.children}</ListItemSecondaryActionM>;
 }
 
-ListItemSecondaryActionM.propTypes = {
+ListItemSecondaryAction.propTypes = {
 
   /**
    * The content of the component. Text or nested components.
@@ -28,4 +28,4 @@ ListItemSecondaryActionM.propTypes = {
   sx: PropTypes.object,
 };
 
-export default ListItemSecondaryActionM;
+export default ListItemSecondaryAction;
