@@ -10,83 +10,72 @@ function FormControlLabel(props) {
 }
 
 FormControlLabel.propTypes = {
-  children: PropTypes.node,
-
   /**
-   * If `true`, the component appears selected.
-   */
+  * If `true`, the component appears selected.
+  */
   checked: PropTypes.bool,
-
   /**
-   * @uxpinignoreprop
    * Override or extend the styles applied to the component.
-   * See [CSS API](#css-api) below for more details.
    */
   classes: PropTypes.object,
-
   /**
-   * A control element. For instance, it can be be a `Radio`, a `Switch` or a `Checkbox`.
+   * @ignore
    */
-  control: PropTypes.element,
-
+  className: PropTypes.string,
   /**
-   * If `true`, the control will be disabled.
+   * The props used for each slot inside.
+   * @default {}
+   */
+  componentsProps: PropTypes.object,
+  /**
+   * A control element. For instance, it can be a `Radio`, a `Switch` or a `Checkbox`.
+   */
+  control: PropTypes.node,
+  /**
+   * If `true`, the control is disabled.
    */
   disabled: PropTypes.bool,
-
   /**
-   * If 'true', the label is rendered as it is passed without an additional typography node.
+   * If `true`, the label is rendered as it is passed without an additional typography node.
    */
   disableTypography: PropTypes.bool,
-
   /**
-   * @uxpinignoreprop
-   * Use that property to pass a ref callback to the native input component.
+   * Pass a ref to the `input` element.
    */
-  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-
+  inputRef: PropTypes.string,
   /**
-   * The text to be used in an enclosing label element.
+   * A text or an element to be used in an enclosing label element.
    */
   label: PropTypes.node,
-
   /**
    * The position of the label.
+   * @default 'end'
    */
-  labelPlacement: PropTypes.oneOf(['end', 'start', 'top', 'bottom']),
-
-  /**
-   * @uxpinignoreprop
-   * @ignore
-   */
-  muiFormControl: PropTypes.object,
-
-  /*
-   * @ignore
-   */
-  name: PropTypes.string,
+  labelPlacement: PropTypes.oneOf(['bottom', 'end', 'start', 'top']),
 
   /**
    * Callback fired when the state is changed.
    *
-   * @param {object} event The event source of the callback.
-   * You can pull out the new value by accessing `event.target.checked`.
-   * @param {boolean} checked The `checked` value of the switch
+   * @param {React.SyntheticEvent} event The event source of the callback.
+   * You can pull out the new checked state by accessing `event.target.checked` (boolean).
    */
   onChange: PropTypes.func,
-
   /**
-   * @uxpinignoreprop
+   * If `true`, the label will indicate that the `input` is required.
+   */
+  required: PropTypes.bool,
+  /**
+   * The props used for each slot inside.
+   */
+  slotProps: PropTypes.object,
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
+  /**
    * The value of the component.
    */
-  value: PropTypes.string,
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles. See the `sx` page for more details.
-   * https://mui.com/system/the-sx-prop/
-   */
-  /** */
-  sx: PropTypes.object,
+  value: PropTypes.string
 };
 
 export default FormControlLabel;
