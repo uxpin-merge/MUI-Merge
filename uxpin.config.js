@@ -142,6 +142,7 @@ module.exports = {
           'src/components/ListItemIcon/ListItemIcon.js',
           'src/components/ListItemText/ListItemText.js',
           'src/components/ListSubheader/ListSubheader.js',
+          'src/components/ListItemSecondaryAction/ListItemSecondaryAction.js',
 
           'src/components/MenuList/MenuList.js',
           'src/components/MenuItem/MenuItem.js',
