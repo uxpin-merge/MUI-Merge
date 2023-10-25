@@ -16,6 +16,25 @@ const boilerplateTheme = {
       contrastText: '#ffffff',
     },
   },
+  typography: {
+    fontSize: 14,
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+  },
+  shape: {
+    borderRadius: 4
+  },
+  components: {
+    // Name of the component
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          fontSize: '',
+        },
+      },
+    },
+  },
 };
 
 export default boilerplateTheme;
