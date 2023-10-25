@@ -5,7 +5,7 @@ module.exports = {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js',
-          // 'src/components/JsxParser/JsxParser.js',
+          'src/components/JsxParser/JsxParser.js',
 
         ]
       },
@@ -17,7 +17,7 @@ module.exports = {
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
           'src/components/DatePicker/DatePicker.js',
-          'src/components/Checkbox/Checkbox.js',
+          'src/components/Checkbox/Checkbox.jsx',
           // 'src/components/CheckboxWithLabel/CheckboxWithLabel.js',
           // 'src/components/CheckboxGroup/CheckboxGroup.js',
           'src/components/FloatingActionButton/FloatingActionButton.js',
@@ -94,7 +94,7 @@ module.exports = {
       {
         name: 'LAYOUT',
         include: [
-          'src/components/Box/Box.js',
+          'src/components/Box/Box.jsx',
           'src/components/Container/Container.js',
           'src/components/Grid/Grid.js',
           // 'src/components/Image/Image.js',
