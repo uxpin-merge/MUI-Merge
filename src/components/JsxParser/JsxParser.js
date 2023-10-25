@@ -28,7 +28,7 @@ function JsxParseComponent(props) {
         children={props.jsx}
         {...props}
       />
-      {props.children}
+      {JSON.parse(props.children)}
     </div>
   );
 
