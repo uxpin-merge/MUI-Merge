@@ -165,6 +165,7 @@ module.exports = {
         name: 'Templates',
         include: [
           'src/templates/sign-in/Signin.js',
+          'src/templates/Pricing/Pricing.jsx',
           // 'src/components/JsxParser/JsxParser.js',
 
         ]
