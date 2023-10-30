@@ -65,7 +65,7 @@ Slider.propTypes = {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: PropTypes.oneOf(['primary', 'secondary', 'string']),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'error', 'success', 'warning', 'inherit']),
 
   /**
    * The component orientation.
