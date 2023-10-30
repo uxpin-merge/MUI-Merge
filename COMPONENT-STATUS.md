@@ -3,6 +3,7 @@
 
 | COMPONENT                | STATUS         |
 | ------------------------ | -------------- |
+| Auto-complete            | [ ** ]    |
 | Accordion                | [ ✓ ]    |
 | Accordion Details        | [ ✓ ]    |
 | Accordion Summary        | [ ✓ ]    |
@@ -17,15 +18,15 @@
 | Bottom Navigation Action | [ ]    |
 | Box                      | [ ✓ ]    |
 | Breadcrumbs              | [ ]    |
-| Button                   | [ ✓ ]    |
-| Button Group             | [ ✓ ]    |
+| Button                   | [ + ]    |
+| Button Group             | [ + ]    |
 | Card                     | [ ✓ ]    |
 | Card Actions             | [ ✓ ]    |
 | Card Actions Area        | [ ✓ ]    |
 | Card Content             | [ ✓ ]    |
 | Card Header              | [ ✓ ]    |
 | Card Media               | [ ✓ ]    |
-| Checkbox                 | [ ✓ ]    |
+| Checkbox                 | [ + ]    |
 | Chip                     | [ ✓ ]    |
 | Circular Progress        | [ ✓ ]    |
 | Collapse                 | [ ]    |
@@ -37,8 +38,8 @@
 | Dialog Content Text      | [ ]    |
 | Dialog Title             | [ ✓ ]    |
 | Divider                  | [ ✓ ]    |
-| Floating Action Button   | [ ✓ ]    |
-| Form Control Label       | [ ]    |
+| Floating Action Button   | [ + ]    |
+| Form Control Label       | [ + ]    |
 | Form Group               | [ ]    |
 | FormControl              | [ ]    |
 | FormControlGroup         | [ ] |
@@ -46,8 +47,8 @@
 | FormLabel                | [ ]    |
 | Grid                     | [ ✓ ]    |
 | Grid List/ImageList      | [ ]    |
-| Icon                     | [ ✓ ]    |
-| Icon Button              | [ ✓ ]    |
+| Icon                     | [ + ]    |
+| Icon Button              | [ + ]    |
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |

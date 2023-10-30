@@ -26,7 +26,7 @@ Fab.propTypes = {
   /**
    * The color of the button.
    */
-  color: PropTypes.oneOf(['inherit', 'primary', 'secondary']),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'error', 'success', 'warning', 'inherit']),
 
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
