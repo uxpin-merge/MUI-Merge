@@ -8,92 +8,90 @@ import PropTypes from 'prop-types';
 
 /**
  * @uxpindocurl https://mui.com/api/radio-group/
+ * @uxpindescription The Radio Group allows the user to select one option from a set.
  */
 export default function RadioGroup(props) {
   return (
-    <FormControl component="fieldset">
-      <FormLabel component="legend">{props.grouplabel}</FormLabel>
-      <RadioGroupM {...props}>
-        {React.Children.map(props.children, (child) => {
-          return (
-            <FormControlLabel
-              value={child.props.value}
-              checked={child.props.checked}
-              control={
-                <Radio
-                  id="radio-group"
-                  color={props.color}
-                  size={props.size}
-                  inputProps={{
-                    role: 'radio',
-                    'aria-checked': props.checked,
-                  }}
-                />
-              }
-              htmlFor="radio-group"
-              label={child.props.label}
-              labelPlacement={props.labelPlacement}
-              disabled={child.props.disabled}
-            />
-          );
-        })}
-      </RadioGroupM>
-    </FormControl>
+    <RadioGroupM {...props} />
+    // <FormControl component="fieldset">
+    //   <FormLabel component="legend">{props.grouplabel}</FormLabel>
+    //   <RadioGroupM {...props}>
+    //     {React.Children.map(props.children, (child) => {
+    //       return (
+    //         <FormControlLabel
+    //           value={child.props.value}
+    //           checked={child.props.checked}
+    //           control={
+    //             <Radio
+    //               id="radio-group"
+    //               color={props.color}
+    //               size={props.size}
+    //               inputProps={{
+    //                 role: 'radio',
+    //                 'aria-checked': props.checked,
+    //               }}
+    //             />
+    //           }
+    //           htmlFor="radio-group"
+    //           label={child.props.label}
+    //           labelPlacement={props.labelPlacement}
+    //           disabled={child.props.disabled}
+    //         />
+    //       );
+    //     })}
+    //   </RadioGroupM>
+    // </FormControl>
   );
 }
 
 RadioGroup.propTypes = {
-  checked: PropTypes.bool,
-
-  /**
-   * Display text over the radio group.
-   */
-  grouplabel: PropTypes.string,
-
-  /**
-   * The position of the label.
-   */
-  labelPlacement: PropTypes.oneOf(['end', 'start', 'top', 'bottom']),
-
-  /**
-   * The value of the initially selected radio button.
-   * @uxpinbind onChange 1
-   * @uxpinpropname  Selected Value
-   */
-  value: PropTypes.string,
 
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
-   * The size of the component. small is equivalent to the dense checkbox styling.
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
-  /**
-   * The name used to reference the value of the control.
-   * @uxpinignoreprop
-   */
-  name: PropTypes.string,
-
-  /**
-   * @uxpinignoreprop
-   */
-  onKeyDown: PropTypes.func,
-
-  /**
-   * display selection controls in a single row.
+   * Display group of elements in a compact row.
    */
   row: PropTypes.bool,
 
   /**
-   * Change event to use with UXPin interactions.
+  * The value of the initially selected radio button.
+  * @uxpinbind onChange 1
+  */
+  value: PropTypes.string,
+
+  /**
+   * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
+  * @uxpinignoreprop 
+  */
+  defaultValue: PropTypes.string,
+
+  /**
+   * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
+   */
+  name: PropTypes.string,
+
+  /**
+   * Callback fired when a radio button is selected.
+   * Signature:
+   * function(event: React.ChangeEvent, value: string) => void
+   * event The event source of the callback.
+   * value The value of the selected radio button. You can pull out the new value by accessing event.target.value (string).
    */
   onChange: PropTypes.func,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+
+  classes: PropTypes.object,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
 };
 
 RadioGroup.defaultProps = {
