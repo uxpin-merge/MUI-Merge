@@ -27,6 +27,16 @@ Radio.propTypes = {
   checked: PropTypes.bool,
 
   /**
+ * The color of the component. It supports those theme colors that make sense for this component.
+ */
+  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'error', 'success', 'warning', 'inherit']),
+
+  /**
+   * The size of the component. small is equivalent to the dense checkbox styling.
+   */
+  size: PropTypes.oneOf(['small', 'medium']),
+
+  /**
    * The icon to display when the component is unchecked.
    */
   icon: PropTypes.node,
@@ -36,19 +46,26 @@ Radio.propTypes = {
    */
   checkedIcon: PropTypes.node,
   /**
+   * The value of the component.
+   */
+  value: PropTypes.string,
+
+
+  /**
    * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
 
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   */
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'success', 'warning']),
 
   /**
    * If `true`, the switch will be disabled.
    */
   disabled: PropTypes.bool,
+
+  /**
+ * If true, the ripple effect is disabled.
+ */
+  disableRipple: PropTypes.bool,
 
   /**
    * Name attribute of the input element.
@@ -71,14 +88,14 @@ Radio.propTypes = {
   required: PropTypes.bool,
 
   /**
-   * The size of the component. small is equivalent to the dense checkbox styling.
+   * Attributes applied to the input element.
    */
-  size: PropTypes.oneOf(['small', 'medium']),
+  inputProps: PropTypes.object,
 
   /**
-   * The value of the component.
+Pass a ref to the input element.
    */
-  value: PropTypes.string,
+  inputRef: PropTypes.string,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.

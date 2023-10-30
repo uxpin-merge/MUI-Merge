@@ -68,7 +68,7 @@
 | Pagination               | [ ] |
 | Paper                    | [ ]    |
 | Radio Button             | [ ✓ ]    |
-| Radio Group             | [ ✓ ]    |
+| Radio Group             | [ + ]    |
 | Rating                   | [ ✓ ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
