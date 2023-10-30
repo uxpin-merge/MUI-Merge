@@ -43,8 +43,8 @@
 | Form Group               | [ + ]    |
 | FormControl              | [ ]    |
 | FormControlGroup         | [ ] |
-| FormHelperText           | [ ]    |
-| FormLabel                | [ ]    |
+| FormHelperText           | [ + ]    |
+| FormLabel                | [ + ]    |
 | Grid                     | [ ✓ ]    |
 | Grid List/ImageList      | [ ]    |
 | Icon                     | [ + ]    |
@@ -71,7 +71,7 @@
 | Radio Group             | [ + ]    |
 | Rating                   | [ + ]    |
 | Skeleton                 | [ ]    |
-| Slider                   | [ ]    |
+| Slider                   | [ + ]    |
 | Snackbar                 | [ ✓ ]    |
 | Split Button             | [ !! ]    |
 | Stack                    | [ ✓ ]    |

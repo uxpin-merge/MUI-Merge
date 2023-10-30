@@ -13,34 +13,6 @@ import PropTypes from 'prop-types';
 export default function RadioGroup(props) {
   return (
     <RadioGroupM {...props} />
-    // <FormControl component="fieldset">
-    //   <FormLabel component="legend">{props.grouplabel}</FormLabel>
-    //   <RadioGroupM {...props}>
-    //     {React.Children.map(props.children, (child) => {
-    //       return (
-    //         <FormControlLabel
-    //           value={child.props.value}
-    //           checked={child.props.checked}
-    //           control={
-    //             <Radio
-    //               id="radio-group"
-    //               color={props.color}
-    //               size={props.size}
-    //               inputProps={{
-    //                 role: 'radio',
-    //                 'aria-checked': props.checked,
-    //               }}
-    //             />
-    //           }
-    //           htmlFor="radio-group"
-    //           label={child.props.label}
-    //           labelPlacement={props.labelPlacement}
-    //           disabled={child.props.disabled}
-    //         />
-    //       );
-    //     })}
-    //   </RadioGroupM>
-    // </FormControl>
   );
 }
 
@@ -64,7 +36,6 @@ RadioGroup.propTypes = {
 
   /**
    * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
-  * @uxpinignoreprop 
   */
   defaultValue: PropTypes.string,
 
