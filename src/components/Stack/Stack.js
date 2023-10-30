@@ -57,6 +57,32 @@ Stack.propTypes = {
    * Add an element between each child.
    */
   divider: PropTypes.node,
+  /**
+ * All Padding.
+ * In pixels
+ */
+  padding: PropTypes.string,
+
+  /**
+   * Top Padding.
+   * In pixels
+   */
+  paddingTop: PropTypes.string,
+  /**
+   * Right Padding.
+   * In pixels
+   */
+  paddingRight: PropTypes.string,
+  /**
+   * Bottom Padding.
+   * In pixels
+   */
+  paddingBottom: PropTypes.string,
+  /**
+   * Left Padding.
+   * In pixels
+   */
+  paddingLeft: PropTypes.string,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
