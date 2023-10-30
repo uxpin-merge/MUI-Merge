@@ -32,6 +32,11 @@ Select.propTypes = {
   value: PropTypes.array,
 
   /**
+ * If `true`, the input will take up the full width of its container.
+ */
+  fullWidth: PropTypes.bool,
+
+  /**
    * Replaced with width prop
    * If true, the width of the popover will automatically be set according to the items inside the menu, otherwise it will be at least the width of the select input.
    */
