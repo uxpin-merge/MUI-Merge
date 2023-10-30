@@ -40,7 +40,7 @@
 | Divider                  | [ ✓ ]    |
 | Floating Action Button   | [ + ]    |
 | Form Control Label       | [ + ]    |
-| Form Group               | [ ]    |
+| Form Group               | [ + ]    |
 | FormControl              | [ ]    |
 | FormControlGroup         | [ ] |
 | FormHelperText           | [ ]    |
@@ -69,7 +69,7 @@
 | Paper                    | [ ]    |
 | Radio Button             | [ ✓ ]    |
 | Radio Group             | [ + ]    |
-| Rating                   | [ ✓ ]    |
+| Rating                   | [ + ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ ]    |
 | Snackbar                 | [ ✓ ]    |
