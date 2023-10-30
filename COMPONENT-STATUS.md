@@ -95,7 +95,7 @@
 | DatePicker (Input)       | [ ** ] |
 | Stepper                  | [ ** ]    |
 | Speed Dial               | [ ** ] |
-| Select                   | [ ** ]    |
+| Select                   | [ + ]    |
 | Menu                     | [ ** ]    |
 | Drawer                   | [ ** ]    |
 | Auto Complete            | [ ** ]|

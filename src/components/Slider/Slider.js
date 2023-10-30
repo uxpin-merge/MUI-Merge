@@ -45,7 +45,6 @@ Slider.propTypes = {
    * The format function the value label's value.
    * When a function is provided, it should have the following signature:
    * {number} value The value label's value to format - {number} index The value label's index to format
-   * @uxpinignoreprop
    */
   valueLabelFormat: PropTypes.func | PropTypes.string,
 
@@ -98,43 +97,36 @@ Slider.propTypes = {
 
   /**
    * If true, the active thumb doesn't swap when moving pointer over a thumb while dragging another thumb.
-   * @uxpinignoreprop
    */
   disableSwap: PropTypes.bool,
 
   /**
    * The props used for each slot inside the Slider
-   * @uxpinignoreprop
    */
   componentsProps: PropTypes.object,
 
   /**
    * Accepts a function which returns a string value that provides a user-friendly name for the thumb labels of the slider. This is important for screen reader users.
-   * @uxpinignoreprop
    */
   getAriaLabel: PropTypes.func,
 
   /**
    * Accepts a function which returns a string value that provides a user-friendly name for the current value of the slider. This is important for screen reader users.
-   * @uxpinignoreprop
    */
   getAriaValueText: PropTypes.func,
 
   /**
    * A transformation function, to change the scale of the slider.
-   * @uxpinignoreprop
    */
   scale: PropTypes.func,
 
   /**
    * Indicates whether the theme context has rtl direction. It is set automatically.
-   * @uxpinignoreprop
    */
   isRtl: PropTypes.bool,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
