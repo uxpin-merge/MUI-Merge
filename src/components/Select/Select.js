@@ -38,8 +38,6 @@ Select.propTypes = {
 */
   value: PropTypes.string,
 
-
-
   /**
    * Replaced with width prop
    * If true, the width of the popover will automatically be set according to the items inside the menu, otherwise it will be at least the width of the select input.
@@ -143,7 +141,7 @@ Select.propTypes = {
    * Can use px - 50px.
    * Can use % - 100%.
    */
-  width: PropTypes.string,
+  // width: PropTypes.string,
 
   /**
    * Callback fired when a menu item is selected.
@@ -157,6 +155,7 @@ Select.propTypes = {
 
   /**
    * Callback fired when the component requests to be opened. Use in controlled mode (see open).
+   * @uxpinpropname On Open
    */
   onOpen: PropTypes.func,
 
