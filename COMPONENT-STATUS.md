@@ -62,20 +62,20 @@
 | List Item Text           | [ ]    |
 | List Sub Header          | [ ]    |
 | List Item Secondary Action          | [ ✓ ]    |
-| Loading Button           | [ ✓ ]    |
+| Loading Button           | [ + ]    |
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|
 | Pagination               | [ ] |
 | Paper                    | [ ]    |
-| Radio Button             | [ ✓ ]    |
+| Radio Button             | [ + ]    |
 | Radio Group             | [ + ]    |
 | Rating                   | [ + ]    |
 | Skeleton                 | [ ]    |
 | Slider                   | [ + ]    |
 | Snackbar                 | [ ✓ ]    |
 | Split Button             | [ !! ]    |
-| Stack                    | [ ✓ ]    |
-| Switch                   | [ ✓ ]    |
+| Stack                    | [ + ]    |
+| Switch                   | [ + ]    |
 | Tab                      | [ ]    |
 | Table                    | [ ]    |
 | Table Body               | [ ]    |

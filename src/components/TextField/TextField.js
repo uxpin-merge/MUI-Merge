@@ -11,8 +11,6 @@ function TextField(props) {
   return (
     <TextFieldM
       {...props}
-
-
     />
   );
 }
@@ -40,6 +38,18 @@ TextField.propTypes = {
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    */
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']),
+  /**
+ * The size of the component.
+ */
+  size: PropTypes.oneOf(['medium', 'small']),
+  /**
+* The variant to use.
+*/
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard']),
+  /**
+ * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
+ */
+  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -93,10 +103,7 @@ TextField.propTypes = {
    * The label content.
    */
   label: PropTypes.node,
-  /**
-   * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
-   */
-  margin: PropTypes.oneOf(['dense', 'none', 'normal']),
+
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
@@ -144,10 +151,7 @@ TextField.propTypes = {
    * Props applied to the [`Select`](/material-ui/api/select/) element.
    */
   SelectProps: PropTypes.object,
-  /**
-   * The size of the component.
-   */
-  size: PropTypes.oneOf(['medium', 'small']),
+
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
@@ -161,10 +165,7 @@ TextField.propTypes = {
      * @uxpinbind onChange 0.target.value
    */
   value: PropTypes.string,
-  /**
-   * The variant to use.
-   */
-  variant: PropTypes.oneOf(['filled', 'outlined', 'standard'])
+
 }
 
 
