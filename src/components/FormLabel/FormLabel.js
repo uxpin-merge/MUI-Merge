@@ -13,7 +13,6 @@ FormLabel.propTypes = {
   /**
    * The content of the component.
    */
-  /** @uxpinignoreprop */
   children: PropTypes.node,
 
   /**
@@ -31,7 +30,6 @@ FormLabel.propTypes = {
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
-  /** @uxpinignoreprop */
   component: PropTypes.elementType,
 
   /**
@@ -47,7 +45,6 @@ FormLabel.propTypes = {
   /**
    * If 'true', the label should use filled classes key.
    */
-  /** @uxpinignoreprop */
   filled: PropTypes.bool,
 
   /**
