@@ -10,17 +10,10 @@ import { v4 as uuidv4 } from 'uuid';
 function Select(props) {
   // Unique Id
   const id = uuidv4();
-
   return (
     <SelectM
       key={id}
-      // labelId="demo-multiple-name-label"
-      // id="demo-multiple-name"
-      // onChange={(e) => handleChange(e)}
-      // onOpen={props.onOpen}
-      // onClose={props.onClose}
-      // value={selectedValue}
-      // label={props.label}
+      // MenuProps={{ container: document.querySelector("[id='" + id + "']") }}
       {...props}
     >
       {props.children}
@@ -36,7 +29,7 @@ Select.propTypes = {
  * If the value is not an object, the string representation must match with the string representation of the option in order to be selected.
 * @uxpinbind onChange 0.target.value
 */
-  value: PropTypes.string,
+  value: PropTypes.array,
 
   /**
    * Replaced with width prop
