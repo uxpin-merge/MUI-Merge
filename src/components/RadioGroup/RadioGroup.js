@@ -5,14 +5,17 @@ import FormControlLabel from '../FormControlLabel/FormControlLabel';
 import FormControl from '../FormControl/FormControl';
 import FormLabel from '../FormLabel/FormLabel';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * @uxpindocurl https://mui.com/api/radio-group/
  * @uxpindescription The Radio Group allows the user to select one option from a set.
  */
 export default function RadioGroup(props) {
+  // Unique Id
+  const id = uuidv4();
   return (
-    <RadioGroupM {...props} />
+    <RadioGroupM {...props} key={id} />
   );
 }
 
@@ -29,15 +32,16 @@ RadioGroup.propTypes = {
   row: PropTypes.bool,
 
   /**
+   * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
+  */
+  defaultValue: PropTypes.string,
+
+  /**
   * The value of the initially selected radio button.
   * @uxpinbind onChange 1
   */
   value: PropTypes.string,
 
-  /**
-   * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
-  */
-  defaultValue: PropTypes.string,
 
   /**
    * The name used to reference the value of the control. If you don't provide this prop, it falls back to a randomly generated name.
