@@ -87,8 +87,8 @@
 | Tabs                     | [ ]    |
 | Textfield                | [ + ]    |
 | InputAdornment           | [ + ]    |
-| Toggle Button            | [ ✓ ]    |
-| Toggle Button Group      | [ ✓ ]    |
+| Toggle Button            | [ + ]    |
+| Toggle Button Group      | [ + ]    |
 | Tool Bar                 | [ ]    |
 | Tooltip                  | [ ]    |
 | Typography               | [ ✓ ]    |
