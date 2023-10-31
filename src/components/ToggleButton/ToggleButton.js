@@ -28,7 +28,7 @@ ToggleButton.propTypes = {
   /**
    * The color of the button whhen it is in an active state.
    */
-  color: PropTypes.oneOf(['standard', 'primary', 'secondary', 'success', 'error', 'info', 'warning']),
+  color: PropTypes.oneOf(['standard', 'primary', 'secondary', 'success', 'error', 'info', 'warning', 'inherit']),
 
   /**
    * If true, the keyboard focus ripple is disabled.
