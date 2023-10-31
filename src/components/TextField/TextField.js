@@ -12,7 +12,8 @@ function TextField(props) {
   const id = uuidv4();
   return (
     <TextFieldM
-      // key={id}
+      key={id}
+      id={id}
       {...props}
     />
   );
