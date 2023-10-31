@@ -7,18 +7,9 @@ import PropTypes from 'prop-types';
  * @uxpindescription A Toggle Button can be used to group related options.
  */
 export default function ToggleButtonGroup(props) {
-  const [toggleValue, setToggleValue] = React.useState([props.value]);
-
-  React.useEffect(() => {
-    setToggleValue([props.value]);
-  }, [props.value]); // Only re-run the effect if value prop changes
-
-  const handleChange = (event, newAlignment) => {
-    setToggleValue(newAlignment);
-  };
 
   return (
-    <ToggleButtonGroupM {...props} value={toggleValue} onChange={handleChange} aria-label="toggle button">
+    <ToggleButtonGroupM {...props}>
       {props.children}
     </ToggleButtonGroupM>
   );
@@ -36,7 +27,6 @@ ToggleButtonGroup.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * @uxpinignoreprop
    */
   onChange: PropTypes.func,
 
@@ -57,6 +47,7 @@ ToggleButtonGroup.propTypes = {
 
   /**
    * The value to associate with the button when selected in a ToggleButtonGroup.
+  * @uxpinbind onChange 1
    */
   value: PropTypes.string,
 

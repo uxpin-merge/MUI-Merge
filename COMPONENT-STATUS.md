@@ -85,8 +85,8 @@
 | Table Row                | [ ]    |
 | Table Pagination         | [ ]    |
 | Tabs                     | [ ]    |
-| Textfield                | [ ✓ - icon bug ]    |
-| InputAdornment           | [ ✓ ]    |
+| Textfield                | [ + ]    |
+| InputAdornment           | [ + ]    |
 | Toggle Button            | [ ✓ ]    |
 | Toggle Button Group      | [ ✓ ]    |
 | Tool Bar                 | [ ]    |
@@ -99,6 +99,7 @@
 | Menu                     | [ ** ]    |
 | Drawer                   | [ ** ]    |
 | Auto Complete            | [ ** ]|
+| Transfer List            | [ ** ]|
 | Radio with Label             | [ REMOVED - not MUI component ]    |
 | Switch with Label        | [ REMOVED - not MUI component ]    |
 | Switch Group        | [ REMOVED - not MUI component ]    |
