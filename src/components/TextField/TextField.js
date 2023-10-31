@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextFieldM from '@mui/material/TextField';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * @uxpindocurl https://mui.com/api/text-field/
  * @uxpindescription Text Fields let users enter and edit text.
  */
 function TextField(props) {
-
+  // Unique Id
+  const id = uuidv4();
   return (
     <TextFieldM
+      key={id}
       {...props}
     />
   );
