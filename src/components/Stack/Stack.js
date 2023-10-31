@@ -58,6 +58,18 @@ Stack.propTypes = {
    */
   divider: PropTypes.node,
   /**
+* Width.
+* In pixels or percentage
+*/
+  width: PropTypes.string,
+
+  /**
+   * Height.
+   * In pixels
+   */
+  height: PropTypes.string,
+
+  /**
  * All Padding.
  * In pixels
  */
