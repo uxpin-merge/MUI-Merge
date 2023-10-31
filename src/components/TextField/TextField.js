@@ -21,21 +21,23 @@ function TextField(props) {
 
 TextField.propTypes = {
   children: PropTypes.node,
+
   /**
  * This prop helps users to fill forms faster, especially on mobile devices.
  * The name can be confusing, as it's more like an autofill.
  * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
  */
   autoComplete: PropTypes.string,
-  /**
-   * If `true`, the `input` element is focused during the first mount.
-   */
-  autoFocus: PropTypes.bool,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: PropTypes.object,
 
+  /**
+ * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+ */
+  type: PropTypes.string,
+
+  /**
+* The variant to use.
+*/
+  variant: PropTypes.oneOf(['filled', 'outlined', 'standard']),
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
@@ -46,14 +48,35 @@ TextField.propTypes = {
  * The size of the component.
  */
   size: PropTypes.oneOf(['medium', 'small']),
+
   /**
-* The variant to use.
+* If `dense` or `normal`, will adjust vertical spacing of this and contained components.
 */
-  variant: PropTypes.oneOf(['filled', 'outlined', 'standard']),
-  /**
- * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
- */
   margin: PropTypes.oneOf(['dense', 'none', 'normal']),
+
+
+  /**
+* If `true`, the input will take up the full width of its container.
+*/
+  fullWidth: PropTypes.bool,
+  /**
+   * The helper text content.
+   */
+  helperText: PropTypes.node,
+
+
+  /**
+   * If `true`, the `input` element is focused during the first mount.
+   */
+  autoFocus: PropTypes.bool,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object,
+
+
+
+
   /**
    * The default value. Use when the component is not controlled.
    */
@@ -70,14 +93,7 @@ TextField.propTypes = {
    * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
    */
   FormHelperTextProps: PropTypes.object,
-  /**
-   * If `true`, the input will take up the full width of its container.
-   */
-  fullWidth: PropTypes.bool,
-  /**
-   * The helper text content.
-   */
-  helperText: PropTypes.node,
+
   /**
    * The id of the `input` element.
    * Use this prop to make `label` and `helperText` accessible for screen readers.
@@ -91,7 +107,6 @@ TextField.propTypes = {
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    */
-  // inputProps: PropTypes.object,
   /**
    * Props applied to the Input element.
    * It will be a [`FilledInput`](/material-ui/api/filled-input/),
@@ -104,9 +119,7 @@ TextField.propTypes = {
    */
   inputRef: PropTypes.string,
   /**
-   * The label content.
-   */
-  label: PropTypes.node,
+
 
   /**
    * Maximum number of rows to display when multiline option is set to true.
@@ -160,13 +173,10 @@ TextField.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-  /**
-   * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
-   */
-  type: PropTypes.string,
+
   /**
    * The value of the `input` element, required for a controlled component.
-     * @uxpinbind onChange 0.target.value
+     * @uxpinbind onChange event.target.value
    */
   value: PropTypes.string,
 
