@@ -26,21 +26,21 @@ Box.propTypes = {
    * The content of the box.
    */
   component: PropTypes.string,
-  /**
-   * Color of text
-   */
+
   /**
  * Width.
- * In pixels
+ * In pixels or percentage
  */
-  width: PropTypes.number,
+  width: PropTypes.string,
 
   /**
    * Height.
    * In pixels
    */
   height: PropTypes.string,
-
+  /**
+   * Color of text
+   */
   color: PropTypes.oneOf([
     'white',
     'grey.100',
