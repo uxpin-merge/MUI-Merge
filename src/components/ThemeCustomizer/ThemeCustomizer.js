@@ -18,7 +18,8 @@ const addFont = (link, index) => {
 /**
  * @uxpinwrappers
  * SkipContainerWrapper, NonResizableWrapper
- * @uxpindescription Use this component to theme this instance of the MUI library
+ * @uxpindescription Use this component to theme this instance of the MUI library. See documentation link below.
+ * @uxpindocurl https://mui.com/material-ui/customization/theming/
  */
 function ThemeCustomizer(props) {
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
