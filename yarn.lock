@@ -2447,7 +2447,7 @@
   dependencies:
     "@types/node" "*"
 
-"@uxpin/merge-cli@^3.4.0":
+"@uxpin/merge-cli@^3.4.2":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.4.2.tgz#7f28b8c6326085705fbd61ec1ceab77467c4bffc"
   integrity sha512-PYqU/s+gYZtO+BMB8tAcXbCq6x6PhjPLHDZZWuNuvVbkvVPlmZ0AUT8+vMKOH5KBpfwiJrO0Satb+JlV7hBH8g==
