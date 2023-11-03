@@ -4,7 +4,7 @@ import LinearProgressM from '@mui/material/LinearProgress';
 
 /**
  * @uxpindocurl https://mui.com/api/linear-progress/#main-content
-Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.
+ *@uxpindescription Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.
  */
 function LinearProgress(props) {
   return <LinearProgressM {...props} />;
