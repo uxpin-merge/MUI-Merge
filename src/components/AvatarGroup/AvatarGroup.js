@@ -3,7 +3,8 @@ import AvatarGroupM from '@mui/material/AvatarGroup';
 import PropTypes from 'prop-types';
 
 /**
- * @uxpindocurl https://mui.com/api/avatar-group/#main-content
+ * @uxpindocurl https://mui.com/material-ui/react-avatar/#grouped
+ * @uxpindescription Avatars are found throughout material design with uses in everything from tables to dialog menus.
  */
 function AvatarGroup(props) {
   return <AvatarGroupM {...props}>{props.children}</AvatarGroupM>;
@@ -12,7 +13,6 @@ function AvatarGroup(props) {
 AvatarGroup.propTypes = {
   /**
    * 	The avatars to stack.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
