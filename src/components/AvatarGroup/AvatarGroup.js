@@ -42,9 +42,24 @@ AvatarGroup.propTypes = {
   classes: PropTypes.object,
 
   /**
-   * The props used for each slot inside the AvatarGroup.
+ * The component used for the root node. Either a string to use a HTML element or a component.
+ */
+  component: PropTypes.node,
+
+  /**
+   * The extra props for the slot components. You can override the existing props or add new ones.
+   * This prop is an alias for the componentsProps prop, which will be deprecated in the future.
    */
-  componentsProps: PropTypes.object,
+  slotProps: PropTypes.object,
+
+  /**
+ * custom renderer of extraAvatars
+ * Signature:
+ * function(surplus: number) => React.ReactNode
+ * surplus number of extra avatars
+ * Returns: custom element to display
+ */
+  renderSurplus: PropTypes.func,
 };
 
 export default AvatarGroup;

@@ -10,8 +10,8 @@
 | Alert                    | [ ✓ ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
-| Avatar                   | [ ✓ ]    |
-| AvatarGroup              | [ ]    |
+| Avatar                   | [ + ]    |
+| AvatarGroup              | [ + ]    |
 | Backdrop                 | [ ]    |
 | Badge                    | [ ✓ ]    |
 | Bottom Navigation        | [ ]    |
