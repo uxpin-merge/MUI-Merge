@@ -13,7 +13,7 @@
 | Avatar                   | [ + ]    |
 | AvatarGroup              | [ + ]    |
 | Backdrop                 | [ ]    |
-| Badge                    | [ ✓ ]    |
+| Badge                    | [ + ]    |
 | Bottom Navigation        | [ ]    |
 | Bottom Navigation Action | [ ]    |
 | Box                      | [ ✓ ]    |

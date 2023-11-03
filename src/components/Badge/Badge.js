@@ -49,10 +49,7 @@ Badge.propTypes = {
    * This prop is an alias for the `slots` prop.
    * It's recommended to use the `slots` prop instead.
    */
-  components: {
-    Root: React.ElementType,
-    Badge: React.ElementType,
-  },
+  components: PropTypes.object,
   /**
    * If `true`, the badge is invisible.
    */
