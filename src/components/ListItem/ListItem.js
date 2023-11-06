@@ -11,12 +11,21 @@ function ListItem(props) {
 }
 
 ListItem.propTypes = {
-  alignItems: PropTypes.oneOf(['center', 'flex-start']),
 
   /**
    * The content of the component. Text or nested components.
    */
   children: PropTypes.node,
+  /**
+   * The element to display at the end of ListItem.
+   * This might be difficult to add for merge as writing for e.g. <Checkbox /> is not good Designer experience.
+   */
+  secondaryAction: PropTypes.node,
+  /**
+   * The element to display at the end of ListItem.
+   * This might be difficult to add for merge as writing for e.g. <Checkbox /> is not good Designer experience.
+   */
+  alignItems: PropTypes.oneOf(['center', 'flex-start']),
 
   /**
    * Override or extend the styles applied to the component.
@@ -27,7 +36,7 @@ ListItem.propTypes = {
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  component: PropTypes.object,
 
   /**
    * The props used for each slot inside the Input.
@@ -56,10 +65,16 @@ ListItem.propTypes = {
   divider: PropTypes.bool,
 
   /**
-   * The element to display at the end of ListItem.
-   * This might be difficult to add for merge as writing for e.g. <Checkbox /> is not good Designer experience.
+   * The extra props for the slot components. You can override the existing props or add new ones.
+   * This prop is an alias for the componentsProps prop, which will be deprecated in the future.
    */
-  secondaryAction: PropTypes.node,
+  slotProps: PropTypes.object,
+
+  /**
+ * The components used for each slot inside.
+ * This prop is an alias for the components prop, which will be deprecated in the future.
+ */
+  slots: PropTypes.object,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.

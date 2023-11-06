@@ -17,6 +17,22 @@ ListItemText.propTypes = {
   children: PropTypes.node,
 
   /**
+ * The main copy.
+ * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
+ */
+  primary: PropTypes.node,
+
+  /**
+ * The secondary content element.
+ * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
+ */
+  secondary: PropTypes.node,
+  /**
+   * If `true`, the children will be indented.
+   * This should be used if there is no left avatar or left icon.
+   */
+  inset: PropTypes.bool,
+  /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
    */
@@ -27,29 +43,11 @@ ListItemText.propTypes = {
    */
   disableTypography: PropTypes.bool,
 
-  /**
-   * If `true`, the children will be indented.
-   * This should be used if there is no left avatar or left icon.
-   */
-  inset: PropTypes.bool,
-
-  /**
-   * The main copy.
-   * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   */
-  primary: PropTypes.node,
-
-  /**
- * The secondary content element.
- * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
- */
-  secondary: PropTypes.node,
 
   /**
    * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
    */
   primaryTypographyProps: PropTypes.object,
-
 
 
   /**

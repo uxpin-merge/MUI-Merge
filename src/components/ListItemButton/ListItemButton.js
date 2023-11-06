@@ -16,8 +16,14 @@ ListItemButton.propTypes = {
    */
   children: PropTypes.node,
 
+  /**
+   * Defines the align-items style property.
+   */
   alignItems: PropTypes.oneOf(['center', 'flex-start']),
 
+  /**
+   * If true, the list item is focused during the first mount. Focus will also be triggered if the value changes from false to true.
+   */
   autoFocus: PropTypes.bool,
 
   /**
@@ -41,14 +47,25 @@ ListItemButton.propTypes = {
    * If true, the component is disabled.
    */
   disabled: PropTypes.bool,
+
+  /**
+* If true, the left and right padding is removed.
+ */
+  disableGutters: PropTypes.bool,
+
+
   /**
  * Use to apply selected styling.
  */
   selected: PropTypes.bool,
 
   /**
-   * This prop can help identify which element has keyboard focus.
-   * The class name will be applied when the element gains the focus through keyboard interaction
+ * If true, a 1px light border is added to the bottom of the list item.
+ */
+  divider: PropTypes.bool,
+
+  /**
+   * This prop can help identify which element has keyboard focus. The class name will be applied when the element gains the focus through keyboard interaction. It's a polyfill for the CSS :focus-visible selector. The rationale for using this feature is explained here. A polyfill can be used to apply a focus-visible class to other components if needed.
    */
   focusVisibleClassName: PropTypes.string,
 
@@ -57,8 +74,6 @@ ListItemButton.propTypes = {
    * On click event to use with UXPin interactions.
    */
   onClick: PropTypes.func,
-
-
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
