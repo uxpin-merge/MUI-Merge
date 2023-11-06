@@ -4,6 +4,7 @@ import AccordionActionsM from '@mui/material/AccordionActions';
 
 /**
  * @upxindocurl https://mui.com/api/accordion-actions/
+  * @uxpindescription An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.
  */
 function AccordionActions(props) {
   return <AccordionActionsM {...props}>{props.children}</AccordionActionsM>;

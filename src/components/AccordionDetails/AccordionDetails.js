@@ -4,6 +4,7 @@ import AccordionDetailsM from '@mui/material/AccordionDetails';
 
 /**
  * @upxindocurl https://mui.com/api/accordion-details/
+* @uxpindescription An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.
  */
 function AccordionDetails(props) {
   return <AccordionDetailsM {...props}>{props.children}</AccordionDetailsM>;

@@ -7,14 +7,10 @@ import AccordionM from '@mui/material/Accordion';
  * @uxpindescription An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.
  */
 function Accordion(props) {
-  const [expanded, setExpanded] = React.useState('');
 
-  React.useEffect(() => {
-    setExpanded(props.expanded);
-  }, [props.expanded]); // Only re-run the effect if value prop changes
 
   return (
-    <AccordionM expanded={expanded} {...props}>
+    <AccordionM {...props}>
       {props.children}
     </AccordionM>
   );
@@ -45,6 +41,15 @@ Accordion.propTypes = {
    * If true, it removes the margin between two expanded accordion items and the increase of height.
    */
   disableGutters: PropTypes.bool,
+
+  /**
+ * The shadow depth of paper surface. Accepts values between 0 and 16.
+ */
+  elevation: PropTypes.number,
+  /**
+   * the variant to use.
+   */
+  variant: PropTypes.oneOf(['elevation', 'outlined']),
 
   /**
    * If true, expands the accordion, otherwise collapse it. Setting this prop enables control over the accordion.

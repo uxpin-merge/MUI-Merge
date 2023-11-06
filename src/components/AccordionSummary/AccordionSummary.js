@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AccordionSummaryM from '@mui/material/AccordionSummary';
-import Icon from '../Icon/Icon';
-import { iconVariants } from '../Icon/icon-variants';
 
 /**
  * @upxindocurl https://mui.com/api/accordion-summary/
+ * @uxpindescription An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.
  */
 function AccordionSummary(props) {
   return (
@@ -18,13 +17,11 @@ function AccordionSummary(props) {
 AccordionSummary.propTypes = {
   /**
    * The content of the component.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -36,7 +33,6 @@ AccordionSummary.propTypes = {
 
   /**
    * This prop can help identify which element has keyboard focus. The class name will be applied when the element gains the focus through keyboard interaction.
-   * @uxpinignoreprop
    * */
   focusVisibleClassName: PropTypes.string,
 
