@@ -18,14 +18,12 @@ function List(props) {
 List.propTypes = {
   /**
    * The content of the component. Text or nested components.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
