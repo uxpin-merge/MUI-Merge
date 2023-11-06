@@ -17,7 +17,6 @@ Chip.propTypes = {
   /**
    * The content of the component.
    */
-  // label: PropTypes.node,
   label: PropTypes.node,
 
   /**

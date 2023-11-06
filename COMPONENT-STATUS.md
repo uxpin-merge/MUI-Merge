@@ -27,17 +27,17 @@
 | Card Header              | [ ✓ ]    |
 | Card Media               | [ ✓ ]    |
 | Checkbox                 | [ + ]    |
-| Chip                     | [ ✓ ]    |
-| Circular Progress        | [ ✓ ]    |
+| Chip                     | [ + ]    |
+| Circular Progress        | [ + ]    |
 | Collapse                 | [ ]    |
-| Container                | [ ✓ ]    |
+| Container                | [ + ]    |
 | Date/Time (Input)        | [ ]|
 | Dialog                   | [ ✓ ]    |
 | Dialog Action            | [ ]    |
 | Dialog Content           | [ ]    |
 | Dialog Content Text      | [ ]    |
 | Dialog Title             | [ ✓ ]    |
-| Divider                  | [ ✓ ]    |
+| Divider                  | [ + ]    |
 | Floating Action Button   | [ + ]    |
 | Form Control Label       | [ + ]    |
 | Form Group               | [ + ]    |
