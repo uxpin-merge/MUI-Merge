@@ -25,7 +25,7 @@ export default (
     </ListItem>
     <ListItem uxpId="List-Item-2">
       <ListItemButton uxpId="List-Item-Button-2">
-        <ListItemIcon uxpId="List-Item-Icon-1">inbox</ListItemIcon>
+        <ListItemIcon uxpId="List-Item-Icon-1"><Icon uxpId="Icon-2">inbox</Icon></ListItemIcon>
         <ListItemText uxpId="List-item-text-2" primary="List Item 2 PT" secondary="List Item 2 ST" />
       </ListItemButton>
     </ListItem>
