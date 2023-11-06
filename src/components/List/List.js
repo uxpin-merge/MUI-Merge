@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListM from '@mui/material/List';
-// import ListSubheader from "../ListSubheader/ListSubheader";
 
 /**
  * @uxpindocurl https://mui.com/api/list/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function List(props) {
   return (
     <ListM {...props}>
-      {/* <ListSubheader disableSticky>{props.subheadText}</ListSubheader> */}
       {props.children}
     </ListM>
   );

@@ -4,26 +4,25 @@ import ListItemButtonM from '@mui/material/ListItemButton';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-button/
+  * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListItemButton(props) {
   return <ListItemButtonM {...props}>{props.children}</ListItemButtonM>;
 }
 
 ListItemButton.propTypes = {
+  /**
+   * The content of the component. Text or nested components.
+   */
+  children: PropTypes.node,
+
   alignItems: PropTypes.oneOf(['center', 'flex-start']),
 
   autoFocus: PropTypes.bool,
 
   /**
-   * The content of the component. Text or nested components.
-   * @uxpinignoreprop
-   */
-  children: PropTypes.node,
-
-  /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -42,11 +41,14 @@ ListItemButton.propTypes = {
    * If true, the component is disabled.
    */
   disabled: PropTypes.bool,
+  /**
+ * Use to apply selected styling.
+ */
+  selected: PropTypes.bool,
 
   /**
    * This prop can help identify which element has keyboard focus.
    * The class name will be applied when the element gains the focus through keyboard interaction
-   * @uxpinignoreprop
    */
   focusVisibleClassName: PropTypes.string,
 
@@ -56,10 +58,7 @@ ListItemButton.propTypes = {
    */
   onClick: PropTypes.func,
 
-  /**
-   * Use to apply selected styling.
-   */
-  selected: PropTypes.bool,
+
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.

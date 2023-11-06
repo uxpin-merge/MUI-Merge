@@ -5,11 +5,12 @@ import Icon from '../Icon/Icon';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-icon/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListItemIcon(props) {
   return (
     <ListItemIconM {...props}>
-      <Icon color={props.color}>{props.children}</Icon>
+      {props.children}
     </ListItemIconM>
   );
 }
@@ -17,7 +18,6 @@ function ListItemIcon(props) {
 ListItemIcon.propTypes = {
   /**
    * The content of the component, normally `Icon`, `SvgIcon`,
-   * @uxpinpropname  Icon
    * Use the name of the icon from https://material.io/tools/icons.
    */
   children: PropTypes.node,
@@ -25,13 +25,11 @@ ListItemIcon.propTypes = {
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * @ignore
-   * @uxpinignoreprop
    */
   className: PropTypes.string,
 

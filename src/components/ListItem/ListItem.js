@@ -4,6 +4,7 @@ import ListItemM from '@mui/material/ListItem';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListItem(props) {
   return <ListItemM {...props}>{props.children}</ListItemM>;
@@ -14,14 +15,12 @@ ListItem.propTypes = {
 
   /**
    * The content of the component. Text or nested components.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -32,7 +31,6 @@ ListItem.propTypes = {
 
   /**
    * The props used for each slot inside the Input.
-   * @uxpinignoreprop
    */
   componentProps: PropTypes.object,
 
@@ -59,7 +57,6 @@ ListItem.propTypes = {
 
   /**
    * The element to display at the end of ListItem.
-  //  * @uxpinignoreprop
    * This might be difficult to add for merge as writing for e.g. <Checkbox /> is not good Designer experience.
    */
   secondaryAction: PropTypes.node,

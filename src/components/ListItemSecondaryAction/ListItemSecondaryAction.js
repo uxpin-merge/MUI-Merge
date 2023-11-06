@@ -4,6 +4,7 @@ import ListItemSecondaryActionM from '@mui/material/ListItemSecondaryAction';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListItemSecondaryAction(props) {
   return <ListItemSecondaryActionM {...props}>{props.children}</ListItemSecondaryActionM>;

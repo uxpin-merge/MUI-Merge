@@ -4,6 +4,7 @@ import ListItemTextM from '@mui/material/ListItemText';
 
 /**
  * @uxpindocurl https://mui.com/api/list-item-text/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListItemText(props) {
   return <ListItemTextM {...props} />;
@@ -12,20 +13,17 @@ function ListItemText(props) {
 ListItemText.propTypes = {
   /**
    * The content of the component. Text or nested components.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   * @uxpinignoreprop
    */
   disableTypography: PropTypes.bool,
 
@@ -38,26 +36,24 @@ ListItemText.propTypes = {
   /**
    * The main copy.
    * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   * @uxpinpropname  Primary Text
    */
   primary: PropTypes.node,
 
   /**
-   * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   * @uxpinignoreprop
-   */
-  primaryTypographyProps: PropTypes.object,
-
-  /**
-   * The secondary content element.
-   * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   * @uxpinpropname  Secondary Text
-   */
+ * The secondary content element.
+ * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
+ */
   secondary: PropTypes.node,
 
   /**
    * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
-   * @uxpinignoreprop
+   */
+  primaryTypographyProps: PropTypes.object,
+
+
+
+  /**
+   * These props will be forwarded to the secondary typography component (as long as disableTypography is not true).
    */
   secondaryTypographyProps: PropTypes.object,
 

@@ -4,6 +4,7 @@ import ListSubheaderM from '@mui/material/ListSubheader';
 
 /**
  * @uxpindocurl https://mui.com/api/list-subheader/
+ * @uxpindescription Lists are continuous, vertical indexes of text or images.
  */
 function ListSubheader(props) {
   return <ListSubheaderM {...props}>{props.children}</ListSubheaderM>;
@@ -12,14 +13,12 @@ function ListSubheader(props) {
 ListSubheader.propTypes = {
   /**
    * The content of the component. Text or nested components.
-   * @uxpinpropname Text
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
