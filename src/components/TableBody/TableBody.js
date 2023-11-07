@@ -4,6 +4,7 @@ import TableBodyM from '@mui/material/TableBody';
 
 /**
  * @uxpindocurl https://mui.com/api/table-body/#main-content
+ * @uxpindescription Tables display sets of data. They can be fully customized.
  */
 function TableBody(props) {
   return <TableBodyM {...props}>{props.children}</TableBodyM>;
@@ -12,14 +13,12 @@ function TableBody(props) {
 TableBody.propTypes = {
   /**
    * The content of the component, normally TableRow.
-   * @uxpinignoreprop
    * */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See CSS API below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -27,7 +26,7 @@ TableBody.propTypes = {
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  component: PropTypes.string,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.

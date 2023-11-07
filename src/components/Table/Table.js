@@ -5,6 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 
 /**
  * @uxpindocurl https://mui.com/components/tables/#main-content
+ * @uxpindescription Tables display sets of data. They can be fully customized.
  */
 function Table(props) {
   return (
@@ -17,7 +18,6 @@ function Table(props) {
 Table.propTypes = {
   /**
    * The content of the component, normally TableRow.
-   * @uxpinignoreprop
    * */
   children: PropTypes.node,
 
@@ -32,7 +32,7 @@ Table.propTypes = {
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  component: PropTypes.string,
 
   /**
    * Allows TableCells to inherit padding of the Table.

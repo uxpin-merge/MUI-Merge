@@ -1,7 +1,10 @@
 import React from 'react';
 import TablePaginationM from '@mui/material/TablePagination';
 import PropTypes from 'prop-types';
-
+/**
+ * @uxpindocurl https://mui.com/material-ui/api/table-pagination/
+ * @uxpindescription Tables display sets of data. They can be fully customized.
+ */
 function TablePagination(props) {
   return <TablePaginationM {...props} />;
 }
@@ -45,7 +48,7 @@ TablePagination.propTypes = {
   /**
    * The component used for displaying the actions. Either a string to use a HTML element or a component.
    */
-  ActionsComponent: PropTypes.elementType,
+  ActionsComponent: PropTypes.string,
 
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
@@ -59,7 +62,6 @@ TablePagination.propTypes = {
 
   /**
    * Override or extend the styles applied to the component. See CSS API below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 

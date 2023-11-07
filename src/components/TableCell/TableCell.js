@@ -4,6 +4,7 @@ import TableCellM from '@mui/material/TableCell';
 
 /**
  * @uxpindocurl https://mui.com/api/table-cell/#main-content
+  * @uxpindescription Tables display sets of data. They can be fully customized.
  */
 function TableCell(props) {
   return <TableCellM {...props}>{props.children}</TableCellM>;
@@ -12,7 +13,6 @@ function TableCell(props) {
 TableCell.propTypes = {
   /**
    * The content of the TableCell, normally TableCellHead and TableCellBody.
-   * @uxpinpropname Cell Data
    * */
   children: PropTypes.node,
 
@@ -54,11 +54,10 @@ TableCell.propTypes = {
   /**
    * The component used for the root node. Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  component: PropTypes.string,
 
   /**
    * Override or extend the styles applied to the component. See CSS API below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
