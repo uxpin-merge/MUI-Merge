@@ -77,13 +77,13 @@
 | Stack                    | [ + ]    |
 | Switch                   | [ + ]    |
 | Tab                      | [ ]    |
-| Table                    | [ ]    |
-| Table Body               | [ ]    |
-| Table Cell               | [ ]    |
-| Table Container          | [ ]    |
-| Table Header             | [ ]    |
-| Table Row                | [ ]    |
-| Table Pagination         | [ ]    |
+| Table                    | [ + ]    |
+| Table Body               | [ + ]    |
+| Table Cell               | [ + ]    |
+| Table Container          | [ + ]    |
+| Table Header             | [ + ]    |
+| Table Row                | [ + ]    |
+| Table Pagination         | [ + ]    |
 | Tabs                     | [ ]    |
 | Textfield                | [ + ]    |
 | InputAdornment           | [ + ]    |
