@@ -4,6 +4,7 @@ import TooltipM from '@mui/material/Tooltip';
 
 /**
  * @uxpindocurl https://mui.com/api/tooltip/
+ * @uxpindescription Tooltips display informative text when users hover over, focus on, or tap an element.
  * @uxpinwrappers
  * SkipContainerWrapper
  */
@@ -23,7 +24,6 @@ Tooltip.propTypes = {
 
   /**
    * Text to display in the Tooltip.
-   * @uxpinpropname  Tooltip Text
    */
   title: PropTypes.string,
 
@@ -39,7 +39,6 @@ Tooltip.propTypes = {
 
   /**
    * If 'true', adds an arrow to the tooltip.
-   * @uxpinpropname  Tooltip Border Arrow
    */
   arrow: PropTypes.bool,
 
