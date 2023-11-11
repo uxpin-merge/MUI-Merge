@@ -49,11 +49,11 @@ Grid.propTypes = {
   /**
 * Defines the horizontal space between the type item components. It overrides the value of the spacing prop.
 */
-  columnSpacing: PropTypes.number,
+  columnSpacing: PropTypes.string,
   /**
 * Defines the vertical space between the type item components. It overrides the value of the spacing prop.
 */
-  rowSpacing: PropTypes.number,
+  rowSpacing: PropTypes.string,
 
   /**
  * Defines the `flex-wrap` style property.
