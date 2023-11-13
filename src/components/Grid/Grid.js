@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GridM from '@mui/material/Grid';
+import GridM from '@mui/material/Unstable_Grid2';
 
 /**
  * @uxpindocurl https://mui.com/api/grid/
@@ -30,7 +30,8 @@ Grid.propTypes = {
  * If `true`, the component will have the flex *item* behavior.
  * You should be wrapping *items* with a *container*.
  */
-  item: PropTypes.bool,
+  // item: PropTypes.bool,
+
   /**
  * Defines the `flex-direction` style property.
  * It is applied for all screen sizes.
@@ -136,7 +137,7 @@ Grid.propTypes = {
    * If `true`, it sets `min-width: 0` on the item.
    * Refer to the limitations section of the documentation to better understand the use case.
    */
-  zeroMinWidth: PropTypes.bool,
+  // zeroMinWidth: PropTypes.bool,
   /**
    * Padding Top in px
    */
