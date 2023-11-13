@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GridM from '@mui/material/Unstable_Grid2';
+import GridM from '@mui/material/Grid';
 
 /**
  * @uxpindocurl https://mui.com/api/grid/
@@ -30,8 +30,7 @@ Grid.propTypes = {
  * If `true`, the component will have the flex *item* behavior.
  * You should be wrapping *items* with a *container*.
  */
-  // item: PropTypes.bool,
-
+  item: PropTypes.bool,
   /**
  * Defines the `flex-direction` style property.
  * It is applied for all screen sizes.
@@ -45,16 +44,16 @@ Grid.propTypes = {
   * Defines the space between the type `item` component.
   * It can only be used on a type `container` component.
   */
-  spacing: PropTypes.string,
+  spacing: PropTypes.number,
 
   /**
 * Defines the horizontal space between the type item components. It overrides the value of the spacing prop.
 */
-  columnSpacing: PropTypes.string,
+  columnSpacing: PropTypes.number,
   /**
 * Defines the vertical space between the type item components. It overrides the value of the spacing prop.
 */
-  rowSpacing: PropTypes.string,
+  rowSpacing: PropTypes.number,
 
   /**
  * Defines the `flex-wrap` style property.
@@ -137,7 +136,7 @@ Grid.propTypes = {
    * If `true`, it sets `min-width: 0` on the item.
    * Refer to the limitations section of the documentation to better understand the use case.
    */
-  // zeroMinWidth: PropTypes.bool,
+  zeroMinWidth: PropTypes.bool,
   /**
    * Padding Top in px
    */
