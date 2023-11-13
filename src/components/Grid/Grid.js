@@ -9,7 +9,7 @@ import GridM from '@mui/material/Grid';
 function Grid(props) {
   // const space = Number(props.spacing);
   return (
-    <GridM{...props}>
+    <GridM{...props} xs={props.xs === "true" ? true : props.xs}>
       {props.children}
     </GridM>
   );
@@ -110,7 +110,7 @@ Grid.propTypes = {
    * Defines the number of grids the component is going to use.
    * It's applied for all the screen sizes with the lowest priority. 1-12, true, false, or auto.
    */
-  xs: PropTypes.oneOfType([PropTypes.number, PropTypes.bool, PropTypes.string]),
+  xs: PropTypes.oneOf(['true', 'auto', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']),
   /**
  * Defines the number of grids the component is going to use.
  * It's applied for the `sm` breakpoint and wider screens if not overridden.  1-12, true, false, or auto.
