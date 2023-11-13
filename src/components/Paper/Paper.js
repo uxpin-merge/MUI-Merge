@@ -7,7 +7,7 @@ import PaperM from '@mui/material/Paper';
  */
 function Paper(props) {
   return (
-    <PaperM {...props} sx={{ height: '100%' }}>
+    <PaperM {...props} >
       {props.children}
     </PaperM>
   );
@@ -31,20 +31,17 @@ Paper.propTypes = {
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * The component used for the root node.
    * Either a string to use a DOM element or a component.
-   * @uxpinignoreprop
    */
   component: PropTypes.node,
 
   /**
    * If `true`, rounded corners are disabled.
-   * @uxpinignoreprop
    */
   square: PropTypes.bool,
 
