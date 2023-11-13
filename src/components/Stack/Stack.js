@@ -40,7 +40,7 @@ Stack.propTypes = {
    * Defines the `align-items` style property.
    * It's applied for all screen sizes.
    */
-  alignItems: PropTypes.oneOf(['flex-start', 'center', 'flex-end', 'stretch', 'baseline']),
+  alignItems: PropTypes.oneOf(['default', 'flex-start', 'center', 'flex-end', 'stretch', 'baseline']),
 
   /**
    * Defines the `flex-wrap` style property.
