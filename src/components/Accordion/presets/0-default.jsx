@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Accordion from '../Accordion';
 import AccordionDetails from '../../AccordionDetails/AccordionDetails';
 import AccordionSummary from '../../AccordionSummary/AccordionSummary';
@@ -6,7 +5,7 @@ import Typography from '../../Typography/Typography';
 import Icon from '../../Icon/Icon';
 
 export default (
-  <Accordion uxpId="Accordion-1">
+  <Accordion uxpId="Accordion-1" elevation={1}>
     <AccordionSummary uxpId="Accordion-Summary-1" expandIcon={<Icon uxpId="icon-1">expand_more</Icon>}>
       <Typography uxpId="Typography-1">Accordion 1</Typography>
     </AccordionSummary>
