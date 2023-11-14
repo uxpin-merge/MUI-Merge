@@ -1,22 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AlertM from '@mui/material/Alert';
-
+import IconButton from '../IconButton/IconButton';
+import Icon from '../Icon/Icon';
+import { iconVariants } from '../Icon/icon-variants';
+import Collapse from '@mui/material/Collapse';
+import AlertTitle from '../AlertTitle/AlertTitle';
 
 /**
  * @uxpindocurl https://mui.com/api/alert/
  */
 function Alert(props) {
+  const [open, setOpen] = React.useState(props.isOpen);
 
+  React.useEffect(() => {
+    setOpen(props.isOpen);
+  }, [props.isOpen]); // Only re-run the effect if value prop changes
 
   const { icon, title, ...otherProps } = props;
   return (
-
-    <AlertM {...props}
-    >
-      {props.children}
-    </AlertM>
-
+    <Collapse in={open}>
+      <AlertM {...props}
+      >
+        {props.children}
+      </AlertM>
+    </Collapse>
   );
 }
 
@@ -37,9 +45,6 @@ Alert.propTypes = {
    * The action to display. It renders after the message, at the end of the Alert.
    */
   action: PropTypes.node,
-
-  isOpen: PropTypes.bool,
-
 
 
   /**
@@ -84,7 +89,6 @@ Alert.propTypes = {
    */
   onClose: PropTypes.func,
 
-  onChange: PropTypes.func,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
