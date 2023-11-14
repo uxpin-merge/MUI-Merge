@@ -15,26 +15,22 @@ Collapse.propTypes = {
    * Allows for more fine grained transition end logic.
    * Note: Timeouts are still used as a fallback if provided.
    */
-  /** @uxpinignoreprop */
   addEndListener: PropTypes.func,
 
   /**
    * The content node to be collapsed.
-   * @uxpinignoreprop
    */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
   /**
    * Override or extend the styles applied to the component.
    * See CSS API below for more details.
-   * @uxpinignoreprop
    */
   className: PropTypes.string,
 
@@ -53,7 +49,6 @@ Collapse.propTypes = {
 
   /**
    * If `true`, the component will transition in.
-   * @uxpinpropname Visible
    */
   in: PropTypes.bool,
 
