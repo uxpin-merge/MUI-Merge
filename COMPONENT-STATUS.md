@@ -7,7 +7,7 @@
 | Accordion                | [ ✓ ]    |
 | Accordion Details        | [ ✓ ]    |
 | Accordion Summary        | [ ✓ ]    |
-| Alert                    | [ ✓ ]    |
+| Alert                    | [ + ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |
 | Avatar                   | [ + ]    |

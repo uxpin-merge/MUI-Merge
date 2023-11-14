@@ -9,6 +9,7 @@ import AlertTitle from '../AlertTitle/AlertTitle';
 
 /**
  * @uxpindocurl https://mui.com/api/alert/
+ * @uxpindescription An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.
  */
 function Alert(props) {
   // const [open, setOpen] = React.useState(props.isOpen);
