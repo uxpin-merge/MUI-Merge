@@ -11,20 +11,20 @@ import AlertTitle from '../AlertTitle/AlertTitle';
  * @uxpindocurl https://mui.com/api/alert/
  */
 function Alert(props) {
-  const [open, setOpen] = React.useState(props.isOpen);
+  // const [open, setOpen] = React.useState(props.isOpen);
 
-  React.useEffect(() => {
-    setOpen(props.isOpen);
-  }, [props.isOpen]); // Only re-run the effect if value prop changes
+  // React.useEffect(() => {
+  //   setOpen(props.isOpen);
+  // }, [props.isOpen]); // Only re-run the effect if value prop changes
 
-  const { icon, title, ...otherProps } = props;
+  // const { icon, title, ...otherProps } = props;
   return (
-    <Collapse in={open}>
-      <AlertM {...props}
-      >
-        {props.children}
-      </AlertM>
-    </Collapse>
+    // <Collapse in={open}>
+    <AlertM {...props}
+    >
+      {props.children}
+    </AlertM>
+    // </Collapse>
   );
 }
 
