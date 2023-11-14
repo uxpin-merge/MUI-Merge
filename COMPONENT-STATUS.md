@@ -4,9 +4,9 @@
 | COMPONENT                | STATUS         |
 | ------------------------ | -------------- |
 | Auto-complete            | [ ** ]    |
-| Accordion                | [ ✓ ]    |
-| Accordion Details        | [ ✓ ]    |
-| Accordion Summary        | [ ✓ ]    |
+| Accordion                | [ + ]    |
+| Accordion Details        | [ + ]    |
+| Accordion Summary        | [ + ]    |
 | Alert                    | [ + ]    |
 | Alert Title              | [ ]    |
 | App Bar                  | [ ]    |

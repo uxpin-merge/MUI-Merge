@@ -4,6 +4,7 @@ import PaperM from '@mui/material/Paper';
 
 /**
  * @uxpindocurl https://mui.com/api/paper/
+ * @uxpindescription The Paper component is a container for displaying content on an elevated surface.
  */
 function Paper(props) {
   return (
