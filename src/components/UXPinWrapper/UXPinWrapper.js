@@ -55,8 +55,9 @@ export default function UXPinWrapper(props) {
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
       <ThemeProvider theme={themeOptions.theme}>
-        <ScopedCssBaseline sx={{ background: "inherit" }} />
-        {props.children}
+        <ScopedCssBaseline sx={{ background: "inherit" }}>
+          {props.children}
+        </ScopedCssBaseline>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
