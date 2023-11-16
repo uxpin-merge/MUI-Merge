@@ -4,6 +4,7 @@ import TabsM from '@mui/material/Tabs';
 
 /**
  * @uxpindocurl https://mui.com/api/tabs/#main-content
+ * @uxpindescription Tabs make it easy to explore and switch between different views.
  */
 function Tabs(props) {
   return <TabsM {...props}>{props.children}</TabsM>;
