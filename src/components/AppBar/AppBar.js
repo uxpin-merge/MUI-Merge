@@ -4,7 +4,7 @@ import AppBarM from '@mui/material/AppBar';
 
 /**
  * @uxpindocurl https://mui.com/api/app-bar/
- * @uxpindescription 
+ * @uxpindescription The App Bar displays information and actions relating to the current screen.
  */
 function AppBar(props) {
   return (

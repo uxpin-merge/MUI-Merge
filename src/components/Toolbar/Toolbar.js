@@ -4,6 +4,7 @@ import ToolbarM from '@mui/material/Toolbar';
 
 /**
  * @uxpindocurl https://mui.com/api/toolbar/
+ * @uxpindescription The Toolbar displays actions relating to the current screen, usually a mixture of IconButton, Button and Typography.
  */
 function Toolbar(props) {
   return (
