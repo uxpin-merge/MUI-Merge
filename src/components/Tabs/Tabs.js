@@ -34,11 +34,7 @@ Tabs.propTypes = {
    * This property is intended for large views.
    */
   centered: PropTypes.bool,
-  /**
- * If `true`, the Tabss will grow to use all the available space.
- * This property is intended for small views, like on mobile.
- */
-  fullWidth: PropTypes.bool,
+
   /**
  * Determines the color of the `Tabs`.
  */
