@@ -26,6 +26,11 @@ Tab.propTypes = {
   icon: PropTypes.node,
 
   /**
+  * The icon element.
+  */
+  iconPosition: PropTypes.oneOf(['top', 'bottom', 'start', 'end']),
+
+  /**
    * Tab labels appear in a single row. They can use a second line if needed.
    */
   wrapped: PropTypes.bool,
