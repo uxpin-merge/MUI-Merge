@@ -44,12 +44,6 @@ Tabs.propTypes = {
 * Determines the color of the indicator.
 */
   indicatorColor: PropTypes.oneOf(['secondary', 'primary']),
-  /**
-   * If `true`, it will invoke scrolling properties and allow for horizontally
-   * scrolling (or swiping) of the Tabs bar.
-   */
-
-  scrollable: PropTypes.bool,
 
   /**
 * Determine behavior of scroll buttons when Tabss are set to scroll
