@@ -22,22 +22,44 @@ Box.propTypes = {
    * The content of the box.
    */
   children: PropTypes.node,
-  /**
-   * The content of the box.
-   */
-  component: PropTypes.string,
-
-  /**
- * Width.
- * In pixels or percentage
- */
-  width: PropTypes.string,
-
-  /**
-   * Height.
-   * In pixels
-   */
   height: PropTypes.string,
+  minHeight: PropTypes.string,
+  maxHeight: PropTypes.string,
+  width: PropTypes.string,
+  minWidth: PropTypes.string,
+  maxWidth: PropTypes.string,
+  padding: PropTypes.string,
+  paddingTop: PropTypes.string,
+  paddingRight: PropTypes.string,
+  paddingBottom: PropTypes.string,
+  paddingLeft: PropTypes.string,
+  display: PropTypes.oneOf(['block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', 'none']),
+  position: PropTypes.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky']),
+  flexGrow: PropTypes.number,
+  flexShrink: PropTypes.number,
+  flexBasis: PropTypes.string,
+  flex: PropTypes.string,
+  flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+  justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+  alignItems: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'baseline']),
+  alignContent: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around']),
+  alignSelf: PropTypes.oneOf(['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
+  order: PropTypes.number,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  left: PropTypes.string,
+  right: PropTypes.string,
+  margin: PropTypes.string,
+  marginTop: PropTypes.string,
+  marginRight: PropTypes.string,
+  marginBottom: PropTypes.string,
+  marginLeft: PropTypes.string,
+  zIndex: PropTypes.number,
+
+
+
+
+
   /**
    * Color of text
    */
@@ -88,58 +110,6 @@ Box.propTypes = {
 
 
   /**
-   * All Padding.
-   * In pixels
-   */
-  padding: PropTypes.string,
-
-  /**
-   * Top Padding.
-   * In pixels
-   */
-  paddingTop: PropTypes.string,
-  /**
-   * Right Padding.
-   * In pixels
-   */
-  paddingRight: PropTypes.string,
-  /**
-   * Bottom Padding.
-   * In pixels
-   */
-  paddingBottom: PropTypes.string,
-  /**
-   * Left Padding.
-   * In pixels
-   */
-  paddingLeft: PropTypes.string,
-  /**
-   * All Margin.
-   * In pixels
-   */
-  margin: PropTypes.string,
-  /**
-   * Top margin.
-   * In pixels
-   */
-  marginTop: PropTypes.string,
-  /**
-   * Right margin.
-   * In pixels
-   */
-  marginRight: PropTypes.string,
-  /**
-   * Bottom margin.
-   * In pixels
-   */
-  marginBottom: PropTypes.string,
-  /**
-   * Left margin.
-   * In pixels
-   */
-  marginLeft: PropTypes.string,
-
-  /**
    * Border margin.
    * In pixels
    */
@@ -186,22 +156,97 @@ Box.propTypes = {
     'text.secondary',
     'text.disabled',
   ]),
+  borderTopColor: PropTypes.oneOf([
+    'white',
+    'grey.100',
+    'grey.200',
+    'grey.300',
+    'grey.400',
+    'grey500',
+    'primary.main',
+    'secondary.main',
+    'error.main',
+    'warning.main',
+    'info.main',
+    'success.main',
+    'text.primary',
+    'text.secondary',
+    'text.disabled',
+  ]),
+  borderBottomColor: PropTypes.oneOf([
+    'white',
+    'grey.100',
+    'grey.200',
+    'grey.300',
+    'grey.400',
+    'grey500',
+    'primary.main',
+    'secondary.main',
+    'error.main',
+    'warning.main',
+    'info.main',
+    'success.main',
+    'text.primary',
+    'text.secondary',
+    'text.disabled',
+  ]),
+  borderRightColor: PropTypes.oneOf([
+    'white',
+    'grey.100',
+    'grey.200',
+    'grey.300',
+    'grey.400',
+    'grey500',
+    'primary.main',
+    'secondary.main',
+    'error.main',
+    'warning.main',
+    'info.main',
+    'success.main',
+    'text.primary',
+    'text.secondary',
+    'text.disabled',
+  ]),
+  borderLeftColor: PropTypes.oneOf([
+    'white',
+    'grey.100',
+    'grey.200',
+    'grey.300',
+    'grey.400',
+    'grey500',
+    'primary.main',
+    'secondary.main',
+    'error.main',
+    'warning.main',
+    'info.main',
+    'success.main',
+    'text.primary',
+    'text.secondary',
+    'text.disabled',
+  ]),
 
-  borderRadius: PropTypes.string,
-
+  /**
+   * Border Radius.
+   * In pixels
+   */
+  borderRadius: PropTypes.number,
+  /**
+   * Elevation values: 1-24
+   */
   boxShadow: PropTypes.number,
 
-  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
-  // textOverflow: PropTypes.oneOf(["clip", "ellipsis"]),
+
+
+  /**
+   * The content of the box.
+   */
+  component: PropTypes.string,
   /**
    * Accepts all system properties, as well as any valid CSS properties.
    */
   sx: PropTypes.object,
 
-  /**
-   * @uxpinignoreprop
-   */
-  uxpinRef: PropTypes.any,
+
 };
 Box.defaultProps = {
   sx: {},
