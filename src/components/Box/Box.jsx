@@ -44,7 +44,7 @@ Box.propTypes = {
   alignItems: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'baseline']),
   alignContent: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around']),
   alignSelf: PropTypes.oneOf(['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
-  gap: PropTypes.number,
+  gap: PropTypes.string,
   order: PropTypes.number,
   top: PropTypes.string,
   bottom: PropTypes.string,
