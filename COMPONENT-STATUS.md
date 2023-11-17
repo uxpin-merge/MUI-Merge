@@ -16,7 +16,7 @@
 | Badge                    | [ + ]    |
 | Bottom Navigation        | [ ]    |
 | Bottom Navigation Action | [ ]    |
-| Box                      | [ ✓ ]    |
+| Box                      | [ + ]    |
 | Breadcrumbs              | [ ]    |
 | Button                   | [ + ]    |
 | Button Group             | [ + ]    |
@@ -32,11 +32,11 @@
 | Collapse                 | [ ]    |
 | Container                | [ + ]    |
 | Date/Time (Input)        | [ ]|
-| Dialog                   | [ ✓ ]    |
-| Dialog Action            | [ ]    |
-| Dialog Content           | [ ]    |
-| Dialog Content Text      | [ ]    |
-| Dialog Title             | [ ✓ ]    |
+| Dialog                   | [ + ]    |
+| Dialog Action            | [ + ]    |
+| Dialog Content           | [ + ]    |
+| Dialog Content Text      | [ + ]    |
+| Dialog Title             | [ + ]    |
 | Divider                  | [ + ]    |
 | Floating Action Button   | [ + ]    |
 | Form Control Label       | [ + ]    |
@@ -70,7 +70,7 @@
 | Radio Button             | [ + ]    |
 | Radio Group             | [ + ]    |
 | Rating                   | [ + ]    |
-| Skeleton                 | [ ]    |
+| Skeleton                 | [ + ]    |
 | Slider                   | [ + ]    |
 | Snackbar                 | [ ✓ ]    |
 | Split Button             | [ !! ]    |
