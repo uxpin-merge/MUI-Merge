@@ -51,7 +51,7 @@ Stack.propTypes = {
   /**
    * Defines the space between immediate children in px
    */
-  spacing: PropTypes.number,
+  spacing: PropTypes.string,
 
   /**
    * Add an element between each child.

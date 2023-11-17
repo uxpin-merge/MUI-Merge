@@ -13,6 +13,7 @@ export default (
       <Stack
         direction="row"
         justifyContent="space-between"
+        alignItems="center"
         width="100%"
         uxpId="stack-1"
       >
