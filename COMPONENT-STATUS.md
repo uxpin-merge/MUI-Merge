@@ -20,12 +20,12 @@
 | Breadcrumbs              | [ ]    |
 | Button                   | [ + ]    |
 | Button Group             | [ + ]    |
-| Card                     | [ ✓ ]    |
-| Card Actions             | [ ✓ ]    |
-| Card Actions Area        | [ ✓ ]    |
-| Card Content             | [ ✓ ]    |
-| Card Header              | [ ✓ ]    |
-| Card Media               | [ ✓ ]    |
+| Card                     | [ + ]    |
+| Card Actions             | [ + ]    |
+| Card Actions Area        | [ + ]    |
+| Card Content             | [ + ]    |
+| Card Header              | [ + ]    |
+| Card Media               | [ + ]    |
 | Checkbox                 | [ + ]    |
 | Chip                     | [ + ]    |
 | Circular Progress        | [ + ]    |
@@ -53,7 +53,7 @@
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |
 | Linear Progress          | [ + ]    |
-| Link                     | [ ]    |
+| Link                     | [ + ]    |
 | List                     | [ + ]    |
 | List Item                | [ + ]    |
 | List Item Avatar         | [ + ]    |

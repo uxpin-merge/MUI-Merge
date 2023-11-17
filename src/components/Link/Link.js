@@ -5,10 +5,14 @@ import LinkM from '@mui/material/Link';
 /**
  * @uxpindocurl https://mui.com/api/link/
  */
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper, NonResizableWrapper
+ */
 function Link(props) {
   return (
-    <div style={{ display: 'grid' }}>
-      <LinkM {...props}>{props.children}</LinkM>
+    <div style={{ display: 'inline' }}>
+      <LinkM {...props} />
     </div>
   );
 }
@@ -17,46 +21,11 @@ Link.propTypes = {
   /**
    * The content of the component.
    */
-  /** @uxpinpropname Text */
+
   children: PropTypes.node,
-
   /**
-   * href for the component
-   */
-  href: PropTypes.string,
-
-  /**
-   * Override or extend the styles applied to the component. See CSS API https://mui.com/api/link/#css for more details.
-   */
-  /** @uxpinignoreprop */
-  classes: PropTypes.object,
-
-  /**
-   * The color of the link.
-   */
-  color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'error']),
-
-  /**
-   * The component used for the root node. Either a string to use a HTML element or a component.
-   * ⚠️ Needs to be able to hold a ref https://mui.com/guides/composition/#caveat-with-refs.
-   */
-  /** @uxpinignoreprop */
-  component: PropTypes.node,
-
-  /**
-   * classes prop applied to the Typography element.
-   */
-  /** @uxpinignoreprop */
-  TypographyClasses: PropTypes.object,
-
-  /**
-   * Controls when the link should have an underline.
-   */
-  underline: PropTypes.oneOf(['always', 'hover', 'none']),
-
-  /**
-   * Applies the theme typography styles.
-   */
+ * Applies the theme typography styles.
+ */
   variant: PropTypes.oneOf([
     'body1',
     'body2',
@@ -73,6 +42,66 @@ Link.propTypes = {
     'subtitle1',
     'subtitle2',
   ]),
+  /**
+    * The color of the link.
+    */
+
+  color: PropTypes.oneOf([
+    'white',
+    'grey.100',
+    'grey.200',
+    'grey.300',
+    'grey.400',
+    'grey500',
+    'primary.main',
+    'primary.light',
+    'primary.dark',
+    'secondary.main',
+    'secondary.light',
+    'secondary.dark',
+    'error.main',
+    'warning.main',
+    'info.main',
+    'success.main',
+    'text.primary',
+    'text.secondary',
+    'text.disabled',
+  ]),
+  /**
+   * href for the component
+   */
+  href: PropTypes.string,
+  /**
+    * Controls when the link should have an underline.
+    */
+  underline: PropTypes.oneOf(['always', 'hover', 'none']),
+
+
+
+  /**
+   * Override or extend the styles applied to the component. See CSS API https://mui.com/api/link/#css for more details.
+   */
+
+  classes: PropTypes.object,
+
+
+  /**
+   * The component used for the root node. Either a string to use a HTML element or a component.
+   * ⚠️ Needs to be able to hold a ref https://mui.com/guides/composition/#caveat-with-refs.
+   */
+
+  component: PropTypes.node,
+
+  /**
+   * classes prop applied to the Typography element.
+   */
+
+  TypographyClasses: PropTypes.object,
+
+  /**
+   * On click event to use with UXPin interactions.
+   */
+  onClick: PropTypes.func,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
@@ -80,10 +109,7 @@ Link.propTypes = {
    */
   sx: PropTypes.object,
 
-  /**
-   * On click event to use with UXPin interactions.
-   */
-  onClick: PropTypes.func,
+
 };
 
 export default Link;
