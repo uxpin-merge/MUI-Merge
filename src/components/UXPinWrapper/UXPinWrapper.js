@@ -2,7 +2,8 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import defaultTheme from './boilerplate-theme';
-import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Box } from '@mui/material';
 
 
 export const ThemeContext = React.createContext({});
@@ -54,10 +55,11 @@ export default function UXPinWrapper(props) {
 
   return (
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
-      <ThemeProvider theme={themeOptions.theme}>
-        <ScopedCssBaseline sx={{ background: "inherit", color: "text.primary" }}>
-          {props.children}
-        </ScopedCssBaseline>
+      <ThemeProvider theme={themeOptions.theme} >
+        {/* <ScopedCssBaseline sx={{ background: "inherit", color: "text.primary" }}> */}
+        <CssBaseline />
+        {props.children}
+        {/* </ScopedCssBaseline> */}
       </ThemeProvider>
     </ThemeContext.Provider>
   );
