@@ -58,9 +58,6 @@ Box.propTypes = {
   zIndex: PropTypes.number,
 
 
-
-
-
   /**
    * Color of text
    */
@@ -237,7 +234,14 @@ Box.propTypes = {
    */
   boxShadow: PropTypes.number,
 
-
+  fontFamily: PropTypes.string,
+  fontSize: PropTypes.string,
+  fontWeight: PropTypes.oneOf(['normal', 'bold', 'lighter', 'bolder']),
+  fontStyle: PropTypes.oneOf(['normal', 'italic', 'oblique']),
+  letterSpacing: PropTypes.string,
+  lineHeight: PropTypes.string,
+  textAlign: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
+  textTransform: PropTypes.oneOf(['none', 'capitalize', 'uppercase', 'lowercase']),
 
   /**
    * The content of the box.
