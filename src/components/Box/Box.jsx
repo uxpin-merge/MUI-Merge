@@ -115,6 +115,7 @@ Box.propTypes = {
    */
   border: PropTypes.number,
 
+
   /**
    * Border Top.
    * In pixels
