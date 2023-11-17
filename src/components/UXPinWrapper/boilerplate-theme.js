@@ -17,12 +17,21 @@ const boilerplateTheme = {
     },
   },
   typography: {
-
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },
   shape: {
     borderRadius: 4
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          fontSize: 14,
+          color: "inherit"
+        }
+      },
+    },
+
     // Name of the component
     MuiButton: {
       styleOverrides: {
