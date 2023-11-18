@@ -14,11 +14,7 @@ Breadcrumbs.propTypes = {
    * The content of the component.
    */
   children: PropTypes.node,
-  /**
-    * Override the default label for the expand button.
-    * For localization purposes, you can use the provided translations https://mui.com/guides/localization/.
-    */
-  expandText: PropTypes.string,
+
 
   /**
    * If max items is exceeded, the number of items to show after the ellipsis.
@@ -49,7 +45,11 @@ Breadcrumbs.propTypes = {
    */
   component: PropTypes.node,
 
-
+  /**
+    * Override the default label for the expand button.
+    * For localization purposes, you can use the provided translations https://mui.com/guides/localization/.
+    */
+  expandText: PropTypes.string,
 
   /** The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/ */
