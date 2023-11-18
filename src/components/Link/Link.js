@@ -48,6 +48,7 @@ Link.propTypes = {
 
   color: PropTypes.oneOf([
     'white',
+    'inherit',
     'grey.100',
     'grey.200',
     'grey.300',
