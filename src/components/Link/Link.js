@@ -48,7 +48,6 @@ Link.propTypes = {
 
   color: PropTypes.oneOf([
     'white',
-    'inherit',
     'grey.100',
     'grey.200',
     'grey.300',
@@ -67,6 +66,7 @@ Link.propTypes = {
     'text.primary',
     'text.secondary',
     'text.disabled',
+    'inherit'
   ]),
   /**
    * href for the component
