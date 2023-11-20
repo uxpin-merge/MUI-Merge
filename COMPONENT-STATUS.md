@@ -49,6 +49,7 @@
 | Grid List/ImageList      | [ ]    |
 | Icon                     | [ + ]    |
 | Icon Button              | [ + ]    |
+| Image             | [ + (https://github.com/benmneb/mui-image)  ]    |
 | Image List               | [ ]    |
 | Image List Item          | [ ]    |
 | Input label              | [ ]    |
