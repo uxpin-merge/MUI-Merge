@@ -4,18 +4,44 @@ import PaginationM from '@mui/material/Pagination';
 
 /**
  * @uxpindocurl https://mui.com/api/pagination/
+ * @uxpindescription The Pagination component enables the user to select a specific page from a range of pages.
  */
 function Pagination(props) {
   return <PaginationM {...props} />;
 }
 
 Pagination.propTypes = {
+
+  /**
+ * The variant to use.
+ */
+  variant: PropTypes.oneOf(['outlined', 'text']),
+
+  /**
+* The active color.
+*/
+  color: PropTypes.oneOf(['primary', 'secondary', 'standard']),
+
+
+
+  /**
+   * The sahpe of the pagination items.
+   */
+  shape: PropTypes.oneOf(['circular', 'rounded']),
+
+  /**
+   * The size of the component.
+   */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+
+  /**
+   * If true, the component is disabled.
+   */
+  disabled: PropTypes.bool,
   /**
    * The total number of pages.
-   * @uxpinpropname No. Pages
    */
   count: PropTypes.number,
-
   /**
    * Number of always visible pages at the beginning and end.
    */
@@ -33,7 +59,6 @@ Pagination.propTypes = {
 
   /**
    * The current page.
-   * @uxpinpropname Curent Page
    */
   page: PropTypes.number,
 
@@ -57,34 +82,10 @@ Pagination.propTypes = {
    */
   showLastButton: PropTypes.bool,
 
-  /**
-   * The active color.
-   */
-  color: PropTypes.oneOf(['primary', 'secondary', 'standard']),
 
-  /**
-   * The variant to use.
-   */
-  variant: PropTypes.oneOf(['outlined', 'text']),
-
-  /**
-   * The sahpe of the pagination items.
-   */
-  shape: PropTypes.oneOf(['circular', 'rounded']),
-
-  /**
-   * The size of the component.
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
-  /**
-   * If true, the component is disabled.
-   */
-  disabled: PropTypes.bool,
 
   /**
    * Override or extend the styles applied to the component.
-   * @uxpinignoreprop
    */
   classes: PropTypes.object,
 
@@ -94,12 +95,10 @@ Pagination.propTypes = {
   sx: PropTypes.object,
 
   /**
-   * @uxpinignoreprop
    */
   renderItem: PropTypes.func,
 
   /**
-   * @uxpinignoreprop
    */
   getItemAriaLabel: PropTypes.func,
 
