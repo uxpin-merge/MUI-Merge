@@ -6,7 +6,6 @@ module.exports = {
       {
         name: 'INPUTS',
         include: [
-          'src/components/Image/Image.js',
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
           'src/components/DatePicker/DatePicker.js',
@@ -36,6 +35,7 @@ module.exports = {
           'src/components/DataGrid/DataGrid.js',
           'src/components/Divider/Divider.js',
           'src/components/Icon/Icon.js',
+          'src/components/Image/Image.js',
           'src/components/List/List.js',
           'src/components/Table/Table.js',
           'src/components/Tooltip/Tooltip.js',

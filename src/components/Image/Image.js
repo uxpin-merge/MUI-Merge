@@ -4,9 +4,12 @@ import ImageM from 'mui-image'
 
 /**
  * @uxpindocurl https://github.com/benmneb/mui-image
- * @uxpindescription mui-image (third-party component): The only Material UI image component to satisfy the Material Design guidelines for loading images. Make sure you npm install 'mui-image' and 'import Image from 'mui-image' in your project.
+ * @uxpindescription THIRD-PARTY COMPONENT (mui-image) Make sure you npm install 'mui-image' and 'import Image from 'mui-image' in your project: The only Material UI image component to satisfy the Material Design guidelines for loading images. 
  */
-
+/**
+ * @uxpinwrappers
+ * SkipContainerWrapper, NonResizableWrapper
+ */
 export default function Image(props) {
   return (
     <ImageM
