@@ -26,8 +26,6 @@ Pagination.propTypes = {
 */
   color: PropTypes.oneOf(['primary', 'secondary', 'standard']),
 
-
-
   /**
    * The sahpe of the pagination items.
    */

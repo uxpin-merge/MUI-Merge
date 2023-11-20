@@ -1,32 +1,110 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImageM from 'mui-image'
 
-function Image(props) {
+/**
+ * @uxpindocurl https://github.com/benmneb/mui-image
+ * @uxpindescription mui-image (third-party component): The only Material UI image component to satisfy the Material Design guidelines for loading images. Make sure you npm install 'mui-image' and 'import Image from 'mui-image' in your project.
+ */
+
+export default function Image(props) {
   return (
-    <img
-      alt={props.alt}
-      src={props.src}
-      height={props.height}
-      width={props.width}
-      style={{ objectFit: props.objectFit, height: props.height, width: props.width, ...props.style }}
+    <ImageM
+      {...props}
     />
   );
 }
 
 Image.propTypes = {
-  alt: PropTypes.string,
+  /**
+* image src URL of the image... required
+*/
+  src: PropTypes.string.isRequired,
+  /**
+* The height of the image
+*/
   height: PropTypes.string,
+  /**
+* The width of the image
+*/
   width: PropTypes.string,
-  objectFit: PropTypes.oneOf(['fill', 'contain', 'cover', 'none', 'scale-down']),
-  src: PropTypes.string,
-  style: PropTypes.object,
+  /**
+* How the image should be resized to fit its container.
+*/
+
+  fit: PropTypes.oneOf([
+    'contain',
+    'cover',
+    'fill',
+    'none',
+    'scale-down',
+    'inherit',
+    'initial',
+    'revert',
+    'revert-layer',
+    'unset',
+  ]),
+
+  /**
+* The number in milliseconds the image takes to fade in.
+*/
+  duration: PropTypes.number,
+
+  /**
+   * The easing of the fade in transition of the image.
+   */
+  easing: PropTypes.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out']),
+
+
+  /**
+* The direction to shift the image as it appears.
+*/
+  shift: PropTypes.oneOf(['left', 'right', 'top', 'bottom', false, null]),
+
+  /**
+  * The distance (with unit) of the image to shift the image as it appears. 
+  */
+  distance: PropTypes.string,
+
+
+  /**
+  * The number of milliseconds the shift takes
+  */
+  shiftDuration: PropTypes.number,
+
+  /**
+* Show loading icon
+*/
+  showLoading: PropTypes.bool,
+
+  /**
+* image alt tag value
+*/
+  alt: PropTypes.string,
+  /**
+* image title tag value
+*/
+  title: PropTypes.string,
+
+
+  /**
+* CSS class for the image
+
+*/
+  className: PropTypes.string,
+
+
+  /**
+* the color the image transitions in from
+*/
+  onLoad: PropTypes.func,
+
+  // style: PropTypes.object,
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles. See the `sx` page for more details.
+*/
+
+  sx: PropTypes.object,
 };
 
-Image.defaultProps = {
-  src: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-};
-
-export default Image;
