@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PaginationM from '@mui/material/Pagination';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * @uxpindocurl https://mui.com/api/pagination/
  * @uxpindescription The Pagination component enables the user to select a specific page from a range of pages.
  */
 function Pagination(props) {
-  return <PaginationM {...props} />;
+  // Unique Id
+  const id = uuidv4();
+
+  return <PaginationM key={id} {...props} />;
 }
 
 Pagination.propTypes = {
