@@ -6,6 +6,7 @@ module.exports = {
       {
         name: 'INPUTS',
         include: [
+          'src/components/Image/Image.js',
           'src/components/Button/Button.js',
           'src/components/ButtonGroup/ButtonGroup.js',
           'src/components/DatePicker/DatePicker.js',
