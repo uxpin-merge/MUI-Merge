@@ -3,7 +3,7 @@ import TablePaginationM from '@mui/material/TablePagination';
 import PropTypes from 'prop-types';
 /**
  * @uxpindocurl https://mui.com/material-ui/api/table-pagination/
- * @uxpindescription Tables display sets of data. They can be fully customized.
+ * @uxpindescription For the pagination of a large set of tabular data, you should use the TablePagination component.
  */
 function TablePagination(props) {
   return <TablePaginationM {...props} />;
