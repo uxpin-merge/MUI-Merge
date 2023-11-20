@@ -78,7 +78,7 @@ Image.propTypes = {
   /**
 * Show loading icon
 */
-  showLoading: PropTypes.bool,
+  // showLoading: PropTypes.bool,
 
   /**
 * image alt tag value
