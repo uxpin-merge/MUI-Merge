@@ -37,12 +37,11 @@ export default function Drawer(props) {
       open={open}
       disableEnforceFocus
       disablePortal={true}
-      PaperProps={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
       style={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
 
     >
       <div>
-        {props.children}zdzdzd
+        {props.children}
       </div>
     </DrawerM>
 
