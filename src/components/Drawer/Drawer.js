@@ -14,50 +14,62 @@ export default function Drawer(props) {
 
   React.useEffect(() => setOpen(props.open), [props]);
 
-  // Unique Id
-  const id = uuidv4();
-
   return (
-    <Box style={{}} id={id}>
-      <DrawerM
-        open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-        container={document.querySelector("[id='" + id + "']")}
-        disableEnforceFocus
-        disablePortal={true}
-        {...props}
-      >
-        <div style={{ width: props.width, minHeight: '200px' }}>{props.children}</div>
-      </DrawerM>
-    </Box>
     // <DrawerM
     //   open={open}
     //   onClose={() => setOpen(false)}
     //   TransitionProps={{ tabIndex: 'null' }}
-    //   // disablePortal={true}
-    //   style={{ minWidth: '300px', minHeight: '300px' }}
+    //   disablePortal={true}
+    //   style={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
+    //   ModalProps={{
+    //     keepMounted: false,
+    //     tabIndex: 'null'
+    //   }}
+
     //   {...props}
     // >
     //   {props.children}
     // </DrawerM>
 
-  );
+    <DrawerM
+      {...props}
+      onClose={() => setOpen(false)}
+      open={open}
+      disableEnforceFocus
+      disablePortal={true}
+      PaperProps={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
+      style={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
+
+    >
+      <div>
+        {props.children}zdzdzd
+      </div>
+    </DrawerM>
+
+
+  )
 }
 
 Drawer.propTypes = {
+  /**
+ * The content of the component.
+ */
+  children: PropTypes.node,
+  /**
+   * The variant to use.
+   */
+  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary']),
+  /**
+   * If `true`, the component is shown.
+   */
+  open: PropTypes.bool,
 
   /**
      * Side from which the drawer will appear.
-     * @default 'left'
      */
   anchor: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
 
-  /**
-   * The content of the component.
-   */
-  children: PropTypes.node,
+
   /**
    * Override or extend the styles applied to the component.
    */
@@ -65,17 +77,14 @@ Drawer.propTypes = {
 
   /**
    * The elevation of the drawer.
-   * @default 16
    */
   elevation: PropTypes.number,
   /**
    * If `true`, the backdrop is not rendered.
-   * @default false
    */
   hideBackdrop: PropTypes.bool,
   /**
    * Props applied to the [`Modal`](/material-ui/api/modal/) element.
-   * @default {}
    */
   ModalProps: PropTypes.object,
   /**
@@ -86,41 +95,25 @@ Drawer.propTypes = {
    * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`.
    */
   onClose: PropTypes.func,
-  /**
-   * If `true`, the component is shown.
-   * @default false
-   */
-  open: PropTypes.bool,
+
   /**
    * Props applied to the [`Paper`](/material-ui/api/paper/) element.
-   * @default {}
    */
   PaperProps: PropTypes.object,
   /**
    * Props applied to the [`Slide`](/material-ui/api/slide/) element.
    */
   SlideProps: PropTypes.object,
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: PropTypes.object,
+
   /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
-   * @default {
-   *   enter: theme.transitions.duration.enteringScreen,
-   *   exit: theme.transitions.duration.leavingScreen,
-   * }
    */
   transitionDuration: PropTypes.number,
+
   /**
-   * The variant to use.
-   * @default 'temporary'
-   */
-  variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary'])
-
-};
-
-Drawer.defaultProps = {
+ * The system prop that allows defining system overrides as well as additional CSS styles.
+ */
+  sx: PropTypes.object,
 
 };
