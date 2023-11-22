@@ -21,7 +21,10 @@ IconButton.propTypes = {
    * The icon element.
    */
   children: PropTypes.node,
-
+  /**
+   * The id of the element. Usefull for anchorEl of menu and other elements that need origin position.
+   * */
+  id: PropTypes.string,
   /**
    * The size of the button.
    * `small` is equivalent to the dense button styling.

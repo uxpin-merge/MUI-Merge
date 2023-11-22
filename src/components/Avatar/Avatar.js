@@ -15,6 +15,12 @@ Avatar.propTypes = {
    * Used to render icon or text elements inside the Avatar if src is not set. This can be an element, or just a string.
    */
   children: PropTypes.node,
+
+  /**
+ * The id of the element. Usefull for anchorEl of menu and other elements that need origin position.
+ * */
+  id: PropTypes.string,
+
   /**
    * The image URL source.
    */

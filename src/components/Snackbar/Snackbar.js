@@ -1,22 +1,24 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import SnackbarM from '@mui/material/Snackbar';
 
 import IconButton from '../IconButton/IconButton';
 
 /**
  * @uxpindocurl https://mui.com/material-ui/react-snackbar/
- * @uxpinuseportal
+//  * @uxpinusesportal
+ * @uxpinwrappers
+ * SkipContainerWrapper, NonResizableWrapper
  */
 export default function Snackbar(props) {
   const { horizontal, open, sx, undo, uxpinRef, vertical, ...other } = props;
 
-  const [isOpen, setIsOpen] = React.useState(open);
+  const [isOpen, setIsOpen] = React.useState(props.open);
 
   React.useEffect(() => {
-    setIsOpen(open);
-  }, [open]); // Only re-run the effect if open prop changes
+    setIsOpen(props.open);
+  }, [props.open]); // Only re-run the effect if open prop changes
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -30,15 +32,22 @@ export default function Snackbar(props) {
 
 
   return (
-    <SnackbarM
-      {...props}
-    // onClose={handleClose}
-    // open={isOpen}
-    // anchorOrigin={anchorOrigin}
-    // action={action}
-    // ref={uxpinRef}
-    // sx={styles}
-    />
+    <div //A visual aid for the designer to see in UXPin
+      style={{
+        // width: '300px',
+        height: '100px'
+      }}
+    >
+      <SnackbarM
+        {...props}
+        onClose={handleClose}
+        open={isOpen}
+        // anchorOrigin={anchorOrigin}
+        // action={action}
+        ressssf={uxpinRef}
+      // sx={styles}
+      />
+    </div>
   );
 }
 
@@ -50,7 +59,7 @@ Snackbar.propTypes = {
 
   /**
    * If true, the component is shown.
-   * @uxpinbind onClose 1
+   * @uxpinbinddd onClose 1
    */
   open: PropTypes.bool,
 

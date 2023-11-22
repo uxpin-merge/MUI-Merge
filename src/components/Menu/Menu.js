@@ -10,10 +10,12 @@ const Menu = (props) => {
     return (
         <>
             <MenuM {...props}
-                disableEnforceFocus
-                disablePortal={true}
-                anchorEl={null}
-            /></>
+
+                anchorEl={document.querySelector(props.anchorEl)}
+                sx={{ position: "initial !important" }}
+            // anchorPosition={{ top: 0, left: 0 }}
+            />
+        </>
     );
 }
 
@@ -32,7 +34,7 @@ Menu.propTypes = {
      * An HTML element, or a function that returns one.
      * It's used to set the position of the menu.
      */
-    anchorEl: PropTypes.func,
+    anchorEl: PropTypes.string,
     /**
      * If `true` (Default) will focus the `[role="menu"]` if no focusable child is found. Disabled
      * children are not focusable. If you set this prop to `false` focus will be placed

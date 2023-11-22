@@ -23,6 +23,10 @@ Button.propTypes = {
    * The label of the button.
    * */
   children: PropTypes.node,
+  /**
+   * The id of the element. Usefull for anchorEl of menu and other elements that need origin position.
+   * */
+  id: PropTypes.string,
 
   /**
    * The color of the button.
@@ -75,6 +79,11 @@ Button.propTypes = {
    * On click event to use with UXPin interactions.
    */
   onClick: PropTypes.func,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.

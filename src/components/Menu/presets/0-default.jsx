@@ -3,7 +3,10 @@ import Menu from '../Menu';
 import MenuItem from '../../MenuItem/MenuItem';
 
 export default (
-  <Menu uxpId="1">
+  <Menu uxpId="1"
+    anchorEl={"#canvas"}
+  // open={true}
+  >
     <MenuItem uxpId="2">Profile</MenuItem>
     <MenuItem uxpId="3" divider={true}>
       My Account
