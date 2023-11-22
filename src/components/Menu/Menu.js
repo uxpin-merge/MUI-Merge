@@ -12,7 +12,7 @@ const Menu = (props) => {
             <MenuM {...props}
 
                 anchorEl={document.querySelector(props.anchorEl)}
-                sx={{ position: "initial !important" }}
+            // sx={{ position: "initial !important" }}
             // anchorPosition={{ top: 0, left: 0 }}
             />
         </>
