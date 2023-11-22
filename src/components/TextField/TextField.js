@@ -23,17 +23,9 @@ TextField.propTypes = {
   children: PropTypes.node,
 
   /**
- * This prop helps users to fill forms faster, especially on mobile devices.
- * The name can be confusing, as it's more like an autofill.
- * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+ * The label content.
  */
-  autoComplete: PropTypes.string,
-
-  /**
- * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
- */
-  type: PropTypes.string,
-
+  label: PropTypes.string,
   /**
 * The variant to use.
 */
@@ -45,8 +37,8 @@ TextField.propTypes = {
    */
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'info', 'success', 'warning']),
   /**
- * The size of the component.
- */
+* The size of the component.
+*/
   size: PropTypes.oneOf(['medium', 'small']),
 
   /**
@@ -54,7 +46,10 @@ TextField.propTypes = {
 */
   margin: PropTypes.oneOf(['dense', 'none', 'normal']),
 
-
+  /**
+ * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
+ */
+  type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'date']),
   /**
 * If `true`, the input will take up the full width of its container.
 */
@@ -64,16 +59,59 @@ TextField.propTypes = {
    */
   helperText: PropTypes.node,
 
+  /**
+   * The short hint displayed in the `input` before the user enters a value.
+   */
+  placeholder: PropTypes.string,
+  /**
+   * If `true`, the label is displayed as required and the `input` element is required.
+   */
+  required: PropTypes.bool,
+
+  /**
+* If `true`, the component is disabled.
+*/
+  disabled: PropTypes.bool,
+  /**
+   * If `true`, the label is displayed in an error state.
+   */
+  error: PropTypes.bool,
+
+  /**
+   * The value of the `input` element, required for a controlled component.
+     * @uxpinbind onChange event.target.value
+   */
+  value: PropTypes.string,
+  /**
+    * If `true`, a `textarea` element is rendered instead of an input.
+    */
+  multiline: PropTypes.bool,
+  /**
+   * Number of rows to display when multiline option is set to true.
+   */
+  rows: PropTypes.number,
+  /**
+   * Maximum number of rows to display when multiline option is set to true.
+   */
+  maxRows: PropTypes.number,
+  /**
+   * Minimum number of rows to display when multiline option is set to true.
+   */
+  minRows: PropTypes.number,
+
+  /**
+ * This prop helps users to fill forms faster, especially on mobile devices.
+ * The name can be confusing, as it's more like an autofill.
+ * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
+ */
+  autoComplete: PropTypes.string,
+
+
 
   /**
    * If `true`, the `input` element is focused during the first mount.
    */
   autoFocus: PropTypes.bool,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: PropTypes.object,
-
 
 
 
@@ -81,14 +119,7 @@ TextField.propTypes = {
    * The default value. Use when the component is not controlled.
    */
   defaultValue: PropTypes.string,
-  /**
-   * If `true`, the component is disabled.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * If `true`, the label is displayed in an error state.
-   */
-  error: PropTypes.bool,
+
   /**
    * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
    */
@@ -104,9 +135,7 @@ TextField.propTypes = {
    * Pointer events like `onClick` are enabled if and only if `shrink` is `true`.
    */
   InputLabelProps: PropTypes.object,
-  /**
-   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
-   */
+
   /**
    * Props applied to the Input element.
    * It will be a [`FilledInput`](/material-ui/api/filled-input/),
@@ -118,21 +147,8 @@ TextField.propTypes = {
    * Pass a ref to the `input` element.
    */
   inputRef: PropTypes.string,
-  /**
 
 
-  /**
-   * Maximum number of rows to display when multiline option is set to true.
-   */
-  maxRows: PropTypes.number,
-  /**
-   * Minimum number of rows to display when multiline option is set to true.
-   */
-  minRows: PropTypes.number,
-  /**
-   * If `true`, a `textarea` element is rendered instead of an input.
-   */
-  multiline: PropTypes.bool,
   /**
    * Name attribute of the `input` element.
    */
@@ -148,18 +164,6 @@ TextField.propTypes = {
    */
   onChange: PropTypes.func,
   /**
-   * The short hint displayed in the `input` before the user enters a value.
-   */
-  placeholder: PropTypes.string,
-  /**
-   * If `true`, the label is displayed as required and the `input` element is required.
-   */
-  required: PropTypes.bool,
-  /**
-   * Number of rows to display when multiline option is set to true.
-   */
-  rows: PropTypes.number,
-  /**
    * Render a [`Select`](/material-ui/api/select/) element while passing the Input element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    */
@@ -168,17 +172,16 @@ TextField.propTypes = {
    * Props applied to the [`Select`](/material-ui/api/select/) element.
    */
   SelectProps: PropTypes.object,
-
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
 
-  /**
-   * The value of the `input` element, required for a controlled component.
-     * @uxpinbind onChange event.target.value
-   */
-  value: PropTypes.string,
+
 
 }
 
