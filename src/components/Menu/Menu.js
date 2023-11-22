@@ -1,164 +1,110 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Grow from "@mui/material/Grow";
-import Paper from "@mui/material/Paper";
-import Popper from "@mui/material/Popper";
-import MenuItem from "@mui/material/MenuItem";
-import MenuList from "@mui/material/MenuList";
+
+import React from 'react';
 import PropTypes from "prop-types";
-import Icon from "@mui/material/Icon";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-
-
-
-export default function Menu(props) {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  const handleToggle = () => {
-    setOpen(prevOpen => !prevOpen);
-  };
-
-  const handleClose = event => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-    prevOpen.current = open;
-  }, [open]);
-
+import MenuM from '@mui/material/Menu';
+/**
+ * @uxpindocurl https://mui.com/material-ui/react-menu/
+ * @uxpindescription Menus display a list of choices on temporary surfaces.
+ */
+const Menu = (props) => {
   return (
-    <div >
-      <div>
-        {props.trigger === "icon" ? (
-          <IconButton
-            aria-label={props.label}
-            ref={anchorRef}
-            aria-haspopup="true"
-            onClick={handleToggle}
-            color={props.color}
-          >
-            <Icon>{props.icon}</Icon>
-          </IconButton>
-        ) : (
-          <Button
-            ref={anchorRef}
-            aria-haspopup="true"
-            variant={props.buttonVariant}
-            color={props.color}
-            onClick={handleToggle}
-          >
-            {props.label}
-          </Button>
-        )}
-
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          transition
-          disablePortal
-          placement="bottom-start"
-          style={{ zIndex: 9999 }}
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    onKeyDown={handleListKeyDown}
-                  >
-                    {props.children.map((item, key) => {
-                      {
-                        console.log(item.props.children);
-                      }
-                      return <MenuItem key={key} onClick={handleClose} {...item.props} />;
-                    })}
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
-    </div>
+    <>
+      <MenuM {...props}
+        disableEnforceFocus
+        disablePortal={true}
+        anchorEl={null}
+      /></>
   );
 }
 
+
 Menu.propTypes = {
-  /**
-   * Menu items. Can have optional icons and dividers
-   * Format:
-   * [
-    { label: "Profile"},
-    { label: "Favorites"},
-    { label: "Marketing Lists"},
-    { label: "All Orders", hasDivider: "true"},
-    { label: "Logout", icon:"cancel" }
-  ]
-  */
-  menuItems: PropTypes.array,
-
-  /*
-   *The type of element to open the menu.
-   */
-  trigger: PropTypes.oneOf(["icon", "buton"]),
 
   /**
-   * The name of the icon from https://material.io/tools/icons.
-   */
-  icon: PropTypes.string,
-
-  /**
-   * Label of button or aria-label of icon.
-   */
-  label: PropTypes.string,
-
-  /**
-   * The type of button.
-   */
-  buttonVariant: PropTypes.oneOf(["text", "outlined", "contained"]),
-
-  /**
-   * The color of the button or icon.
-   */
-  color: PropTypes.oneOf(["primary", "secondary", "inherit"]),
-  /**
-   * @uxpinignoreprop
+   * Menu contents, normally `MenuItem`s.
    */
   children: PropTypes.node,
+  /**
+ * If `true`, the component is shown.
+ */
   open: PropTypes.bool,
+  /**
+   * An HTML element, or a function that returns one.
+   * It's used to set the position of the menu.
+   */
+  anchorEl: PropTypes.func,
+  /**
+   * If `true` (Default) will focus the `[role="menu"]` if no focusable child is found. Disabled
+   * children are not focusable. If you set this prop to `false` focus will be placed
+   * on the parent modal container. This has severe accessibility implications
+   * and should only be considered if you manage focus otherwise.
+   * @default true
+   */
+  autoFocus: PropTypes.bool,
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: PropTypes.object,
+  /**
+   * When opening the menu will not focus the active item but the `[role="menu"]`
+   * unless `autoFocus` is also set to `false`. Not using the default means not
+   * following WAI-ARIA authoring practices. Please be considerate about possible
+   * accessibility implications.
+   * @default false
+   */
+  disableAutoFocusItem: PropTypes.bool,
+  /**
+   * Props applied to the [`MenuList`](/material-ui/api/menu-list/) element.
+   * @default {}
+   */
+  MenuListProps: PropTypes.object,
+  /**
+   * Callback fired when the component requests to be closed.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`, `"tabKeyDown"`.
+   */
+  onClose: PropTypes.func,
+
+  /**
+   * `classes` prop applied to the [`Popover`](/material-ui/api/popover/) element.
+   */
+  PopoverClasses: PropTypes.object,
+  /**
+   * The components used for each slot inside.
+   *
+   * @default {}
+   */
+  slots: PropTypes.object,
+  /**
+   * The extra props for the slot components.
+   * You can override the existing props or add new ones.
+   *
+   * @default {}
+   */
+  slotProps: PropTypes.object,
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: PropTypes.object,
+  /**
+   * The length of the transition in `ms`, or 'auto'
+   * @default 'auto'
+   */
+  transitionDuration: PropTypes.object,
+  /**
+   * Props applied to the transition element.
+   * By default, the element is based on this [`Transition`](http://reactcommunity.org/react-transition-group/transition/) component.
+   * @default {}
+   */
+  TransitionProps: PropTypes.object,
+  /**
+   * The variant to use. Use `menu` to prevent selected items from impacting the initial focus.
+   * @default 'selectedMenu'
+   */
+  variant: PropTypes.oneOf(['menu', 'selectedMenu']),
+
 };
 
-Menu.defaultProps = {
-  trigger: "icon",
-  label: "More Items",
-  icon: "more_vert",
-  menuItems: [
-    { label: "Profile" },
-    { label: "Favorites" },
-    { label: "Marketing Lists" },
-    { label: "All Orders", hasDivider: "true" },
-    { label: "Logout", icon: "cancel" }
-  ]
-};
+export default Menu;
