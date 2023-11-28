@@ -4,7 +4,7 @@ import Divider from '../../Divider/Divider';
 import Stack from '../Stack';
 
 export default (
-  <Stack uxpId="stack-1" direction="row" spacing={2} divider={<Divider orientation="vertical" flexItem uxpId="divider" />}>
+  <Stack uxpId="stack-1" direction="row" spacing="16px" divider={<Divider orientation="vertical" flexItem uxpId="divider" />}>
     <Button variant="outlined" uxpId="button-1">
       1
     </Button>

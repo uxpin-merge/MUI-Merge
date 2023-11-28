@@ -37,6 +37,10 @@ Grid.propTypes = {
  */
   direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
   /**
+* 1 = grow to all available space
+*/
+  flexGrow: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  /**
 * The number of columns. Usually 12
 */
   columns: PropTypes.number,

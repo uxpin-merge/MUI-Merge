@@ -21,6 +21,7 @@ Typography.propTypes = {
    * The typography style to apply.
    */
   children: PropTypes.node,
+
   /*
    * The typography style to apply.
    */
@@ -40,6 +41,10 @@ Typography.propTypes = {
     'overline',
     'inherit',
   ]),
+  /**
+ * 1 = grow to all available space
+*/
+  flexGrow: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
 
   /**
    * Alignment of text.
@@ -143,6 +148,20 @@ Typography.propTypes = {
    * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
+  /**
+  * Width.
+  * In pixels or percentage
+  */
+  width: PropTypes.string,
+
+  /**
+   * Height.
+   * In pixels
+   */
+  height: PropTypes.string,
+
+
+  // flexShrink: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
 
   /**
    * All Padding.

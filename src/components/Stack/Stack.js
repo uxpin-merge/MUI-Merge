@@ -18,15 +18,15 @@ Stack.propTypes = {
    * Elements contained by Tooltip.
    */
   children: PropTypes.node,
-  /**
-   * The component used for the root node. Either a string to use a HTML element or a component.
-   */
-  component: PropTypes.node,
+
   /**
    * Defines the flex-direction style property. It is applied for all screen sizes.
    */
   direction: PropTypes.oneOf(['column-reverse', 'column', 'row-reverse', 'row']),
-
+  /**
+ * 1 = grow to all available space
+*/
+  flexGrow: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   justifyContent: PropTypes.oneOf([
     'flex-start',
     'center',
@@ -69,6 +69,8 @@ Stack.propTypes = {
    */
   height: PropTypes.string,
 
+
+  // flexShrink: PropTypes.number,
   /**
  * All Padding.
  * In pixels
@@ -95,6 +97,10 @@ Stack.propTypes = {
    * In pixels
    */
   paddingLeft: PropTypes.string,
+  /**
+ * The component used for the root node. Either a string to use a HTML element or a component.
+ */
+  component: PropTypes.node,
 
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
