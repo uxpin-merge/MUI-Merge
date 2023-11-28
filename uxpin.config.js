@@ -84,6 +84,7 @@ module.exports = {
           'src/components/Grid/Grid.js',
           'src/components/ImageList/ImageList.js',
           'src/components/Stack/Stack.js',
+          'src/components/Hidden/Hidden.js',
         ],
       },
       {

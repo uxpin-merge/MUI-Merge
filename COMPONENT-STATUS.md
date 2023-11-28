@@ -47,6 +47,7 @@
 | FormLabel                | [ + ]    |
 | Grid                     | [ + (some limitations) ]    |
 | Grid List/ImageList      | [ ]    |
+| Hidden                     | [ + ]    |
 | Icon                     | [ + ]    |
 | Icon Button              | [ + ]    |
 | Image             | [ + (https://github.com/benmneb/mui-image)  ]    |
@@ -67,7 +68,7 @@
 | Menu Item                | [ ]    |
 | Menu List                | [ ]|
 | Pagination               | [ ] |
-| Paper                    | [ ]    |
+| Paper                    | [ + ]    |
 | Radio Button             | [ + ]    |
 | Radio Group             | [ + ]    |
 | Rating                   | [ + ]    |
