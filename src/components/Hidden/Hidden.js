@@ -9,7 +9,7 @@ import HiddenM from '@mui/material/Hidden';
 
 function Hidden(props) {
   return (
-    <div><HiddenM {...props} /></div>
+    <HiddenM {...props} />
   );
 }
 
