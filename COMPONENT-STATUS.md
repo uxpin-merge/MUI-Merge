@@ -74,7 +74,7 @@
 | Rating                   | [ + ]    |
 | Skeleton                 | [ + ]    |
 | Slider                   | [ + ]    |
-| Snackbar                 | [ ✓ ]    |
+| Snackbar                 | [ + ]    |
 | Split Button             | [ !! ]    |
 | Stack                    | [ + ]    |
 | Switch                   | [ + ]    |
