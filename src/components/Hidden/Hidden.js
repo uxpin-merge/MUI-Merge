@@ -4,6 +4,7 @@ import HiddenM from '@mui/material/Hidden';
 
 /**
  * @uxpindocurl https://mui.com/api/hidden/
+ * @uxpindescription Quickly and responsively toggle the visibility value of components and more with the hidden utilities.
  */
 
 function Hidden(props) {
