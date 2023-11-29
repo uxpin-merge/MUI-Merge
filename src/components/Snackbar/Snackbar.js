@@ -9,7 +9,7 @@ import IconButton from '../IconButton/IconButton';
  * @uxpindocurl https://mui.com/material-ui/react-snackbar/
  * @uxpinuseportal
  * @uxpinwrappers
- * NonResizableWrapper
+ * 
  */
 export default function Snackbar(props) {
   const { horizontal, open, sx, undo, uxpinRef, vertical, ...other } = props;
@@ -32,22 +32,17 @@ export default function Snackbar(props) {
 
 
   return (
-    <div //A visual aid for the designer to see in UXPin
-      style={{
-        // width: '300px',
-        height: '100px'
-      }}
-    >
-      <SnackbarM
-        {...props}
-        onClose={handleClose}
-        open={isOpen}
-        // anchorOrigin={anchorOrigin}
-        // action={action}
-        ressssf={uxpinRef}
-      // sx={styles}
-      />
-    </div>
+
+    <SnackbarM
+      {...props}
+      onClose={handleClose}
+      open={isOpen}
+    // anchorOrigin={anchorOrigin}
+    // action={action}
+    // ref={uxpinRef}
+    // sx={styles}
+    />
+
   );
 }
 
