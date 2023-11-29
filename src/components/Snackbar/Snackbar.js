@@ -9,7 +9,7 @@ import IconButton from '../IconButton/IconButton';
  * @uxpindocurl https://mui.com/material-ui/react-snackbar/
  * @uxpinuseportal
  * @uxpinwrappers
- * SkipContainerWrapper, NonResizableWrapper
+ * NonResizableWrapper
  */
 export default function Snackbar(props) {
   const { horizontal, open, sx, undo, uxpinRef, vertical, ...other } = props;
