@@ -18,38 +18,44 @@ function Box(props) {
 }
 
 Box.propTypes = {
+  // TODO: Prioritize props and add descriptions
+
+  id: PropTypes.string,
   /**
    * The content of the box.
    */
   children: PropTypes.node,
-  height: PropTypes.string,
-  minHeight: PropTypes.string,
-  maxHeight: PropTypes.string,
-  width: PropTypes.string,
-  minWidth: PropTypes.string,
-  maxWidth: PropTypes.string,
-  padding: PropTypes.string,
-  paddingTop: PropTypes.string,
-  paddingRight: PropTypes.string,
-  paddingBottom: PropTypes.string,
-  paddingLeft: PropTypes.string,
   display: PropTypes.oneOf(['block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', 'none']),
   position: PropTypes.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky']),
+  height: PropTypes.string,
+  width: PropTypes.string,
   flexGrow: PropTypes.number,
   flexShrink: PropTypes.number,
-  flexBasis: PropTypes.string,
-  flex: PropTypes.string,
   flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
   justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
   alignItems: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'baseline']),
   alignContent: PropTypes.oneOf(['stretch', 'flex-start', 'flex-end', 'center', 'space-between', 'space-around']),
   alignSelf: PropTypes.oneOf(['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
-  gap: PropTypes.string,
+  padding: PropTypes.string,
+  paddingTop: PropTypes.string,
+  paddingRight: PropTypes.string,
+  paddingBottom: PropTypes.string,
+  paddingLeft: PropTypes.string,
+  minHeight: PropTypes.string,
+  maxHeight: PropTypes.string,
+  minWidth: PropTypes.string,
+  maxWidth: PropTypes.string,
   order: PropTypes.number,
   top: PropTypes.string,
   bottom: PropTypes.string,
   left: PropTypes.string,
   right: PropTypes.string,
+
+  flexBasis: PropTypes.string,
+  flex: PropTypes.string,
+
+  gap: PropTypes.string,
+
   margin: PropTypes.string,
   marginTop: PropTypes.string,
   marginRight: PropTypes.string,

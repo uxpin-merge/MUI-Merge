@@ -1,9 +1,9 @@
 import React from 'react';
-import Collapse from '../Collapse';
+import Grow from '../Grow';
 import Typography from '../../Typography/Typography';
 
 export default (
-  <Collapse uxpId="collapse-1" in={true}>
+  <Grow uxpId="grow-1" in={true}  >
     <Typography
       bgcolor="grey.100"
       padding="50px"
@@ -11,7 +11,8 @@ export default (
       uxpId="typography-1"
     >
 
-      Collpse Me!
+      Grow Me!
     </Typography>
-  </Collapse>
+  </Grow>
 );
+

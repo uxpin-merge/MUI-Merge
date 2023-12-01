@@ -4,24 +4,47 @@ import CollapseM from '@mui/material/Collapse';
 
 /**
  * @uxpindocurl https://mui.com/api/collapse/#main-content
+ * @uxpindescription Expand from the start edge of the child element.
+ * Use the orientation prop if you need a horizontal collapse.
+ * The collapsedSize prop can be used to set the minimum width/height when not expanded.
  */
 function Collapse(props) {
   return <CollapseM {...props}>{props.children}</CollapseM>;
 }
 
 Collapse.propTypes = {
-  /**
-   * Add a custom transition end trigger. Called with the transitioning DOM node and a done callback.
-   * Allows for more fine grained transition end logic.
-   * Note: Timeouts are still used as a fallback if provided.
-   */
-  addEndListener: PropTypes.func,
+
 
   /**
    * The content node to be collapsed.
    */
   children: PropTypes.node,
+  /**
+    * If `true`, the component will transition in.
+    */
+  in: PropTypes.bool,
 
+  /**
+   * The transition orientation.
+   */
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  /**
+   * The width (horizontal) or height (vertical) of the container when collapsed.
+   * Use px, for example - 30px
+   */
+  collapsedSize: PropTypes.string,
+  /**
+   * The duration for the transition, in milliseconds.
+   */
+  timeout: PropTypes.number,
+  /**
+   * The transition timing function.
+   * You may specify a single easing or a object containing enter and exit values.
+   */
+  easing: PropTypes.oneOfType([PropTypes.shape({
+    enter: PropTypes.string,
+    exit: PropTypes.string
+  }), PropTypes.string]),
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css-api) below for more details.
@@ -34,11 +57,6 @@ Collapse.propTypes = {
    */
   className: PropTypes.string,
 
-  /**
-   * The width (horizontal) or height (vertical) of the container when collapsed.
-   * Use px, for example - 30px
-   */
-  collapsedSize: PropTypes.string,
 
   /**
    * The component used for the root node.
@@ -47,30 +65,13 @@ Collapse.propTypes = {
    */
   component: PropTypes.string,
 
-  /**
-   * If `true`, the component will transition in.
-   */
-  in: PropTypes.bool,
 
   /**
-   * The transition orientation.
+   * Add a custom transition end trigger. Called with the transitioning DOM node and a done callback.
+   * Allows for more fine grained transition end logic.
+   * Note: Timeouts are still used as a fallback if provided.
    */
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-
-  /**
-   * The duration for the transition, in milliseconds.
-   * You may specify a single timeout for all transitions, or individually with an object.
-   *
-   * Set to "auto" to automatically calculate transition time based on height. "" must be used instead of '' or ``.
-   * When using number simple write the number with no quotes. Example: 3000.
-   */
-  timeout: PropTypes.number | PropTypes.string,
-  // timeout: PropTypes.oneOfType([
-  //   PropTypes.number,
-  //   PropTypes.shape({enter: PropTypes.number, exit: PropTypes.number}),
-  //   PropTypes.oneOf(['auto'])
-  // ]),
-
+  addEndListener: PropTypes.func,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    * See the `sx` page for more details. https://mui.com/system/the-sx-prop/

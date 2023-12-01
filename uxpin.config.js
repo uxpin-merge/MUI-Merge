@@ -88,6 +88,16 @@ module.exports = {
         ],
       },
       {
+        name: 'TRANSITIONS',
+        include: [
+          'src/components/Collapse/Collapse.js',
+          'src/components/Grow/Grow.js',
+          'src/components/Slide/Slide.js',
+          'src/components/Fade/Fade.js',
+          'src/components/Zoom/Zoom.js',
+        ],
+      },
+      {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js'
@@ -109,7 +119,6 @@ module.exports = {
           'src/components/CardContent/CardContent.js',
           'src/components/CardHeader/CardHeader.js',
           'src/components/CardMedia/CardMedia.js',
-          'src/components/Collapse/Collapse.js',
 
           'src/components/DialogActions/DialogActions.js',
           'src/components/DialogContentText/DialogContentText.js',

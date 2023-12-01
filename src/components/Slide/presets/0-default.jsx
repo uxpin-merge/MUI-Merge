@@ -1,9 +1,11 @@
 import React from 'react';
-import Collapse from '../Collapse';
+import Slide from '../Slide';
 import Typography from '../../Typography/Typography';
 
 export default (
-  <Collapse uxpId="collapse-1" in={true}>
+  <Slide uxpId="slide-1" in={true} direction={"down"}
+  // mountOnEnter unmountOnExit
+  >
     <Typography
       bgcolor="grey.100"
       padding="50px"
@@ -11,7 +13,8 @@ export default (
       uxpId="typography-1"
     >
 
-      Collpse Me!
+      Slide Me!
     </Typography>
-  </Collapse>
+  </Slide>
 );
+
