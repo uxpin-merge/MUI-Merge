@@ -36,8 +36,8 @@ export default function Drawer(props) {
       onClose={() => setOpen(false)}
       open={open}
       disableEnforceFocus
-      disablePortal={true}
-      style={{ minWidth: '300px', minHeight: '300px', width: '100%', height: '100%' }}
+      // disablePortal={true}
+      style={{ width: '100%', height: '100%' }}
 
     >
       <div>
