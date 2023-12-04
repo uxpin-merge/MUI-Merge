@@ -3,14 +3,14 @@ import Menu from '../Menu';
 import MenuItem from '../../MenuItem/MenuItem';
 
 export default (
-  <Menu uxpId="1"
-  // anchorEl={"#canvas"}
-  // open={true}
+  <Menu uxpId="menu-1"
+    anchorEl="#canvas"
+    open={false}
   >
-    <MenuItem uxpId="2">Profile</MenuItem>
-    <MenuItem uxpId="3" divider={true}>
+    <MenuItem uxpId="menu-item-1">Profile</MenuItem>
+    <MenuItem uxpId="menu-item-2" divider={true}>
       My Account
     </MenuItem>
-    <MenuItem uxpId="4">Logout</MenuItem>
+    <MenuItem uxpId="menu-item-3">Logout</MenuItem>
   </Menu>
 );

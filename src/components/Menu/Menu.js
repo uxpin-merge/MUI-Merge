@@ -18,9 +18,8 @@ const Menu = (props) => {
             <MenuM {...props}
                 open={open}
                 onClose={() => setOpen(false)}
+                onBlur={() => setOpen(false)}
                 anchorEl={document.querySelector(props.anchorEl)}
-            // sx={{ position: "initial !important" }}
-            // anchorPosition={{ top: 0, left: 0 }}
             />
         </>
     );
@@ -38,8 +37,7 @@ Menu.propTypes = {
    */
     open: PropTypes.bool,
     /**
-     * An HTML element, or a function that returns one.
-     * It's used to set the position of the menu.
+     * ** Enter the ID of the component that you want to act as the trigger -- It used to set the position of the menu.
      */
     anchorEl: PropTypes.string,
     /**
