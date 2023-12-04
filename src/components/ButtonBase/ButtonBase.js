@@ -4,7 +4,7 @@ import ButtonBaseM from '@mui/material/ButtonBase';
 
 /**
  * @uxpindocurl https://mui.com/material-ui/react-button/#complex-button
- * @uxpindescription The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component: the ButtonBase. You can take advantage of this lower-level component to build custom interactions.
+ * @uxpindescription The the ButtonBase is a wrapper to allow to build custom interactions.
  */
 
 function ButtonBase(props) {
@@ -136,7 +136,9 @@ ButtonBase.propTypes = {
   // /**
   //  * @ignore
   //  */
-  // onMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+
   // /**
   //  * @ignore
   //  */
