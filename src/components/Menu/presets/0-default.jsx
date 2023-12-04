@@ -5,6 +5,7 @@ import MenuItem from '../../MenuItem/MenuItem';
 export default (
   <Menu uxpId="menu-1"
     anchorEl="#canvas"
+    autoFocus={false}
     open={false}
   >
     <MenuItem uxpId="menu-item-1">Profile</MenuItem>

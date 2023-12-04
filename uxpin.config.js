@@ -2,7 +2,17 @@ module.exports = {
   components: {
     categories: [
 
-
+      {
+        name: 'LAYOUT',
+        include: [
+          'src/components/Box/Box.jsx',
+          'src/components/Container/Container.js',
+          'src/components/Grid/Grid.js',
+          'src/components/ImageList/ImageList.js',
+          'src/components/Stack/Stack.js',
+          'src/components/Hidden/Hidden.js',
+        ],
+      },
       {
         name: 'INPUTS',
         include: [
@@ -75,17 +85,6 @@ module.exports = {
           'src/components/Pagination/Pagination.js',
           'src/components/Stepper/Stepper.js',
           'src/components/Tabs/Tabs.js',
-        ],
-      },
-      {
-        name: 'LAYOUT',
-        include: [
-          'src/components/Box/Box.jsx',
-          'src/components/Container/Container.js',
-          'src/components/Grid/Grid.js',
-          'src/components/ImageList/ImageList.js',
-          'src/components/Stack/Stack.js',
-          'src/components/Hidden/Hidden.js',
         ],
       },
       {
