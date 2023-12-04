@@ -4,7 +4,7 @@ import MenuItem from '../../MenuItem/MenuItem';
 
 export default (
   <Menu uxpId="1"
-    anchorEl={"#canvas"}
+  // anchorEl={"#canvas"}
   // open={true}
   >
     <MenuItem uxpId="2">Profile</MenuItem>

@@ -7,10 +7,17 @@ import MenuM from '@mui/material/Menu';
  * @uxpindescription Menus display a list of choices on temporary surfaces.
  */
 const Menu = (props) => {
+
+    const [open, setOpen] = React.useState(props.open);
+
+    React.useEffect(() => setOpen(props.open), [props]);
+
+
     return (
         <>
             <MenuM {...props}
-
+                open={open}
+                onClose={() => setOpen(false)}
                 anchorEl={document.querySelector(props.anchorEl)}
             // sx={{ position: "initial !important" }}
             // anchorPosition={{ top: 0, left: 0 }}
