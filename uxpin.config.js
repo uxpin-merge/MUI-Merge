@@ -100,7 +100,8 @@ module.exports = {
       {
         name: 'CHARTS',
         include: [
-          'src/components/BarChart/BarChart.js'
+          'src/components/BarChart/BarChart.js',
+          'src/components/LineChart/LineChart.js'
         ],
       },
       {
