@@ -98,6 +98,12 @@ module.exports = {
         ],
       },
       {
+        name: 'CHARTS',
+        include: [
+          'src/components/BarChart/BarChart.js'
+        ],
+      },
+      {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js'
@@ -162,13 +168,13 @@ module.exports = {
           'src/components/InputAdornment/InputAdornment.js',
         ],
       },
-      {
-        name: 'Templates',
-        include: [
-          'src/templates/sign-in/Signin.js',
-          // 'src/templates/Pricing/Pricing.jsx',
-        ]
-      },
+      // {
+      //   name: 'Templates',
+      //   include: [
+      //     'src/templates/sign-in/Signin.js',
+      //     // 'src/templates/Pricing/Pricing.jsx',
+      //   ]
+      // },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
     webpackConfig: 'webpack.config.js',
