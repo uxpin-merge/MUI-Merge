@@ -91,15 +91,15 @@
 | InputAdornment           | [ + ]    |
 | Toggle Button            | [ + ]    |
 | Toggle Button Group      | [ + ]    |
-| Tool Bar                 | [ ]    |
-| Tooltip                  | [ ]    |
-| Typography               | [ ✓ ]    |
+| Tool Bar                 | [ + ]    |
+| Tooltip                  | [ + ]    |
+| Typography               | [ + ]    |
 | DatePicker (Input)       | [ ** ] |
-| Stepper                  | [ ** ]    |
+| Stepper                  | [ COMING SOON ]    |
 | Speed Dial               | [ ** ] |
 | Select                   | [ + ]    |
-| Menu                     | [ ** ]    |
-| Drawer                   | [ ** ]    |
+| Menu                     | [ + ]    |
+| Drawer                   | [ + ]    |
 | Auto Complete            | [ ** ]|
 | Transfer List            | [ ** ]|
 | Radio with Label             | [ REMOVED - not MUI component ]    |

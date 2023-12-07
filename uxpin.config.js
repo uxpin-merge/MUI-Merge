@@ -19,7 +19,6 @@ module.exports = {
           'src/components/Button/Button.js',
           'src/components/ButtonBase/ButtonBase.js',
           'src/components/ButtonGroup/ButtonGroup.js',
-          'src/components/DatePicker/DatePicker.js',
           'src/components/Checkbox/Checkbox.jsx',
           'src/components/FloatingActionButton/FloatingActionButton.js',
           'src/components/IconButton/IconButton.js',
@@ -83,7 +82,6 @@ module.exports = {
           'src/components/Link/Link.js',
           'src/components/Menu/Menu.js',
           'src/components/Pagination/Pagination.js',
-          'src/components/Stepper/Stepper.js',
           'src/components/Tabs/Tabs.js',
         ],
       },
@@ -110,6 +108,13 @@ module.exports = {
           'src/components/ThemeCustomizer/ThemeCustomizer.js'
         ]
       },
+      // {
+      //   name: 'COMING SOON',
+      //   include: [
+      //     'src/components/Stepper/Stepper.js',
+      //     'src/components/DatePicker/DatePicker.js',
+      //   ]
+      // },
       {
         name: 'CHILDREN (PARTS)',
         include: [
