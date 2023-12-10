@@ -94,14 +94,16 @@
 | Tool Bar                 | [ + ]    |
 | Tooltip                  | [ + ]    |
 | Typography               | [ + ]    |
-| DatePicker (Input)       | [ ** ] |
+| DatePicker (Input)       | [ COMING SOON ] |
 | Stepper                  | [ COMING SOON ]    |
-| Speed Dial               | [ ** ] |
+| Speed Dial               | [ COMING SOON ] |
 | Select                   | [ + ]    |
 | Menu                     | [ + ]    |
 | Drawer                   | [ + ]    |
-| Auto Complete            | [ ** ]|
-| Transfer List            | [ ** ]|
+| Auto Complete            | [ COMING SOON ]|
+| Transfer List            | [ COMING SOON ]|
+
+
 | Radio with Label             | [ REMOVED - not MUI component ]    |
 | Switch with Label        | [ REMOVED - not MUI component ]    |
 | Switch Group        | [ REMOVED - not MUI component ]    |

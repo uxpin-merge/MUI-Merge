@@ -113,6 +113,9 @@ module.exports = {
       //   include: [
       //     'src/components/Stepper/Stepper.js',
       //     'src/components/DatePicker/DatePicker.js',
+      //     'src/components/SpeedDial/SpeedDial.js',
+      //     'src/components/TransferList/TransferList.js',
+      //     'src/components/AutoComplete/AutoComplete.js',
       //   ]
       // },
       {
