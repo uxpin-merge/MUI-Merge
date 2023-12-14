@@ -79,7 +79,7 @@ TextField.propTypes = {
 
   /**
    * The value of the `input` element, required for a controlled component.
-     * @uxpinbind onChange event.target.value
+     * @uxpinbind onChange 0
    */
   value: PropTypes.string,
   /**
