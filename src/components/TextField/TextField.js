@@ -12,7 +12,7 @@ function TextField(props) {
   const id = uuidv4();
   return (
     <TextFieldM
-      key={id}
+      // key={id}
       // id={id}
       {...props}
     />
@@ -79,7 +79,7 @@ TextField.propTypes = {
 
   /**
    * The value of the `input` element, required for a controlled component.
-     * @uxpinbind 0.value
+     * @uxpinbind onChange 0.target.value
    */
   value: PropTypes.string,
   /**
