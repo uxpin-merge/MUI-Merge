@@ -17,7 +17,7 @@ const Menu = (props) => {
         <>
             <MenuM {...props}
                 open={open}
-                onClose={() => setOpen(false)}
+                // onClose={() => setOpen(false)}
                 onBlur={() => setOpen(false)}
                 anchorEl={document.querySelector(props.anchorEl)}
             />
@@ -34,6 +34,7 @@ Menu.propTypes = {
     children: PropTypes.node,
     /**
    * If `true`, the component is shown.
+* @uxpinbind onClose 0.target.value
    */
     open: PropTypes.bool,
     /**
