@@ -33,7 +33,7 @@ export default function Drawer(props) {
 
     <DrawerM
       {...props}
-      onClose={() => setOpen(false)}
+      onBlur={() => setOpen(false)}
       open={open}
       disableEnforceFocus
       // disablePortal={true}
@@ -60,6 +60,7 @@ Drawer.propTypes = {
   variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary']),
   /**
    * If `true`, the component is shown.
+  * @uxpinbind onClose 0.target.value
    */
   open: PropTypes.bool,
 
