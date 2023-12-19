@@ -34,7 +34,6 @@ Menu.propTypes = {
     children: PropTypes.node,
     /**
    * If `true`, the component is shown.
-* @uxpinbind onClose 0.target.value
    */
     open: PropTypes.bool,
     /**
