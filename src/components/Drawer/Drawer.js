@@ -33,10 +33,9 @@ export default function Drawer(props) {
 
     <DrawerM
       {...props}
-      onClose={() => setOpen(false)}
+      onBlur={() => setOpen(false)}
       open={open}
       disableEnforceFocus
-      // disablePortal={true}
       style={{ width: '100%', height: '100%' }}
 
     >
@@ -60,6 +59,7 @@ Drawer.propTypes = {
   variant: PropTypes.oneOf(['permanent', 'persistent', 'temporary']),
   /**
    * If `true`, the component is shown.
+* @uxpinbind onClose 1.target.value
    */
   open: PropTypes.bool,
 
@@ -94,6 +94,8 @@ Drawer.propTypes = {
    * @param {string} reason Can be: `"escapeKeyDown"`, `"backdropClick"`.
    */
   onClose: PropTypes.func,
+
+  // onBackdropClick: PropTypes.func,
 
   /**
    * Props applied to the [`Paper`](/material-ui/api/paper/) element.
