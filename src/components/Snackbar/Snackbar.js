@@ -37,11 +37,15 @@ export default function Snackbar(props) {
       {...props}
       onClose={handleClose}
       open={isOpen}
-      // anchorOrigin={anchorOrigin}
-      // action={action}
-      ref={uxpinRef}
+    // anchorOrigin={anchorOrigin}
+    // action={action}
+    // ref={uxpinRef}
     // sx={styles}
-    />
+    >
+      <div>
+        {props.children}
+      </div>
+    </SnackbarM>
 
   );
 }
