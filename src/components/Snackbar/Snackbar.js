@@ -42,9 +42,9 @@ export default function Snackbar(props) {
     // ref={uxpinRef}
     // sx={styles}
     >
-      <div>
+      {props.children ? <div>
         {props.children}
-      </div>
+      </div> : props.children}
     </SnackbarM>
 
   );
