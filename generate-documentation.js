@@ -3,8 +3,8 @@ const path = require('path');
 const reactDocs = require('react-docgen');
 
 // The React components to load
-const componentFolder = './node_modules/@mui/material/Button/Button.js';
-// const componentFolder = './componentsSrc/';
+// const componentFolder = 'src/components/Button/Button.js';
+const componentFolder = './componentsSrc/';
 
 // Where the JSON file ends up
 const componentJsonPath = './props/components.json';

@@ -20,6 +20,7 @@ function Button(props) {
     </ButtonM>
   );
 }
+Button.propTypes = require('./components.json');
 
 Button.propTypes = {
   /**
