@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
-import { Portal } from '@mui/base';
-import { Paper, Alert, Button, AlertTitle } from '@mui/material';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 
 //Will add custom font links to the header
 const addFont = (link, index) => {
@@ -18,7 +15,7 @@ const addFont = (link, index) => {
 /**
  * @uxpinwrappers
  * SkipContainerWrapper, NonResizableWrapper
- * @uxpindescription Use this component to theme this instance of the MUI library
+ * @uxpindescription Use this component to theme this instance of the MUI library. Create a theme at: https://zenoo.github.io/mui-theme-creator/
  */
 function ThemeCustomizer(props) {
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
