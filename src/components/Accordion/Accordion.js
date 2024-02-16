@@ -53,7 +53,7 @@ Accordion.propTypes = {
 
   /**
    * If true, expands the accordion, otherwise collapse it. Setting this prop enables control over the accordion.
-   * @uxpinbind onChange 0
+   * @uxpinbind onChange 1
    */
   expanded: PropTypes.bool,
 
