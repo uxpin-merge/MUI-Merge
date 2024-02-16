@@ -15,7 +15,8 @@ const addFont = (link, index) => {
 /**
  * @uxpinwrappers
  * SkipContainerWrapper, NonResizableWrapper
- * @uxpindescription Use this component to theme this instance of the MUI library. Create a theme at: https://zenoo.github.io/mui-theme-creator/
+ * @uxpindocurl https://zenoo.github.io/mui-theme-creator/
+ * @uxpindescription Use this component to theme this instance of the MUI library. Create a theme at: https://zenoo.github.io/mui-theme-creator/ or click the button below.
  */
 function ThemeCustomizer(props) {
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
