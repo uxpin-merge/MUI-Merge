@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
+import { Portal } from '@mui/base';
+import { Paper, Alert, Button, AlertTitle } from '@mui/material';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
 
 //Will add custom font links to the header
 const addFont = (link, index) => {
@@ -75,46 +78,46 @@ function ThemeCustomizer(props) {
   }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
 
   return (
-    <div //A visual aid for the designer to see in UXPin
-      style={{
-        width: '160px',
-        color: 'white',
-        textAlign: 'center',
-        background: '#003087',
-        borderRadius: 10,
-        padding: '20px'
-      }}
-    >
-      <strong>ThemeCustomizer:</strong>
-      <br />
-      Please move this <br />marker offscreen
-    </div>
-    // <Portal container={document.querySelector('#workbench-wrapper')}>
-    //   <div style={{ position: 'relative' }}>
-    //     <Alert
-    //       severity="info"
-    //       iconMapping={{
-    //         info: <ColorLensIcon />,
-    //       }}
-    //       action={
-    //         <Button
-    //           variant="outlined"
-    //           color="inherit"
-    //           size="small"
-    //           href="https://jackbehar.github.io/mui-theme-creator/"
-    //           target="_blank"
-    //         >
-    //           MUI theme creator
-    //         </Button>
-    //       }
-    //     >
-    //       <p>
-    //         <strong>THEME CUSTOMIZER APPLIED:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
-    //         <b>Theme Object</b> property.
-    //       </p>
-    //     </Alert>
-    //   </div>
-    // </Portal>
+    // <div //A visual aid for the designer to see in UXPin
+    //   style={{
+    //     width: '160px',
+    //     color: 'white',
+    //     textAlign: 'center',
+    //     background: '#003087',
+    //     borderRadius: 10,
+    //     padding: '20px'
+    //   }}
+    // >
+    //   <strong>ThemeCustomizer:</strong>
+    //   <br />
+    //   Please move this <br />marker offscreen
+    // </div>
+    <Portal container={document.querySelector('#workbench-wrapper')}>
+      <div style={{ position: 'relative' }}>
+        <Alert
+          severity="info"
+          iconMapping={{
+            info: <ColorLensIcon />,
+          }}
+          action={
+            <Button
+              variant="outlined"
+              color="inherit"
+              size="small"
+              href="https://jackbehar.github.io/mui-theme-creator/"
+              target="_blank"
+            >
+              MUI theme creator
+            </Button>
+          }
+        >
+          <p>
+            <strong>THEME APPLIED!:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
+            <b>Theme Object</b> property.
+          </p>
+        </Alert>
+      </div>
+    </Portal>
   );
 }
 
