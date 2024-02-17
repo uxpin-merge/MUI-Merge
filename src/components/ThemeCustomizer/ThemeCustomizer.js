@@ -36,7 +36,19 @@ function ThemeCustomizer(props) {
       if (props.themeObject && props.themeObject !== '') {
         options.currentTheme = createTheme({
           ...JSON.parse(JSON.stringify(props.themeObject)),
-        });
+          palette: {
+            primary: {
+              main: props.primaryColor
+                ? props.primaryColor
+                : options.currentTheme.palette.primary.main,
+            },
+          },
+          shape: {
+
+            borderRadius: props.borderRadius
+          ? props.borderRadius
+          : options.currentTheme.shape.borderRadius,
+        }});
       }
 
       newTheme = options.currentTheme;
@@ -78,51 +90,58 @@ function ThemeCustomizer(props) {
   }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
 
   return (
-    // <div //A visual aid for the designer to see in UXPin
-    //   style={{
-    //     width: '160px',
-    //     color: 'white',
-    //     textAlign: 'center',
-    //     background: '#003087',
-    //     borderRadius: 10,
-    //     padding: '20px'
-    //   }}
-    // >
-    //   <strong>ThemeCustomizer:</strong>
-    //   <br />
-    //   Please move this <br />marker offscreen
-    // </div>
-    <Portal container={document.querySelector('#workbench-wrapper')}>
-      <div style={{ position: 'relative' }}>
-        <Alert
-          severity="info"
-          iconMapping={{
-            info: <ColorLensIcon />,
-          }}
-          action={
-            <Button
-              variant="outlined"
-              color="inherit"
-              size="small"
-              href="https://jackbehar.github.io/mui-theme-creator/"
-              target="_blank"
-            >
-              MUI theme creator
-            </Button>
-          }
-        >
-          <p>
-            <strong>THEME APPLIED!:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
-            <b>Theme Object</b> property.
-          </p>
-        </Alert>
-      </div>
-    </Portal>
+    <div //A visual aid for the designer to see in UXPin
+      style={{
+        width: '160px',
+        color: 'white',
+        textAlign: 'center',
+        background: '#003087',
+        borderRadius: 10,
+        padding: '20px'
+      }}
+    >
+      <strong>ThemeCustomizer:</strong>
+      <br />
+      Please move this <br />marker offscreen
+    </div>
+    // <Portal container={document.querySelector('#workbench-wrapper')}>
+    //   <div style={{ position: 'relative' }}>
+    //     <Alert
+    //       severity="info"
+    //       iconMapping={{
+    //         info: <ColorLensIcon />,
+    //       }}
+    //       action={
+    //         <Button
+    //           variant="outlined"
+    //           color="inherit"
+    //           size="small"
+    //           href="https://jackbehar.github.io/mui-theme-creator/"
+    //           target="_blank"
+    //         >
+    //           MUI theme creator
+    //         </Button>
+    //       }
+    //     >
+    //       <p>
+    //         <strong>THEME APPLIED!:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
+    //         <b>Theme Object</b> property.
+    //       </p>
+    //     </Alert>
+    //   </div>
+    // </Portal>
   );
 }
 
 ThemeCustomizer.propTypes = {
+
   themeObject: PropTypes.object,
+  /** Customize Badge dot color
+* @uxpincontroltype color
+*/
+primaryColor: PropTypes.string,
+borderRadius: PropTypes.number,
+
 };
 
 export default ThemeCustomizer;
