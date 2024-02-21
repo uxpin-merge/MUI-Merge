@@ -3,6 +3,7 @@ import ImageListItem from '../ImageListItem';
 import ImageListItemBar from '../../ImageListItemBar/ImageListItemBar';
 import Image from '../../Image/Image';
 import IconButton from '../../IconButton/IconButton';
+import Icon from '../../Icon/Icon';
 
 export default (
   <ImageListItem cols={1} uxpId="1.1">
@@ -20,7 +21,9 @@ export default (
       titlePosition="top"
       actionIcon={
         <IconButton uxpId="Icon-Button-1" color="inherit" ariaLabel="Trends icon button">
-          star_border
+          <Icon uxpId="Icon-1" fontSize="inherit">
+            star_border
+          </Icon>
         </IconButton>
       }
       postion="left"

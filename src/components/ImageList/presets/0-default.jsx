@@ -4,6 +4,7 @@ import ImageListItem from '../../ImageListItem/ImageListItem';
 import ImageListItemBar from '../../ImageListItemBar/ImageListItemBar';
 import Image from '../../Image/Image';
 import IconButton from '../../IconButton/IconButton';
+import Icon from '../../Icon/Icon';
 
 export default (
   <ImageList rowHeight={160} cols={3} uxpId="1">
@@ -21,7 +22,9 @@ export default (
         title="Trends"
         actionIcon={
           <IconButton uxpId="Icon-Button-1" color="inherit">
-            star_border
+            <Icon uxpId="Icon-1" fontSize="inherit">
+              star_border
+            </Icon>
           </IconButton>
         }
         postion="left"
@@ -43,7 +46,9 @@ export default (
         "
         actionIcon={
           <IconButton uxpId="Icon-Button-2" color="inherit">
-            star_border
+            <Icon uxpId="Icon-2" fontSize="inherit">
+              star_border
+            </Icon>
           </IconButton>
         }
         postion="left"
@@ -63,7 +68,9 @@ export default (
         title="Inspiration"
         actionIcon={
           <IconButton uxpId="Icon-Button-3" color="inherit">
-            star_border
+            <Icon uxpId="Icon-3" fontSize="inherit">
+              star_border
+            </Icon>
           </IconButton>
         }
         postion="left"
