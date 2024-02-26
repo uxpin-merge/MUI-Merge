@@ -4,8 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 // import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import defaultTheme from './boilerplate-theme';
-import { Box } from '@mui/material';
-
+// import GlobalStyles from '../GlobalStyles/GlobalStyles';
+// import { StyledEngineProvider } from '@mui/material/styles';
 
 export const ThemeContext = React.createContext({});
 const completeDefaultTheme = createTheme(defaultTheme);
@@ -55,13 +55,19 @@ export default function UXPinWrapper(props) {
   });
 
   return (
+
     <ThemeContext.Provider value={[theme, setThemeOptions]}>
       <ThemeProvider theme={themeOptions.theme} >
+        {/* <GlobalStyles/> */}
         {/* <CssBaseline
         // sx={{ background: "inherit", color: "text.primary" }}
         > */}
         <CssBaseline />
+        {/* <StyledEngineProvider injectFirst>
+                  <GlobalStyles/> */}
+
         {props.children}
+        {/* </StyledEngineProvider> */}
         {/* </CssBaseline> */}
       </ThemeProvider>
     </ThemeContext.Provider>
