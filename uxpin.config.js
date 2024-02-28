@@ -1,7 +1,6 @@
 module.exports = {
   components: {
     categories: [
-
       {
         name: 'LAYOUT',
         include: [
@@ -96,10 +95,13 @@ module.exports = {
         ],
       },
       {
-        name: 'CHARTS',
+        name: 'MUI-X CHARTS',
         include: [
           'src/components/BarChart/BarChart.js',
-          'src/components/LineChart/LineChart.js'
+          'src/components/LineChart/LineChart.js',
+          'src/components/PieChart/PieChart.js',
+          'src/components/ScatterChart/ScatterChart.js',
+          'src/components/SparkLineChart/SparkLineChart.js',
         ],
       },
       {
@@ -109,8 +111,7 @@ module.exports = {
           'src/components/GlobalStyles/GlobalStyles.js',
 
           // 'src/components/DataWrapper/DataWrapper.js',
-
-        ]
+        ],
       },
       // {
       //   name: 'COMING SOON',
