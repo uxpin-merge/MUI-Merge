@@ -15,6 +15,7 @@ module.exports = {
       {
         name: 'INPUTS',
         include: [
+          'src/components/AutoComplete/AutoComplete.js',
           'src/components/Button/Button.js',
           'src/components/ButtonBase/ButtonBase.js',
           'src/components/ButtonGroup/ButtonGroup.js',

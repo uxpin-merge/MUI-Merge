@@ -130,4 +130,4 @@ const top100Films = [
   { label: 'Monty Python and the Holy Grail', year: 1975 },
 ];
 
-export default <Autocomplete uxpId="combo-box" option={top100Films} width="300" label="Movie" />;
+export default <Autocomplete uxpId="combo-box" options={top100Films} width="300" label="Movie" />;
