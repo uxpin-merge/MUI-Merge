@@ -45,6 +45,7 @@ module.exports = {
           'src/components/DataGrid/DataGrid.js',
           'src/components/Divider/Divider.js',
           'src/components/Icon/Icon.js',
+          'src/components/SvgIcon/SvgIcon.js',
           'src/components/Image/Image.js',
           'src/components/List/List.js',
           'src/components/Table/Table.js',
