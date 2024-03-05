@@ -17,12 +17,13 @@ Avatar.propTypes = {
   children: PropTypes.node,
 
   /**
- * The id of the element. Usefull for anchorEl of menu and other elements that need origin position.
- * */
+   * The id of the element. Usefull for anchorEl of menu and other elements that need origin position.
+   * */
   id: PropTypes.string,
 
   /**
    * The image URL source.
+   * @uxpincontroltype image
    */
 
   src: PropTypes.string,

@@ -29,6 +29,7 @@ CardMedia.propTypes = {
    * Image to be displayed as a background image.
    * Either `image` or `src` prop must be specified. Specifying both may causes the media not to load.
    * Note that caller must specify height otherwise the image will not be visible.
+   * @uxpincontroltype image
    */
   image: PropTypes.string,
 
@@ -44,6 +45,5 @@ CardMedia.propTypes = {
    */
   sx: PropTypes.object,
 };
-
 
 export { CardMedia as default };
