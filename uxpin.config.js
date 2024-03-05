@@ -2,17 +2,6 @@ module.exports = {
   components: {
     categories: [
       {
-        name: 'LAYOUT',
-        include: [
-          'src/components/Box/Box.jsx',
-          'src/components/Container/Container.js',
-          'src/components/Grid/Grid.js',
-          'src/components/ImageList/ImageList.js',
-          'src/components/Stack/Stack.js',
-          'src/components/Hidden/Hidden.js',
-        ],
-      },
-      {
         name: 'INPUTS',
         include: [
           'src/components/AutoComplete/AutoComplete.js',
@@ -87,6 +76,17 @@ module.exports = {
         ],
       },
       {
+        name: 'LAYOUT',
+        include: [
+          'src/components/Box/Box.jsx',
+          'src/components/Container/Container.js',
+          'src/components/Grid/Grid.js',
+          'src/components/Stack/Stack.js',
+          'src/components/ImageList/ImageList.js',
+          'src/components/Hidden/Hidden.js',
+        ],
+      },
+      {
         name: 'TRANSITIONS',
         include: [
           'src/components/Collapse/Collapse.js',
@@ -126,7 +126,7 @@ module.exports = {
       //   ]
       // },
       {
-        name: 'CHILDREN (PARTS)',
+        name: 'CHILDREN COMPONENTS',
         include: [
           'src/components/AlertTitle/AlertTitle.js',
 
