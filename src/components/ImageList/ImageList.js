@@ -13,13 +13,11 @@ ImageList.propTypes = {
   /**
    * The content of the component, normally ImageListItems.
    */
-  /** @uxpinignoreprops */
   children: PropTypes.node,
 
   /**
    * Override or extend the styles applied to the component. See CSS API https://mui.com/api/image-list/#css for more details.
    */
-  /** @uxpinignoreprop */
   classes: PropTypes.object,
 
   /**
@@ -50,7 +48,7 @@ ImageList.propTypes = {
   sx: PropTypes.object,
 
   /** The variant to use. */
-  variant: PropTypes.oneOf(['masonary', 'quilted', 'standard', 'woven']),
+  variant: PropTypes.oneOf(['masonry', 'quilted', 'standard', 'woven']),
 };
 
 export default ImageList;
