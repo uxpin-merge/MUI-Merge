@@ -6,15 +6,29 @@ import { Portal } from '@mui/base';
 import { Paper, Alert, Button, AlertTitle } from '@mui/material';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 
+
+const addedFonts = {};
+
 //Will add custom font links to the header
 const addFont = (link, index) => {
   let newFontLink = document.createElement('link');
   newFontLink.href = link;
   newFontLink.rel = 'stylesheet';
-  newFontLink.id = 'muiCCustomFont' + index;
   document.head.appendChild(newFontLink);
-  //console.log("added: ", newFontLink);
 };
+
+//validate theme
+const validateTheme = (themeObject) => {
+  const THEME_MODES = ['light', 'dark'];
+  const mode = themeObject && themeObject.palette && themeObject.palette.mode;
+  if (mode && !THEME_MODES.includes(mode)) {
+    console.warn(`Invalid palette.mode property ${mode} - valid values: light, dark`);
+    return false;
+  }
+
+  return true;
+}
+
 /**
  * @uxpinwrappers
  * SkipContainerWrapper, NonResizableWrapper
@@ -34,9 +48,11 @@ function ThemeCustomizer(props) {
 
       //if there is a theme object given, it will be the basis for any customizations
       if (props.themeObject && props.themeObject !== '') {
-        options.currentTheme = createTheme({
-          ...JSON.parse(JSON.stringify(props.themeObject)),
-        });
+        if (validateTheme(props.themeObject)) {
+          options.currentTheme = createTheme({
+            ...JSON.parse(JSON.stringify(props.themeObject)),
+          });
+        }
       }
 
       newTheme = options.currentTheme;
@@ -58,12 +74,11 @@ function ThemeCustomizer(props) {
       const fonts = [];
 
       traverse(obj, function (k, v) {
-        console.log(k + ' : ' + v);
         if (k == 'fontFamily') {
           //ADD SOURCING FOR EACH FONT FOUND IN THEME
-          let index = 0;
-          if (document.querySelectorAll("link[href='" + v + "']").length === 0) {
-            addFont('https://fonts.googleapis.com/css?family=' + v, index++);
+          if (!addedFonts[v]) {
+            addFont('https://fonts.googleapis.com/css?family=' + v);
+            addedFonts[v] = true;
           }
           fonts.push(v);
         }
