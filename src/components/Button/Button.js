@@ -8,14 +8,7 @@ import ButtonM from '@mui/material/Button';
  */
 
 function Button(props) {
-
-  return (
-    <ButtonM
-      {...props}
-    >
-      {props.children}
-    </ButtonM>
-  );
+  return <ButtonM {...props}>{props.children}</ButtonM>;
 }
 
 Button.propTypes = {
@@ -57,6 +50,10 @@ Button.propTypes = {
    * The type of button.
    */
   variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+  /**
+   * The type of button.
+   */
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
 
   /**
    * The HREF of the button.
@@ -89,8 +86,6 @@ Button.propTypes = {
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
   sx: PropTypes.object,
-
-
 };
 
 export default Button;
