@@ -106,23 +106,9 @@ module.exports = {
       },
       {
         name: 'UTILITIES',
-        include: [
-          'src/components/ThemeCustomizer/ThemeCustomizer.js',
-          'src/components/GlobalStyles/GlobalStyles.js',
-
-          // 'src/components/DataWrapper/DataWrapper.js',
-        ],
+        include: ['src/components/ThemeCustomizer/ThemeCustomizer.js', 'src/components/GlobalStyles/GlobalStyles.js'],
       },
-      // {
-      //   name: 'COMING SOON',
-      //   include: [
-      //     'src/components/Stepper/Stepper.js',
-      //     'src/components/DatePicker/DatePicker.js',
-      //     'src/components/SpeedDial/SpeedDial.js',
-      //     'src/components/TransferList/TransferList.js',
-      //     'src/components/AutoComplete/AutoComplete.js',
-      //   ]
-      // },
+
       {
         name: 'CHILDREN (PARTS)',
         include: [
@@ -182,13 +168,6 @@ module.exports = {
           'src/components/InputAdornment/InputAdornment.js',
         ],
       },
-      // {
-      //   name: 'Templates',
-      //   include: [
-      //     'src/templates/sign-in/Signin.js',
-      //     // 'src/templates/Pricing/Pricing.jsx',
-      //   ]
-      // },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
     webpackConfig: 'webpack.config.js',
