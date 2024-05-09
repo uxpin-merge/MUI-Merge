@@ -33,9 +33,9 @@ Slider.propTypes = {
 
   /**
    * The value of the slider. For ranged sliders, provide an array with two values.
-   * @uxpinbind onChange event.target.value
+   * @uxpinbind onChange 0.target.value
    */
-  value: PropTypes.number | PropTypes.array,
+  value: PropTypes.number,
 
   /**
    * The default value. Use when the component is not controlled.
