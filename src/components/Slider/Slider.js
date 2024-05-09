@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SliderM from '@mui/material/Slider';
 import { v4 as uuidv4 } from 'uuid';
-
+/**
+ * @uxpindocurl https://mui.com/material-ui/react-slider/
+ * @uxpindescription Sliders allow users to make selections from a range of values.
+ */
 export default function Slider(props) {
   // Unique Id
   const id = uuidv4();
@@ -27,6 +30,12 @@ Slider.propTypes = {
    * The maximum allowed value of the slider. Should not be equal to min.
    */
   max: PropTypes.number,
+
+  /**
+   * The value of the slider. For ranged sliders, provide an array with two values.
+   * @uxpinbind onChange 0.target.value
+   */
+  value: PropTypes.number | PropTypes.array,
 
   /**
    * The default value. Use when the component is not controlled.
