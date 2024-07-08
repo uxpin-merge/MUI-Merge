@@ -9,6 +9,9 @@ module.exports = {
           'src/components/ButtonBase/ButtonBase.js',
           'src/components/ButtonGroup/ButtonGroup.js',
           'src/components/Checkbox/Checkbox.jsx',
+          'src/components/FormControl/FormControl.js',
+          'src/components/FormControlLabel/FormControlLabel.js',
+          'src/components/FormGroup/FormGroup.js',
           'src/components/FloatingActionButton/FloatingActionButton.js',
           'src/components/IconButton/IconButton.js',
           'src/components/LoadingButton/LoadingButton.js',
@@ -164,9 +167,6 @@ module.exports = {
           'src/components/DialogTitle/DialogTitle.js',
           'src/components/DialogContent/DialogContent.js',
 
-          'src/components/FormControl/FormControl.js',
-          'src/components/FormControlLabel/FormControlLabel.js',
-          'src/components/FormGroup/FormGroup.js',
           'src/components/FormHelperText/FormHelperText.js',
           'src/components/FormLabel/FormLabel.js',
 
