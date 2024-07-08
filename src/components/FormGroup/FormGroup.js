@@ -4,7 +4,6 @@ import FormGroupM from '@mui/material/FormGroup';
 
 /**
  * @uxpindocurl https://mui.com/api/form-group/#main-content
- * @uxpindescription API reference docs for the React FormGroup component. Learn about the props, CSS, and other APIs of this exported module.
  */
 function FormGroup(props) {
   return <FormGroupM {...props}>{props.children}</FormGroupM>;
@@ -13,12 +12,13 @@ function FormGroup(props) {
 FormGroup.propTypes = {
   /**
    * The content of this component.
+   * @uxpinignoreprop
    */
 
   children: PropTypes.node,
 
   /**
-   * Override or extend the styles applied to the component.
+   * Override or extend the styles applied to the component. See component CSS API https://mui.com/api/form-group/#css for more details.
    */
   classes: PropTypes.object,
 
