@@ -18,7 +18,7 @@ FormGroup.propTypes = {
   children: PropTypes.node,
 
   /**
-   * Override or extend the styles applied to the component. See CSS API https://mui.com/api/form-group/#css for more details.
+   * Override or extend the styles applied to the component.
    */
   classes: PropTypes.object,
 
