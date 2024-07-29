@@ -1,3 +1,5 @@
+const { Settings } = require('@mui/icons-material');
+
 module.exports = {
   components: {
     categories: [
@@ -213,4 +215,5 @@ module.exports = {
     webpackConfig: 'webpack.config.js',
   },
   name: 'MUI-UXPin-Merge',
+  settings: { useUXPinProps: true },
 };
