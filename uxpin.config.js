@@ -4,7 +4,7 @@ module.exports = {
       {
         name: 'INPUTS',
         include: [
-          'src/components/Autocomplete/Autocomplete.tsx',
+          'src/components/Grid/Grid.tsx',
           'src/components/Button/Button.tsx',
           'src/components/ButtonGroup/ButtonGroup.tsx',
           // 'src/components/DatePicker/DatePicker.js',
