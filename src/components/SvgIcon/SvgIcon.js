@@ -8,14 +8,11 @@ import parse from 'html-react-parser';
  * @uxpindescription This component extends the native <svg> element for custom icons.
  */
 function SvgIcon(props) {
-  return <SvgIconM {...props}>{parse(props.children)}</SvgIconM>;
+  return <SvgIconM {...props}>{typeof props.children === 'string' ? parse(props.children) : props.children }</SvgIconM>;
 }
 
 SvgIcon.propTypes = {
-  /** The <svg/> element.
-   * @uxpincontroltype textfield(4)
-   */
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** The color of the component. Supports both default and custom theme colors. */
   color: PropTypes.oneOf([
