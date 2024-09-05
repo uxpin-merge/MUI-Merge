@@ -9,13 +9,25 @@ import AutocompleteM from '@mui/material/Autocomplete';
 function Autocomplete(props) {
   const { ...other } = props;
 
+  const getOptionLabel = props.getOptionLabel ? eval(props.getOptionLabel) : undefined;
+  const groupBy = props.groupBy ? eval(props.groupBy) : undefined;
+
+  const renderInputFn = (params) => {
+    return props.renderInput
+      ? React.cloneElement(props.renderInput, params)
+      : <TextField {...params} label={props.label} />;
+  }
+
+
   return (
     <AutocompleteM
       {...other}
+      getOptionLabel={getOptionLabel}
+      groupBy={groupBy}
       disablePortal
       id="combo-box-demo"
       sx={{ width: PropTypes.width }}
-      renderInput={(params) => <TextField {...params} label={props.label} />}
+      renderInput={renderInputFn}
     />
   );
 }
@@ -30,7 +42,7 @@ Autocomplete.propTypes = {
 
   /** Render the input. */
   /**  */
-  renderInput: PropTypes.func,
+  renderInput: PropTypes.node,
 
   /**
    * If 'true', the portion of the selected suggestion that has not been typed by the user,
@@ -172,15 +184,13 @@ Autocomplete.propTypes = {
   /** Used to determine the string value for a given option.
    * It's used to fill the input (and the list box options if renderOption is not provided).
    * Signature: function(option: T) => string*/
-  /** @uxpinignoreprop */
-  getOptionLabel: PropTypes.func,
+  getOptionLabel: PropTypes.string,
 
   /** If provided, the options will be grouped under the returned string.
    * The groupBy value is also used as the text for group headings when renderGroup is not provided.
    * Signature: function(options: T) => string
    * options: The options to group.*/
-  /** @uxpinignoreprop */
-  groupBy: PropTypes.func,
+  groupBy: PropTypes.string,
 
   /** If 'true', the component handles the "Home" and "End" keys when the popup is open.
    * It should move focus to the first option and last option, respectively.*/
