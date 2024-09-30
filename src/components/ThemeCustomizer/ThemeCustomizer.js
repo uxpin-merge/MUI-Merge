@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
-import { Portal } from '@mui/base';
-import { Paper, Alert, Button, AlertTitle } from '@mui/material';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
-
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Icon from '@mui/material/Icon';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 const addedFonts = {};
 
@@ -17,7 +21,7 @@ const addFont = (link, index) => {
   document.head.appendChild(newFontLink);
 };
 
-//validate theme
+// Validate theme
 const validateTheme = (themeObject) => {
   const THEME_MODES = ['light', 'dark'];
   const mode = themeObject && themeObject.palette && themeObject.palette.mode;
@@ -26,14 +30,27 @@ const validateTheme = (themeObject) => {
     return false;
   }
 
+  // Validate primary.main and secondary.main if they exist
+  const primaryMain = themeObject.palette.primary.main;
+  const secondaryMain = themeObject.palette.secondary.main;
+
+  if (primaryMain && typeof primaryMain !== 'string') {
+    console.warn('Invalid palette.primary.main value');
+    return false;
+  }
+  if (secondaryMain && typeof secondaryMain !== 'string') {
+    console.warn('Invalid palette.secondary.main value');
+    return false;
+  }
+
   return true;
-}
+};
 
 /**
  * @uxpinwrappers
  * SkipContainerWrapper, NonResizableWrapper
- * @uxpindocurl https://zenoo.github.io/mui-theme-creator/
- * @uxpindescription Use this component to theme this instance of the MUI library. Create a theme at: https://zenoo.github.io/mui-theme-creator/ or click the button below.
+ * @uxpindocurl https://v5.mui.com/material-ui/customization/theming/
+ * @uxpindescription Use this component to theme this instance of the MUI library.
  */
 function ThemeCustomizer(props) {
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
@@ -46,22 +63,36 @@ function ThemeCustomizer(props) {
 
       let newTheme;
 
-      //if there is a theme object given, it will be the basis for any customizations
-      if (props.themeObject && props.themeObject !== '') {
-        if (validateTheme(props.themeObject)) {
-          options.currentTheme = createTheme({
-            ...JSON.parse(JSON.stringify(props.themeObject)),
-          });
-        }
+      // Create a deep copy of the theme object
+      let themeObjCopy = props.themeObject ? JSON.parse(JSON.stringify(props.themeObject)) : {};
+
+      // Merge in themeMode, primaryMain, and secondaryMain if provided
+      if (props.themeMode) {
+        themeObjCopy.palette = themeObjCopy.palette || {};
+        themeObjCopy.palette.mode = props.themeMode;
+      }
+      if (props.primaryMain) {
+        themeObjCopy.palette = themeObjCopy.palette || {};
+        themeObjCopy.palette.primary = themeObjCopy.palette.primary || {};
+        themeObjCopy.palette.primary.main = props.primaryMain;
+      }
+      if (props.secondaryMain) {
+        themeObjCopy.palette = themeObjCopy.palette || {};
+        themeObjCopy.palette.secondary = themeObjCopy.palette.secondary || {};
+        themeObjCopy.palette.secondary.main = props.secondaryMain;
+      }
+
+      // Validate and create the theme if valid
+      if (validateTheme(themeObjCopy)) {
+        options.currentTheme = createTheme({
+          ...themeObjCopy,
+        });
       }
 
       newTheme = options.currentTheme;
 
-      console.log('parsed ', props.themeObject);
-
       //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
-
-      var traverse = function (o, fn) {
+      const traverse = function (o, fn) {
         for (var i in o) {
           fn.apply(this, [i, o[i]]);
           if (o[i] !== null && typeof o[i] == 'object') {
@@ -70,11 +101,9 @@ function ThemeCustomizer(props) {
         }
       };
 
-      var obj = props.themeObject;
       const fonts = [];
-
-      traverse(obj, function (k, v) {
-        if (k == 'fontFamily') {
+      traverse(props.themeObject, function (k, v) {
+        if (k === 'fontFamily') {
           //ADD SOURCING FOR EACH FONT FOUND IN THEME
           if (!addedFonts[v]) {
             addFont('https://fonts.googleapis.com/css?family=' + v);
@@ -84,60 +113,65 @@ function ThemeCustomizer(props) {
         }
       });
 
-      // console.log("fonts", fonts)
-
       return {
         theme: newTheme,
       };
     });
-  }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
+  }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); // Only re-run if any of these change
+
+  const theme = useTheme(); // Access the theme
 
   return (
-    <div //A visual aid for the designer to see in UXPin
-      style={{
-        width: '160px',
-        color: 'white',
-        textAlign: 'center',
-        background: '#003087',
-        borderRadius: 10,
-        padding: '20px'
-      }}
-    >
-      <strong>ThemeCustomizer:</strong>
-      <br />
-      Please move this <br />marker offscreen
-    </div>
-    // <Portal container={document.querySelector('#workbench-wrapper')}>
-    //   <div style={{ position: 'relative' }}>
-    //     <Alert
-    //       severity="info"
-    //       iconMapping={{
-    //         info: <ColorLensIcon />,
-    //       }}
-    //       action={
-    //         <Button
-    //           variant="outlined"
-    //           color="inherit"
-    //           size="small"
-    //           href="https://jackbehar.github.io/mui-theme-creator/"
-    //           target="_blank"
-    //         >
-    //           MUI theme creator
-    //         </Button>
-    //       }
-    //     >
-    //       <p>
-    //         <strong>THEME APPLIED!:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
-    //         <b>Theme Object</b> property.
-    //       </p>
-    //     </Alert>
-    //   </div>
-    // </Portal>
+    <Card elevation={4}>
+      <CardContent component="div">
+        <Typography sx={{ fontFamily: 'Arial', fontWeight: 'bold' }} borderBottom={1} borderColor="grey.300">
+          ThemeCustomizer
+        </Typography>
+        <Stack direction="column" spacing="8px" paddingTop="10px">
+          <Stack direction="row" alignItems="center">
+            <Icon
+              color="action"
+              baseClassName="material-icons-outlined"
+              fontSize="small"
+              style={{ marginRight: '16px' }}
+            >
+              {theme.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
+            </Icon>
+            <Box sx={{ width: 16, height: 16, bgcolor: 'primary.main', marginRight: 0.5 }} borderRadius={20} />
+            <Box sx={{ width: 16, height: 16, bgcolor: 'primary.dark', marginRight: 0.5 }} borderRadius={20} />
+            <Box sx={{ width: 16, height: 16, bgcolor: 'primary.light', marginRight: 0.5 }} borderRadius={20} />
+
+            <Box sx={{ width: '20px' }} />
+            <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.main', marginRight: 0.5 }} borderRadius={20} />
+            <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.dark', marginRight: 0.5 }} borderRadius={20} />
+            <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.light', marginRight: 0.5 }} borderRadius={20} />
+          </Stack>
+          <Stack spacing="16px" direction="row" alignItems="center">
+            <Icon color="action" baseClassName="material-icons-outlined" fontSize="small">
+              font_download
+            </Icon>
+            <Typography variant="body1" noWrap={true}>
+              {theme.typography.fontFamily}
+            </Typography>
+          </Stack>
+        </Stack>
+      </CardContent>
+      <CardActionArea />
+    </Card>
   );
 }
 
 ThemeCustomizer.propTypes = {
   themeObject: PropTypes.object,
+  primaryMain: PropTypes.string,
+  secondaryMain: PropTypes.string,
+  themeMode: PropTypes.oneOf(['light', 'dark']), // Add the new themeMode prop
+};
+
+ThemeCustomizer.defaultProps = {
+  primaryMain: '',
+  secondaryMain: '',
+  themeMode: 'light', // Default to 'light' mode if not specified
 };
 
 export default ThemeCustomizer;
