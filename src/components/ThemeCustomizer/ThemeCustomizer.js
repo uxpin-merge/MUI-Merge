@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
@@ -23,7 +23,7 @@ const addFont = (link) => {
 // Validate theme function to check if the constructed theme object is valid
 const validateTheme = (themeObject) => {
   const THEME_MODES = ['light', 'dark'];
-  const mode = themeObject && themeObject.palette && themeObject.palette.mode;
+  const mode = themeObject.palette.mode;
 
   if (mode && !THEME_MODES.includes(mode)) {
     console.warn(`Invalid palette.mode property ${mode} - valid values: light, dark`);
@@ -53,30 +53,44 @@ const validateTheme = (themeObject) => {
  * @uxpindescription Use this component to theme this instance of the MUI library.
  */
 function ThemeCustomizer(props) {
-  const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
+  const [themeOptions, setThemeOptions] = useContext(ThemeContext);
+  const [internalThemeObject, setInternalThemeObject] = React.useState(props.themeObject || {});
 
-  React.useEffect(() => {
-    // Merge properties into the themeObject if they exist
-    let updatedThemeObject = { ...props.themeObject };
+  // Effect to handle changes to palettePrimaryMain and paletteSecondaryMain
+  useEffect(() => {
+    // Merge primary and secondary color props into themeObject
+    let updatedThemeObject = { ...internalThemeObject };
 
     if (props.palettePrimaryMain) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
-      updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
+      updatedThemeObject = {
+        ...updatedThemeObject,
+        palette: {
+          ...updatedThemeObject.palette,
+          primary: {
+            ...updatedThemeObject.palette.primary,
+            main: props.palettePrimaryMain,
+          },
+        },
+      };
     }
 
     if (props.paletteSecondaryMain) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
-      updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
+      updatedThemeObject = {
+        ...updatedThemeObject,
+        palette: {
+          ...updatedThemeObject.palette,
+          secondary: {
+            ...updatedThemeObject.palette.secondary,
+            main: props.paletteSecondaryMain,
+          },
+        },
+      };
     }
 
-    // Validate the updated theme object
+    // Validate and update theme
     if (validateTheme(updatedThemeObject)) {
-      // Create a new theme using MUI's createTheme function
       const newTheme = createTheme(updatedThemeObject);
-
-      // Update the ThemeContext with the new theme
+      setInternalThemeObject(updatedThemeObject); // Update internal theme state
       setThemeOptions((oldTheme) => ({
         ...oldTheme,
         theme: newTheme,
@@ -91,7 +105,7 @@ function ThemeCustomizer(props) {
       <Card elevation={4}>
         <CardContent component="div">
           <Stack direction="row" spacing="16px" justifyContent="space-between" borderBottom={1} borderColor="grey.300">
-            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>{' '}
+            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>
             <Icon color="action">drag_handle</Icon>
           </Stack>
 
