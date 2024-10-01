@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -55,71 +54,89 @@ const validateTheme = (themeObject) => {
  */
 function ThemeCustomizer(props) {
   const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
-  const [internalThemeObject, setInternalThemeObject] = React.useState({});
 
   React.useEffect(() => {
-    // Build the theme object dynamically from properties
-    const newThemeObject = {
-      ...props.themeObject,
-      palette: {
-        ...props.themeObject.palette,
-        mode: props.themeMode || props.themeObject.palette.mode || 'light',
-        primary: {
-          ...props.themeObject.palette.primary,
-          main: props.palettePrimaryMain || props.themeObject.palette.primary.main || '#1976d2',
-        },
-        secondary: {
-          ...props.themeObject.palette.secondary,
-          main: props.paletteSecondaryMain || props.themeObject.palette.secondary.main || '#9c27b0',
-        },
-      },
-    };
+    // Merge properties into the themeObject if they exist
+    let updatedThemeObject = { ...props.themeObject };
 
-    // Update the internal state with the new theme object
-    setInternalThemeObject(newThemeObject);
+    if (props.palettePrimaryMain) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
+      updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
+    }
 
-    // Validate and update the theme context if the theme object is valid
-    if (validateTheme(newThemeObject)) {
+    if (props.paletteSecondaryMain) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
+      updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
+    }
+
+    // Validate the updated theme object
+    if (validateTheme(updatedThemeObject)) {
+      // Create a new theme using MUI's createTheme function
+      const newTheme = createTheme(updatedThemeObject);
+
+      // Update the ThemeContext with the new theme
       setThemeOptions((oldTheme) => ({
         ...oldTheme,
-        theme: createTheme(newThemeObject),
+        theme: newTheme,
       }));
     }
-  }, [props.palettePrimaryMain, props.paletteSecondaryMain, props.themeMode, props.themeObject, setThemeOptions]);
+  }, [props.palettePrimaryMain, props.paletteSecondaryMain, props.themeObject, setThemeOptions]);
 
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme(); // Access the current theme for rendering
 
   return (
     <ThemeProvider theme={theme}>
       <Card elevation={4}>
         <CardContent component="div">
-          <Typography sx={{ fontFamily: 'Arial', fontWeight: 'bold' }} borderBottom={1} borderColor="grey.300">
-            ThemeCustomizer
-          </Typography>
-          <Stack direction="column" spacing="8px" paddingTop="10px">
+          <Stack direction="row" spacing="16px" justifyContent="space-between" borderBottom={1} borderColor="grey.300">
+            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>{' '}
+            <Icon color="action">drag_handle</Icon>
+          </Stack>
+
+          <Stack direction="column" spacing="10px" paddingTop="15px">
             <Stack direction="row" alignItems="center">
               <Icon
                 color="action"
                 baseClassName="material-icons-outlined"
                 fontSize="small"
-                style={{ marginRight: '16px' }}
+                sx={{ marginRight: '16px' }}
               >
                 {theme.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
               </Icon>
-              <Box sx={{ width: 16, height: 16, bgcolor: 'primary.main', marginRight: 0.5 }} borderRadius={20} />
-              <Box sx={{ width: 16, height: 16, bgcolor: 'primary.dark', marginRight: 0.5 }} borderRadius={20} />
-              <Box sx={{ width: 16, height: 16, bgcolor: 'primary.light', marginRight: 0.5 }} borderRadius={20} />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.main, marginRight: 0.5 }}
+                borderRadius={20}
+              />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.dark, marginRight: 0.5 }}
+                borderRadius={20}
+              />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.light, marginRight: 0.5 }}
+                borderRadius={20}
+              />
 
               <Box sx={{ width: '20px' }} />
-              <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.main', marginRight: 0.5 }} borderRadius={20} />
-              <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.dark', marginRight: 0.5 }} borderRadius={20} />
-              <Box sx={{ width: 16, height: 16, bgcolor: 'secondary.light', marginRight: 0.5 }} borderRadius={20} />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.main, marginRight: 0.5 }}
+                borderRadius={20}
+              />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.dark, marginRight: 0.5 }}
+                borderRadius={20}
+              />
+              <Box
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.light, marginRight: 0.5 }}
+                borderRadius={20}
+              />
             </Stack>
             <Stack spacing="16px" direction="row" alignItems="center">
               <Icon color="action" baseClassName="material-icons-outlined" fontSize="small">
-                font_download
+                format_size
               </Icon>
-              <Typography variant="body1" noWrap={true}>
+              <Typography variant="body2" noWrap={true}>
                 {theme.typography.fontFamily}
               </Typography>
             </Stack>
@@ -132,23 +149,18 @@ function ThemeCustomizer(props) {
 }
 
 ThemeCustomizer.propTypes = {
-  /** The color of palette.primary.main
-   * @uxpincontroltype color
-   */
+  /** The MUI theme object for customization */
+  themeObject: PropTypes.object,
+  /** The primary color for the theme's palette */
   palettePrimaryMain: PropTypes.string,
-  /** Specifies the color of the text.
-   * @uxpincontroltype color
-   */
+  /** The secondary color for the theme's palette */
   paletteSecondaryMain: PropTypes.string,
-  themeMode: PropTypes.oneOf(['light', 'dark']), // Add the new themeMode prop
-  themeObject: PropTypes.object, // The base theme object to extend
 };
 
 ThemeCustomizer.defaultProps = {
-  palettePrimaryMain: '#1976d2',
-  paletteSecondaryMain: '#9c27b0',
-  themeMode: 'light',
   themeObject: {},
+  palettePrimaryMain: '',
+  paletteSecondaryMain: '',
 };
 
 export default ThemeCustomizer;
