@@ -1,6 +1,4 @@
 const boilerplateTheme = {
-  // To further customize this theme,
-  // please see the full theme object here: https://mui.com/customization/default-theme/
   palette: {
     mode: 'light',
     primary: {
@@ -20,24 +18,21 @@ const boilerplateTheme = {
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },
   shape: {
-    borderRadius: 4
+    borderRadius: 4,
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
           fontSize: 14,
-          color: "inherit"
-        }
+          color: 'inherit',
+        },
       },
     },
 
-    // Name of the component
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: {
-          // Some CSS
           fontSize: '',
         },
       },
