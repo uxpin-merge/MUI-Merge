@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -12,22 +12,24 @@ import Typography from '@mui/material/Typography';
 
 const addedFonts = {};
 
-//Will add custom font links to the header
-const addFont = (link, index) => {
-  let newFontLink = document.createElement('link');
+// Will add custom font links to the header
+const addFont = (link) => {
+  const newFontLink = document.createElement('link');
   newFontLink.href = link;
   newFontLink.rel = 'stylesheet';
   document.head.appendChild(newFontLink);
 };
 
-//validate theme
+// Validate theme function to check if the constructed theme object is valid
 const validateTheme = (themeObject) => {
   const THEME_MODES = ['light', 'dark'];
-  const mode = themeObject && themeObject.palette && themeObject.palette.mode;
+  const mode = themeObject.palette.mode;
+
   if (mode && !THEME_MODES.includes(mode)) {
     console.warn(`Invalid palette.mode property ${mode} - valid values: light, dark`);
     return false;
   }
+
   // Validate primary.main and secondary.main if they exist
   const palettePrimaryMain = themeObject.palette.primary.main;
   const paletteSecondaryMain = themeObject.palette.secondary.main;
@@ -51,68 +53,59 @@ const validateTheme = (themeObject) => {
  * @uxpindescription Use this component to theme this instance of the MUI library.
  */
 function ThemeCustomizer(props) {
-  const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
+  const [themeOptions, setThemeOptions] = useContext(ThemeContext);
+  const [internalThemeObject, setInternalThemeObject] = React.useState(props.themeObject || {});
 
-  React.useEffect(() => {
-    setThemeOptions((oldTheme) => {
-      let options = { ...props };
+  // Effect to handle changes to palettePrimaryMain and paletteSecondaryMain
+  useEffect(() => {
+    // Merge primary and secondary color props into themeObject
+    let updatedThemeObject = { ...internalThemeObject };
 
-      options.currentTheme = oldTheme.theme;
-
-      let newTheme;
-
-      //if there is a theme object given, it will be the basis for any customizations
-      if (props.themeObject && props.themeObject !== '') {
-        if (validateTheme(props.themeObject)) {
-          options.currentTheme = createTheme({
-            ...JSON.parse(JSON.stringify(props.themeObject)),
-          });
-        }
-      }
-
-      newTheme = options.currentTheme;
-
-      console.log('parsed ', props.themeObject);
-
-      //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
-
-      var traverse = function (o, fn) {
-        for (var i in o) {
-          fn.apply(this, [i, o[i]]);
-          if (o[i] !== null && typeof o[i] == 'object') {
-            traverse(o[i], fn);
-          }
-        }
+    if (props.palettePrimaryMain) {
+      updatedThemeObject = {
+        ...updatedThemeObject,
+        palette: {
+          ...updatedThemeObject.palette,
+          primary: {
+            ...updatedThemeObject.palette.primary,
+            main: props.palettePrimaryMain,
+          },
+        },
       };
+    }
 
-      var obj = props.themeObject;
-      const fonts = [];
+    if (props.paletteSecondaryMain) {
+      updatedThemeObject = {
+        ...updatedThemeObject,
+        palette: {
+          ...updatedThemeObject.palette,
+          secondary: {
+            ...updatedThemeObject.palette.secondary,
+            main: props.paletteSecondaryMain,
+          },
+        },
+      };
+    }
 
-      traverse(obj, function (k, v) {
-        if (k == 'fontFamily') {
-          //ADD SOURCING FOR EACH FONT FOUND IN THEME
-          if (!addedFonts[v]) {
-            addFont('https://fonts.googleapis.com/css?family=' + v);
-            addedFonts[v] = true;
-          }
-          fonts.push(v);
-        }
-      });
-
-      // console.log("fonts", fonts)
-
-      return {
+    // Validate and update theme
+    if (validateTheme(updatedThemeObject)) {
+      const newTheme = createTheme(updatedThemeObject);
+      setInternalThemeObject(updatedThemeObject); // Update internal theme state
+      setThemeOptions((oldTheme) => ({
+        ...oldTheme,
         theme: newTheme,
-      };
-    });
-  }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
+      }));
+    }
+  }, [props.palettePrimaryMain, props.paletteSecondaryMain, props.themeObject, setThemeOptions]);
+
+  const theme = useTheme(); // Access the current theme for rendering
 
   return (
-    <ThemeProvider theme={createTheme(props.themeObject)}>
+    <ThemeProvider theme={theme}>
       <Card elevation={4}>
         <CardContent component="div">
           <Stack direction="row" spacing="16px" justifyContent="space-between" borderBottom={1} borderColor="grey.300">
-            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>{' '}
+            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>
             <Icon color="action">drag_handle</Icon>
           </Stack>
 
@@ -124,32 +117,32 @@ function ThemeCustomizer(props) {
                 fontSize="small"
                 sx={{ marginRight: '16px' }}
               >
-                {props.themeObject.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
+                {theme.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
               </Icon>
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.primary.main, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.main, marginRight: 0.5 }}
                 borderRadius={20}
               />
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.primary.dark, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.dark, marginRight: 0.5 }}
                 borderRadius={20}
               />
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.primary.light, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.primary.light, marginRight: 0.5 }}
                 borderRadius={20}
               />
 
               <Box sx={{ width: '20px' }} />
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.secondary.main, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.main, marginRight: 0.5 }}
                 borderRadius={20}
               />
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.secondary.dark, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.dark, marginRight: 0.5 }}
                 borderRadius={20}
               />
               <Box
-                sx={{ width: 14, height: 14, bgcolor: props.themeObject.palette.secondary.light, marginRight: 0.5 }}
+                sx={{ width: 14, height: 14, bgcolor: theme.palette.secondary.light, marginRight: 0.5 }}
                 borderRadius={20}
               />
             </Stack>
@@ -158,7 +151,7 @@ function ThemeCustomizer(props) {
                 format_size
               </Icon>
               <Typography variant="body2" noWrap={true}>
-                {props.themeObject.typography.fontFamily}
+                {theme.typography.fontFamily}
               </Typography>
             </Stack>
           </Stack>
@@ -170,7 +163,18 @@ function ThemeCustomizer(props) {
 }
 
 ThemeCustomizer.propTypes = {
+  /** The MUI theme object for customization */
   themeObject: PropTypes.object,
+  /** The primary color for the theme's palette */
+  palettePrimaryMain: PropTypes.string,
+  /** The secondary color for the theme's palette */
+  paletteSecondaryMain: PropTypes.string,
+};
+
+ThemeCustomizer.defaultProps = {
+  themeObject: {},
+  palettePrimaryMain: '',
+  paletteSecondaryMain: '',
 };
 
 export default ThemeCustomizer;
