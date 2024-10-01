@@ -213,7 +213,5 @@ ThemeCustomizer.defaultProps = {
       },
     },
   },
-  palettePrimaryMain: '',
-  paletteSecondaryMain: '',
 };
 export default ThemeCustomizer;
