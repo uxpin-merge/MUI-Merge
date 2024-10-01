@@ -132,6 +132,8 @@ module.exports = {
         name: 'UTILITIES',
         include: [
           'src/components/ThemeCustomizer/ThemeCustomizer.js',
+          'src/components/ThemeCustomizer/ThemeCustomizerProps.js',
+
           'src/components/GlobalStyles/GlobalStyles.js',
 
           // 'src/components/DataWrapper/DataWrapper.js',
