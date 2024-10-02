@@ -12,7 +12,7 @@ Integration of [MUI](https://mui.com/) with UXPin Merge Technology.
 
 Use this command to launch the Merge test environment:
 
-`yarn run uxpin:test` or `npx uxpin-merge --disable-tunneling`
+`yarn run uxpin:test` or `npx uxpin-merge --disable-tunneling` 
 
 ## Packaging the Components
 
