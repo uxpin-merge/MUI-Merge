@@ -20,15 +20,15 @@ const boilerplateTheme = {
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },
   shape: {
-    borderRadius: 4
+    borderRadius: 4,
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
           fontSize: 14,
-          color: "inherit"
-        }
+          color: 'inherit',
+        },
       },
     },
 
@@ -37,7 +37,7 @@ const boilerplateTheme = {
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
+          // Some CSS here
           fontSize: '',
         },
       },
