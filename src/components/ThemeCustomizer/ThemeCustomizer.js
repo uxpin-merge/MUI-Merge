@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import cloneDeep from 'lodash.clonedeep';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
 import Box from '@mui/material/Box';
@@ -43,12 +44,14 @@ const validateTheme = (themeObject) => {
  * @uxpindescription Use this component to theme this instance of the MUI library.
  */
 function ThemeCustomizer(props) {
+  // check that uxpinOnChange is injected correctly by uxpin app
+  const uxpinOnChange = typeof props.uxpinOnChange === 'function' ? props.uxpinOnChange : () => {};
   const [themeOptions, setThemeOptions] = useContext(ThemeContext);
   const [internalThemeObject, setInternalThemeObject] = useState({ ...props.themeObject });
 
   useEffect(() => {
     // Merge individual properties into the internal theme object
-    let updatedThemeObject = { ...props.themeObject };
+    let updatedThemeObject = cloneDeep(props.themeObject);
 
     // Merge paletteMode into palette if provided
     if (props.paletteMode) {
@@ -62,14 +65,17 @@ function ThemeCustomizer(props) {
       updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
       updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
     }
+
     if (props.palettePrimaryLight) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.light = props.palettePrimaryLight;
     }
+
     if (props.palettePrimaryDark) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.dark = props.palettePrimaryDark;
     }
+
     if (props.palettePrimaryContrastText) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.contrastText = props.palettePrimaryContrastText;
@@ -81,14 +87,17 @@ function ThemeCustomizer(props) {
       updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
       updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
     }
+
     if (props.paletteSecondaryLight) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.light = props.paletteSecondaryLight;
     }
+
     if (props.paletteSecondaryDark) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.dark = props.paletteSecondaryDark;
     }
+
     if (props.paletteSecondaryContrastText) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.contrastText = props.paletteSecondaryContrastText;
@@ -108,6 +117,9 @@ function ThemeCustomizer(props) {
 
     // Update the internal state with the merged theme object
     setInternalThemeObject(updatedThemeObject);
+
+    //handle updating themeObject property on uxpin side
+    uxpinOnChange(props.themeObject, updatedThemeObject, 'themeObject');
 
     // Validate and update the ThemeContext with the new merged theme object
     if (validateTheme(updatedThemeObject)) {
