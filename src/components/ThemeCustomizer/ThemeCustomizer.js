@@ -11,6 +11,16 @@ import Icon from '@mui/material/Icon';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
+const addedFonts = {};
+
+//Will add custom font links to the header
+const addFont = (link, index) => {
+  let newFontLink = document.createElement('link');
+  newFontLink.href = link;
+  newFontLink.rel = 'stylesheet';
+  document.head.appendChild(newFontLink);
+};
+
 // Function to validate the theme object structure and values
 const validateTheme = (themeObject) => {
   const THEME_MODES = ['light', 'dark'];
@@ -129,6 +139,33 @@ function ThemeCustomizer(props) {
         theme: newTheme,
       }));
     }
+
+    //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
+
+    var traverse = function (o, fn) {
+      for (var i in o) {
+        fn.apply(this, [i, o[i]]);
+        if (o[i] !== null && typeof o[i] == 'object') {
+          traverse(o[i], fn);
+        }
+      }
+    };
+
+    var obj = props.themeObject;
+    const fonts = [];
+
+    traverse(obj, function (k, v) {
+      if (k == 'fontFamily') {
+        //ADD SOURCING FOR EACH FONT FOUND IN THEME
+        if (!addedFonts[v]) {
+          addFont('https://fonts.googleapis.com/css?family=' + v);
+          addedFonts[v] = true;
+        }
+        fonts.push(v);
+      }
+    });
+
+    // console.log("fonts", fonts)
   }, [
     props.paletteMode,
     props.palettePrimaryMain,
