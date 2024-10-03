@@ -155,7 +155,7 @@ function ThemeCustomizer(props) {
     const fonts = [];
 
     traverse(obj, function (k, v) {
-      if (k == 'fontFamily') {
+      if (k === 'fontFamily') {
         //ADD SOURCING FOR EACH FONT FOUND IN THEME
         if (!addedFonts[v]) {
           addFont('https://fonts.googleapis.com/css?family=' + v);
@@ -164,8 +164,6 @@ function ThemeCustomizer(props) {
         fonts.push(v);
       }
     });
-
-    // console.log("fonts", fonts)
   }, [
     props.paletteMode,
     props.palettePrimaryMain,
