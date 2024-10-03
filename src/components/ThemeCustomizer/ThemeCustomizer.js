@@ -148,7 +148,7 @@ function ThemeCustomizer(props) {
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.dark : undefined,
-        nextThemeObject.palette.dark,
+        nextThemeObject.palette.secondary.dark,
         'paletteSecondaryDark'
       );
 
