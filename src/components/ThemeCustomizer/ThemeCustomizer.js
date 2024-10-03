@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash.clonedeep';
+import isEqual from 'lodash.isequal';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
 import Box from '@mui/material/Box';
@@ -32,8 +33,8 @@ const validateTheme = (themeObject) => {
   }
 
   // Validate palette.primary.main and palette.secondary.main if they exist
-  const palettePrimaryMain = themeObject.palette.primary.main;
-  const paletteSecondaryMain = themeObject.palette.secondary.main;
+  const palettePrimaryMain = themeObject.palette.primary && themeObject.palette.primary.main;
+  const paletteSecondaryMain = themeObject.palette.secondary && themeObject.palette.secondary.main;
 
   if (palettePrimaryMain && typeof palettePrimaryMain !== 'string') {
     console.warn('Invalid palette.primary.main value');
@@ -45,6 +46,15 @@ const validateTheme = (themeObject) => {
   }
 
   return true;
+};
+
+const traverse = function (o, fn) {
+  for (var i in o) {
+    fn.apply(this, [i, o[i]]);
+    if (o[i] !== null && typeof o[i] == 'object') {
+      traverse(o[i], fn);
+    }
+  }
 };
 
 /**
@@ -63,97 +73,208 @@ function ThemeCustomizer(props) {
     // Merge individual properties into the internal theme object
     let updatedThemeObject = cloneDeep(props.themeObject);
 
-    // Merge paletteMode into palette if provided
-    if (props.paletteMode) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.mode = props.paletteMode;
-    }
+    if (!isEqual(props.themeObject, internalThemeObject)) {
+      setInternalThemeObject(props.themeObject);
+      uxpinOnChange(internalThemeObject, props.themeObject, 'themeObject');
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette ? internalThemeObject.palette.mode : undefined,
+        props.themeObject && props.themeObject.palette ? props.themeObject.palette.mode : undefined,
+        'paletteMode'
+      );
 
-    // Merge primary palette properties
-    if (props.palettePrimaryMain) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
-      updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.main : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.main : undefined,
+        'palettePrimaryMain'
+      );
 
-    if (props.palettePrimaryLight) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.primary.light = props.palettePrimaryLight;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.light : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.light : undefined,
+        'palettePrimaryLight'
+      );
 
-    if (props.palettePrimaryDark) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.primary.dark = props.palettePrimaryDark;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.dark : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.dark : undefined,
+        'palettePrimaryDark'
+      );
 
-    if (props.palettePrimaryContrastText) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.primary.contrastText = props.palettePrimaryContrastText;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.contrastText : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.contrastText : undefined,
+        'palettePrimaryContrastText'
+      );
 
-    // Merge secondary palette properties
-    if (props.paletteSecondaryMain) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
-      updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.light : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.light : undefined,
+        'paletteSecondaryLight'
+      );
 
-    if (props.paletteSecondaryLight) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.secondary.light = props.paletteSecondaryLight;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.main : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.main : undefined,
+        'paletteSecondaryMain'
+      );
 
-    if (props.paletteSecondaryDark) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.secondary.dark = props.paletteSecondaryDark;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.dark : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.dark : undefined,
+        'paletteSecondaryDark'
+      );
 
-    if (props.paletteSecondaryContrastText) {
-      updatedThemeObject.palette = updatedThemeObject.palette || {};
-      updatedThemeObject.palette.secondary.contrastText = props.paletteSecondaryContrastText;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.contrastText : undefined,
+        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.contrastText : undefined,
+        'paletteSecondaryContrastText'
+      );
 
-    // Merge typographyFontFamily if provided
-    if (props.typographyFontFamily) {
-      updatedThemeObject.typography = updatedThemeObject.typography || {};
-      updatedThemeObject.typography.fontFamily = props.typographyFontFamily;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.typography ? internalThemeObject.typography.fontFamily : undefined,
+        props.themeObject && props.themeObject.typography ? props.themeObject.typography.fontFamily : undefined,
+        'typographyFontFamily'
+      );
 
-    // Merge shape.borderRadius if provided
-    if (props.shapeBorderRadius !== undefined) {
-      updatedThemeObject.shape = updatedThemeObject.shape || {};
-      updatedThemeObject.shape.borderRadius = props.shapeBorderRadius;
-    }
+      uxpinOnChange(
+        internalThemeObject && internalThemeObject.shape ? internalThemeObject.shape.borderRadius : undefined,
+        props.themeObject && props.themeObject.shape ? props.themeObject.shape.borderRadius : undefined,
+        'shapeBorderRadius'
+      );
 
-    // Update the internal state with the merged theme object
-    setInternalThemeObject(updatedThemeObject);
+      if (validateTheme(props.themeObject)) {
+        const newTheme = createTheme(props.themeObject);
+        setThemeOptions((oldTheme) => ({
+          ...oldTheme,
+          theme: newTheme,
+        }));
+      }
+    } else {
+      // Merge paletteMode into palette if provided
+      if (props.paletteMode) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.mode = props.paletteMode;
+      } else {
+        if (updatedThemeObject.palette) {
+          delete updatedThemeObject.palette.mode;
+        }
+      }
 
-    //handle updating themeObject property on uxpin side
-    uxpinOnChange(props.themeObject, updatedThemeObject, 'themeObject');
+      // Merge primary palette properties
+      if (props.palettePrimaryMain) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
+        updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+          delete updatedThemeObject.palette.primary.main;
+        }
+      }
 
-    // Validate and update the ThemeContext with the new merged theme object
-    if (validateTheme(updatedThemeObject)) {
-      const newTheme = createTheme(updatedThemeObject);
-      setThemeOptions((oldTheme) => ({
-        ...oldTheme,
-        theme: newTheme,
-      }));
+      if (props.palettePrimaryLight) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.primary.light = props.palettePrimaryLight;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+          delete updatedThemeObject.palette.primary.light;
+        }
+      }
+
+      if (props.palettePrimaryDark) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.primary.dark = props.palettePrimaryDark;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+          delete updatedThemeObject.palette.primary.dark;
+        }
+      }
+
+      if (props.palettePrimaryContrastText) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.primary.contrastText = props.palettePrimaryContrastText;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+          delete updatedThemeObject.palette.primary.contrastText;
+        }
+      }
+
+      // Merge secondary palette properties
+      if (props.paletteSecondaryMain) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
+        updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+          delete updatedThemeObject.palette.secondary.main;
+        }
+      }
+
+      if (props.paletteSecondaryLight) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.secondary.light = props.paletteSecondaryLight;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+          delete updatedThemeObject.palette.secondary.light;
+        }
+      }
+
+      if (props.paletteSecondaryDark) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.secondary.dark = props.paletteSecondaryDark;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+          delete updatedThemeObject.palette.secondary.dark;
+        }
+      }
+
+      if (props.paletteSecondaryContrastText) {
+        updatedThemeObject.palette = updatedThemeObject.palette || {};
+        updatedThemeObject.palette.secondary.contrastText = props.paletteSecondaryContrastText;
+      } else {
+        if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+          delete updatedThemeObject.palette.secondary.contrastText;
+        }
+      }
+
+      // Merge typographyFontFamily if provided
+      if (props.typographyFontFamily) {
+        updatedThemeObject.typography = updatedThemeObject.typography || {};
+        updatedThemeObject.typography.fontFamily = props.typographyFontFamily;
+      }  else {
+        if (updatedThemeObject.typography) {
+          delete updatedThemeObject.typography.fontFamily;
+        }
+      }
+
+      // Merge shape.borderRadius if provided
+      if (props.shapeBorderRadius !== undefined) {
+        updatedThemeObject.shape = updatedThemeObject.shape || {};
+        updatedThemeObject.shape.borderRadius = props.shapeBorderRadius;
+      } else {
+        if (updatedThemeObject.shape) {
+          delete updatedThemeObject.shape.borderRadius;
+        }
+      }
+
+      // Update the internal state with the merged theme object
+      setInternalThemeObject(updatedThemeObject);
+
+      //handle updating themeObject property on uxpin side
+      uxpinOnChange(props.themeObject, updatedThemeObject, 'themeObject');
+
+      // Validate and update the ThemeContext with the new merged theme object
+      if (validateTheme(updatedThemeObject)) {
+        const newTheme = createTheme(updatedThemeObject);
+        setThemeOptions((oldTheme) => ({
+          ...oldTheme,
+          theme: newTheme,
+        }));
+      }
     }
 
     //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
-
-    var traverse = function (o, fn) {
-      for (var i in o) {
-        fn.apply(this, [i, o[i]]);
-        if (o[i] !== null && typeof o[i] == 'object') {
-          traverse(o[i], fn);
-        }
-      }
-    };
-
     var obj = props.themeObject;
     const fonts = [];
-
     traverse(obj, function (k, v) {
       if (k === 'fontFamily') {
         //ADD SOURCING FOR EACH FONT FOUND IN THEME
@@ -199,21 +320,21 @@ function ThemeCustomizer(props) {
               >
                 {internalThemeObject.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
               </Icon>
-              <Box
+              {internalThemeObject.palette.primary && <Box
                 sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.light, marginRight: 0.5 }}
                 borderRadius={20}
-              />
-              <Box
+              />}
+              {internalThemeObject.palette.primary && <Box
                 sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.main, marginRight: 0.5 }}
                 borderRadius={20}
-              />
-              <Box
+              />}
+              {internalThemeObject.palette.primary && <Box
                 sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.dark, marginRight: 0.5 }}
                 borderRadius={20}
-              />
+              />}
 
               <Box sx={{ width: '20px' }} />
-              <Box
+              {internalThemeObject.palette.secondary && <Box
                 sx={{
                   width: 14,
                   height: 14,
@@ -221,23 +342,23 @@ function ThemeCustomizer(props) {
                   marginRight: 0.5,
                 }}
                 borderRadius={20}
-              />
-              <Box
+              />}
+              {internalThemeObject.palette.secondary && <Box
                 sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.secondary.main, marginRight: 0.5 }}
                 borderRadius={20}
-              />
-              <Box
+              />}
+              {internalThemeObject.palette.secondary && <Box
                 sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.secondary.dark, marginRight: 0.5 }}
                 borderRadius={20}
-              />
+              />}
             </Stack>
             <Stack spacing="16px" direction="row" alignItems="center">
               <Icon color="action" baseClassName="material-icons-outlined" fontSize="small">
                 format_size
               </Icon>
-              <Typography variant="body2" noWrap={true}>
+              {internalThemeObject.typography && <Typography variant="body2" noWrap={true}>
                 {internalThemeObject.typography.fontFamily}
-              </Typography>
+              </Typography>}
             </Stack>
           </Stack>
         </CardContent>
@@ -250,12 +371,12 @@ function ThemeCustomizer(props) {
 // Define the prop types for the component
 ThemeCustomizer.propTypes = {
   /** Palette mode (light or dark) */
-  paletteMode: PropTypes.oneOf(['light', 'dark']),
+  paletteMode: PropTypes.oneOf(['light', 'dark']).isRequired,
 
   /**
    * @uxpincontroltype color
    */
-  palettePrimaryMain: PropTypes.string,
+  palettePrimaryMain: PropTypes.string.isRequired,
   /**
    * @uxpincontroltype color
    */
@@ -272,7 +393,7 @@ ThemeCustomizer.propTypes = {
   /**
    * @uxpincontroltype color
    */
-  paletteSecondaryMain: PropTypes.string,
+  paletteSecondaryMain: PropTypes.string.isRequired,
   /**
    * @uxpincontroltype color
    */
@@ -296,6 +417,19 @@ ThemeCustomizer.propTypes = {
   themeObject: PropTypes.object,
 };
 ThemeCustomizer.defaultProps = {
-  themeObject: {},
+  paletteMode: 'light',
+  palettePrimaryMain: '#1976d2',
+  paletteSecondaryMain: '#9c27b0',
+  themeObject: {
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#1976d2',
+      },
+      secondary: {
+        main: '#9c27b0',
+      },
+    },
+  },
 };
 export default ThemeCustomizer;
