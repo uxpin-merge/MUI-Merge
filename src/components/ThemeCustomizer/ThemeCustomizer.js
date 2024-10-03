@@ -98,7 +98,6 @@ function ThemeCustomizer(props) {
     }
 
     uxpinOnChange(internalThemeObject, nextThemeObject, 'themeObject');
-    setInternalThemeObject(nextThemeObject);
 
     uxpinOnChange(
       internalThemeObject && internalThemeObject.palette ? internalThemeObject.palette.mode : undefined,
@@ -165,6 +164,8 @@ function ThemeCustomizer(props) {
       nextThemeObject.shape ? nextThemeObject.shape.borderRadius : undefined,
       'shapeBorderRadius'
     );
+
+    setInternalThemeObject(nextThemeObject);
 
     if (validateTheme(nextThemeObject)) {
       const newTheme = createTheme(nextThemeObject);
