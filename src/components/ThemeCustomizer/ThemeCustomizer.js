@@ -11,6 +11,7 @@ import CardContent from '@mui/material/CardContent';
 import Icon from '@mui/material/Icon';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import defaultTheme from '../UXPinWrapper/boilerplate-theme';
 
 const addedFonts = {};
 
@@ -75,70 +76,96 @@ function ThemeCustomizer(props) {
 
     if (!isEqual(props.themeObject, internalThemeObject)) {
       setInternalThemeObject(props.themeObject);
-      uxpinOnChange(internalThemeObject, props.themeObject, 'themeObject');
+      let nextThemeObject = cloneDeep(props.themeObject);
+
+      if (!nextThemeObject.palette) {
+        nextThemeObject.palette = nextThemeObject.palette || {};
+      }
+
+      if (!nextThemeObject.palette.mode) {
+        nextThemeObject.palette.mode = defaultTheme.palette.mode;
+      }
+
+      if (!nextThemeObject.palette.primary) {
+        nextThemeObject.palette.primary = nextThemeObject.palette.primary || {};
+      }
+
+      if (!nextThemeObject.palette.secondary) {
+        nextThemeObject.palette.secondary = nextThemeObject.palette.secondary || {};
+      }
+
+      if (!nextThemeObject.palette.primary.main) {
+        nextThemeObject.palette.primary.main = defaultTheme.palette.primary.main;
+      }
+
+      if (!nextThemeObject.palette.secondary.main) {
+        nextThemeObject.palette.secondary.main = defaultTheme.palette.secondary.main;
+      }
+
+      uxpinOnChange(internalThemeObject, nextThemeObject, 'themeObject');
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette ? internalThemeObject.palette.mode : undefined,
-        props.themeObject && props.themeObject.palette ? props.themeObject.palette.mode : undefined,
+        nextThemeObject.palette.mode,
         'paletteMode'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.main : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.main : undefined,
+        nextThemeObject.palette.primary.main,
         'palettePrimaryMain'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.light : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.light : undefined,
+        nextThemeObject.palette.primary.light,
         'palettePrimaryLight'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.dark : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.dark : undefined,
+        nextThemeObject.palette.primary.dark,
         'palettePrimaryDark'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.contrastText : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.primary ? props.themeObject.palette.primary.contrastText : undefined,
+        nextThemeObject.palette.primary.contrastText,
         'palettePrimaryContrastText'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.light : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.light : undefined,
+        nextThemeObject.palette.secondary.light,
         'paletteSecondaryLight'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.main : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.main : undefined,
+        nextThemeObject.palette.secondary.main,
         'paletteSecondaryMain'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.dark : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.dark : undefined,
+        nextThemeObject.palette.dark,
         'paletteSecondaryDark'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.contrastText : undefined,
-        props.themeObject && props.themeObject.palette && props.themeObject.palette.secondary ? props.themeObject.palette.secondary.contrastText : undefined,
+        nextThemeObject.palette.secondary.contrastText,
         'paletteSecondaryContrastText'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.typography ? internalThemeObject.typography.fontFamily : undefined,
-        props.themeObject && props.themeObject.typography ? props.themeObject.typography.fontFamily : undefined,
+        nextThemeObject.typography ? nextThemeObject.typography.fontFamily : undefined,
         'typographyFontFamily'
       );
 
       uxpinOnChange(
         internalThemeObject && internalThemeObject.shape ? internalThemeObject.shape.borderRadius : undefined,
-        props.themeObject && props.themeObject.shape ? props.themeObject.shape.borderRadius : undefined,
+        nextThemeObject.shape ? nextThemeObject.borderRadius : undefined,
         'shapeBorderRadius'
       );
 
