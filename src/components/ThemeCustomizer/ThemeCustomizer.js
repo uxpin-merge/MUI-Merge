@@ -75,7 +75,6 @@ function ThemeCustomizer(props) {
     let updatedThemeObject = cloneDeep(props.themeObject);
 
     if (!isEqual(props.themeObject, internalThemeObject)) {
-      setInternalThemeObject(props.themeObject);
       let nextThemeObject = cloneDeep(props.themeObject);
 
       if (!nextThemeObject.palette) {
@@ -103,6 +102,8 @@ function ThemeCustomizer(props) {
       }
 
       uxpinOnChange(internalThemeObject, nextThemeObject, 'themeObject');
+      setInternalThemeObject(nextThemeObject);
+
       uxpinOnChange(
         internalThemeObject && internalThemeObject.palette ? internalThemeObject.palette.mode : undefined,
         nextThemeObject.palette.mode,
@@ -169,8 +170,8 @@ function ThemeCustomizer(props) {
         'shapeBorderRadius'
       );
 
-      if (validateTheme(props.themeObject)) {
-        const newTheme = createTheme(props.themeObject);
+      if (validateTheme(nextThemeObject)) {
+        const newTheme = createTheme(nextThemeObject);
         setThemeOptions((oldTheme) => ({
           ...oldTheme,
           theme: newTheme,
