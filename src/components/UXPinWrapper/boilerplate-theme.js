@@ -15,7 +15,7 @@ const boilerplateTheme = {
     },
   },
   typography: {
-    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+    fontFamily: 'Roboto',
   },
   shape: {
     borderRadius: 4,
