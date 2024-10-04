@@ -2187,9 +2187,6 @@ ThemeCustomizer.propTypes = {
   themeObject: PropTypes.object,
 };
 ThemeCustomizer.defaultProps = {
-  paletteMode: 'light',
-  palettePrimaryMain: '#1976d2',
-  paletteSecondaryMain: '#9c27b0',
   themeObject: {
     palette: {
       mode: 'light',
