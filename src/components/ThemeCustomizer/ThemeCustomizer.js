@@ -199,10 +199,6 @@ function ThemeCustomizer(props) {
     if (props.paletteMode) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.mode = props.paletteMode;
-    } else {
-      if (updatedThemeObject.palette) {
-        delete updatedThemeObject.palette.mode;
-      }
     }
 
     // Merge primary palette properties
@@ -210,37 +206,21 @@ function ThemeCustomizer(props) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
       updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
-        delete updatedThemeObject.palette.primary.main;
-      }
     }
 
     if (props.palettePrimaryLight) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.light = props.palettePrimaryLight;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
-        delete updatedThemeObject.palette.primary.light;
-      }
     }
 
     if (props.palettePrimaryDark) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.dark = props.palettePrimaryDark;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
-        delete updatedThemeObject.palette.primary.dark;
-      }
     }
 
     if (props.palettePrimaryContrastText) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.primary.contrastText = props.palettePrimaryContrastText;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
-        delete updatedThemeObject.palette.primary.contrastText;
-      }
     }
 
     // Merge secondary palette properties
@@ -248,57 +228,33 @@ function ThemeCustomizer(props) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
       updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
-        delete updatedThemeObject.palette.secondary.main;
-      }
     }
 
     if (props.paletteSecondaryLight) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.light = props.paletteSecondaryLight;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
-        delete updatedThemeObject.palette.secondary.light;
-      }
     }
 
     if (props.paletteSecondaryDark) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.dark = props.paletteSecondaryDark;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
-        delete updatedThemeObject.palette.secondary.dark;
-      }
     }
 
     if (props.paletteSecondaryContrastText) {
       updatedThemeObject.palette = updatedThemeObject.palette || {};
       updatedThemeObject.palette.secondary.contrastText = props.paletteSecondaryContrastText;
-    } else {
-      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
-        delete updatedThemeObject.palette.secondary.contrastText;
-      }
     }
 
     // Merge typographyFontFamily if provided
     if (props.typographyFontFamily) {
       updatedThemeObject.typography = updatedThemeObject.typography || {};
       updatedThemeObject.typography.fontFamily = props.typographyFontFamily;
-    }  else {
-      if (updatedThemeObject.typography) {
-        delete updatedThemeObject.typography.fontFamily;
-      }
     }
 
     // Merge shape.borderRadius if provided
     if (props.shapeBorderRadius !== undefined) {
       updatedThemeObject.shape = updatedThemeObject.shape || {};
       updatedThemeObject.shape.borderRadius = props.shapeBorderRadius;
-    } else {
-      if (updatedThemeObject.shape) {
-        delete updatedThemeObject.shape.borderRadius;
-      }
     }
 
     // Update the internal state with the merged theme object
