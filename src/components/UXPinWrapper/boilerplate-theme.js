@@ -1,6 +1,4 @@
 const boilerplateTheme = {
-  // To further customize this theme,
-  // please see the full theme object here: https://mui.com/customization/default-theme/
   palette: {
     mode: 'light',
     primary: {
@@ -17,7 +15,7 @@ const boilerplateTheme = {
     },
   },
   typography: {
-    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+    fontFamily: 'Roboto',
   },
   shape: {
     borderRadius: 4,
@@ -32,12 +30,9 @@ const boilerplateTheme = {
       },
     },
 
-    // Name of the component
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: {
-          // Some CSS here
           fontSize: '',
         },
       },

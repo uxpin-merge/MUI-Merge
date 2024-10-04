@@ -2553,10 +2553,10 @@
   dependencies:
     "@types/node" "*"
 
-"@uxpin/merge-cli@3.4.3":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.4.3.tgz#884b9d1c9a653bc71007e3d07598d6d40487ecf6"
-  integrity sha512-IVh4oHGdV9ajWkw5/6xgLrSJ9QlFkLhQlIh+4qlRjXDNLBGpmu/i3mas3VG50FWvMlJcD3pF36I44CfsJPTVYw==
+"@uxpin/merge-cli@3.4.5":
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.4.5.tgz#98849b28067483df661b002674e4fa45502729be"
+  integrity sha512-IUWz+g+p+aI7ixuI6gAd/ensVL8gnaJvDbBYr9IOXj/wjCZTcXIZbDR3efSSFcpf3hKXTDC4irOSrlJA5nbXmQ==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/plugin-proposal-class-properties" "^7.2.3"
@@ -4392,6 +4392,11 @@ lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==
 
 lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
   version "4.17.21"

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { createTheme } from '@mui/material/styles';
+import cloneDeep from 'lodash.clonedeep';
+import isEqual from 'lodash.isequal';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ThemeContext } from '../UXPinWrapper/UXPinWrapper';
-import { Portal } from '@mui/base';
-import { Paper, Alert, Button, AlertTitle } from '@mui/material';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
-
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Icon from '@mui/material/Icon';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import defaultTheme from '../UXPinWrapper/boilerplate-theme';
 
 const addedFonts = {};
 
@@ -17,127 +23,2183 @@ const addFont = (link, index) => {
   document.head.appendChild(newFontLink);
 };
 
-//validate theme
+// Function to validate the theme object structure and values
 const validateTheme = (themeObject) => {
   const THEME_MODES = ['light', 'dark'];
-  const mode = themeObject && themeObject.palette && themeObject.palette.mode;
+  const mode = themeObject.palette.mode;
+
   if (mode && !THEME_MODES.includes(mode)) {
     console.warn(`Invalid palette.mode property ${mode} - valid values: light, dark`);
     return false;
   }
 
+  // Validate palette.primary.main and palette.secondary.main if they exist
+  const palettePrimaryMain = themeObject.palette.primary && themeObject.palette.primary.main;
+  const paletteSecondaryMain = themeObject.palette.secondary && themeObject.palette.secondary.main;
+
+  if (palettePrimaryMain && typeof palettePrimaryMain !== 'string') {
+    console.warn('Invalid palette.primary.main value');
+    return false;
+  }
+  if (paletteSecondaryMain && typeof paletteSecondaryMain !== 'string') {
+    console.warn('Invalid palette.secondary.main value');
+    return false;
+  }
+
   return true;
-}
+};
+
+const traverse = function (o, fn) {
+  for (var i in o) {
+    fn.apply(this, [i, o[i]]);
+    if (o[i] !== null && typeof o[i] == 'object') {
+      traverse(o[i], fn);
+    }
+  }
+};
 
 /**
- * @uxpinwrappers
- * SkipContainerWrapper, NonResizableWrapper
- * @uxpindocurl https://zenoo.github.io/mui-theme-creator/
- * @uxpindescription Use this component to theme this instance of the MUI library. Create a theme at: https://zenoo.github.io/mui-theme-creator/ or click the button below.
+ * ThemeCustomizer Component
+ * @uxpinwrappers SkipContainerWrapper, NonResizableWrapper
+ * @uxpindocurl https://v5.mui.com/material-ui/customization/theming/
+ * @uxpindescription Use this component to theme this instance of the MUI library.
  */
 function ThemeCustomizer(props) {
-  const [themeOptions, setThemeOptions] = React.useContext(ThemeContext);
+  // check that uxpinOnChange is injected correctly by uxpin app
+  const uxpinOnChange = typeof props.uxpinOnChange === 'function' ? props.uxpinOnChange : () => {};
+  const [themeOptions, setThemeOptions] = useContext(ThemeContext);
+  const [internalThemeObject, setInternalThemeObject] = useState({ ...props.themeObject });
 
-  React.useEffect(() => {
-    setThemeOptions((oldTheme) => {
-      let options = { ...props };
+  useEffect(() => {
+    let nextThemeObject = cloneDeep(props.themeObject);
 
-      options.currentTheme = oldTheme.theme;
+    if (!nextThemeObject.palette) {
+      nextThemeObject.palette = nextThemeObject.palette || {};
+    }
 
-      let newTheme;
+    if (!nextThemeObject.palette.mode) {
+      nextThemeObject.palette.mode = defaultTheme.palette.mode;
+    }
 
-      //if there is a theme object given, it will be the basis for any customizations
-      if (props.themeObject && props.themeObject !== '') {
-        if (validateTheme(props.themeObject)) {
-          options.currentTheme = createTheme({
-            ...JSON.parse(JSON.stringify(props.themeObject)),
-          });
-        }
-      }
+    if (!nextThemeObject.palette.primary) {
+      nextThemeObject.palette.primary = nextThemeObject.palette.primary || {};
+    }
 
-      newTheme = options.currentTheme;
+    if (!nextThemeObject.palette.secondary) {
+      nextThemeObject.palette.secondary = nextThemeObject.palette.secondary || {};
+    }
 
-      console.log('parsed ', props.themeObject);
+    if (!nextThemeObject.palette.primary.main) {
+      nextThemeObject.palette.primary.main = defaultTheme.palette.primary.main;
+    }
 
-      //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
+    if (!nextThemeObject.palette.secondary.main) {
+      nextThemeObject.palette.secondary.main = defaultTheme.palette.secondary.main;
+    }
 
-      var traverse = function (o, fn) {
-        for (var i in o) {
-          fn.apply(this, [i, o[i]]);
-          if (o[i] !== null && typeof o[i] == 'object') {
-            traverse(o[i], fn);
-          }
-        }
-      };
+    uxpinOnChange(internalThemeObject, nextThemeObject, 'themeObject');
 
-      var obj = props.themeObject;
-      const fonts = [];
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette ? internalThemeObject.palette.mode : undefined,
+      nextThemeObject.palette.mode,
+      'paletteMode'
+    );
 
-      traverse(obj, function (k, v) {
-        if (k == 'fontFamily') {
-          //ADD SOURCING FOR EACH FONT FOUND IN THEME
-          if (!addedFonts[v]) {
-            addFont('https://fonts.googleapis.com/css?family=' + v);
-            addedFonts[v] = true;
-          }
-          fonts.push(v);
-        }
-      });
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.main : undefined,
+      nextThemeObject.palette.primary.main,
+      'palettePrimaryMain'
+    );
 
-      // console.log("fonts", fonts)
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.light : undefined,
+      nextThemeObject.palette.primary.light,
+      'palettePrimaryLight'
+    );
 
-      return {
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.dark : undefined,
+      nextThemeObject.palette.primary.dark,
+      'palettePrimaryDark'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.primary ? internalThemeObject.palette.primary.contrastText : undefined,
+      nextThemeObject.palette.primary.contrastText,
+      'palettePrimaryContrastText'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.light : undefined,
+      nextThemeObject.palette.secondary.light,
+      'paletteSecondaryLight'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.main : undefined,
+      nextThemeObject.palette.secondary.main,
+      'paletteSecondaryMain'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.dark : undefined,
+      nextThemeObject.palette.secondary.dark,
+      'paletteSecondaryDark'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.palette && internalThemeObject.palette.secondary ? internalThemeObject.palette.secondary.contrastText : undefined,
+      nextThemeObject.palette.secondary.contrastText,
+      'paletteSecondaryContrastText'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.typography ? internalThemeObject.typography.fontFamily : undefined,
+      nextThemeObject.typography ? nextThemeObject.typography.fontFamily : undefined,
+      'typographyFontFamily'
+    );
+
+    uxpinOnChange(
+      internalThemeObject && internalThemeObject.shape ? internalThemeObject.shape.borderRadius : undefined,
+      nextThemeObject.shape ? nextThemeObject.shape.borderRadius : undefined,
+      'shapeBorderRadius'
+    );
+
+    setInternalThemeObject(nextThemeObject);
+
+    if (validateTheme(nextThemeObject)) {
+      const newTheme = createTheme(nextThemeObject);
+      setThemeOptions((oldTheme) => ({
+        ...oldTheme,
         theme: newTheme,
-      };
+      }));
+    }
+
+    //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
+    var obj = props.themeObject;
+    const fonts = [];
+    traverse(obj, function (k, v) {
+      if (k === 'fontFamily') {
+        //ADD SOURCING FOR EACH FONT FOUND IN THEME
+        if (!addedFonts[v]) {
+          addFont('https://fonts.googleapis.com/css?family=' + v);
+          addedFonts[v] = true;
+        }
+        fonts.push(v);
+      }
     });
-  }, [props, setThemeOptions, themeOptions.themeCustomizerProps]); //only re-run if any of these change
+
+  }, [props.themeObject])
+
+  useEffect(() => {
+    // Merge individual properties into the internal theme object
+    let updatedThemeObject = cloneDeep(props.themeObject);
+
+    // Merge paletteMode into palette if provided
+    if (props.paletteMode) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.mode = props.paletteMode;
+    } else {
+      if (updatedThemeObject.palette) {
+        delete updatedThemeObject.palette.mode;
+      }
+    }
+
+    // Merge primary palette properties
+    if (props.palettePrimaryMain) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.primary = updatedThemeObject.palette.primary || {};
+      updatedThemeObject.palette.primary.main = props.palettePrimaryMain;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+        delete updatedThemeObject.palette.primary.main;
+      }
+    }
+
+    if (props.palettePrimaryLight) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.primary.light = props.palettePrimaryLight;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+        delete updatedThemeObject.palette.primary.light;
+      }
+    }
+
+    if (props.palettePrimaryDark) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.primary.dark = props.palettePrimaryDark;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+        delete updatedThemeObject.palette.primary.dark;
+      }
+    }
+
+    if (props.palettePrimaryContrastText) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.primary.contrastText = props.palettePrimaryContrastText;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.primary) {
+        delete updatedThemeObject.palette.primary.contrastText;
+      }
+    }
+
+    // Merge secondary palette properties
+    if (props.paletteSecondaryMain) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.secondary = updatedThemeObject.palette.secondary || {};
+      updatedThemeObject.palette.secondary.main = props.paletteSecondaryMain;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+        delete updatedThemeObject.palette.secondary.main;
+      }
+    }
+
+    if (props.paletteSecondaryLight) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.secondary.light = props.paletteSecondaryLight;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+        delete updatedThemeObject.palette.secondary.light;
+      }
+    }
+
+    if (props.paletteSecondaryDark) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.secondary.dark = props.paletteSecondaryDark;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+        delete updatedThemeObject.palette.secondary.dark;
+      }
+    }
+
+    if (props.paletteSecondaryContrastText) {
+      updatedThemeObject.palette = updatedThemeObject.palette || {};
+      updatedThemeObject.palette.secondary.contrastText = props.paletteSecondaryContrastText;
+    } else {
+      if (updatedThemeObject.palette && updatedThemeObject.palette.secondary) {
+        delete updatedThemeObject.palette.secondary.contrastText;
+      }
+    }
+
+    // Merge typographyFontFamily if provided
+    if (props.typographyFontFamily) {
+      updatedThemeObject.typography = updatedThemeObject.typography || {};
+      updatedThemeObject.typography.fontFamily = props.typographyFontFamily;
+    }  else {
+      if (updatedThemeObject.typography) {
+        delete updatedThemeObject.typography.fontFamily;
+      }
+    }
+
+    // Merge shape.borderRadius if provided
+    if (props.shapeBorderRadius !== undefined) {
+      updatedThemeObject.shape = updatedThemeObject.shape || {};
+      updatedThemeObject.shape.borderRadius = props.shapeBorderRadius;
+    } else {
+      if (updatedThemeObject.shape) {
+        delete updatedThemeObject.shape.borderRadius;
+      }
+    }
+
+    // Update the internal state with the merged theme object
+    setInternalThemeObject(updatedThemeObject);
+
+    //handle updating themeObject property on uxpin side
+    uxpinOnChange(props.themeObject, updatedThemeObject, 'themeObject');
+
+    // Validate and update the ThemeContext with the new merged theme object
+    if (validateTheme(updatedThemeObject)) {
+      const newTheme = createTheme(updatedThemeObject);
+      setThemeOptions((oldTheme) => ({
+        ...oldTheme,
+        theme: newTheme,
+      }));
+    }
+
+
+    //GET ALL GOOGLE FONT NAMES AT ANY LEVEL OF THE THEME WITH RECURSION
+    var obj = props.themeObject;
+    const fonts = [];
+    traverse(obj, function (k, v) {
+      if (k === 'fontFamily') {
+        //ADD SOURCING FOR EACH FONT FOUND IN THEME
+        if (!addedFonts[v]) {
+          addFont('https://fonts.googleapis.com/css?family=' + v);
+          addedFonts[v] = true;
+        }
+        fonts.push(v);
+      }
+    });
+  }, [
+    props.paletteMode,
+    props.palettePrimaryMain,
+    props.palettePrimaryLight,
+    props.palettePrimaryDark,
+    props.palettePrimaryContrastText,
+    props.paletteSecondaryMain,
+    props.paletteSecondaryLight,
+    props.paletteSecondaryDark,
+    props.paletteSecondaryContrastText,
+    props.typographyFontFamily,
+    props.shapeBorderRadius, // Include shapeBorderRadius in dependencies
+  ]); // Track changes in props
 
   return (
-    <div //A visual aid for the designer to see in UXPin
-      style={{
-        width: '160px',
-        color: 'white',
-        textAlign: 'center',
-        background: '#003087',
-        borderRadius: 10,
-        padding: '20px'
-      }}
-    >
-      <strong>ThemeCustomizer:</strong>
-      <br />
-      Please move this <br />marker offscreen
-    </div>
-    // <Portal container={document.querySelector('#workbench-wrapper')}>
-    //   <div style={{ position: 'relative' }}>
-    //     <Alert
-    //       severity="info"
-    //       iconMapping={{
-    //         info: <ColorLensIcon />,
-    //       }}
-    //       action={
-    //         <Button
-    //           variant="outlined"
-    //           color="inherit"
-    //           size="small"
-    //           href="https://jackbehar.github.io/mui-theme-creator/"
-    //           target="_blank"
-    //         >
-    //           MUI theme creator
-    //         </Button>
-    //       }
-    //     >
-    //       <p>
-    //         <strong>THEME APPLIED!:</strong> Please select the <b>ThemeCustomizer</b> layer and edit the
-    //         <b>Theme Object</b> property.
-    //       </p>
-    //     </Alert>
-    //   </div>
-    // </Portal>
+    <ThemeProvider theme={createTheme(internalThemeObject)}>
+      <Card elevation={4}>
+        <CardContent component="div">
+          <Stack direction="row" spacing="16px" justifyContent="space-between" borderBottom={1} borderColor="grey.300">
+            <Typography sx={{ fontFamily: 'Roboto', paddingBottom: '5px' }}>ThemeCustomizer</Typography>
+            <Icon color="action">drag_handle</Icon>
+          </Stack>
+
+          <Stack direction="column" spacing="10px" paddingTop="15px">
+            <Stack direction="row" alignItems="center">
+              <Icon
+                color="action"
+                baseClassName="material-icons-outlined"
+                fontSize="small"
+                sx={{ marginRight: '16px' }}
+              >
+                {internalThemeObject.palette.mode === 'light' ? 'light_mode' : 'dark_mode'}
+              </Icon>
+              {internalThemeObject.palette.primary && <Box
+                sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.light, marginRight: 0.5 }}
+                borderRadius={20}
+              />}
+              {internalThemeObject.palette.primary && <Box
+                sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.main, marginRight: 0.5 }}
+                borderRadius={20}
+              />}
+              {internalThemeObject.palette.primary && <Box
+                sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.primary.dark, marginRight: 0.5 }}
+                borderRadius={20}
+              />}
+
+              <Box sx={{ width: '20px' }} />
+              {internalThemeObject.palette.secondary && <Box
+                sx={{
+                  width: 14,
+                  height: 14,
+                  bgcolor: internalThemeObject.palette.secondary.light,
+                  marginRight: 0.5,
+                }}
+                borderRadius={20}
+              />}
+              {internalThemeObject.palette.secondary && <Box
+                sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.secondary.main, marginRight: 0.5 }}
+                borderRadius={20}
+              />}
+              {internalThemeObject.palette.secondary && <Box
+                sx={{ width: 14, height: 14, bgcolor: internalThemeObject.palette.secondary.dark, marginRight: 0.5 }}
+                borderRadius={20}
+              />}
+            </Stack>
+            <Stack spacing="16px" direction="row" alignItems="center">
+              <Icon color="action" baseClassName="material-icons-outlined" fontSize="small">
+                format_size
+              </Icon>
+              {internalThemeObject.typography && <Typography variant="body2" noWrap={true}>
+                {internalThemeObject.typography.fontFamily}
+              </Typography>}
+            </Stack>
+          </Stack>
+        </CardContent>
+        <CardActionArea />
+      </Card>
+    </ThemeProvider>
   );
 }
 
+// Define the prop types for the component
 ThemeCustomizer.propTypes = {
+  /** Palette mode (light or dark) */
+  paletteMode: PropTypes.oneOf(['light', 'dark']).isRequired,
+
+  /**
+   * @uxpincontroltype color
+   */
+  palettePrimaryMain: PropTypes.string.isRequired,
+  /**
+   * @uxpincontroltype color
+   */
+  palettePrimaryLight: PropTypes.string,
+  /**
+   * @uxpincontroltype color
+   */
+  palettePrimaryDark: PropTypes.string,
+  /**
+   * @uxpincontroltype color
+   */
+  palettePrimaryContrastText: PropTypes.string,
+
+  /**
+   * @uxpincontroltype color
+   */
+  paletteSecondaryMain: PropTypes.string.isRequired,
+  /**
+   * @uxpincontroltype color
+   */
+  paletteSecondaryLight: PropTypes.string,
+  /**
+   * @uxpincontroltype color
+   */
+  paletteSecondaryDark: PropTypes.string,
+  /**
+   * @uxpincontroltype color
+   */
+  paletteSecondaryContrastText: PropTypes.string,
+
+  /** Font family for the theme's typography */
+  typographyFontFamily: PropTypes.oneOf([
+    "ABeeZee",
+    "ADLaM Display",
+    "AR One Sans",
+    "Abel",
+    "Abhaya Libre",
+    "Aboreto",
+    "Abril Fatface",
+    "Abyssinica SIL",
+    "Aclonica",
+    "Acme",
+    "Actor",
+    "Adamina",
+    "Advent Pro",
+    "Afacad",
+    "Afacad Flux",
+    "Agbalumo",
+    "Agdasima",
+    "Aguafina Script",
+    "Akatab",
+    "Akaya Kanadaka",
+    "Akaya Telivigala",
+    "Akronim",
+    "Akshar",
+    "Aladin",
+    "Alata",
+    "Alatsi",
+    "Albert Sans",
+    "Aldrich",
+    "Alef",
+    "Alegreya",
+    "Alegreya SC",
+    "Alegreya Sans",
+    "Alegreya Sans SC",
+    "Aleo",
+    "Alex Brush",
+    "Alexandria",
+    "Alfa Slab One",
+    "Alice",
+    "Alike",
+    "Alike Angular",
+    "Alkalami",
+    "Alkatra",
+    "Allan",
+    "Allerta",
+    "Allerta Stencil",
+    "Allison",
+    "Allura",
+    "Almarai",
+    "Almendra",
+    "Almendra Display",
+    "Almendra SC",
+    "Alumni Sans",
+    "Alumni Sans Collegiate One",
+    "Alumni Sans Inline One",
+    "Alumni Sans Pinstripe",
+    "Amarante",
+    "Amaranth",
+    "Amatic SC",
+    "Amethysta",
+    "Amiko",
+    "Amiri",
+    "Amiri Quran",
+    "Amita",
+    "Anaheim",
+    "Andada Pro",
+    "Andika",
+    "Anek Bangla",
+    "Anek Devanagari",
+    "Anek Gujarati",
+    "Anek Gurmukhi",
+    "Anek Kannada",
+    "Anek Latin",
+    "Anek Malayalam",
+    "Anek Odia",
+    "Anek Tamil",
+    "Anek Telugu",
+    "Angkor",
+    "Annapurna SIL",
+    "Annie Use Your Telescope",
+    "Anonymous Pro",
+    "Anta",
+    "Antic",
+    "Antic Didone",
+    "Antic Slab",
+    "Anton",
+    "Anton SC",
+    "Antonio",
+    "Anuphan",
+    "Anybody",
+    "Aoboshi One",
+    "Arapey",
+    "Arbutus",
+    "Arbutus Slab",
+    "Architects Daughter",
+    "Archivo",
+    "Archivo Black",
+    "Archivo Narrow",
+    "Are You Serious",
+    "Aref Ruqaa",
+    "Aref Ruqaa Ink",
+    "Arima",
+    "Arimo",
+    "Arizonia",
+    "Armata",
+    "Arsenal",
+    "Arsenal SC",
+    "Artifika",
+    "Arvo",
+    "Arya",
+    "Asap",
+    "Asap Condensed",
+    "Asar",
+    "Asset",
+    "Assistant",
+    "Astloch",
+    "Asul",
+    "Athiti",
+    "Atkinson Hyperlegible",
+    "Atma",
+    "Atomic Age",
+    "Aubrey",
+    "Audiowide",
+    "Autour One",
+    "Average",
+    "Average Sans",
+    "Averia Gruesa Libre",
+    "Averia Libre",
+    "Averia Sans Libre",
+    "Averia Serif Libre",
+    "Azeret Mono",
+    "B612",
+    "B612 Mono",
+    "BIZ UDGothic",
+    "BIZ UDMincho",
+    "BIZ UDPGothic",
+    "BIZ UDPMincho",
+    "Babylonica",
+    "Bacasime Antique",
+    "Bad Script",
+    "Bagel Fat One",
+    "Bahiana",
+    "Bahianita",
+    "Bai Jamjuree",
+    "Bakbak One",
+    "Ballet",
+    "Baloo 2",
+    "Baloo Bhai 2",
+    "Baloo Bhaijaan 2",
+    "Baloo Bhaina 2",
+    "Baloo Chettan 2",
+    "Baloo Da 2",
+    "Baloo Paaji 2",
+    "Baloo Tamma 2",
+    "Baloo Tammudu 2",
+    "Baloo Thambi 2",
+    "Balsamiq Sans",
+    "Balthazar",
+    "Bangers",
+    "Barlow",
+    "Barlow Condensed",
+    "Barlow Semi Condensed",
+    "Barriecito",
+    "Barrio",
+    "Basic",
+    "Baskervville",
+    "Baskervville SC",
+    "Battambang",
+    "Baumans",
+    "Bayon",
+    "Be Vietnam Pro",
+    "Beau Rivage",
+    "Bebas Neue",
+    "Beiruti",
+    "Belanosima",
+    "Belgrano",
+    "Bellefair",
+    "Belleza",
+    "Bellota",
+    "Bellota Text",
+    "BenchNine",
+    "Benne",
+    "Bentham",
+    "Berkshire Swash",
+    "Besley",
+    "Beth Ellen",
+    "Bevan",
+    "BhuTuka Expanded One",
+    "Big Shoulders Display",
+    "Big Shoulders Inline Display",
+    "Big Shoulders Inline Text",
+    "Big Shoulders Stencil Display",
+    "Big Shoulders Stencil Text",
+    "Big Shoulders Text",
+    "Bigelow Rules",
+    "Bigshot One",
+    "Bilbo",
+    "Bilbo Swash Caps",
+    "BioRhyme",
+    "BioRhyme Expanded",
+    "Birthstone",
+    "Birthstone Bounce",
+    "Biryani",
+    "Bitter",
+    "Black And White Picture",
+    "Black Han Sans",
+    "Black Ops One",
+    "Blaka",
+    "Blaka Hollow",
+    "Blaka Ink",
+    "Blinker",
+    "Bodoni Moda",
+    "Bodoni Moda SC",
+    "Bokor",
+    "Bona Nova",
+    "Bona Nova SC",
+    "Bonbon",
+    "Bonheur Royale",
+    "Boogaloo",
+    "Borel",
+    "Bowlby One",
+    "Bowlby One SC",
+    "Braah One",
+    "Brawler",
+    "Bree Serif",
+    "Bricolage Grotesque",
+    "Bruno Ace",
+    "Bruno Ace SC",
+    "Brygada 1918",
+    "Bubblegum Sans",
+    "Bubbler One",
+    "Buda",
+    "Buenard",
+    "Bungee",
+    "Bungee Hairline",
+    "Bungee Inline",
+    "Bungee Outline",
+    "Bungee Shade",
+    "Bungee Spice",
+    "Bungee Tint",
+    "Butcherman",
+    "Butterfly Kids",
+    "Cabin",
+    "Cabin Condensed",
+    "Cabin Sketch",
+    "Cactus Classical Serif",
+    "Caesar Dressing",
+    "Cagliostro",
+    "Cairo",
+    "Cairo Play",
+    "Caladea",
+    "Calistoga",
+    "Calligraffitti",
+    "Cambay",
+    "Cambo",
+    "Candal",
+    "Cantarell",
+    "Cantata One",
+    "Cantora One",
+    "Caprasimo",
+    "Capriola",
+    "Caramel",
+    "Carattere",
+    "Cardo",
+    "Carlito",
+    "Carme",
+    "Carrois Gothic",
+    "Carrois Gothic SC",
+    "Carter One",
+    "Castoro",
+    "Castoro Titling",
+    "Catamaran",
+    "Caudex",
+    "Caveat",
+    "Caveat Brush",
+    "Cedarville Cursive",
+    "Ceviche One",
+    "Chakra Petch",
+    "Changa",
+    "Changa One",
+    "Chango",
+    "Charis SIL",
+    "Charm",
+    "Charmonman",
+    "Chathura",
+    "Chau Philomene One",
+    "Chela One",
+    "Chelsea Market",
+    "Chenla",
+    "Cherish",
+    "Cherry Bomb One",
+    "Cherry Cream Soda",
+    "Cherry Swash",
+    "Chewy",
+    "Chicle",
+    "Chilanka",
+    "Chivo",
+    "Chivo Mono",
+    "Chocolate Classical Sans",
+    "Chokokutai",
+    "Chonburi",
+    "Cinzel",
+    "Cinzel Decorative",
+    "Clicker Script",
+    "Climate Crisis",
+    "Coda",
+    "Codystar",
+    "Coiny",
+    "Combo",
+    "Comfortaa",
+    "Comforter",
+    "Comforter Brush",
+    "Comic Neue",
+    "Coming Soon",
+    "Comme",
+    "Commissioner",
+    "Concert One",
+    "Condiment",
+    "Content",
+    "Contrail One",
+    "Convergence",
+    "Cookie",
+    "Copse",
+    "Corben",
+    "Corinthia",
+    "Cormorant",
+    "Cormorant Garamond",
+    "Cormorant Infant",
+    "Cormorant SC",
+    "Cormorant Unicase",
+    "Cormorant Upright",
+    "Courgette",
+    "Courier Prime",
+    "Cousine",
+    "Coustard",
+    "Covered By Your Grace",
+    "Crafty Girls",
+    "Creepster",
+    "Crete Round",
+    "Crimson Pro",
+    "Crimson Text",
+    "Croissant One",
+    "Crushed",
+    "Cuprum",
+    "Cute Font",
+    "Cutive",
+    "Cutive Mono",
+    "DM Mono",
+    "DM Sans",
+    "DM Serif Display",
+    "DM Serif Text",
+    "Dai Banna SIL",
+    "Damion",
+    "Dancing Script",
+    "Danfo",
+    "Dangrek",
+    "Darker Grotesque",
+    "Darumadrop One",
+    "David Libre",
+    "Dawning of a New Day",
+    "Days One",
+    "Dekko",
+    "Dela Gothic One",
+    "Delicious Handrawn",
+    "Delius",
+    "Delius Swash Caps",
+    "Delius Unicase",
+    "Della Respira",
+    "Denk One",
+    "Devonshire",
+    "Dhurjati",
+    "Didact Gothic",
+    "Diphylleia",
+    "Diplomata",
+    "Diplomata SC",
+    "Do Hyeon",
+    "Dokdo",
+    "Domine",
+    "Donegal One",
+    "Dongle",
+    "Doppio One",
+    "Dorsa",
+    "Dosis",
+    "DotGothic16",
+    "Dr Sugiyama",
+    "Duru Sans",
+    "DynaPuff",
+    "Dynalight",
+    "EB Garamond",
+    "Eagle Lake",
+    "East Sea Dokdo",
+    "Eater",
+    "Economica",
+    "Eczar",
+    "Edu AU VIC WA NT Dots",
+    "Edu AU VIC WA NT Guides",
+    "Edu AU VIC WA NT Hand",
+    "Edu NSW ACT Foundation",
+    "Edu QLD Beginner",
+    "Edu SA Beginner",
+    "Edu TAS Beginner",
+    "Edu VIC WA NT Beginner",
+    "El Messiri",
+    "Electrolize",
+    "Elsie",
+    "Elsie Swash Caps",
+    "Emblema One",
+    "Emilys Candy",
+    "Encode Sans",
+    "Encode Sans Condensed",
+    "Encode Sans Expanded",
+    "Encode Sans SC",
+    "Encode Sans Semi Condensed",
+    "Encode Sans Semi Expanded",
+    "Engagement",
+    "Englebert",
+    "Enriqueta",
+    "Ephesis",
+    "Epilogue",
+    "Erica One",
+    "Esteban",
+    "Estonia",
+    "Euphoria Script",
+    "Ewert",
+    "Exo",
+    "Exo 2",
+    "Expletus Sans",
+    "Explora",
+    "Fahkwang",
+    "Familjen Grotesk",
+    "Fanwood Text",
+    "Farro",
+    "Farsan",
+    "Fascinate",
+    "Fascinate Inline",
+    "Faster One",
+    "Fasthand",
+    "Fauna One",
+    "Faustina",
+    "Federant",
+    "Federo",
+    "Felipa",
+    "Fenix",
+    "Festive",
+    "Figtree",
+    "Finger Paint",
+    "Finlandica",
+    "Fira Code",
+    "Fira Mono",
+    "Fira Sans",
+    "Fira Sans Condensed",
+    "Fira Sans Extra Condensed",
+    "Fjalla One",
+    "Fjord One",
+    "Flamenco",
+    "Flavors",
+    "Fleur De Leah",
+    "Flow Block",
+    "Flow Circular",
+    "Flow Rounded",
+    "Foldit",
+    "Fondamento",
+    "Fontdiner Swanky",
+    "Forum",
+    "Fragment Mono",
+    "Francois One",
+    "Frank Ruhl Libre",
+    "Fraunces",
+    "Freckle Face",
+    "Fredericka the Great",
+    "Fredoka",
+    "Freehand",
+    "Freeman",
+    "Fresca",
+    "Frijole",
+    "Fruktur",
+    "Fugaz One",
+    "Fuggles",
+    "Fustat",
+    "Fuzzy Bubbles",
+    "GFS Didot",
+    "GFS Neohellenic",
+    "Ga Maamli",
+    "Gabarito",
+    "Gabriela",
+    "Gaegu",
+    "Gafata",
+    "Gajraj One",
+    "Galada",
+    "Galdeano",
+    "Galindo",
+    "Gamja Flower",
+    "Gantari",
+    "Gasoek One",
+    "Gayathri",
+    "Gelasio",
+    "Gemunu Libre",
+    "Genos",
+    "Gentium Book Plus",
+    "Gentium Plus",
+    "Geo",
+    "Geologica",
+    "Georama",
+    "Geostar",
+    "Geostar Fill",
+    "Germania One",
+    "Gideon Roman",
+    "Gidugu",
+    "Gilda Display",
+    "Girassol",
+    "Give You Glory",
+    "Glass Antiqua",
+    "Glegoo",
+    "Gloock",
+    "Gloria Hallelujah",
+    "Glory",
+    "Gluten",
+    "Goblin One",
+    "Gochi Hand",
+    "Goldman",
+    "Golos Text",
+    "Gorditas",
+    "Gothic A1",
+    "Gotu",
+    "Goudy Bookletter 1911",
+    "Gowun Batang",
+    "Gowun Dodum",
+    "Graduate",
+    "Grand Hotel",
+    "Grandiflora One",
+    "Grandstander",
+    "Grape Nuts",
+    "Gravitas One",
+    "Great Vibes",
+    "Grechen Fuemen",
+    "Grenze",
+    "Grenze Gotisch",
+    "Grey Qo",
+    "Griffy",
+    "Gruppo",
+    "Gudea",
+    "Gugi",
+    "Gulzar",
+    "Gupter",
+    "Gurajada",
+    "Gwendolyn",
+    "Habibi",
+    "Hachi Maru Pop",
+    "Hahmlet",
+    "Halant",
+    "Hammersmith One",
+    "Hanalei",
+    "Hanalei Fill",
+    "Handjet",
+    "Handlee",
+    "Hanken Grotesk",
+    "Hanuman",
+    "Happy Monkey",
+    "Harmattan",
+    "Headland One",
+    "Hedvig Letters Sans",
+    "Hedvig Letters Serif",
+    "Heebo",
+    "Henny Penny",
+    "Hepta Slab",
+    "Herr Von Muellerhoff",
+    "Hi Melody",
+    "Hina Mincho",
+    "Hind",
+    "Hind Guntur",
+    "Hind Madurai",
+    "Hind Siliguri",
+    "Hind Vadodara",
+    "Holtwood One SC",
+    "Homemade Apple",
+    "Homenaje",
+    "Honk",
+    "Hubballi",
+    "Hurricane",
+    "IBM Plex Mono",
+    "IBM Plex Sans",
+    "IBM Plex Sans Arabic",
+    "IBM Plex Sans Condensed",
+    "IBM Plex Sans Devanagari",
+    "IBM Plex Sans Hebrew",
+    "IBM Plex Sans JP",
+    "IBM Plex Sans KR",
+    "IBM Plex Sans Thai",
+    "IBM Plex Sans Thai Looped",
+    "IBM Plex Serif",
+    "IM Fell DW Pica",
+    "IM Fell DW Pica SC",
+    "IM Fell Double Pica",
+    "IM Fell Double Pica SC",
+    "IM Fell English",
+    "IM Fell English SC",
+    "IM Fell French Canon",
+    "IM Fell French Canon SC",
+    "IM Fell Great Primer",
+    "IM Fell Great Primer SC",
+    "Ibarra Real Nova",
+    "Iceberg",
+    "Iceland",
+    "Imbue",
+    "Imperial Script",
+    "Imprima",
+    "Inclusive Sans",
+    "Inconsolata",
+    "Inder",
+    "Indie Flower",
+    "Ingrid Darling",
+    "Inika",
+    "Inknut Antiqua",
+    "Inria Sans",
+    "Inria Serif",
+    "Inspiration",
+    "Instrument Sans",
+    "Instrument Serif",
+    "Inter",
+    "Inter Tight",
+    "Irish Grover",
+    "Island Moments",
+    "Istok Web",
+    "Italiana",
+    "Italianno",
+    "Itim",
+    "Jacquard 12",
+    "Jacquard 12 Charted",
+    "Jacquard 24",
+    "Jacquard 24 Charted",
+    "Jacquarda Bastarda 9",
+    "Jacquarda Bastarda 9 Charted",
+    "Jacques Francois",
+    "Jacques Francois Shadow",
+    "Jaini",
+    "Jaini Purva",
+    "Jaldi",
+    "Jaro",
+    "Jersey 10",
+    "Jersey 10 Charted",
+    "Jersey 15",
+    "Jersey 15 Charted",
+    "Jersey 20",
+    "Jersey 20 Charted",
+    "Jersey 25",
+    "Jersey 25 Charted",
+    "JetBrains Mono",
+    "Jim Nightshade",
+    "Joan",
+    "Jockey One",
+    "Jolly Lodger",
+    "Jomhuria",
+    "Jomolhari",
+    "Josefin Sans",
+    "Josefin Slab",
+    "Jost",
+    "Joti One",
+    "Jua",
+    "Judson",
+    "Julee",
+    "Julius Sans One",
+    "Junge",
+    "Jura",
+    "Just Another Hand",
+    "Just Me Again Down Here",
+    "K2D",
+    "Kablammo",
+    "Kadwa",
+    "Kaisei Decol",
+    "Kaisei HarunoUmi",
+    "Kaisei Opti",
+    "Kaisei Tokumin",
+    "Kalam",
+    "Kalnia",
+    "Kalnia Glaze",
+    "Kameron",
+    "Kanit",
+    "Kantumruy Pro",
+    "Karantina",
+    "Karla",
+    "Karma",
+    "Katibeh",
+    "Kaushan Script",
+    "Kavivanar",
+    "Kavoon",
+    "Kay Pho Du",
+    "Kdam Thmor Pro",
+    "Keania One",
+    "Kelly Slab",
+    "Kenia",
+    "Khand",
+    "Khmer",
+    "Khula",
+    "Kings",
+    "Kirang Haerang",
+    "Kite One",
+    "Kiwi Maru",
+    "Klee One",
+    "Knewave",
+    "KoHo",
+    "Kodchasan",
+    "Kode Mono",
+    "Koh Santepheap",
+    "Kolker Brush",
+    "Konkhmer Sleokchher",
+    "Kosugi",
+    "Kosugi Maru",
+    "Kotta One",
+    "Koulen",
+    "Kranky",
+    "Kreon",
+    "Kristi",
+    "Krona One",
+    "Krub",
+    "Kufam",
+    "Kulim Park",
+    "Kumar One",
+    "Kumar One Outline",
+    "Kumbh Sans",
+    "Kurale",
+    "LXGW WenKai Mono TC",
+    "LXGW WenKai TC",
+    "La Belle Aurore",
+    "Labrada",
+    "Lacquer",
+    "Laila",
+    "Lakki Reddy",
+    "Lalezar",
+    "Lancelot",
+    "Langar",
+    "Lateef",
+    "Lato",
+    "Lavishly Yours",
+    "League Gothic",
+    "League Script",
+    "League Spartan",
+    "Leckerli One",
+    "Ledger",
+    "Lekton",
+    "Lemon",
+    "Lemonada",
+    "Lexend",
+    "Lexend Deca",
+    "Lexend Exa",
+    "Lexend Giga",
+    "Lexend Mega",
+    "Lexend Peta",
+    "Lexend Tera",
+    "Lexend Zetta",
+    "Libre Barcode 128",
+    "Libre Barcode 128 Text",
+    "Libre Barcode 39",
+    "Libre Barcode 39 Extended",
+    "Libre Barcode 39 Extended Text",
+    "Libre Barcode 39 Text",
+    "Libre Barcode EAN13 Text",
+    "Libre Baskerville",
+    "Libre Bodoni",
+    "Libre Caslon Display",
+    "Libre Caslon Text",
+    "Libre Franklin",
+    "Licorice",
+    "Life Savers",
+    "Lilita One",
+    "Lily Script One",
+    "Limelight",
+    "Linden Hill",
+    "Linefont",
+    "Lisu Bosa",
+    "Literata",
+    "Liu Jian Mao Cao",
+    "Livvic",
+    "Lobster",
+    "Lobster Two",
+    "Londrina Outline",
+    "Londrina Shadow",
+    "Londrina Sketch",
+    "Londrina Solid",
+    "Long Cang",
+    "Lora",
+    "Love Light",
+    "Love Ya Like A Sister",
+    "Loved by the King",
+    "Lovers Quarrel",
+    "Luckiest Guy",
+    "Lugrasimo",
+    "Lumanosimo",
+    "Lunasima",
+    "Lusitana",
+    "Lustria",
+    "Luxurious Roman",
+    "Luxurious Script",
+    "M PLUS 1",
+    "M PLUS 1 Code",
+    "M PLUS 1p",
+    "M PLUS 2",
+    "M PLUS Code Latin",
+    "M PLUS Rounded 1c",
+    "Ma Shan Zheng",
+    "Macondo",
+    "Macondo Swash Caps",
+    "Mada",
+    "Madimi One",
+    "Magra",
+    "Maiden Orange",
+    "Maitree",
+    "Major Mono Display",
+    "Mako",
+    "Mali",
+    "Mallanna",
+    "Maname",
+    "Mandali",
+    "Manjari",
+    "Manrope",
+    "Mansalva",
+    "Manuale",
+    "Marcellus",
+    "Marcellus SC",
+    "Marck Script",
+    "Margarine",
+    "Marhey",
+    "Markazi Text",
+    "Marko One",
+    "Marmelad",
+    "Martel",
+    "Martel Sans",
+    "Martian Mono",
+    "Marvel",
+    "Mate",
+    "Mate SC",
+    "Matemasie",
+    "Material Icons",
+    "Material Icons Outlined",
+    "Material Icons Round",
+    "Material Icons Sharp",
+    "Material Icons Two Tone",
+    "Material Symbols Outlined",
+    "Material Symbols Rounded",
+    "Material Symbols Sharp",
+    "Maven Pro",
+    "McLaren",
+    "Mea Culpa",
+    "Meddon",
+    "MedievalSharp",
+    "Medula One",
+    "Meera Inimai",
+    "Megrim",
+    "Meie Script",
+    "Meow Script",
+    "Merienda",
+    "Merriweather",
+    "Merriweather Sans",
+    "Metal",
+    "Metal Mania",
+    "Metamorphous",
+    "Metrophobic",
+    "Michroma",
+    "Micro 5",
+    "Micro 5 Charted",
+    "Milonga",
+    "Miltonian",
+    "Miltonian Tattoo",
+    "Mina",
+    "Mingzat",
+    "Miniver",
+    "Miriam Libre",
+    "Mirza",
+    "Miss Fajardose",
+    "Mitr",
+    "Mochiy Pop One",
+    "Mochiy Pop P One",
+    "Modak",
+    "Modern Antiqua",
+    "Moderustic",
+    "Mogra",
+    "Mohave",
+    "Moirai One",
+    "Molengo",
+    "Molle",
+    "Monda",
+    "Monofett",
+    "Monomaniac One",
+    "Monoton",
+    "Monsieur La Doulaise",
+    "Montaga",
+    "Montagu Slab",
+    "MonteCarlo",
+    "Montez",
+    "Montserrat",
+    "Montserrat Alternates",
+    "Montserrat Subrayada",
+    "Moo Lah Lah",
+    "Mooli",
+    "Moon Dance",
+    "Moul",
+    "Moulpali",
+    "Mountains of Christmas",
+    "Mouse Memoirs",
+    "Mr Bedfort",
+    "Mr Dafoe",
+    "Mr De Haviland",
+    "Mrs Saint Delafield",
+    "Mrs Sheppards",
+    "Ms Madi",
+    "Mukta",
+    "Mukta Mahee",
+    "Mukta Malar",
+    "Mukta Vaani",
+    "Mulish",
+    "Murecho",
+    "MuseoModerno",
+    "My Soul",
+    "Mynerve",
+    "Mystery Quest",
+    "NTR",
+    "Nabla",
+    "Namdhinggo",
+    "Nanum Brush Script",
+    "Nanum Gothic",
+    "Nanum Gothic Coding",
+    "Nanum Myeongjo",
+    "Nanum Pen Script",
+    "Narnoor",
+    "Neonderthaw",
+    "Nerko One",
+    "Neucha",
+    "Neuton",
+    "New Amsterdam",
+    "New Rocker",
+    "New Tegomin",
+    "News Cycle",
+    "Newsreader",
+    "Niconne",
+    "Niramit",
+    "Nixie One",
+    "Nobile",
+    "Nokora",
+    "Norican",
+    "Nosifer",
+    "Notable",
+    "Nothing You Could Do",
+    "Noticia Text",
+    "Noto Color Emoji",
+    "Noto Emoji",
+    "Noto Kufi Arabic",
+    "Noto Music",
+    "Noto Naskh Arabic",
+    "Noto Nastaliq Urdu",
+    "Noto Rashi Hebrew",
+    "Noto Sans",
+    "Noto Sans Adlam",
+    "Noto Sans Adlam Unjoined",
+    "Noto Sans Anatolian Hieroglyphs",
+    "Noto Sans Arabic",
+    "Noto Sans Armenian",
+    "Noto Sans Avestan",
+    "Noto Sans Balinese",
+    "Noto Sans Bamum",
+    "Noto Sans Bassa Vah",
+    "Noto Sans Batak",
+    "Noto Sans Bengali",
+    "Noto Sans Bhaiksuki",
+    "Noto Sans Brahmi",
+    "Noto Sans Buginese",
+    "Noto Sans Buhid",
+    "Noto Sans Canadian Aboriginal",
+    "Noto Sans Carian",
+    "Noto Sans Caucasian Albanian",
+    "Noto Sans Chakma",
+    "Noto Sans Cham",
+    "Noto Sans Cherokee",
+    "Noto Sans Chorasmian",
+    "Noto Sans Coptic",
+    "Noto Sans Cuneiform",
+    "Noto Sans Cypriot",
+    "Noto Sans Cypro Minoan",
+    "Noto Sans Deseret",
+    "Noto Sans Devanagari",
+    "Noto Sans Display",
+    "Noto Sans Duployan",
+    "Noto Sans Egyptian Hieroglyphs",
+    "Noto Sans Elbasan",
+    "Noto Sans Elymaic",
+    "Noto Sans Ethiopic",
+    "Noto Sans Georgian",
+    "Noto Sans Glagolitic",
+    "Noto Sans Gothic",
+    "Noto Sans Grantha",
+    "Noto Sans Gujarati",
+    "Noto Sans Gunjala Gondi",
+    "Noto Sans Gurmukhi",
+    "Noto Sans HK",
+    "Noto Sans Hanifi Rohingya",
+    "Noto Sans Hanunoo",
+    "Noto Sans Hatran",
+    "Noto Sans Hebrew",
+    "Noto Sans Imperial Aramaic",
+    "Noto Sans Indic Siyaq Numbers",
+    "Noto Sans Inscriptional Pahlavi",
+    "Noto Sans Inscriptional Parthian",
+    "Noto Sans JP",
+    "Noto Sans Javanese",
+    "Noto Sans KR",
+    "Noto Sans Kaithi",
+    "Noto Sans Kannada",
+    "Noto Sans Kawi",
+    "Noto Sans Kayah Li",
+    "Noto Sans Kharoshthi",
+    "Noto Sans Khmer",
+    "Noto Sans Khojki",
+    "Noto Sans Khudawadi",
+    "Noto Sans Lao",
+    "Noto Sans Lao Looped",
+    "Noto Sans Lepcha",
+    "Noto Sans Limbu",
+    "Noto Sans Linear A",
+    "Noto Sans Linear B",
+    "Noto Sans Lisu",
+    "Noto Sans Lycian",
+    "Noto Sans Lydian",
+    "Noto Sans Mahajani",
+    "Noto Sans Malayalam",
+    "Noto Sans Mandaic",
+    "Noto Sans Manichaean",
+    "Noto Sans Marchen",
+    "Noto Sans Masaram Gondi",
+    "Noto Sans Math",
+    "Noto Sans Mayan Numerals",
+    "Noto Sans Medefaidrin",
+    "Noto Sans Meetei Mayek",
+    "Noto Sans Mende Kikakui",
+    "Noto Sans Meroitic",
+    "Noto Sans Miao",
+    "Noto Sans Modi",
+    "Noto Sans Mongolian",
+    "Noto Sans Mono",
+    "Noto Sans Mro",
+    "Noto Sans Multani",
+    "Noto Sans Myanmar",
+    "Noto Sans NKo",
+    "Noto Sans NKo Unjoined",
+    "Noto Sans Nabataean",
+    "Noto Sans Nag Mundari",
+    "Noto Sans Nandinagari",
+    "Noto Sans New Tai Lue",
+    "Noto Sans Newa",
+    "Noto Sans Nushu",
+    "Noto Sans Ogham",
+    "Noto Sans Ol Chiki",
+    "Noto Sans Old Hungarian",
+    "Noto Sans Old Italic",
+    "Noto Sans Old North Arabian",
+    "Noto Sans Old Permic",
+    "Noto Sans Old Persian",
+    "Noto Sans Old Sogdian",
+    "Noto Sans Old South Arabian",
+    "Noto Sans Old Turkic",
+    "Noto Sans Oriya",
+    "Noto Sans Osage",
+    "Noto Sans Osmanya",
+    "Noto Sans Pahawh Hmong",
+    "Noto Sans Palmyrene",
+    "Noto Sans Pau Cin Hau",
+    "Noto Sans Phags Pa",
+    "Noto Sans Phoenician",
+    "Noto Sans Psalter Pahlavi",
+    "Noto Sans Rejang",
+    "Noto Sans Runic",
+    "Noto Sans SC",
+    "Noto Sans Samaritan",
+    "Noto Sans Saurashtra",
+    "Noto Sans Sharada",
+    "Noto Sans Shavian",
+    "Noto Sans Siddham",
+    "Noto Sans SignWriting",
+    "Noto Sans Sinhala",
+    "Noto Sans Sogdian",
+    "Noto Sans Sora Sompeng",
+    "Noto Sans Soyombo",
+    "Noto Sans Sundanese",
+    "Noto Sans Syloti Nagri",
+    "Noto Sans Symbols",
+    "Noto Sans Symbols 2",
+    "Noto Sans Syriac",
+    "Noto Sans Syriac Eastern",
+    "Noto Sans TC",
+    "Noto Sans Tagalog",
+    "Noto Sans Tagbanwa",
+    "Noto Sans Tai Le",
+    "Noto Sans Tai Tham",
+    "Noto Sans Tai Viet",
+    "Noto Sans Takri",
+    "Noto Sans Tamil",
+    "Noto Sans Tamil Supplement",
+    "Noto Sans Tangsa",
+    "Noto Sans Telugu",
+    "Noto Sans Thaana",
+    "Noto Sans Thai",
+    "Noto Sans Thai Looped",
+    "Noto Sans Tifinagh",
+    "Noto Sans Tirhuta",
+    "Noto Sans Ugaritic",
+    "Noto Sans Vai",
+    "Noto Sans Vithkuqi",
+    "Noto Sans Wancho",
+    "Noto Sans Warang Citi",
+    "Noto Sans Yi",
+    "Noto Sans Zanabazar Square",
+    "Noto Serif",
+    "Noto Serif Ahom",
+    "Noto Serif Armenian",
+    "Noto Serif Balinese",
+    "Noto Serif Bengali",
+    "Noto Serif Devanagari",
+    "Noto Serif Display",
+    "Noto Serif Dogra",
+    "Noto Serif Ethiopic",
+    "Noto Serif Georgian",
+    "Noto Serif Grantha",
+    "Noto Serif Gujarati",
+    "Noto Serif Gurmukhi",
+    "Noto Serif HK",
+    "Noto Serif Hebrew",
+    "Noto Serif JP",
+    "Noto Serif KR",
+    "Noto Serif Kannada",
+    "Noto Serif Khitan Small Script",
+    "Noto Serif Khmer",
+    "Noto Serif Khojki",
+    "Noto Serif Lao",
+    "Noto Serif Makasar",
+    "Noto Serif Malayalam",
+    "Noto Serif Myanmar",
+    "Noto Serif NP Hmong",
+    "Noto Serif Old Uyghur",
+    "Noto Serif Oriya",
+    "Noto Serif Ottoman Siyaq",
+    "Noto Serif SC",
+    "Noto Serif Sinhala",
+    "Noto Serif TC",
+    "Noto Serif Tamil",
+    "Noto Serif Tangut",
+    "Noto Serif Telugu",
+    "Noto Serif Thai",
+    "Noto Serif Tibetan",
+    "Noto Serif Toto",
+    "Noto Serif Vithkuqi",
+    "Noto Serif Yezidi",
+    "Noto Traditional Nushu",
+    "Noto Znamenny Musical Notation",
+    "Nova Cut",
+    "Nova Flat",
+    "Nova Mono",
+    "Nova Oval",
+    "Nova Round",
+    "Nova Script",
+    "Nova Slim",
+    "Nova Square",
+    "Numans",
+    "Nunito",
+    "Nunito Sans",
+    "Nuosu SIL",
+    "Odibee Sans",
+    "Odor Mean Chey",
+    "Offside",
+    "Oi",
+    "Ojuju",
+    "Old Standard TT",
+    "Oldenburg",
+    "Ole",
+    "Oleo Script",
+    "Oleo Script Swash Caps",
+    "Onest",
+    "Oooh Baby",
+    "Open Sans",
+    "Oranienbaum",
+    "Orbit",
+    "Orbitron",
+    "Oregano",
+    "Orelega One",
+    "Orienta",
+    "Original Surfer",
+    "Oswald",
+    "Outfit",
+    "Over the Rainbow",
+    "Overlock",
+    "Overlock SC",
+    "Overpass",
+    "Overpass Mono",
+    "Ovo",
+    "Oxanium",
+    "Oxygen",
+    "Oxygen Mono",
+    "PT Mono",
+    "PT Sans",
+    "PT Sans Caption",
+    "PT Sans Narrow",
+    "PT Serif",
+    "PT Serif Caption",
+    "Pacifico",
+    "Padauk",
+    "Padyakke Expanded One",
+    "Palanquin",
+    "Palanquin Dark",
+    "Palette Mosaic",
+    "Pangolin",
+    "Paprika",
+    "Parisienne",
+    "Passero One",
+    "Passion One",
+    "Passions Conflict",
+    "Pathway Extreme",
+    "Pathway Gothic One",
+    "Patrick Hand",
+    "Patrick Hand SC",
+    "Pattaya",
+    "Patua One",
+    "Pavanam",
+    "Paytone One",
+    "Peddana",
+    "Peralta",
+    "Permanent Marker",
+    "Petemoss",
+    "Petit Formal Script",
+    "Petrona",
+    "Philosopher",
+    "Phudu",
+    "Piazzolla",
+    "Piedra",
+    "Pinyon Script",
+    "Pirata One",
+    "Pixelify Sans",
+    "Plaster",
+    "Platypi",
+    "Play",
+    "Playball",
+    "Playfair",
+    "Playfair Display",
+    "Playfair Display SC",
+    "Playpen Sans",
+    "Playwrite AR",
+    "Playwrite AT",
+    "Playwrite AU NSW",
+    "Playwrite AU QLD",
+    "Playwrite AU SA",
+    "Playwrite AU TAS",
+    "Playwrite AU VIC",
+    "Playwrite BE VLG",
+    "Playwrite BE WAL",
+    "Playwrite BR",
+    "Playwrite CA",
+    "Playwrite CL",
+    "Playwrite CO",
+    "Playwrite CU",
+    "Playwrite CZ",
+    "Playwrite DE Grund",
+    "Playwrite DE LA",
+    "Playwrite DE SAS",
+    "Playwrite DE VA",
+    "Playwrite DK Loopet",
+    "Playwrite DK Uloopet",
+    "Playwrite ES",
+    "Playwrite ES Deco",
+    "Playwrite FR Moderne",
+    "Playwrite FR Trad",
+    "Playwrite GB J",
+    "Playwrite GB S",
+    "Playwrite HR",
+    "Playwrite HR Lijeva",
+    "Playwrite HU",
+    "Playwrite ID",
+    "Playwrite IE",
+    "Playwrite IN",
+    "Playwrite IS",
+    "Playwrite IT Moderna",
+    "Playwrite IT Trad",
+    "Playwrite MX",
+    "Playwrite NG Modern",
+    "Playwrite NL",
+    "Playwrite NO",
+    "Playwrite NZ",
+    "Playwrite PE",
+    "Playwrite PL",
+    "Playwrite PT",
+    "Playwrite RO",
+    "Playwrite SK",
+    "Playwrite TZ",
+    "Playwrite US Modern",
+    "Playwrite US Trad",
+    "Playwrite VN",
+    "Playwrite ZA",
+    "Plus Jakarta Sans",
+    "Podkova",
+    "Poetsen One",
+    "Poiret One",
+    "Poller One",
+    "Poltawski Nowy",
+    "Poly",
+    "Pompiere",
+    "Pontano Sans",
+    "Poor Story",
+    "Poppins",
+    "Port Lligat Sans",
+    "Port Lligat Slab",
+    "Potta One",
+    "Pragati Narrow",
+    "Praise",
+    "Prata",
+    "Preahvihear",
+    "Press Start 2P",
+    "Pridi",
+    "Princess Sofia",
+    "Prociono",
+    "Prompt",
+    "Prosto One",
+    "Protest Guerrilla",
+    "Protest Revolution",
+    "Protest Riot",
+    "Protest Strike",
+    "Proza Libre",
+    "Public Sans",
+    "Puppies Play",
+    "Puritan",
+    "Purple Purse",
+    "Qahiri",
+    "Quando",
+    "Quantico",
+    "Quattrocento",
+    "Quattrocento Sans",
+    "Questrial",
+    "Quicksand",
+    "Quintessential",
+    "Qwigley",
+    "Qwitcher Grypen",
+    "REM",
+    "Racing Sans One",
+    "Radio Canada",
+    "Radio Canada Big",
+    "Radley",
+    "Rajdhani",
+    "Rakkas",
+    "Raleway",
+    "Raleway Dots",
+    "Ramabhadra",
+    "Ramaraja",
+    "Rambla",
+    "Rammetto One",
+    "Rampart One",
+    "Ranchers",
+    "Rancho",
+    "Ranga",
+    "Rasa",
+    "Rationale",
+    "Ravi Prakash",
+    "Readex Pro",
+    "Recursive",
+    "Red Hat Display",
+    "Red Hat Mono",
+    "Red Hat Text",
+    "Red Rose",
+    "Redacted",
+    "Redacted Script",
+    "Reddit Mono",
+    "Reddit Sans",
+    "Reddit Sans Condensed",
+    "Redressed",
+    "Reem Kufi",
+    "Reem Kufi Fun",
+    "Reem Kufi Ink",
+    "Reenie Beanie",
+    "Reggae One",
+    "Rethink Sans",
+    "Revalia",
+    "Rhodium Libre",
+    "Ribeye",
+    "Ribeye Marrow",
+    "Righteous",
+    "Risque",
+    "Road Rage",
+    "Roboto",
+    "Roboto Condensed",
+    "Roboto Flex",
+    "Roboto Mono",
+    "Roboto Serif",
+    "Roboto Slab",
+    "Rochester",
+    "Rock 3D",
+    "Rock Salt",
+    "RocknRoll One",
+    "Rokkitt",
+    "Romanesco",
+    "Ropa Sans",
+    "Rosario",
+    "Rosarivo",
+    "Rouge Script",
+    "Rowdies",
+    "Rozha One",
+    "Rubik",
+    "Rubik 80s Fade",
+    "Rubik Beastly",
+    "Rubik Broken Fax",
+    "Rubik Bubbles",
+    "Rubik Burned",
+    "Rubik Dirt",
+    "Rubik Distressed",
+    "Rubik Doodle Shadow",
+    "Rubik Doodle Triangles",
+    "Rubik Gemstones",
+    "Rubik Glitch",
+    "Rubik Glitch Pop",
+    "Rubik Iso",
+    "Rubik Lines",
+    "Rubik Maps",
+    "Rubik Marker Hatch",
+    "Rubik Maze",
+    "Rubik Microbe",
+    "Rubik Mono One",
+    "Rubik Moonrocks",
+    "Rubik Pixels",
+    "Rubik Puddles",
+    "Rubik Scribble",
+    "Rubik Spray Paint",
+    "Rubik Storm",
+    "Rubik Vinyl",
+    "Rubik Wet Paint",
+    "Ruda",
+    "Rufina",
+    "Ruge Boogie",
+    "Ruluko",
+    "Rum Raisin",
+    "Ruslan Display",
+    "Russo One",
+    "Ruthie",
+    "Ruwudu",
+    "Rye",
+    "STIX Two Text",
+    "SUSE",
+    "Sacramento",
+    "Sahitya",
+    "Sail",
+    "Saira",
+    "Saira Condensed",
+    "Saira Extra Condensed",
+    "Saira Semi Condensed",
+    "Saira Stencil One",
+    "Salsa",
+    "Sanchez",
+    "Sancreek",
+    "Sankofa Display",
+    "Sansita",
+    "Sansita Swashed",
+    "Sarabun",
+    "Sarala",
+    "Sarina",
+    "Sarpanch",
+    "Sassy Frass",
+    "Satisfy",
+    "Sawarabi Gothic",
+    "Sawarabi Mincho",
+    "Scada",
+    "Scheherazade New",
+    "Schibsted Grotesk",
+    "Schoolbell",
+    "Scope One",
+    "Seaweed Script",
+    "Secular One",
+    "Sedan",
+    "Sedan SC",
+    "Sedgwick Ave",
+    "Sedgwick Ave Display",
+    "Sen",
+    "Send Flowers",
+    "Sevillana",
+    "Seymour One",
+    "Shadows Into Light",
+    "Shadows Into Light Two",
+    "Shalimar",
+    "Shantell Sans",
+    "Shanti",
+    "Share",
+    "Share Tech",
+    "Share Tech Mono",
+    "Shippori Antique",
+    "Shippori Antique B1",
+    "Shippori Mincho",
+    "Shippori Mincho B1",
+    "Shizuru",
+    "Shojumaru",
+    "Short Stack",
+    "Shrikhand",
+    "Siemreap",
+    "Sigmar",
+    "Sigmar One",
+    "Signika",
+    "Signika Negative",
+    "Silkscreen",
+    "Simonetta",
+    "Single Day",
+    "Sintony",
+    "Sirin Stencil",
+    "Six Caps",
+    "Sixtyfour",
+    "Sixtyfour Convergence",
+    "Skranji",
+    "Slabo 13px",
+    "Slabo 27px",
+    "Slackey",
+    "Slackside One",
+    "Smokum",
+    "Smooch",
+    "Smooch Sans",
+    "Smythe",
+    "Sniglet",
+    "Snippet",
+    "Snowburst One",
+    "Sofadi One",
+    "Sofia",
+    "Sofia Sans",
+    "Sofia Sans Condensed",
+    "Sofia Sans Extra Condensed",
+    "Sofia Sans Semi Condensed",
+    "Solitreo",
+    "Solway",
+    "Sometype Mono",
+    "Song Myung",
+    "Sono",
+    "Sonsie One",
+    "Sora",
+    "Sorts Mill Goudy",
+    "Source Code Pro",
+    "Source Sans 3",
+    "Source Serif 4",
+    "Space Grotesk",
+    "Space Mono",
+    "Special Elite",
+    "Spectral",
+    "Spectral SC",
+    "Spicy Rice",
+    "Spinnaker",
+    "Spirax",
+    "Splash",
+    "Spline Sans",
+    "Spline Sans Mono",
+    "Squada One",
+    "Square Peg",
+    "Sree Krushnadevaraya",
+    "Sriracha",
+    "Srisakdi",
+    "Staatliches",
+    "Stalemate",
+    "Stalinist One",
+    "Stardos Stencil",
+    "Stick",
+    "Stick No Bills",
+    "Stint Ultra Condensed",
+    "Stint Ultra Expanded",
+    "Stoke",
+    "Strait",
+    "Style Script",
+    "Stylish",
+    "Sue Ellen Francisco",
+    "Suez One",
+    "Sulphur Point",
+    "Sumana",
+    "Sunflower",
+    "Sunshiney",
+    "Supermercado One",
+    "Sura",
+    "Suranna",
+    "Suravaram",
+    "Suwannaphum",
+    "Swanky and Moo Moo",
+    "Syncopate",
+    "Syne",
+    "Syne Mono",
+    "Syne Tactile",
+    "Tac One",
+    "Tai Heritage Pro",
+    "Tajawal",
+    "Tangerine",
+    "Tapestry",
+    "Taprom",
+    "Tauri",
+    "Taviraj",
+    "Teachers",
+    "Teko",
+    "Tektur",
+    "Telex",
+    "Tenali Ramakrishna",
+    "Tenor Sans",
+    "Text Me One",
+    "Texturina",
+    "Thasadith",
+    "The Girl Next Door",
+    "The Nautigal",
+    "Tienne",
+    "Tillana",
+    "Tilt Neon",
+    "Tilt Prism",
+    "Tilt Warp",
+    "Timmana",
+    "Tinos",
+    "Tiny5",
+    "Tiro Bangla",
+    "Tiro Devanagari Hindi",
+    "Tiro Devanagari Marathi",
+    "Tiro Devanagari Sanskrit",
+    "Tiro Gurmukhi",
+    "Tiro Kannada",
+    "Tiro Tamil",
+    "Tiro Telugu",
+    "Titan One",
+    "Titillium Web",
+    "Tomorrow",
+    "Tourney",
+    "Trade Winds",
+    "Train One",
+    "Trirong",
+    "Trispace",
+    "Trocchi",
+    "Trochut",
+    "Truculenta",
+    "Trykker",
+    "Tsukimi Rounded",
+    "Tulpen One",
+    "Turret Road",
+    "Twinkle Star",
+    "Ubuntu",
+    "Ubuntu Condensed",
+    "Ubuntu Mono",
+    "Ubuntu Sans",
+    "Ubuntu Sans Mono",
+    "Uchen",
+    "Ultra",
+    "Unbounded",
+    "Uncial Antiqua",
+    "Underdog",
+    "Unica One",
+    "UnifrakturCook",
+    "UnifrakturMaguntia",
+    "Unkempt",
+    "Unlock",
+    "Unna",
+    "Updock",
+    "Urbanist",
+    "VT323",
+    "Vampiro One",
+    "Varela",
+    "Varela Round",
+    "Varta",
+    "Vast Shadow",
+    "Vazirmatn",
+    "Vesper Libre",
+    "Viaoda Libre",
+    "Vibes",
+    "Vibur",
+    "Victor Mono",
+    "Vidaloka",
+    "Viga",
+    "Vina Sans",
+    "Voces",
+    "Volkhov",
+    "Vollkorn",
+    "Vollkorn SC",
+    "Voltaire",
+    "Vujahday Script",
+    "Waiting for the Sunrise",
+    "Wallpoet",
+    "Walter Turncoat",
+    "Warnes",
+    "Water Brush",
+    "Waterfall",
+    "Wavefont",
+    "Wellfleet",
+    "Wendy One",
+    "Whisper",
+    "WindSong",
+    "Wire One",
+    "Wittgenstein",
+    "Wix Madefor Display",
+    "Wix Madefor Text",
+    "Work Sans",
+    "Workbench",
+    "Xanh Mono",
+    "Yaldevi",
+    "Yanone Kaffeesatz",
+    "Yantramanav",
+    "Yarndings 12",
+    "Yarndings 12 Charted",
+    "Yarndings 20",
+    "Yarndings 20 Charted",
+    "Yatra One",
+    "Yellowtail",
+    "Yeon Sung",
+    "Yeseva One",
+    "Yesteryear",
+    "Yomogi",
+    "Young Serif",
+    "Yrsa",
+    "Ysabeau",
+    "Ysabeau Infant",
+    "Ysabeau Office",
+    "Ysabeau SC",
+    "Yuji Boku",
+    "Yuji Hentaigana Akari",
+    "Yuji Hentaigana Akebono",
+    "Yuji Mai",
+    "Yuji Syuku",
+    "Yusei Magic",
+    "ZCOOL KuaiLe",
+    "ZCOOL QingKe HuangYou",
+    "ZCOOL XiaoWei",
+    "Zain",
+    "Zen Antique",
+    "Zen Antique Soft",
+    "Zen Dots",
+    "Zen Kaku Gothic Antique",
+    "Zen Kaku Gothic New",
+    "Zen Kurenaido",
+    "Zen Loop",
+    "Zen Maru Gothic",
+    "Zen Old Mincho",
+    "Zen Tokyo Zoo",
+    "Zeyada",
+    "Zhi Mang Xing",
+    "Zilla Slab",
+    "Zilla Slab Highlight"
+  ]),
+
+  /** The border radius for MUI shape */
+  shapeBorderRadius: PropTypes.number,
+
+  /** Override any other property with MUI theme object */
   themeObject: PropTypes.object,
 };
-
+ThemeCustomizer.defaultProps = {
+  paletteMode: 'light',
+  palettePrimaryMain: '#1976d2',
+  paletteSecondaryMain: '#9c27b0',
+  themeObject: {
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#1976d2',
+      },
+      secondary: {
+        main: '#9c27b0',
+      },
+    },
+  },
+};
 export default ThemeCustomizer;
