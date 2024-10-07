@@ -189,6 +189,13 @@ function ThemeCustomizer(props) {
       }
     });
 
+    return () => {
+      setThemeOptions((oldTheme) => ({
+        ...oldTheme,
+        theme: createTheme(defaultTheme),
+      }));
+    }
+
   }, [props.themeObject])
 
   useEffect(() => {
