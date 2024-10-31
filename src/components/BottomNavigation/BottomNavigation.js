@@ -45,6 +45,7 @@ BottomNavigation.propTypes = {
 
   /**
    * The value of the currently selected BottomNavigationAction.
+   * @uxpinbind onChange 1
    */
   value: PropTypes.string,
 };
