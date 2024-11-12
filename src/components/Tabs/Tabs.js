@@ -7,7 +7,7 @@ import TabsM from '@mui/material/Tabs';
  * @uxpindescription Tabs make it easy to explore and switch between different views.
  */
 function Tabs(props) {
-  return <TabsM {...props}>{props.children}</TabsM>;
+  return <TabsM {...props} value={String(props.value)}>{props.children}</TabsM>;
 }
 
 Tabs.propTypes = {
@@ -53,7 +53,6 @@ Tabs.propTypes = {
 */
   scrollButtons: PropTypes.oneOf(['auto', 'on', 'off']),
 
-
   /**
    * If 'true', the scrollbar is visible. It can be useful when displaying a long vertical list of tabs.
    */
@@ -64,22 +63,12 @@ Tabs.propTypes = {
    */
   allowScrollButtonsMobile: PropTypes.bool,
 
-
-
-
-
   /**
  * The value of the currently selected `Tabs`.
  * If you don't want any selected `Tabs`, you can set this property to `false`.
  * @uxpinbind onChange 1
  */
-  value: PropTypes.number,
-
-  /**
-   * Number of the tab that supposed to be active initially. Starts with  0 for the first tab.
-   */
-  defaultValue: PropTypes.number,
-
+  value: PropTypes.string,
 
   /**
    * The component used for the root node.

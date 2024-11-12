@@ -2,12 +2,13 @@ import TabM from '@mui/material/Tab';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+
 /**
  * @uxpindocurl https://mui.com/api/tab/
   * @uxpindescription Tabs make it easy to explore and switch between different views.
  */
 function Tab(props) {
-  return <TabM {...props}>{props.children}</TabM>;
+  return <TabM {...props} value={String(props.value)}>{props.children}</TabM>;
 }
 
 Tab.propTypes = {
