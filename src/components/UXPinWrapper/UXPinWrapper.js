@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import defaultTheme from './boilerplate-theme';
 // import GlobalStyles from '../GlobalStyles/GlobalStyles';
-// import { StyledEngineProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 export const ThemeContext = React.createContext({});
 const completeDefaultTheme = createTheme(defaultTheme);
@@ -55,21 +55,13 @@ export default function UXPinWrapper(props) {
   });
 
   return (
-
-    <ThemeContext.Provider value={[theme, setThemeOptions]}>
-      <ThemeProvider theme={themeOptions.theme} >
-        {/* <GlobalStyles/> */}
-        {/* <CssBaseline
-        // sx={{ background: "inherit", color: "text.primary" }}
-        > */}
-        <CssBaseline />
-        {/* <StyledEngineProvider injectFirst>
-                  <GlobalStyles/> */}
-
-        {props.children}
-        {/* </StyledEngineProvider> */}
-        {/* </CssBaseline> */}
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <StyledEngineProvider injectFirst>
+      <ThemeContext.Provider value={[theme, setThemeOptions]}>
+        <ThemeProvider theme={themeOptions.theme}>
+          <CssBaseline />
+          {props.children}
+        </ThemeProvider>
+      </ThemeContext.Provider>
+    </StyledEngineProvider>
   );
 }
