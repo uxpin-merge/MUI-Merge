@@ -1,8 +1,8 @@
 import React from 'react';
-import GlobalStyles from '../GlobalStyles';
+import GlobalStylesTest from '../GlobalStyles';
 
 export default (
-  <GlobalStyles
+  <GlobalStylesTest
     uxpId="global-styles-1"
     styles={{
       '.my-class-example': {

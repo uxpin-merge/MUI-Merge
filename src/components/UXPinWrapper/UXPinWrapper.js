@@ -55,13 +55,11 @@ export default function UXPinWrapper(props) {
   });
 
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeContext.Provider value={[theme, setThemeOptions]}>
-        <ThemeProvider theme={themeOptions.theme}>
-          <CssBaseline />
-          {props.children}
-        </ThemeProvider>
-      </ThemeContext.Provider>
-    </StyledEngineProvider>
+    <ThemeContext.Provider value={[theme, setThemeOptions]}>
+      <ThemeProvider theme={themeOptions.theme}>
+        <CssBaseline />
+        {props.children}
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
