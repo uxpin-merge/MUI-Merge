@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Helper function to convert camelCase to kebab-case
+const toKebabCase = (str) => str.replace(/([A-Z])/g, '-$1').toLowerCase();
+
 function GlobalStyles({ styles }) {
   // Convert the CSS object into a valid CSS string
   const cssString = Object.entries(styles)
-    .map(([selector, styles]) => {
-      const styleString = Object.entries(styles)
-        .map(([property, value]) => `${property}: ${value};`)
+    .map(([selector, styleObj]) => {
+      const styleString = Object.entries(styleObj)
+        .map(([property, value]) => `${toKebabCase(property)}: ${value};`)
         .join(' ');
       return `${selector} { ${styleString} }`;
     })
@@ -15,7 +18,7 @@ function GlobalStyles({ styles }) {
   return (
     <>
       <style>{cssString}</style>
-      <div //A visual aid for the designer to see in UXPin
+      <div
         style={{
           width: '160px',
           color: 'white',
@@ -37,8 +40,9 @@ function GlobalStyles({ styles }) {
 GlobalStyles.propTypes = {
   /**
    * CSS to inject directly at the point of the component in the DOM.
+   * Example: { ".my-class": { padding: "20px", backgroundColor: "blue" } }
    */
-  styles: PropTypes.object,
+  styles: PropTypes.object.isRequired,
 };
 
 export default GlobalStyles;
