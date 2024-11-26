@@ -34,6 +34,7 @@ Icon.propTypes = {
   /**
    * The icon to display.
    * Use the name of the icon from https://material.io/tools/icons.
+   * @uxpincontroltype muiiconslist
    */
   children: PropTypes.oneOf(iconVariants),
 
