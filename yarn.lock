@@ -2553,10 +2553,10 @@
   dependencies:
     "@types/node" "*"
 
-"@uxpin/merge-cli@3.4.5":
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.4.5.tgz#98849b28067483df661b002674e4fa45502729be"
-  integrity sha512-IUWz+g+p+aI7ixuI6gAd/ensVL8gnaJvDbBYr9IOXj/wjCZTcXIZbDR3efSSFcpf3hKXTDC4irOSrlJA5nbXmQ==
+"@uxpin/merge-cli@3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@uxpin/merge-cli/-/merge-cli-3.4.8.tgz#4e627292638c2abc480424abf923566daad37206"
+  integrity sha512-PrLQW7jxvFdt9MNn8YbVcoYVUcW8jndifgn+QR4SkqDq697IJa1r7RZ3lSHBqD+z2hcGpM8qFJ7lMZv0zP13YA==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/plugin-proposal-class-properties" "^7.2.3"
