@@ -181,7 +181,6 @@ Autocomplete.propTypes = {
   /** Used to determine the string value for a given option.
    * It's used to fill the input (and the list box options if renderOption is not provided).
    * Signature: function(option: T) => string*/
-  /** @uxpinignoreprop */
   /** @uxpincontroltype returningfunction(option) */
   getOptionLabel: PropTypes.func,
 
@@ -213,7 +212,6 @@ Autocomplete.propTypes = {
    * option: The option to test.
    * value: The value to test against.*/
   /** @uxpinignoreprop */
-  /** @uxpincontroltype returningfunction(option, value) */
   isOptionEqualToValue: PropTypes.func,
 
   /** The maximum number of tags that will be visible when not focused. Set -1 to disable the limit. */
@@ -319,10 +317,10 @@ Autocomplete.propTypes = {
   popupIcon: PropTypes.node,
 
   /** Render the Group.
-   * Signature: function(option: any) => ReactNode
+   * Signature: function(params: any) => ReactNode
    * option: The group to render.
    */
-  /** @uxpincontroltype returningfunction(option) */
+  /** @uxpincontroltype returningfunction(params) */
   renderGroup: PropTypes.func,
 
   /** Render the option, use getOptionLabel by default.
