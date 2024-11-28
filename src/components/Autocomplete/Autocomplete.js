@@ -337,7 +337,7 @@ Autocomplete.propTypes = {
    * value: The value provided to the component.
    * getTagProps: A tag props getter.
    */
-  /** @uxpincontroltype returningfunction(value, getTagProps) */
+  /** @uxpinignoreprop */
   renderTags: PropTypes.func,
 
   /** If true, the input's text is selected on focus. It helps the user clear the selected value. */
