@@ -8,14 +8,22 @@ import AutocompleteM from '@mui/material/Autocomplete';
  */
 function Autocomplete(props) {
   const { ...other } = props;
+  let renderInput = undefined;
+
+  if (props.label) {
+    renderInput = (params) => <TextField {...params} label={props.label} />
+  }
+
+  if (props.renderInput) {
+    renderInput = props.renderInput;
+  }
 
   return (
     <AutocompleteM
       {...other}
       disablePortal
       id="combo-box-demo"
-      sx={{ width: PropTypes.width }}
-      renderInput={(params) => <TextField {...params} label={props.label} />}
+      renderInput={renderInput}
     />
   );
 }
@@ -29,7 +37,7 @@ Autocomplete.propTypes = {
   options: PropTypes.array,
 
   /** Render the input. */
-  /**  */
+  /** @uxpincontroltype returningfunction(params) */
   renderInput: PropTypes.func,
 
   /**
@@ -139,7 +147,7 @@ Autocomplete.propTypes = {
    * options: The options to render.
    * state: The state of the component.
    */
-
+  /** @uxpincontroltype returningfunction(options, state) */
   filterOptions: PropTypes.func,
 
   /** if 'true', hide the selected options from the list box */
@@ -160,26 +168,27 @@ Autocomplete.propTypes = {
    * Signature: function(more: number) => ReactNode
    * more: The number of truncated tags.
    */
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(more) */
   getLimitTagsText: PropTypes.func,
 
   /** Used to determine the disabled state for a given option.
    * Signature: function(option: T) => boolean
    * option: The option to test.
    */
+  /** @uxpincontroltype returningfunction(option) */
   getOptionDisabled: PropTypes.func,
 
   /** Used to determine the string value for a given option.
    * It's used to fill the input (and the list box options if renderOption is not provided).
    * Signature: function(option: T) => string*/
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(option) */
   getOptionLabel: PropTypes.func,
 
   /** If provided, the options will be grouped under the returned string.
    * The groupBy value is also used as the text for group headings when renderGroup is not provided.
    * Signature: function(options: T) => string
    * options: The options to group.*/
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(options) */
   groupBy: PropTypes.func,
 
   /** If 'true', the component handles the "Home" and "End" keys when the popup is open.
@@ -308,10 +317,10 @@ Autocomplete.propTypes = {
   popupIcon: PropTypes.node,
 
   /** Render the Group.
-   * Signature: function(option: any) => ReactNode
+   * Signature: function(params: any) => ReactNode
    * option: The group to render.
    */
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(params) */
   renderGroup: PropTypes.func,
 
   /** Render the option, use getOptionLabel by default.
@@ -320,7 +329,7 @@ Autocomplete.propTypes = {
    * option: The option to render.
    * state: The state of the component.
    */
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(props, option, state) */
   renderOption: PropTypes.func,
 
   /** Render the selected value.
@@ -328,7 +337,7 @@ Autocomplete.propTypes = {
    * value: The value provided to the component.
    * getTagProps: A tag props getter.
    */
-  /** @uxpinignoreprop */
+  /** @uxpincontroltype returningfunction(value, getTagProps) */
   renderTags: PropTypes.func,
 
   /** If true, the input's text is selected on focus. It helps the user clear the selected value. */
