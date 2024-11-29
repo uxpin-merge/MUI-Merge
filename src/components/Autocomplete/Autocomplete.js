@@ -9,7 +9,6 @@ import AutocompleteM from '@mui/material/Autocomplete';
 function Autocomplete(props) {
   const { ...other } = props;
   let renderInput = undefined;
-  let defaultValue = props.defaultValue;
 
   if (props.label) {
     renderInput = (params) => <TextField {...params} label={props.label} />
@@ -19,15 +18,12 @@ function Autocomplete(props) {
     renderInput = props.renderInput;
   }
 
-  if (props.multiple) {
-    defaultValue = !Array.isArray(defaultValue) ? [] : defaultValue;
-  }
-
   return (
     <AutocompleteM
       {...other}
       renderInput={renderInput}
-      defaultValue={defaultValue}
+      // workaround for multiple property (breaks component in uxpin after switching on)
+      defaultValue={[]}
     />
   );
 }
