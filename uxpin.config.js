@@ -215,5 +215,5 @@ module.exports = {
     webpackConfig: 'webpack.config.js',
   },
   name: 'MUI-UXPin-Merge',
-  settings: { useUXPinProps: true },
+  settings: { useUXPinProps: true, useConvertingToUXPinClassic: true },
 };
