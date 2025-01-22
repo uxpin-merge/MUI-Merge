@@ -8,7 +8,7 @@ import FormHelperText from '../../FormHelperText/FormHelperText';
 export default (
   <FormControl uxpId="1" fullWidth>
     <InputLabel uxpId="2">Age</InputLabel>
-    <Select uxpId="3">
+    <Select uxpId="3" label="Age">
       <MenuItem value="" uxpId="3.1.1">
         None
       </MenuItem>
