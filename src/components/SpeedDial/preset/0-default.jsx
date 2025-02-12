@@ -1,19 +1,10 @@
 import * as React from 'react';
 import SpeedDial from '../SpeedDial';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
+import SpeedDialAction from '../../SpeedDialAction/SpeedDialAction';
+import Icon from '../../Icon/Icon';
 
 export default (
-  <SpeedDial
-    uxpId="speedial-1"
-    actions={[
-      { icon: <FileCopyIcon />, name: 'Copy' },
-      { icon: <SaveIcon />, name: 'Save' },
-      { icon: <PrintIcon />, name: 'Print' },
-      { icon: <ShareIcon />, name: 'Share' },
-    ]}
-    spacing={2}
-  />
+  <SpeedDial uxpId="speed-dial-1">
+    <SpeedDialAction uxpId="speed-dial-action-1" icon={<Icon uxpId="speed-dial-action-icon-1">home</Icon>} />
+  </SpeedDial>
 );

@@ -42,7 +42,7 @@ export default function SpeedDial(props) {
         open={open}
         {...props}
       >
-        {actions.map((action) => (
+        {/* {actions.map((action) => (
           <SpeedDialAction
             key={action.name}
             icon={action.icon}
@@ -50,7 +50,8 @@ export default function SpeedDial(props) {
             tooltipOpen
             onClick={handleClose}
           />
-        ))}
+        ))} */}
+        {props.children}
       </SpeedDialM>
     </Box>
   );
@@ -153,13 +154,4 @@ Props applied to the transition element.
 By default, the element is based
 */
   TransitionProps: PropTypes.object,
-};
-
-SpeedDial.defaultProps = {
-  actions: [
-    { icon: <FileCopyIcon />, name: 'Copy' },
-    { icon: <SaveIcon />, name: 'Save' },
-    { icon: <PrintIcon />, name: 'Print' },
-    { icon: <ShareIcon />, name: 'Share' },
-  ],
 };
