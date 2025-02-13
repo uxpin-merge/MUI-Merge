@@ -41,7 +41,7 @@
     "package": "npm run build && npm pack"
   },
   "devDependencies": {
-    "@uxpin/merge-cli": "^3.4.2",
+    "@uxpin/merge-cli": "^3.5.2",
     "parcel": "^2.7.0"
   }
 }
