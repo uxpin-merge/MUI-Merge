@@ -1,18 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Backdrop from '@mui/material/Backdrop';
-import SpeedDialM from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialActionM from '@mui/material/SpeedDialAction';
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
 
-/**
- * @uxpindocurl https://mui.com/material-ui/react-speed-dial/#api
- */
 export default function SpeedDialAction(props) {
   return <SpeedDialActionM {...props} />;
 }
@@ -24,12 +13,10 @@ SpeedDialAction.propTypes = {
   classes: PropTypes.object,
   /**
    * Props applied to the [`Fab`](/material-ui/api/fab/) component.
-   * @default {}
    */
   FabProps: PropTypes.object,
   /**
    * Adds a transition delay, to allow a series of SpeedDialActions to be animated.
-   * @default 0
    */
   delay: PropTypes.number,
   /**
@@ -46,7 +33,6 @@ SpeedDialAction.propTypes = {
   TooltipClasses: PropTypes.object,
   /**
    * Placement of the tooltip.
-   * @default 'left'
    */
   tooltipPlacement: PropTypes.oneOf([
     'bottom-end',
@@ -68,7 +54,6 @@ SpeedDialAction.propTypes = {
   tooltipTitle: PropTypes.node,
   /**
    * Make the tooltip always visible when the SpeedDial is open.
-   * @default false
    */
   tooltipOpen: PropTypes.bool,
 };

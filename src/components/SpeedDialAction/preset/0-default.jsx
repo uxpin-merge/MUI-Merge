@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import SpeedDialAction from '../SpeedDialAction';
 import Icon from '../../Icon/Icon';
 
