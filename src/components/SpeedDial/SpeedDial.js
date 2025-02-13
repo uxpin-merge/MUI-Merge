@@ -42,7 +42,7 @@ export default function SpeedDial(props) {
         open={open}
         {...props}
       >
-        {/* {actions.map((action) => (
+        {actions.map((action) => (
           <SpeedDialAction
             key={action.name}
             icon={action.icon}
@@ -50,8 +50,7 @@ export default function SpeedDial(props) {
             tooltipOpen
             onClick={handleClose}
           />
-        ))} */}
-        {props.children}
+        ))}
       </SpeedDialM>
     </Box>
   );
