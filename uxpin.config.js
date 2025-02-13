@@ -72,6 +72,7 @@ module.exports = {
           'src/components/Paper/Paper.js',
           'src/components/SpeedDial/SpeedDial.js',
           'src/components/SpeedDialAction/SpeedDialAction.js',
+          'src/components/Masonry/Masonry.js',
         ],
       },
       {
