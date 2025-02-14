@@ -66,6 +66,9 @@ module.exports = {
           'src/components/AppBar/AppBar.js',
           'src/components/Card/Card.js',
           'src/components/Paper/Paper.js',
+          'src/components/SpeedDial/SpeedDial.js',
+          'src/components/SpeedDialAction/SpeedDialAction.js',
+          'src/components/Masonry/Masonry.js',
         ],
       },
       {
