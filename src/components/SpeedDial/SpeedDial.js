@@ -83,10 +83,9 @@ Callback fired when the component requests to be open.
 
 */
   onOpen: PropTypes.func,
-  /**
-If true, the component is shown.
-
-*/
+  /** If true, the component is shown.
+   * @uxpinbind onOpen 0
+   */
   open: PropTypes.bool,
   /**
 The icon to display in the SpeedDial Fab when the SpeedDial is open.

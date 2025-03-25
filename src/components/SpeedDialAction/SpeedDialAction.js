@@ -56,4 +56,8 @@ SpeedDialAction.propTypes = {
    * Make the tooltip always visible when the SpeedDial is open.
    */
   tooltipOpen: PropTypes.bool,
+  /**
+   * The onClick event for SpeedDialAction.
+   */
+  onClick: PropTypes.func,
 };
