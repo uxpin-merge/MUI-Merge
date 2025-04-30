@@ -20,6 +20,16 @@ const removeListener = (listener) => {
   listeners = listeners.filter((lis) => lis !== listener);
 };
 
+const addFont = (link) => {
+  let newFontLink = document.createElement('link');
+  newFontLink.href = link;
+  newFontLink.rel = 'stylesheet';
+  document.head.appendChild(newFontLink);
+};
+
+addFont('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
 //global theme object for all wrapper instances
 let themeOptions = {
   theme: completeDefaultTheme,
