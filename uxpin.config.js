@@ -40,6 +40,7 @@ module.exports = {
           'src/components/Divider/Divider.js',
           'src/components/Icon/Icon.js',
           'src/components/SvgIcon/SvgIcon.js',
+          'src/components/MaterialIcon/MaterialIcon.js',
           'src/components/Image/Image.js',
           'src/components/List/List.js',
           'src/components/Table/Table.js',
@@ -218,5 +219,9 @@ module.exports = {
     webpackConfig: 'webpack.config.js',
   },
   name: 'MUI-UXPin-Merge',
-  settings: { useUXPinProps: true, useConvertingToUXPinClassic: true },
+  settings: {
+    useUXPinProps: true,
+    useConvertingToUXPinClassic: true,
+    useIcons: { iconMap: 'https://ux.uxpin.com/mui-icons.json', component: 'MaterialIcon'}
+  },
 };
