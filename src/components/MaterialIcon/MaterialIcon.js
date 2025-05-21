@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgIconM from '@mui/material/SvgIcon';
 import parse from 'html-react-parser';
+import createSvgIcon from '@mui/material/utils/createSvgIcon';
 
 
-function MaterialIcon(props) {
-  return <SvgIconM {...props}>{parse(props.children)}</SvgIconM>;
+function MaterialIcon({ children, name, ...otherProps}) {
+  const Icon = createSvgIcon(parse(children), name);
+  return <Icon {...otherProps} />;
 }
 
 MaterialIcon.propTypes = {

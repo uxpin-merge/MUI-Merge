@@ -222,6 +222,6 @@ module.exports = {
   settings: {
     useUXPinProps: true,
     useConvertingToUXPinClassic: true,
-    useIcons: { iconMap: 'https://ux.uxpin.com/mui-icons.json', component: 'MaterialIcon'}
+    useIcons: { iconMap: 'https://uc.uxpin.com/mui-icons.json', component: 'MaterialIcon'}
   },
 };
