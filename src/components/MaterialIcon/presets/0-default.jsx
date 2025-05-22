@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialIcon from './MaterialIcon';
+import MaterialIcon from '../MaterialIcon';
 
 export default (
   <MaterialIcon
