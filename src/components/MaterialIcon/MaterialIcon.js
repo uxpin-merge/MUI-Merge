@@ -6,7 +6,7 @@ import createSvgIcon from '@mui/material/utils/createSvgIcon';
 
 /**
  * @uxpindocurl https://mui.com/material-ui/material-icons/
- * @uxpindescription This component renders a specific Material Design icon as a React component, built on top of the SvgIcon from MUI..
+ * @uxpindescription This component renders a specific Material Design icon as a React component, built on top of the SvgIcon from MUI.
  */
 function MaterialIcon({ children, name, ...otherProps}) {
   const Icon = createSvgIcon(parse(children), name);
