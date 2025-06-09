@@ -7,15 +7,15 @@ import parse from 'html-react-parser';
  * @uxpindocurl https://mui.com/material-ui/icons/#svgicon
  * @uxpindescription This component extends the native <svg> element for custom icons.
  */
-function SvgIcon(props) {
-  return <SvgIconM {...props}>{parse(props.children)}</SvgIconM>;
+function SvgIcon({ children, ...otherProps}) {
+  return <SvgIconM {...otherProps}>{typeof children === 'string' ? parse(children) : children}</SvgIconM>;
 }
 
 SvgIcon.propTypes = {
-  /** The <svg/> element.
-   * @uxpincontroltype textfield(4)
+  /**
+   * The <svg/> element.
    */
-  children: PropTypes.string,
+  children: PropTypes.node,
 
   /** The color of the component. Supports both default and custom theme colors. */
   color: PropTypes.oneOf([
