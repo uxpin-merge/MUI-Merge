@@ -207,13 +207,6 @@ module.exports = {
           'src/components/InputAdornment/InputAdornment.js',
         ],
       },
-      // {
-      //   name: 'Templates',
-      //   include: [
-      //     'src/templates/sign-in/Signin.js',
-      //     // 'src/templates/Pricing/Pricing.jsx',
-      //   ]
-      // },
     ],
     wrapper: 'src/components/UXPinWrapper/UXPinWrapper.js',
     webpackConfig: 'webpack.config.js',
@@ -222,6 +215,11 @@ module.exports = {
   settings: {
     useUXPinProps: true,
     useConvertingToUXPinClassic: true,
-    useIcons: { iconMap: 'https://uc.uxpin.com/mui-icons.json', component: 'MaterialIcon'}
+    useIcons: { iconMap: 'https://uc.uxpin.com/mui-icons.json', component: 'MaterialIcon' },
+    useAI: {
+      name: 'MUI Integration Example',
+      documentationUrl: 'https://mui.com/material-ui/all-components/',
+      systemPrompt: `You can add additional rules here`,
+    },
   },
 };
